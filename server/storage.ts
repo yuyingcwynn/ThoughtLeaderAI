@@ -73,6 +73,8 @@ export class MemStorage implements IStorage {
     const consultation: Consultation = {
       ...insertConsultation,
       id,
+      company: insertConsultation.company || null,
+      notes: insertConsultation.notes || null,
       stripePaymentIntentId: null,
       status: "pending",
       scheduledDate: null,
@@ -108,6 +110,7 @@ export class MemStorage implements IStorage {
     const inquiry: ContactInquiry = {
       ...insertInquiry,
       id,
+      company: insertInquiry.company || null,
       status: "new",
       createdAt: new Date()
     };
