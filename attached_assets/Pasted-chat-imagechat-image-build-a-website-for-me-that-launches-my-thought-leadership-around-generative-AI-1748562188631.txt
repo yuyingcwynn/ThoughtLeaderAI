@@ -1,0 +1,168 @@
+chat imagechat image
+build a website for me that launches my thought leadership around generative AI and Ai strategy within enterprises. There should be a consolidated section to access all my online content. There should a section for my background all those relevant to AI. My resume is attached to help with that. I want to have one offering that's Dial-an-AI-Expert which has calendar booking and payment collection for $500/ hr. I want to have a fractional Chief AI Officer offering. I want to have Enterprise AI Enablement consulting offering: 1. Run GenAI Hackathon for 3 days. 2. AI strategy offsite for 2 days. And a final one with AI product intensive bootcamp. 4-6 weeks. 4 weeks to build a fully functional product with AI, and 6 weeks to get to launch. The site should be visually impactful, high-tech invoking AI imagery, light background animation, SEO optimized, clear call to action. 
+
+Here's where you can get the information you need for the content of the site:
+my linked in profile: https://www.linkedin.com/in/yuyingchenwynn/
+my substack newsletters: yuying.substack.com
+my AI podcast: https://www.youtube.com/@AIAfterHours-sh9qc
+My full name to search for my other speaking spots: Yuying Chen-Wynn, Head of AI for PEAK6
+My current website: http://www.wittinglyventures.com
+Used the attached images as design guidance for structure and look and feel.
+My resume is below: 
+AI TECHNOLOGY AND PRODUCT EXECUTIVE
+GENERATIVE AI TRANSFORMATION, AI RISK AND GOVERNANCE, AI PRODUCTIZATION
+I am an AI technology executive with a passion to combine the power of generative AI and traditional ML/AI to create 10x user experiences
+driving value in efficiency and revenue throughout global markets. I’m currently driving all generative AI build, buy, invest, and risk management
+initiatives across 6 companies targeting to achieve $10M annual savings in efficiency, $200M in AI related investments, and $500M in
+valuation increase.
+Recognized as a generative AI Transformation and AI Product Strategy thought leader, I combine my deep technical knowledge with user-
+centric design to create AI products and systems that breakthrough adoption barriers. I have 15 years of experience building data platforms
+and AI products leveraging generative AI, natural language AI, machine learning, image processing, computer vision, augmented reality, content
+generation, adaptive learning and technical SEO. I have 20+ years of experience building systems and products in FinTech, EdTech, and Big
+Tech for US, Europe and Asia. A strategy is only as good as its execution and I get to outcomes by building outcome driven, evidence driven,
+strategic, efficient, and fun-loving organizations.
+LEADERSHIP STYLE: AI, data, and technology product strategist experienced in leading multi-location, multi-cultural global teams. Strong
+proponent of grow-from-within who has coached staff through rapid AI-upskilling and strategic leadership development. U.S. Citizen; native
+English and Mandarin speaker.
+THOUGHT LEADERSHIP: Invited Speaker for CIO conference, Responsible AI Conference, AI Executives Roundtable, NYC Tech Week,
+Kellogg/MIT Sloan/UCLA Anderson MBA programs/Stanford Executive Ed, Section AI mini-MBA/AI for Product Leaders, Women in Product
+Executive Edge, Numerous Podcasts | Host of AI Afterhours Podcast | Author GenAI Real Talk Newsletter | yuying.substack.com
+PROFESSIONAL EXPERIENCE
+HEAD OF AI | PEAK6 | 2023—PRESENT
+PEAK6 is a family of companies that currently includes 3 in the Financial Service industry, 2 in EdTech, and 1 in Entertainment. The 2 largest
+companies are billion-dollar businesses include PEAK6 Capital Management, a proprietary options trading firm with $38B AUM and APEX
+Fintech Solutions, a custody and clearing platform managing 20M+ retail investor accounts. Defined and leading AI and GenAI strategy across
+6 operating companies targeting a combined total of $10M recurring annual savings, $200M in AI related strategic capital investments, and
+$500M in potential valuation increase in phase 1 (~24 months). Defined, operating, and optimizing AI Risk and Governance framework,
+processes, and working groups to address shifting regulatory and compliance landscape of a highly regulated industry with state, federal, and
+international regulatory considerations. Built a proprietary GenAI platform in 12 months, adoption 80% and usage doubling every quarter.
+⧫ Proprietary GenAI Platform: Built the team, strategy, AI architecture, and leading product for proprietary GenAI platform to distill
+all enterprise knowledge, including all SME expertise, into a network of bots. Initial launch only 2 months after project start, currently
+at 87% adoption across all 6 companies, usage doubling every quarter. First year savings $6M+. Includes developer platform and
+tools, sdk, slack client, web client, workflow support, and custom agent creation. Already driving client facing AI functionality and
+moving to scale up.
+⧫ Custom AI Products: Building new AI products to spin off as separate businesses in several vertical use cases: AI-native CRM, Investor
+Relations AI Platform, Real-time Meeting Assistant, Regulatory Check Agent.
+⧫ AI Risk and Governance: Published AI policy per company only 2 months after start of the role. Built, operating, and optimizing 2 AI
+Risk and Compliance committees with processes to assess technology, determine risk exposure, inventory use of AI, regularly review
+regulatory compliance landscape and adherence, and manage approved AI related communications.
+⧫ AI Investments Strategy: Created AI investment thesis for strategic capital investment arm of the firm, serve as AI SME for all AI
+related deal flow technical due diligence, including new AI fund in partnership with Coreweave to exchange compute for equity.
+Targeting ~$200M in investments specific to AI. Current investments in Coreweave(IPO), Groq, Highlight AI.
+⧫ AI Education and Adoption Programs: Created internal GenAI education courses: beginner, intermediate, and advanced content.
+Created additional AI learning paths with external content, and teach back programs. Increasing AI capability across the organization
+with AI community, regular AI news and prompts, executive sponsors for strategic AI communications, and a popular AI ambassador
+program with 40 ambassadors with intermediate and advanced training to help increase adoption and enterprise capability. The Ai
+ambassador program was key to help grow platform adoption to 80%+ in 6 months.
+MANAGING DIRECTOR | WITTINGLY VENTURES | 2021—2024
+Wittingly Ventures focuses on expert advisory in the areas of AI, product strategy, and technology strategy.
+⧫ Game Data Pros: Advisor and executive coach on product and data science leadership for ML driven revenue optimization
+experimentation and promotions platform for the digital entertainment industry. Increased annual revenue in AAA game by $16M.
+⧫ C-plan.ai: Advisory on data architecture, technology selection, product strategy for a startup that leverages AI in a decision
+intelligence system that processes internal and market data to predict medium-to-long-term workforce supply-demand gaps and
+optimize investment decisions to bridge those gaps to solve the healthcare workforce crisis.. Introduced other advisory board
+members and potential investors.
+YUYING CHEN-WYNN
+Greater Los Angeles Area | 415.910.2971 | yuyingcwynn@gmail.com | Linkedin.com/in/yuyingchenwynn | Page 3 of 3
+⧫ The Learning Lab(Singapore): Hired by CEO to create EdTech product lines and a hyper growth strategy. Built MVP’s for 2 EdTech
+product lines (1 AI-driven). Due diligence on numerous acquisition and partnership candidates. Assessment and hiring for internal
+technology team, including CIO. The Learning Lab is the largest supplemental education organization in Singapore specializing in
+exam prep.
+⧫ The Moringa School(Kenya): Executive coach for head of product and provide advisory on product, market, and competitive strategy.
+Moringa is a hybrid online and in-person education organization focused on coding, computer science, and data analysis in Kenya.
+CHIEF PRODUCT OFFICER AND DATA PLATFORMS, DSS | BARNES & NOBLE EDUCATION | 2021—2022
+Barnes and Noble Education(BNED) is the operator and service provider of 1245 university and high school bookstores in the U.S., the largest
+in the market. Drove product, growth and data strategy for EdTech division of this billion-dollar ARR Higher Ed provider with global student
+facing online solutions for homework help, writing help and tutoring. Expanded D2C and B2B student-facing learning tools and solutions,
+diversify monetization model for US and international college and high school students. Revamped data platforms and built new data teams
+in experimentation and data science. Oversees product, design, research and data organizations with $9M P&L. DEI action committee.
+⧫ Data-driven Organizational Transformation: Led outcome driven data centric transformation for the organization. Built out new
+experimentation function, user research function, and prioritization/investment framework.
+⧫ AI Capability Build out: Rebuilt from reporting centric data team to AI/ML organization that drives product differentiation with
+personalization, predictive modeling and AI productization. Replaced the full data tech stack, and added experimentation, data
+modeling, and ML capabilities.
+⧫ Growth Strategy and Monetization: Launched new B2B product line in 6 months, added new Ad-based revenue stream, introduced
+international tiered pricing.
+⧫ Product Optimization: Increased registration rates by 24% and reduced monthly fraud costs by 83%.
+VP, INTERNATIONAL PRODUCTS | AGE OF LEARNING | 2018—2021
+Age of Learning is the company behind ABCmouse, the market leader for early childhood education software and adaptive learning products
+in K12. Built the company’s first AI-native product for the international market, grew from 0 to $65M in annual revenue. Ownership of AI
+product and content strategy, strategic planning, partnership management, technology and data strategy. Oversaw product, design,
+engineering, and data teams.
+⧫ AI-native Adaptive Learning Product: Achieved ~30% monthly growth rate in Year 1 for ABCmouse in China and 7X revenue gains
+in Year 2, leading product development in partnership with Tencent, China’s largest consumer internet brand.
+⎯ Company’s first AI-native adaptive learning product built in collaboration with the Tencent AI team with custom speech
+models and recognition capabilities.
+⎯ Built full data pipeline from scratch to support the AI-native product.
+⧫ Content Generation Automated Product Development Process: Reduced educational course development process speed 75% with
+automated content generation platform and process. Because of this automation, we built and launched a brand-new STEM readiness
+product in China during COVID lockdown with 4x normal speed. Product is projected to drive 30% of revenue of flagship China
+product line in year 1.
+⧫ Learning Management System Revamp: Led LMS redesign, including new technology platform, data platform, and learning analytics
+dashboard.
+VP, PRODUCT AND BUSINESS SYSTEMS | EF | 2014—2018
+EF Education First is a global education company focusing on language, academic, cultural exchange, and educational travel programs with
+50,000+ employees and operates out of 111 countries. Supported double-digit growth for this top player in Language Learning across all age
+segments and all major global markets with scaling all digital capabilities. Helmed online and mobile language learning digital capabilities,
+business systems and data analytics capabilities, and digital transformation for the adult and kids and teen English centers product line across
+China, Hong Kong, Russia, Indonesia, and Spain with team size up to 120 and $5M-10M annual P&L.
+⧫ Data Analytics: Uplifted business transparency through the build-out of the company’s first data engineering and analytics team and
+infrastructure.
+⧫ AI Speech Recognition: Leveraged academic AI speech recognition models from Cambridge to introduce China market’s first
+innovative AI language practice and feedback product
+⧫ Cost Containment: Forged a new mobile LMS product line from scratch that slashed processing time 86%.
+⧫ Sales Gains: Contributed to 2X revenue growth, leading full redesign and technology upgrade of in-class learning content.
+⧫ Historic Revenue Generation: Sustained highest-ever revenue levels for 5 straight months YOY despite 20-year-old business,
+directing single largest technology transformation (move to cloud, rebuilt 9 business systems on Salesforce, built new data platform
+on Snowflake and Tableau) effort ($16M in 18 months) across China, Russia, and Indonesia.
+PRODUCT MANAGEMENT DIRECTOR | 99BILL | 2013—2014
+Led the mobile-first transformation for this #3 independent online payment provider in China processing >1.2T RMB annually.
+Led product management for payments product lines and inter-bank services with a team of 15.
+⧫ Fraud Prevention and Data Cleansing: Led nation-wide data cleansing, data quality effort to increase fraud prevention effectiveness
+and meet regulatory demands on data lineage. Scrubbed, updated, and normalized 90% of all vendor data in 5 months.
+⧫ Mobile Product Line Expansion: Championed mobile-first internet financial services strategy that grew revenue 3X in 1 year via
+white labeling. Delivered seamless and safe payments acceptance for merchants via mobile applications.
+⧫ Product Management Best Practices: Upgraded product management capabilities and articulated product platform, mobile market
+strategy, and company-wide product-driven methodology.
+YUYING CHEN-WYNN
+Greater Los Angeles Area | 415.910.2971 | yuyingcwynn@gmail.com | Linkedin.com/in/yuyingchenwynn | Page 3 of 3
+⎯ Formalized data-driven product management competency with automated revenue forcasting.
+PRODUCT DIRECTOR | EBAOTECH | 2011—2013
+Created capability for 30% market expansion for this FinTech enterprise software company serving insurance providers in 24 countries. Grew
+mobile product $1M, guiding product management, enablement, and delivery with 3 teams totaling up to 15 members.
+⧫ Mobile Product Management: Achieved #1 Asian market position for life insurance ERP platform segment by delivering 2 releases
+of the company’s first mobile-first and fully localized product.
+⎯ Achieved rapid go-to market through negotiations of the company’s first-ever OEM product partnership.
+⧫ Partner Enablement: Conceived, designed, and rolled out the industry’s first full partner training program, including curriculum, live
+/ video content, exams, and website, in less than 6 months. Enabled SE Asia expansion with zero additional staff.
+⧫ Sales Efficiency: Uplifted sales efficiency, building out product marketing function from the ground up. Produced the company’s first
+market segmentation analysis, competitive research, and sales tools and trained teams in 2 languages.
+SENIOR DIRECTOR, NORTH AMERICAN & EUROPE DIVISION | ISOFTSTONE | 2006—2011
+Enabled US market breakthrough for this public tier 1 Chinese global services company, overseeing Microsoft product delivery, account
+management, and North American marketing. Managed a team of 5 Project Managers and Technical Leads.
+⧫ US Product Launch: Overdelivered US sales 130% in Year 1, leading Microsoft partnership product development for Windows phone,
+Outlook mobile, OCS mobile, and Office communication / speech servers.
+⧫ US Market Expansion and M&A: Solidified US market position via the identification and brokering of an $8.8M acquisition that
+generated $28M in 18 months. Positioned acquisition as largest US corporate client.
+EARLY CAREER HISTORY
+LEAD PRODUCT MANAGER | BUSINESS OBJECTS (A SAP COMPANY), A DATA ANALYTICS COMPANY
+Positioned competitive strategy vs Microsoft and high-value enterprise sales, owned product strategy and management of enterprise reporting
+tools for developer customer segment. Partnership management with Microsoft and IBM. Built the first analytics developer community
+strategy to mirror MSDN, that community is still active today.
+SENIOR PROGRAM MANAGER | MICROSOFT
+Oversaw product design and programs for diverse Microsoft initiatives, including product features in Windows, MSN, Office, Corporate
+Procurement, and internal systems.
+EDUCATION
+EDUCATION: ME in Computer Science & Electrical Engineering | MIT
+⧫ Authored thesis on high-level computer vision pattern recognition & gender detection.
+BS in Computer Science & Electrical Engineering | MIT
+⧫ Specialization in computer graphics light rendering algorithms. Built educational toys and software to teach
+programming that were early-gen LEGO Mindstorm, and Scratch at MIT Media Lab Epistemology and Learning group,
+built interactive mini-bots for the Things That Think (TTT) Consortium
+BOARDS: People Incorporated | Minnesota’s largest community health services provider for mental health.
+⧫ Board Member, Impact Committee
+C-Plan.ai | An AI workforce management platform for healthcare industry.
+⧫ Advisory Board Member, Data, AI, and Product Strategy
+CERTIFICATIONS: Nvidia Deep Learning | Nvidia Multi-modal Agents
+AFFILIATIONS: WBL | Chief | Emerge Venture Fellow | Summit | Wonder Women
+INTEREST: NDCA Pro-Am National Competitive Ballroom Dancer
