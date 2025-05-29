@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 210 11% 98%; /* #F5F7FA */
+  --foreground: 222 16% 12%; /* #1A1D23 */
+  --muted: 214 14% 95%; /* #F0F2F5 */
+  --muted-foreground: 215 8% 46%; /* #6B7280 */
+  --popover: 0 0% 100%; /* #FFFFFF */
+  --popover-foreground: 222 16% 12%; /* #1A1D23 */
+  --card: 0 0% 100%; /* #FFFFFF */
+  --card-foreground: 222 16% 12%; /* #1A1D23 */
+  --border: 214 14% 90%; /* #E5E7EB */
+  --input: 214 14% 90%; /* #E5E7EB */
+  --primary: 218 90% 70%; /* #6B9EFF */
+  --primary-foreground: 218 100% 99%; /* #FEFEFF */
+  --secondary: 214 14% 95%; /* #F0F2F5 */
+  --secondary-foreground: 220 16% 20%; /* #2D3748 */
+  --accent: 214 14% 95%; /* #F0F2F5 */
+  --accent-foreground: 220 16% 20%; /* #2D3748 */
+  --destructive: 0 84% 60%; /* #EF4444 */
+  --destructive-foreground: 60 9% 98%; /* #FEFEFE */
+  --ring: 218 90% 70%; /* #6B9EFF */
+  --radius: 0.5rem;
+
+  /* Custom brand colors */
+  --brand-blue: 218 90% 70%; /* #6B9EFF */
+  --brand-blue-dark: 218 88% 64%; /* #4F8AFF */
+  --brand-blue-light: 218 92% 76%; /* #8FB4FF */
+}
+
+.dark {
+  --background: 222 16% 8%; /* #141519 */
+  --foreground: 0 0% 98%; /* #FAFAFA */
+  --muted: 217 16% 12%; /* #1E212B */
+  --muted-foreground: 215 8% 65%; /* #9CA3AF */
+  --popover: 222 16% 8%; /* #141519 */
+  --popover-foreground: 0 0% 98%; /* #FAFAFA */
+  --card: 222 16% 8%; /* #141519 */
+  --card-foreground: 0 0% 98%; /* #FAFAFA */
+  --border: 217 16% 18%; /* #2D3748 */
+  --input: 217 16% 18%; /* #2D3748 */
+  --primary: 218 90% 70%; /* #6B9EFF */
+  --primary-foreground: 218 100% 99%; /* #FEFEFF */
+  --secondary: 217 16% 15%; /* #252A35 */
+  --secondary-foreground: 0 0% 98%; /* #FAFAFA */
+  --accent: 217 16% 15%; /* #252A35 */
+  --accent-foreground: 0 0% 98%; /* #FAFAFA */
+  --destructive: 0 62% 30%; /* #991B1B */
+  --destructive-foreground: 0 0% 98%; /* #FAFAFA */
+  --ring: 218 90% 70%; /* #6B9EFF */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .gradient-bg {
+    background: linear-gradient(135deg, hsl(var(--brand-blue)) 0%, hsl(var(--brand-blue-light)) 100%);
+  }
+  
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(var(--brand-blue)) 0%, hsl(var(--brand-blue-dark)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .glass-card {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+  
+  .hero-circle {
+    background: linear-gradient(135deg, hsl(var(--brand-blue)) 0%, hsl(var(--brand-blue-light)) 100%);
+    border-radius: 50%;
+  }
+  
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+  }
+  
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
