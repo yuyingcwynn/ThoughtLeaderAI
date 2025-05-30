@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -33,6 +33,25 @@ export default function Contact() {
       message: ""
     }
   });
+
+  // Pre-select service based on URL parameter
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const serviceParam = urlParams.get('service');
+    
+    if (serviceParam) {
+      const serviceMap: { [key: string]: string } = {
+        'fractional-ai-officer': 'Fractional Chief AI Officer',
+        'enterprise-ai-enablement': 'Enterprise AI Enablement',
+        'ai-product-bootcamp': 'AI Product Intensive Bootcamp'
+      };
+      
+      const serviceValue = serviceMap[serviceParam];
+      if (serviceValue) {
+        form.setValue('serviceInterest', serviceValue);
+      }
+    }
+  }, [form]);
 
   const submitInquiry = useMutation({
     mutationFn: async (data: InsertContactInquiry) => {

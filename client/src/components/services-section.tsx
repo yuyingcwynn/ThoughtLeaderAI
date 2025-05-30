@@ -27,7 +27,7 @@ export default function ServicesSection() {
       description: "Part-time AI leadership for full-time results. From strategy to implementation with C-level expertise without the C-level price tag.",
       price: "Custom Pricing",
       buttonText: "Learn More",
-      buttonAction: () => setLocation("/contact"),
+      buttonAction: () => setLocation("/contact?service=fractional-ai-officer"),
       gradient: false
     },
     {
@@ -36,7 +36,7 @@ export default function ServicesSection() {
       description: "Hackathons, strategy offsites, and culture transformation. 3-day hackathons and 2-day strategy intensives for organizational AI adoption.",
       price: "Enterprise Package",
       buttonText: "Schedule Event",
-      buttonAction: () => setLocation("/contact"),
+      buttonAction: () => setLocation("/contact?service=enterprise-ai-enablement"),
       gradient: false
     },
     {
@@ -45,7 +45,7 @@ export default function ServicesSection() {
       description: "4-6 weeks from concept to launch. Build and launch your AI product with expert guidance and comprehensive support.",
       price: "Program Package",
       buttonText: "Apply Now",
-      buttonAction: () => setLocation("/contact"),
+      buttonAction: () => setLocation("/contact?service=ai-product-bootcamp"),
       gradient: true
     }
   ];
