@@ -544,78 +544,282 @@ export default function AIReadiness() {
     const readiness = isPersonal ? getPersonalReadinessLevel(score) : getEnterpriseMaturityLevel(score);
     const percentage = Math.round((score / maxScore) * 100);
 
+    if (isPersonal) {
+      // Personal AI Readiness Results - keep original format
+      return (
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <Card className="bg-white dark:bg-gray-800 shadow-xl">
+              <CardHeader className="text-center p-12">
+                <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+                  Your AI Readiness Results
+                </h1>
+                
+                {/* Score Visualization */}
+                <div className="relative w-48 h-48 mx-auto mb-8">
+                  <svg className="w-48 h-48 transform -rotate-90" viewBox="0 0 100 100">
+                    <circle
+                      cx="50"
+                      cy="50"
+                      r="40"
+                      stroke="currentColor"
+                      strokeWidth="8"
+                      fill="transparent"
+                      className="text-gray-200 dark:text-gray-700"
+                    />
+                    <circle
+                      cx="50"
+                      cy="50"
+                      r="40"
+                      stroke="currentColor"
+                      strokeWidth="8"
+                      fill="transparent"
+                      strokeDasharray={`${percentage * 2.51} 251`}
+                      className="text-primary transition-all duration-1000 ease-out"
+                    />
+                  </svg>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-gray-900 dark:text-white">{score}</div>
+                      <div className="text-sm text-gray-600 dark:text-gray-300">/ {maxScore}</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className={`inline-block px-6 py-3 rounded-full text-white font-semibold text-lg ${readiness.color}`}>
+                  {readiness.level}
+                </div>
+                <p className="text-lg text-gray-600 dark:text-gray-300 mt-4 max-w-2xl mx-auto">
+                  {readiness.description}
+                </p>
+              </CardHeader>
+
+              <CardContent className="p-12 pt-0">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button 
+                    onClick={resetQuiz}
+                    variant="outline"
+                    className="flex items-center"
+                  >
+                    <RotateCcw className="mr-2 h-4 w-4" />
+                    Retake Assessment
+                  </Button>
+                  <Button 
+                    onClick={() => window.location.href = '/contact'}
+                    className="gradient-bg text-white"
+                  >
+                    Get Expert Consultation
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+        </div>
+      );
+    }
+
+    // Enterprise AI Maturity Results with maturity framework visualization
     return (
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <Card className="bg-white dark:bg-gray-800 shadow-xl">
-            <CardHeader className="text-center p-12">
-              <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-                Your {isPersonal ? 'AI Readiness' : 'AI Maturity'} Results
-              </h1>
-              
-              {/* Score Visualization */}
-              <div className="relative w-48 h-48 mx-auto mb-8">
-                <svg className="w-48 h-48 transform -rotate-90" viewBox="0 0 100 100">
-                  <circle
-                    cx="50"
-                    cy="50"
-                    r="40"
-                    stroke="currentColor"
-                    strokeWidth="8"
-                    fill="transparent"
-                    className="text-gray-200 dark:text-gray-700"
-                  />
-                  <circle
-                    cx="50"
-                    cy="50"
-                    r="40"
-                    stroke="currentColor"
-                    strokeWidth="8"
-                    fill="transparent"
-                    strokeDasharray={`${percentage * 2.51} 251`}
-                    className="text-primary transition-all duration-1000 ease-out"
-                  />
-                </svg>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-gray-900 dark:text-white">{score}</div>
-                    <div className="text-sm text-gray-600 dark:text-gray-300">/ {maxScore}</div>
-                  </div>
-                </div>
-              </div>
+          <div className="text-center mb-12">
+            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              Enterprise AI Maturity Assessment
+            </h1>
+            <div className="text-6xl font-bold text-primary mb-4">{score}/{maxScore}</div>
+            <div className={`inline-block px-8 py-4 rounded-full text-white font-bold text-xl ${readiness.color}`}>
+              {readiness.level}
+            </div>
+            <p className="text-xl text-gray-600 dark:text-gray-300 mt-4 max-w-3xl mx-auto">
+              {readiness.description}
+            </p>
+          </div>
 
-              <div className={`inline-block px-6 py-3 rounded-full text-white font-semibold text-lg ${readiness.color}`}>
-                {readiness.level}
-              </div>
-              <p className="text-lg text-gray-600 dark:text-gray-300 mt-4 max-w-2xl mx-auto">
-                {readiness.description}
-              </p>
+          {/* Organizational AI Maturity Board */}
+          <Card className="bg-white dark:bg-gray-800 shadow-xl mb-12">
+            <CardHeader className="text-center p-8">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+                Organizational AI Maturity Board
+              </h2>
             </CardHeader>
+            <CardContent className="p-8">
+              <div className="relative overflow-x-auto">
+                {/* Maturity Phases Flow */}
+                <div className="flex justify-between items-start min-w-[800px] mb-8">
+                  {[
+                    { 
+                      phase: "Awareness", 
+                      color: "bg-red-500", 
+                      min: 0, 
+                      max: 8,
+                      goals: ["Increase importance", "Communicate goals", "Communicate plans", "Check for understanding"],
+                      activities: "Initial awareness building",
+                      people: "Leadership engagement"
+                    },
+                    { 
+                      phase: "Interest", 
+                      color: "bg-orange-500", 
+                      min: 9, 
+                      max: 16,
+                      goals: ["Channel for people to engage", "Channel for people to raise their hand", "Ability to measure interest"],
+                      activities: "Pilot programs and exploration",
+                      people: "Early adopters identified"
+                    },
+                    { 
+                      phase: "Discover", 
+                      color: "bg-yellow-500", 
+                      min: 17, 
+                      max: 24,
+                      goals: ["Learning opportunities and resources", "Space for opportunities", "Environment for exploration", "Criteria for evaluation and prioritization"],
+                      activities: "Use case discovery and evaluation",
+                      people: "Specialized teams formed"
+                    },
+                    { 
+                      phase: "Build", 
+                      color: "bg-blue-500", 
+                      min: 25, 
+                      max: 32,
+                      goals: ["Internal tools", "Internal capability", "External facing deliverability"],
+                      activities: "Development and implementation",
+                      people: "Production-ready teams"
+                    },
+                    { 
+                      phase: "Scale", 
+                      color: "bg-green-500", 
+                      min: 33, 
+                      max: 40,
+                      goals: ["Policy and guidelines", "Tool rationalization/adoption", "Process", "Governance", "Operationalizing"],
+                      activities: "Enterprise-wide deployment",
+                      people: "Organization-wide adoption"
+                    }
+                  ].map((phase, index) => {
+                    const isCurrent = score >= phase.min && score <= phase.max;
+                    const isCompleted = score > phase.max;
+                    
+                    return (
+                      <div key={phase.phase} className="flex flex-col items-center relative flex-1">
+                        {/* Phase Circle */}
+                        <div className={`w-20 h-20 rounded-full ${phase.color} ${
+                          isCurrent 
+                            ? 'ring-4 ring-primary ring-offset-2 ring-offset-white dark:ring-offset-gray-800 scale-110' 
+                            : isCompleted ? 'opacity-80' : 'opacity-40'
+                        } flex items-center justify-center mb-4 transition-all duration-300`}>
+                          <span className="text-white font-bold text-lg">
+                            {isCurrent ? '●' : isCompleted ? '✓' : index + 1}
+                          </span>
+                        </div>
+                        
+                        {/* Phase Name */}
+                        <div className={`text-center mb-4 ${
+                          isCurrent ? 'text-primary font-bold' : 'text-gray-600'
+                        }`}>
+                          <div className="font-bold text-lg">{phase.phase}</div>
+                          <div className="text-sm">({phase.min}-{phase.max} pts)</div>
+                        </div>
 
-            <CardContent className="p-12 pt-0">
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button 
-                  onClick={resetQuiz}
-                  variant="outline"
-                  className="flex items-center"
-                >
-                  <RotateCcw className="mr-2 h-4 w-4" />
-                  Retake Assessment
-                </Button>
-                <Button 
-                  onClick={() => window.location.href = '/contact'}
-                  className="gradient-bg text-white"
-                >
-                  Get Expert Consultation
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
+                        {/* Goals */}
+                        <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 mb-3 w-full max-w-[200px]">
+                          <h4 className="font-semibold text-sm text-gray-900 dark:text-white mb-2">Goals</h4>
+                          <ul className="text-xs text-gray-600 dark:text-gray-300 space-y-1">
+                            {phase.goals.map((goal, goalIndex) => (
+                              <li key={goalIndex} className="flex items-start">
+                                <span className="mr-1">•</span>
+                                <span>{goal}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        {/* Activities */}
+                        <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-3 mb-3 w-full max-w-[200px]">
+                          <h4 className="font-semibold text-sm text-blue-900 dark:text-blue-300 mb-1">Activities</h4>
+                          <p className="text-xs text-blue-700 dark:text-blue-400">{phase.activities}</p>
+                        </div>
+
+                        {/* People */}
+                        <div className="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-3 w-full max-w-[200px]">
+                          <h4 className="font-semibold text-sm text-purple-900 dark:text-purple-300 mb-1">People</h4>
+                          <p className="text-xs text-purple-700 dark:text-purple-400">{phase.people}</p>
+                        </div>
+
+                        {/* Connection Line */}
+                        {index < 4 && (
+                          <div className={`absolute top-10 left-[calc(100%-10px)] w-[calc(100%-40px)] h-0.5 ${
+                            isCompleted ? 'bg-primary' : 'bg-gray-300 dark:bg-gray-600'
+                          } z-0`} />
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {/* Current Status Summary */}
+                <div className="bg-gradient-to-r from-primary/10 to-primary/5 rounded-lg p-6 text-center">
+                  <h3 className="font-bold text-xl text-gray-900 dark:text-white mb-2">
+                    Current Maturity: {readiness.level}
+                  </h3>
+                  <p className="text-lg text-gray-700 dark:text-gray-300 mb-2">
+                    Score: {score}/40 points
+                  </p>
+                  <p className="text-gray-600 dark:text-gray-400">
+                    {readiness.description}
+                  </p>
+                </div>
               </div>
             </CardContent>
           </Card>
+
+          {/* Assessment Categories */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+            {enterpriseQuestions.map((question, index) => (
+              <motion.div
+                key={question.category}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+              >
+                <Card className="bg-white dark:bg-gray-800 shadow-lg">
+                  <CardContent className="p-4 text-center">
+                    <div className="w-12 h-12 mx-auto mb-3 bg-primary/10 rounded-xl flex items-center justify-center">
+                      <span className="text-lg font-bold text-primary">
+                        {enterpriseAnswers[index] || 0}
+                      </span>
+                    </div>
+                    <h4 className="font-semibold text-sm text-gray-900 dark:text-white">
+                      {question.category}
+                    </h4>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              onClick={resetQuiz}
+              variant="outline"
+              className="flex items-center"
+            >
+              <RotateCcw className="mr-2 h-4 w-4" />
+              Retake Assessment
+            </Button>
+            <Button 
+              onClick={() => window.location.href = '/contact'}
+              className="gradient-bg text-white"
+            >
+              Get Expert Consultation
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </div>
         </motion.div>
       </div>
     );
