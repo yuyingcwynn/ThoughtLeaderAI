@@ -19,6 +19,7 @@ import kelloggLogo from "@assets/image_1748588359680.png";
 import uclaLogo from "@assets/image_1748588397492.png";
 import stanfordLogo from "@assets/image_1748588439370.png";
 import womenTechLogo from "@assets/image_1748588658310.png";
+import chiefLogo from "@assets/image_1748588729954.png";
 
 interface ContentItem {
   id: string;
@@ -464,6 +465,21 @@ export default function ThoughtLeadership() {
                 <div>
                   <h5 className="font-medium text-gray-900 dark:text-white">Women in Tech Global Conference</h5>
                   <p className="text-sm text-gray-600 dark:text-gray-300">Keynote Speaker</p>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.0 }}
+              viewport={{ once: true }}
+            >
+              <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center space-x-3">
+                <img src={chiefLogo} alt="Chief" className="h-8 w-auto" />
+                <div>
+                  <h5 className="font-medium text-gray-900 dark:text-white">Chief</h5>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">Executive Leadership Network</p>
                 </div>
               </div>
             </motion.div>
