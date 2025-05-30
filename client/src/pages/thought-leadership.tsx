@@ -341,51 +341,6 @@ export default function ThoughtLeadership() {
               viewport={{ once: true }}
             >
               <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center space-x-3">
-                <img src={aldrichLogo} alt="Aldrich Capital Partners" className="h-8 w-auto" />
-                <div>
-                  <h5 className="font-medium text-gray-900 dark:text-white">Aldrich Capital Partners</h5>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">Technology Summit</p>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center space-x-3">
-                <img src={retrainLogo} alt="retrain.ai" className="h-8 w-auto" />
-                <div>
-                  <h5 className="font-medium text-gray-900 dark:text-white">retrain.ai</h5>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">Responsible AI Conference</p>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
-            >
-              <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center space-x-3">
-                <img src={beelieveLogo} alt="Beelieve" className="h-8 w-auto" />
-                <div>
-                  <h5 className="font-medium text-gray-900 dark:text-white">Beelieve</h5>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">AI Executives Roundtable</p>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
-            >
-              <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center space-x-3">
                 <img src={nyTechWeekLogo} alt="NY Tech Week" className="h-8 w-auto" />
                 <div>
                   <h5 className="font-medium text-gray-900 dark:text-white">NY Tech Week</h5>
@@ -397,7 +352,7 @@ export default function ThoughtLeadership() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
               <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center space-x-3">
@@ -412,7 +367,7 @@ export default function ThoughtLeadership() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
             >
               <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center space-x-3">
@@ -427,7 +382,7 @@ export default function ThoughtLeadership() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
             >
               <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center space-x-3">
@@ -442,7 +397,7 @@ export default function ThoughtLeadership() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
               viewport={{ once: true }}
             >
               <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center space-x-3">
@@ -457,7 +412,7 @@ export default function ThoughtLeadership() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.9 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
               viewport={{ once: true }}
             >
               <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center space-x-3">
@@ -472,7 +427,7 @@ export default function ThoughtLeadership() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.0 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
               viewport={{ once: true }}
             >
               <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center space-x-3">
@@ -480,6 +435,51 @@ export default function ThoughtLeadership() {
                 <div>
                   <h5 className="font-medium text-gray-900 dark:text-white">Chief</h5>
                   <p className="text-sm text-gray-600 dark:text-gray-300">Executive Leadership Network</p>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center space-x-3">
+                <img src={aldrichLogo} alt="Aldrich Capital Partners" className="h-8 w-auto" />
+                <div>
+                  <h5 className="font-medium text-gray-900 dark:text-white">Aldrich Capital Partners</h5>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">Technology Summit</p>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.9 }}
+              viewport={{ once: true }}
+            >
+              <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center space-x-3">
+                <img src={retrainLogo} alt="retrain.ai" className="h-8 w-auto" />
+                <div>
+                  <h5 className="font-medium text-gray-900 dark:text-white">retrain.ai</h5>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">Responsible AI Conference</p>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.0 }}
+              viewport={{ once: true }}
+            >
+              <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center space-x-3">
+                <img src={beelieveLogo} alt="Beelieve" className="h-8 w-auto" />
+                <div>
+                  <h5 className="font-medium text-gray-900 dark:text-white">Beelieve</h5>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">AI Executives Roundtable</p>
                 </div>
               </div>
             </motion.div>
