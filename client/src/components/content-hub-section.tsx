@@ -35,32 +35,35 @@ export default function ContentHubSection() {
     {
       icon: Mic,
       title: "Speaking",
-      description: "Conference talks and expert panels",
-      link: "/contact",
+      description: "12 institutions including MIT Sloan & Stanford",
+      link: "/thought-leadership",
       bgColor: "bg-purple-600",
-      linkText: "Book Speaking",
+      linkText: "View Speaking",
       isInternal: true
     }
   ];
 
   const insights = [
     {
-      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
-      title: "AI in the Wild: Real Implementation Stories",
-      description: "How PEAK6 achieved 87% GenAI adoption across 6 companies",
-      category: "Case Study"
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
+      title: "Technocratic Podcast: From LEGO Mindstorm to AI Leadership",
+      description: "Journey from designing LEGO's second-generation CPU at MIT to leading AI initiatives at PEAK6",
+      category: "Podcast",
+      link: "https://open.spotify.com/episode/62iubXuM2RB3Umftr8Ps4A"
     },
     {
-      image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
-      title: "Risk & Governance: Practical Frameworks",
-      description: "AI risk frameworks for highly regulated industries",
-      category: "Framework"
+      image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
+      title: "Speaking at MIT Sloan & Stanford",
+      description: "Presenting AI strategy and implementation at top business schools and technology conferences",
+      category: "Speaking",
+      link: "/thought-leadership"
     },
     {
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
-      title: "Executive Education: AI for Non-Technical Leaders",
-      description: "Bridging the gap between AI hype and business reality",
-      category: "Education"
+      image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
+      title: "Product Talk: Leveraging AI to Scale Businesses",
+      description: "Sharing lessons from Microsoft and PEAK6 on AI-driven product development and automation",
+      category: "Podcast",
+      link: "https://goodpods.com/podcasts/product-talk-92934/ep-426-peak6-head-of-ai-on-leveraging-ai-to-scale-product-businesses-60359226"
     }
   ];
 
@@ -83,10 +86,10 @@ export default function ContentHubSection() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            Thought Leadership <span className="gradient-text">Content</span>
+            Thought Leadership & <span className="gradient-text">Recognition</span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Access all my AI insights, speaking engagements, and educational content in one place
+            Speaking at 12 prestigious institutions including MIT Sloan and Stanford, featured on industry podcasts, and sharing insights through weekly content
           </p>
         </motion.div>
         
@@ -118,7 +121,7 @@ export default function ContentHubSection() {
           ))}
         </div>
         
-        {/* Featured Insights */}
+        {/* Featured Recognition & Media */}
         <motion.div 
           className="fade-in"
           initial={{ opacity: 0, y: 20 }}
@@ -126,10 +129,11 @@ export default function ContentHubSection() {
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
         >
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">Recent Insights</h3>
+          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">Featured Recognition & Media</h3>
           <div className="grid md:grid-cols-3 gap-8">
             {insights.map((insight, index) => (
-              <Card key={insight.title} className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300">
+              <Card key={insight.title} className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
+                    onClick={() => handleLinkClick(insight.link, insight.link?.startsWith('/'))}>
                 <CardContent className="p-6">
                   <img 
                     src={insight.image}
@@ -140,7 +144,7 @@ export default function ContentHubSection() {
                   <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">{insight.title}</h4>
                   <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">{insight.description}</p>
                   <div className="text-primary font-semibold text-sm cursor-pointer hover:text-primary/80 transition-colors duration-200 flex items-center">
-                    Read More <ArrowRight className="ml-1 h-4 w-4" />
+                    {insight.category === 'Podcast' ? 'Listen' : 'View'} <ArrowRight className="ml-1 h-4 w-4" />
                   </div>
                 </CardContent>
               </Card>
