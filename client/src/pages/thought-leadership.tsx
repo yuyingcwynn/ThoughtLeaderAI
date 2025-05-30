@@ -21,6 +21,7 @@ import stanfordLogo from "@assets/image_1748588439370.png";
 import womenTechLogo from "@assets/image_1748588658310.png";
 import chiefLogo from "@assets/image_1748588729954.png";
 import sectionLogo from "@assets/image_1748588872411.png";
+import intelligentAutomationLogo from "@assets/image_1748588955811.png";
 
 interface ContentItem {
   id: string;
@@ -496,6 +497,21 @@ export default function ThoughtLeadership() {
                 <div>
                   <h5 className="font-medium text-gray-900 dark:text-white">Beelieve</h5>
                   <p className="text-sm text-gray-600 dark:text-gray-300">AI Executives Roundtable</p>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.2 }}
+              viewport={{ once: true }}
+            >
+              <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center space-x-3">
+                <img src={intelligentAutomationLogo} alt="Intelligent Automation North America" className="h-8 w-auto" />
+                <div>
+                  <h5 className="font-medium text-gray-900 dark:text-white">Intelligent Automation Conference</h5>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">Presenter</p>
                 </div>
               </div>
             </motion.div>
