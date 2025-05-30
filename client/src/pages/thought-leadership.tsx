@@ -20,6 +20,7 @@ import uclaLogo from "@assets/image_1748588397492.png";
 import stanfordLogo from "@assets/image_1748588439370.png";
 import womenTechLogo from "@assets/image_1748588658310.png";
 import chiefLogo from "@assets/image_1748588729954.png";
+import sectionLogo from "@assets/image_1748588872411.png";
 
 interface ContentItem {
   id: string;
@@ -446,6 +447,21 @@ export default function ThoughtLeadership() {
               viewport={{ once: true }}
             >
               <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center space-x-3">
+                <img src={sectionLogo} alt="Section" className="h-8 w-auto" />
+                <div>
+                  <h5 className="font-medium text-gray-900 dark:text-white">Section</h5>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">Guest Presenter</p>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.9 }}
+              viewport={{ once: true }}
+            >
+              <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center space-x-3">
                 <img src={aldrichLogo} alt="Aldrich Capital Partners" className="h-8 w-auto" />
                 <div>
                   <h5 className="font-medium text-gray-900 dark:text-white">Aldrich Capital Partners</h5>
@@ -457,7 +473,7 @@ export default function ThoughtLeadership() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.9 }}
+              transition={{ duration: 0.6, delay: 1.0 }}
               viewport={{ once: true }}
             >
               <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center space-x-3">
@@ -472,7 +488,7 @@ export default function ThoughtLeadership() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.0 }}
+              transition={{ duration: 0.6, delay: 1.1 }}
               viewport={{ once: true }}
             >
               <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center space-x-3">
