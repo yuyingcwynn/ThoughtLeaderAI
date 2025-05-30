@@ -414,14 +414,40 @@ export default function ThoughtLeadership() {
               viewport={{ once: true }}
             >
               <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center space-x-3">
-                <div className="flex space-x-2">
-                  <img src={mitSloanLogo} alt="MIT Sloan School of Management" className="h-8 w-auto" />
-                  <img src={kelloggLogo} alt="Northwestern Kellogg School of Management" className="h-8 w-auto" />
-                  <img src={uclaLogo} alt="UCLA Anderson School of Management" className="h-8 w-auto" />
-                </div>
+                <img src={mitSloanLogo} alt="MIT Sloan School of Management" className="h-8 w-auto" />
                 <div>
-                  <h5 className="font-medium text-gray-900 dark:text-white">MBA Programs</h5>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">MIT Sloan, Northwestern Kellogg, UCLA Anderson</p>
+                  <h5 className="font-medium text-gray-900 dark:text-white">MIT Sloan School of Management</h5>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">MBA Program Speaker</p>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+              viewport={{ once: true }}
+            >
+              <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center space-x-3">
+                <img src={kelloggLogo} alt="Northwestern Kellogg School of Management" className="h-8 w-auto" />
+                <div>
+                  <h5 className="font-medium text-gray-900 dark:text-white">Northwestern Kellogg School of Management</h5>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">MBA Program Speaker</p>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center space-x-3">
+                <img src={uclaLogo} alt="UCLA Anderson School of Management" className="h-8 w-auto" />
+                <div>
+                  <h5 className="font-medium text-gray-900 dark:text-white">UCLA Anderson School of Management</h5>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">MBA Program Speaker</p>
                 </div>
               </div>
             </motion.div>
