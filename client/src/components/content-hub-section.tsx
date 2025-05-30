@@ -4,6 +4,8 @@ import { Linkedin, FileText, Youtube, Mic, ArrowRight } from "lucide-react";
 import { EXTERNAL_LINKS } from "@/lib/constants";
 import { useLocation } from "wouter";
 import productTalkImage from "@assets/image_1748589862049.png";
+import mitSloanLogo from "@assets/image_1748588236796.png";
+import stanfordLogo from "@assets/image_1748588439370.png";
 
 export default function ContentHubSection() {
   const [, setLocation] = useLocation();
@@ -53,11 +55,12 @@ export default function ContentHubSection() {
       link: "https://open.spotify.com/episode/62iubXuM2RB3Umftr8Ps4A"
     },
     {
-      image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
+      image: null,
       title: "Speaking at MIT Sloan & Stanford",
       description: "Presenting AI strategy and implementation at top business schools and technology conferences",
       category: "Speaking",
-      link: "/thought-leadership"
+      link: "/thought-leadership",
+      customImage: true
     },
     {
       image: productTalkImage,
@@ -136,11 +139,27 @@ export default function ContentHubSection() {
               <Card key={insight.title} className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
                     onClick={() => handleLinkClick(insight.link, insight.link?.startsWith('/'))}>
                 <CardContent className="p-6">
-                  <img 
-                    src={insight.image}
-                    alt={insight.title}
-                    className="w-full h-40 object-cover rounded-lg mb-4"
-                  />
+                  {insight.customImage ? (
+                    <div className="w-full h-40 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-lg mb-4 flex items-center justify-center space-x-4">
+                      <img 
+                        src={mitSloanLogo}
+                        alt="MIT Sloan School of Management"
+                        className="h-16 w-auto object-contain"
+                      />
+                      <div className="text-gray-400 text-2xl">+</div>
+                      <img 
+                        src={stanfordLogo}
+                        alt="Stanford Continuing Studies"
+                        className="h-16 w-auto object-contain"
+                      />
+                    </div>
+                  ) : (
+                    <img 
+                      src={insight.image}
+                      alt={insight.title}
+                      className="w-full h-40 object-cover rounded-lg mb-4"
+                    />
+                  )}
                   <div className="text-xs text-primary font-medium mb-2">{insight.category}</div>
                   <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">{insight.title}</h4>
                   <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">{insight.description}</p>
