@@ -71,6 +71,20 @@ export default function AIReadiness() {
         "Healthcare and scientific research"
       ],
       context: "Rate your awareness for each area (0-5): 0 = not aware of any disruption, 5 = understand business model and industry disruption with timeline"
+    },
+    {
+      id: "skills",
+      category: "AI Skills",
+      question: "What is your current level of hands-on AI skills and implementation experience?",
+      description: "AI skills progression from basic usage to advanced development:",
+      bullets: [
+        "Using chatbots (ChatGPT, Claude) for basic questions and tasks",
+        "Prompt engineering and advanced conversational AI techniques",
+        "Integrating AI APIs into existing applications and workflows",
+        "Building custom AI applications and automated systems",
+        "Fine-tuning models and advanced AI development"
+      ],
+      context: "Rate your skill level for each area (0-5): 0 = zero knowledge, 5 = I know it and keep up to date"
     }
   ];
 
