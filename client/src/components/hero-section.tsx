@@ -61,7 +61,7 @@ export default function HeroSection() {
                 onClick={() => setLocation('/ai-readiness')}
                 className="border-2 border-primary text-primary px-8 py-4 rounded-full font-semibold hover:bg-primary hover:text-white transition-all duration-200"
               >
-                Download AI Readiness Assessment
+                Take AI Readiness Quiz
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </div>
