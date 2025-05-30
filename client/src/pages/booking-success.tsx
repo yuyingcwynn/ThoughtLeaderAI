@@ -68,9 +68,18 @@ export default function BookingSuccess() {
 
   const handleScheduleClick = () => {
     console.log('Schedule button clicked');
+    console.log('Package info:', packageInfo);
     
-    // Build Calendly URL with prefilled information
-    const baseUrl = 'https://calendly.com/yuyingcwynn';
+    // Determine correct Calendly URL based on package type
+    let baseUrl: string;
+    if (packageInfo && packageInfo.hours === "0.5") {
+      // 30-minute package gets AI Expertise URL
+      baseUrl = 'https://calendly.com/yuyingcwynn/ai-expertise';
+    } else {
+      // All other packages get AI Discussion URL
+      baseUrl = 'https://calendly.com/yuyingcwynn/ai-discussion';
+    }
+    
     const params = new URLSearchParams();
     
     if (userEmail) {

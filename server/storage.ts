@@ -138,4 +138,120 @@ export class MemStorage implements IStorage {
   }
 }
 
-export const storage = new MemStorage();
+export class DatabaseStorage implements IStorage {
+  async getUser(id: number): Promise<User | undefined> {
+    const [user] = await db.select().from(users).where(eq(users.id, id));
+    return user || undefined;
+  }
+
+  async getUserByUsername(username: string): Promise<User | undefined> {
+    const [user] = await db.select().from(users).where(eq(users.username, username));
+    return user || undefined;
+  }
+
+  async getUserByEmail(email: string): Promise<User | undefined> {
+    const [user] = await db.select().from(users).where(eq(users.email, email));
+    return user || undefined;
+  }
+
+  async createUser(insertUser: InsertUser): Promise<User> {
+    const [user] = await db.insert(users).values({
+      ...insertUser,
+      email: insertUser.email || '',
+      totalHoursBalance: "0",
+      usedHours: "0"
+    }).returning();
+    return user;
+  }
+
+  async updateUserBalance(id: number, hoursToAdd: number): Promise<User> {
+    const [user] = await db
+      .update(users)
+      .set({
+        totalHoursBalance: sql`${users.totalHoursBalance} + ${hoursToAdd}`
+      })
+      .where(eq(users.id, id))
+      .returning();
+    return user;
+  }
+
+  async getConsultation(id: number): Promise<Consultation | undefined> {
+    const [consultation] = await db.select().from(consultations).where(eq(consultations.id, id));
+    return consultation || undefined;
+  }
+
+  async createConsultation(insertConsultation: InsertConsultation): Promise<Consultation> {
+    const [consultation] = await db.insert(consultations).values(insertConsultation).returning();
+    return consultation;
+  }
+
+  async updateConsultationPaymentIntent(id: number, paymentIntentId: string): Promise<void> {
+    await db
+      .update(consultations)
+      .set({ stripePaymentIntentId: paymentIntentId })
+      .where(eq(consultations.id, id));
+  }
+
+  async updateConsultationStatus(id: number, status: string): Promise<void> {
+    await db
+      .update(consultations)
+      .set({ status })
+      .where(eq(consultations.id, id));
+  }
+
+  async getUserConsultations(userId: number): Promise<Consultation[]> {
+    return await db
+      .select()
+      .from(consultations)
+      .where(eq(consultations.userId, userId))
+      .orderBy(desc(consultations.createdAt));
+  }
+
+  async createUserSession(session: InsertUserSession): Promise<UserSession> {
+    const [userSession] = await db.insert(userSessions).values(session).returning();
+    return userSession;
+  }
+
+  async getUserSessions(userId: number): Promise<UserSession[]> {
+    return await db
+      .select()
+      .from(userSessions)
+      .where(eq(userSessions.userId, userId))
+      .orderBy(desc(userSessions.createdAt));
+  }
+
+  async updateSessionStatus(id: number, status: string): Promise<void> {
+    await db
+      .update(userSessions)
+      .set({ status })
+      .where(eq(userSessions.id, id));
+  }
+
+  async deductUserHours(userId: number, hours: number): Promise<void> {
+    await db
+      .update(users)
+      .set({
+        usedHours: sql`${users.usedHours} + ${hours}`
+      })
+      .where(eq(users.id, userId));
+  }
+
+  async getContactInquiry(id: number): Promise<ContactInquiry | undefined> {
+    const [inquiry] = await db.select().from(contactInquiries).where(eq(contactInquiries.id, id));
+    return inquiry || undefined;
+  }
+
+  async createContactInquiry(insertInquiry: InsertContactInquiry): Promise<ContactInquiry> {
+    const [inquiry] = await db.insert(contactInquiries).values(insertInquiry).returning();
+    return inquiry;
+  }
+
+  async updateContactInquiryStatus(id: number, status: string): Promise<void> {
+    await db
+      .update(contactInquiries)
+      .set({ status })
+      .where(eq(contactInquiries.id, id));
+  }
+}
+
+export const storage = new DatabaseStorage();
