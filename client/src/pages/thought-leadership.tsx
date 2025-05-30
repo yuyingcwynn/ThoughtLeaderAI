@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ExternalLink, Play, FileText } from "lucide-react";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
+import notOldBoxesImage from "@assets/NotOldBoxes.jpg";
 
 interface ContentItem {
   id: string;
@@ -17,7 +18,15 @@ interface ContentItem {
 
 export default function ThoughtLeadership() {
   const featuredContent: ContentItem[] = [
-    // We'll populate this with your content as you provide it
+    {
+      id: "stop-forcing-ai-old-boxes",
+      title: "Stop Forcing AI Into Old Boxes",
+      description: "Four Directions for Real Value Creation with Generative AI [Director's Cut] - Breaking free from traditional thinking to unlock AI's true potential",
+      type: "article",
+      image: notOldBoxesImage,
+      link: "https://open.substack.com/pub/yuying/p/stop-forcing-ai-into-old-boxes?r=2h7nta&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true",
+      publishDate: "Recent"
+    }
   ];
 
   const contentTypes = {
