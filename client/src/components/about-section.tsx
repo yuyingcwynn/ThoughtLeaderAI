@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import yuyingPortrait from "@assets/YuyingChenWynn_10x12_300dpi.jpg";
 
 export default function AboutSection() {
   const achievements = [
@@ -81,8 +82,8 @@ export default function AboutSection() {
             viewport={{ once: true }}
           >
             <img 
-              src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=1000"
-              alt="AI Technology Executive Leadership"
+              src={yuyingPortrait}
+              alt="Yuying Chen-Wynn - AI Technology Executive"
               className="rounded-2xl shadow-2xl w-full"
             />
           </motion.div>
