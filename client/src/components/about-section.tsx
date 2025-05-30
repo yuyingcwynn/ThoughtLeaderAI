@@ -4,6 +4,7 @@ import aldrichLogo from "@assets/image_1748587792420.png";
 import retrainLogo from "@assets/image_1748588175311.png";
 import beelieveLogo from "@assets/image_1748588236796.png";
 import nyTechWeekLogo from "@assets/image_1748588288028.png";
+import mitSloanLogo from "@assets/image_1748588335252.png";
 
 export default function AboutSection() {
   const achievements = [
@@ -183,9 +184,12 @@ export default function AboutSection() {
                 <h5 className="font-medium text-gray-900 dark:text-white">Stanford Executive Ed</h5>
                 <p className="text-sm text-gray-600 dark:text-gray-300">AI Leadership Development</p>
               </div>
-              <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-                <h5 className="font-medium text-gray-900 dark:text-white">MBA Programs</h5>
-                <p className="text-sm text-gray-600 dark:text-gray-300">Kellogg, MIT Sloan, UCLA Anderson</p>
+              <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center space-x-3">
+                <img src={mitSloanLogo} alt="MIT Sloan School of Management" className="h-8 w-auto" />
+                <div>
+                  <h5 className="font-medium text-gray-900 dark:text-white">MBA Programs</h5>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">MIT Sloan, Kellogg, UCLA Anderson</p>
+                </div>
               </div>
             </div>
           </div>
