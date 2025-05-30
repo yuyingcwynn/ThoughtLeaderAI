@@ -966,8 +966,8 @@ export default function AIReadiness() {
                 <Card className="bg-white dark:bg-gray-800 shadow-lg">
                   <CardContent className="p-4 text-center">
                     <div className="w-12 h-12 mx-auto mb-3 bg-primary/10 rounded-xl flex items-center justify-center">
-                      <span className="text-lg font-bold text-primary">
-                        {enterpriseAnswers[index] || 0}
+                      <span className="text-sm font-bold text-primary">
+                        {enterpriseAnswers[index] || 0}/5
                       </span>
                     </div>
                     <h4 className="font-semibold text-sm text-gray-900 dark:text-white">
