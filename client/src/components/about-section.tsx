@@ -134,7 +134,7 @@ export default function AboutSection() {
           </div>
         </motion.div>
 
-        {/* Credibility Section */}
+        {/* Company Logos */}
         <motion.div 
           className="mt-20 fade-in"
           initial={{ opacity: 0, y: 20 }}
@@ -142,33 +142,8 @@ export default function AboutSection() {
           transition={{ duration: 0.6, delay: 0.6 }}
           viewport={{ once: true }}
         >
-          <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">Thought Leadership & Recognition</h3>
-          
-
-
-          {/* Content & Media */}
-          <div className="mb-12">
-            <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">Content & Media</h4>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-                <h5 className="font-medium text-blue-900 dark:text-blue-300">AI After Hours Podcast</h5>
-                <p className="text-sm text-blue-700 dark:text-blue-400">Host - AI industry insights</p>
-              </div>
-              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-                <h5 className="font-medium text-blue-900 dark:text-blue-300">GenAI Real Talk Newsletter</h5>
-                <p className="text-sm text-blue-700 dark:text-blue-400">Author - yuying.substack.com</p>
-              </div>
-              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-                <h5 className="font-medium text-blue-900 dark:text-blue-300">Industry Podcasts</h5>
-                <p className="text-sm text-blue-700 dark:text-blue-400">Regular guest expert</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Company Logos */}
-          <div>
-            <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">Trusted by Industry Leaders</h4>
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-items-center opacity-60">
+          <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">Trusted by Industry Leaders</h4>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-items-center opacity-60">
               <div className="text-center">
                 <div className="text-2xl font-bold text-gray-600 dark:text-gray-400">PEAK6</div>
                 <div className="text-xs text-gray-500">$38B AUM</div>
@@ -194,7 +169,6 @@ export default function AboutSection() {
                 <div className="text-xs text-gray-500">Investment</div>
               </div>
             </div>
-          </div>
         </motion.div>
       </div>
     </section>
