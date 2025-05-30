@@ -15,20 +15,15 @@ export default function AIReadiness() {
   const [enterpriseAnswers, setEnterpriseAnswers] = useState<number[]>([]);
   const [showResults, setShowResults] = useState(false);
 
-  const personalQuestions: Array<{
-    category: string;
-    question: string;
-    description?: string;
-    bullets: string[];
-    context?: string;
-  }> = [
+  const personalQuestions = [
     {
+      id: "capability",
       category: "Technology Capability",
       question: "What is the state of Generative AI technology capability in 2025?",
       description: "As of 2025, key highlights include:",
       bullets: [
         "Multimodal models (text, image, video, audio)",
-        "AI agents and autonomous systems",
+        "AI agents and autonomous systems", 
         "On-device AI and edge computing",
         "Real-time AI applications",
         "Domain-specific foundation models"
@@ -36,19 +31,21 @@ export default function AIReadiness() {
       context: "Rate your knowledge for each area (0-5): 0 = zero knowledge, 5 = I know it and keep up to date"
     },
     {
-      category: "Core Use Cases",
+      id: "usecases",
+      category: "Core Use Cases", 
       question: "What are the core use cases mature enough to deploy Generative AI on right now in 2025?",
       description: "Current top production-ready use cases:",
       bullets: [
         "Content generation and creative automation",
         "Code generation and development assistance",
-        "Data analysis and insight extraction",
+        "Data analysis and insight extraction", 
         "Customer service and conversational AI",
         "Process automation and workflow optimization"
       ],
       context: "Rate your knowledge for each use case (0-5): 0 = don't know any use case, 5 = know all the best ones and keep up to date"
     },
     {
+      id: "risk",
       category: "Legal and Risk",
       question: "What is the current legal and risk landscape for Generative AI in 2025?",
       description: "Top areas of concern:",
@@ -56,18 +53,19 @@ export default function AIReadiness() {
         "AI regulations and compliance requirements",
         "Intellectual property and copyright issues",
         "Data privacy and security concerns",
-        "Bias and fairness in AI systems",
+        "Bias and fairness in AI systems", 
         "Liability and accountability frameworks"
       ],
       context: "Rate your knowledge for each area (0-5): 0 = zero knowledge, 5 = I know it and keep up to date"
     },
     {
+      id: "disruption",
       category: "Disruptions",
       question: "What areas are or will quickly be at risk for total disruption from Generative AI?",
       description: "Key disruption areas:",
       bullets: [
         "Content creation and media industries",
-        "Software development and IT services",
+        "Software development and IT services", 
         "Professional services and consulting",
         "Education and training sectors",
         "Healthcare and scientific research"
@@ -76,17 +74,13 @@ export default function AIReadiness() {
     }
   ];
 
-  const enterpriseQuestions: Array<{
-    category: string;
-    question: string;
-    options: string[];
-  }> = [
+  const enterpriseQuestions = [
     {
       category: "AI Strategy",
       question: "Does your organization have a comprehensive AI strategy?",
       options: [
         "No formal AI strategy exists",
-        "Basic AI exploration and pilot projects",
+        "Basic AI exploration and pilot projects", 
         "Defined AI strategy with clear objectives",
         "Comprehensive AI strategy with implementation roadmap",
         "Advanced AI-native strategy with continuous evolution"
@@ -98,13 +92,13 @@ export default function AIReadiness() {
       options: [
         "Limited data organization and accessibility",
         "Basic data management and some AI-ready datasets",
-        "Well-organized data with AI integration capabilities",
+        "Well-organized data with AI integration capabilities", 
         "Advanced data architecture optimized for AI workloads",
         "AI-native data infrastructure with real-time processing"
       ]
     },
     {
-      category: "Technical Capabilities",
+      category: "Technical Capabilities", 
       question: "What is your organization's technical AI implementation capability?",
       options: [
         "No dedicated AI technical resources",
@@ -116,7 +110,7 @@ export default function AIReadiness() {
     },
     {
       category: "Governance & Risk",
-      question: "How advanced is your AI governance and risk management?",
+      question: "How advanced is your AI governance and risk management?", 
       options: [
         "No formal AI governance framework",
         "Basic AI usage policies and guidelines",
@@ -132,7 +126,7 @@ export default function AIReadiness() {
         "Limited AI awareness and resistance to change",
         "Growing AI interest with isolated adoption",
         "Widespread AI adoption across departments",
-        "AI-first culture with systematic integration",
+        "AI-first culture with systematic integration", 
         "AI-native organization with continuous innovation"
       ]
     },
@@ -150,18 +144,25 @@ export default function AIReadiness() {
   ];
 
   const getPersonalScore = () => {
-    return answers.reduce((sum, answer) => sum + answer, 0);
+    return Object.values(personalRatings).reduce((sum, rating) => sum + rating, 0);
   };
 
   const getEnterpriseScore = () => {
-    return answers.reduce((sum, answer) => sum + answer, 0);
+    return enterpriseAnswers.reduce((sum, answer) => sum + answer, 0);
+  };
+
+  const getTotalBullets = () => {
+    return personalQuestions.reduce((total, q) => total + q.bullets.length, 0);
   };
 
   const getPersonalReadinessLevel = (score: number) => {
-    if (score <= 5) return { level: "Beginner", color: "bg-red-500", description: "Limited AI awareness - Focus on basic education" };
-    if (score <= 10) return { level: "Developing", color: "bg-orange-500", description: "Growing understanding - Continue learning" };
-    if (score <= 15) return { level: "Proficient", color: "bg-yellow-500", description: "Good foundation - Ready for implementation" };
-    if (score <= 18) return { level: "Advanced", color: "bg-blue-500", description: "Strong expertise - Leadership potential" };
+    const maxScore = getTotalBullets() * 5;
+    const percentage = (score / maxScore) * 100;
+    
+    if (percentage <= 20) return { level: "Beginner", color: "bg-red-500", description: "Limited AI awareness - Focus on basic education" };
+    if (percentage <= 40) return { level: "Developing", color: "bg-orange-500", description: "Growing understanding - Continue learning" };
+    if (percentage <= 60) return { level: "Proficient", color: "bg-yellow-500", description: "Good foundation - Ready for implementation" };
+    if (percentage <= 80) return { level: "Advanced", color: "bg-blue-500", description: "Strong expertise - Leadership potential" };
     return { level: "Expert", color: "bg-green-500", description: "Comprehensive mastery - Thought leader" };
   };
 
@@ -173,14 +174,19 @@ export default function AIReadiness() {
     return { level: "AI-Native", color: "bg-green-500", description: "AI-first organization" };
   };
 
-  const handleAnswer = (answerIndex: number) => {
-    const newAnswers = [...answers];
-    newAnswers[currentQuestion] = answerIndex;
-    setAnswers(newAnswers);
+  const handlePersonalRating = (bulletId: string, rating: number) => {
+    setPersonalRatings(prev => ({
+      ...prev,
+      [bulletId]: rating
+    }));
+  };
 
-    const questions = currentQuiz === 'personal' ? personalQuestions : enterpriseQuestions;
-    
-    if (currentQuestion < questions.length - 1) {
+  const handleEnterpriseAnswer = (answerIndex: number) => {
+    const newAnswers = [...enterpriseAnswers];
+    newAnswers[currentQuestion] = answerIndex;
+    setEnterpriseAnswers(newAnswers);
+
+    if (currentQuestion < enterpriseQuestions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
       setShowResults(true);
@@ -189,13 +195,22 @@ export default function AIReadiness() {
 
   const resetQuiz = () => {
     setCurrentQuestion(0);
-    setAnswers([]);
+    setPersonalRatings({});
+    setEnterpriseAnswers([]);
     setShowResults(false);
   };
 
   const goToQuizSelection = () => {
     setCurrentQuiz('selection');
     resetQuiz();
+  };
+
+  const canProceedToResults = () => {
+    if (currentQuiz === 'personal') {
+      const totalBullets = getTotalBullets();
+      return Object.keys(personalRatings).length === totalBullets;
+    }
+    return false;
   };
 
   const renderQuizSelection = () => (
@@ -230,28 +245,10 @@ export default function AIReadiness() {
               </div>
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Personal AI Readiness</h2>
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                Assess your individual knowledge and understanding of AI technology, use cases, risks, and market disruptions
+                Rate your knowledge across key AI areas using a 0-5 scale for each technology, use case, risk factor, and disruption area
               </p>
             </CardHeader>
             <CardContent className="p-8 pt-0">
-              <div className="space-y-3 mb-6">
-                <div className="flex items-center text-sm text-gray-600 dark:text-gray-300">
-                  <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
-                  Technology capability awareness
-                </div>
-                <div className="flex items-center text-sm text-gray-600 dark:text-gray-300">
-                  <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
-                  Core use cases knowledge
-                </div>
-                <div className="flex items-center text-sm text-gray-600 dark:text-gray-300">
-                  <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
-                  Legal and risk understanding
-                </div>
-                <div className="flex items-center text-sm text-gray-600 dark:text-gray-300">
-                  <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
-                  Disruption awareness
-                </div>
-              </div>
               <Button className="w-full gradient-bg text-white font-semibold py-3 rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-200">
                 Start Personal Assessment
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -279,24 +276,6 @@ export default function AIReadiness() {
               </p>
             </CardHeader>
             <CardContent className="p-8 pt-0">
-              <div className="space-y-3 mb-6">
-                <div className="flex items-center text-sm text-gray-600 dark:text-gray-300">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
-                  AI strategy and roadmap
-                </div>
-                <div className="flex items-center text-sm text-gray-600 dark:text-gray-300">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
-                  Data infrastructure maturity
-                </div>
-                <div className="flex items-center text-sm text-gray-600 dark:text-gray-300">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
-                  Technical capabilities
-                </div>
-                <div className="flex items-center text-sm text-gray-600 dark:text-gray-300">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
-                  Governance and culture
-                </div>
-              </div>
               <Button className="w-full gradient-bg text-white font-semibold py-3 rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-200">
                 Start Enterprise Assessment
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -308,10 +287,107 @@ export default function AIReadiness() {
     </div>
   );
 
-  const renderQuiz = () => {
-    const questions = currentQuiz === 'personal' ? personalQuestions : enterpriseQuestions;
-    const question = questions[currentQuestion];
-    const progress = ((currentQuestion + 1) / questions.length) * 100;
+  const renderPersonalQuiz = () => (
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div className="mb-8">
+        <div className="flex items-center justify-between mb-4">
+          <Button 
+            variant="outline" 
+            onClick={goToQuizSelection}
+            className="flex items-center"
+          >
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back to Selection
+          </Button>
+          <div className="text-sm text-gray-600 dark:text-gray-300">
+            {Object.keys(personalRatings).length} of {getTotalBullets()} rated
+          </div>
+        </div>
+        <Progress value={(Object.keys(personalRatings).length / getTotalBullets()) * 100} className="h-2" />
+      </div>
+
+      <div className="space-y-8">
+        {personalQuestions.map((question, questionIndex) => (
+          <motion.div
+            key={question.id}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: questionIndex * 0.1 }}
+          >
+            <Card className="bg-white dark:bg-gray-800 shadow-xl">
+              <CardHeader className="p-8">
+                <Badge variant="secondary" className="mb-4 text-xs w-fit">
+                  {question.category}
+                </Badge>
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                  {question.question}
+                </h2>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  {question.description}
+                </p>
+                <p className="text-sm text-gray-500 dark:text-gray-400 italic">
+                  {question.context}
+                </p>
+              </CardHeader>
+              <CardContent className="p-8 pt-0">
+                <div className="space-y-6">
+                  {question.bullets.map((bullet, bulletIndex) => {
+                    const bulletId = `${question.id}-${bulletIndex}`;
+                    const currentRating = personalRatings[bulletId] || 0;
+                    
+                    return (
+                      <div key={bulletIndex} className="space-y-3">
+                        <p className="text-gray-700 dark:text-gray-300 font-medium">
+                          {bullet}
+                        </p>
+                        <div className="flex items-center space-x-2">
+                          <span className="text-sm text-gray-500 w-8">0</span>
+                          <div className="flex space-x-2">
+                            {[0, 1, 2, 3, 4, 5].map(rating => (
+                              <Button
+                                key={rating}
+                                variant={currentRating === rating ? "default" : "outline"}
+                                size="sm"
+                                className={`w-10 h-10 rounded-full ${
+                                  currentRating === rating 
+                                    ? "bg-primary text-white" 
+                                    : "hover:bg-primary/10"
+                                }`}
+                                onClick={() => handlePersonalRating(bulletId, rating)}
+                              >
+                                {rating}
+                              </Button>
+                            ))}
+                          </div>
+                          <span className="text-sm text-gray-500 w-8">5</span>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+        ))}
+      </div>
+
+      {canProceedToResults() && (
+        <div className="text-center mt-12">
+          <Button 
+            onClick={() => setShowResults(true)}
+            className="gradient-bg text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+          >
+            View My Results
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Button>
+        </div>
+      )}
+    </div>
+  );
+
+  const renderEnterpriseQuiz = () => {
+    const question = enterpriseQuestions[currentQuestion];
+    const progress = ((currentQuestion + 1) / enterpriseQuestions.length) * 100;
 
     return (
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -326,7 +402,7 @@ export default function AIReadiness() {
               Back to Selection
             </Button>
             <div className="text-sm text-gray-600 dark:text-gray-300">
-              Question {currentQuestion + 1} of {questions.length}
+              Question {currentQuestion + 1} of {enterpriseQuestions.length}
             </div>
           </div>
           <Progress value={progress} className="h-2" />
@@ -346,16 +422,6 @@ export default function AIReadiness() {
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                 {question.question}
               </h2>
-              {question.description && (
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  {question.description}
-                </p>
-              )}
-              {question.context && (
-                <p className="text-sm text-gray-500 dark:text-gray-400 italic">
-                  {question.context}
-                </p>
-              )}
             </CardHeader>
             <CardContent className="p-8 pt-0">
               <div className="space-y-4">
@@ -364,7 +430,7 @@ export default function AIReadiness() {
                     key={index}
                     variant="outline"
                     className="w-full text-left justify-start p-4 h-auto min-h-[60px] hover:bg-primary/5 hover:border-primary transition-all duration-200"
-                    onClick={() => handleAnswer(index)}
+                    onClick={() => handleEnterpriseAnswer(index)}
                   >
                     <div className="flex items-center w-full">
                       <span className="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-4 flex-shrink-0">
@@ -385,7 +451,7 @@ export default function AIReadiness() {
   const renderResults = () => {
     const isPersonal = currentQuiz === 'personal';
     const score = isPersonal ? getPersonalScore() : getEnterpriseScore();
-    const maxScore = isPersonal ? 20 : 30;
+    const maxScore = isPersonal ? getTotalBullets() * 5 : 30;
     const readiness = isPersonal ? getPersonalReadinessLevel(score) : getEnterpriseMaturityLevel(score);
     const percentage = Math.round((score / maxScore) * 100);
 
@@ -442,89 +508,7 @@ export default function AIReadiness() {
             </CardHeader>
 
             <CardContent className="p-12 pt-0">
-              {isPersonal ? (
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Score Breakdown</h3>
-                    <div className="space-y-3">
-                      {personalQuestions.map((q, index) => (
-                        <div key={index} className="flex justify-between items-center">
-                          <span className="text-sm text-gray-600 dark:text-gray-300">{q.category}</span>
-                          <Badge variant="outline">{answers[index] || 0}/5</Badge>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Next Steps</h3>
-                    <div className="space-y-3 text-sm text-gray-600 dark:text-gray-300">
-                      {score <= 10 && (
-                        <>
-                          <p>• Start with AI fundamentals education</p>
-                          <p>• Follow AI news and developments</p>
-                          <p>• Experiment with AI tools like ChatGPT</p>
-                        </>
-                      )}
-                      {score > 10 && score <= 15 && (
-                        <>
-                          <p>• Deepen technical understanding</p>
-                          <p>• Study AI use cases in your industry</p>
-                          <p>• Consider AI certification programs</p>
-                        </>
-                      )}
-                      {score > 15 && (
-                        <>
-                          <p>• Lead AI initiatives in your organization</p>
-                          <p>• Share knowledge through speaking/writing</p>
-                          <p>• Consider advanced AI strategy roles</p>
-                        </>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              ) : (
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Maturity Breakdown</h3>
-                    <div className="space-y-3">
-                      {enterpriseQuestions.map((q, index) => (
-                        <div key={index} className="flex justify-between items-center">
-                          <span className="text-sm text-gray-600 dark:text-gray-300">{q.category}</span>
-                          <Badge variant="outline">{answers[index] || 0}/5</Badge>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Recommendations</h3>
-                    <div className="space-y-3 text-sm text-gray-600 dark:text-gray-300">
-                      {score <= 12 && (
-                        <>
-                          <p>• Develop AI strategy and governance</p>
-                          <p>• Invest in data infrastructure</p>
-                          <p>• Build AI literacy across organization</p>
-                        </>
-                      )}
-                      {score > 12 && score <= 20 && (
-                        <>
-                          <p>• Scale AI implementations systematically</p>
-                          <p>• Enhance technical capabilities</p>
-                          <p>• Strengthen AI governance framework</p>
-                        </>
-                      )}
-                      {score > 20 && (
-                        <>
-                          <p>• Drive industry AI innovation</p>
-                          <p>• Share best practices externally</p>
-                          <p>• Explore cutting-edge AI research</p>
-                        </>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button 
                   onClick={resetQuiz}
                   variant="outline"
@@ -553,7 +537,8 @@ export default function AIReadiness() {
       <Navigation />
       <div className="pt-16">
         {currentQuiz === 'selection' && renderQuizSelection()}
-        {(currentQuiz === 'personal' || currentQuiz === 'enterprise') && !showResults && renderQuiz()}
+        {currentQuiz === 'personal' && !showResults && renderPersonalQuiz()}
+        {currentQuiz === 'enterprise' && !showResults && renderEnterpriseQuiz()}
         {showResults && renderResults()}
       </div>
       <Footer />

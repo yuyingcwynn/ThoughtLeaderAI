@@ -11,7 +11,7 @@ import BookingSuccess from "@/pages/booking-success";
 import Contact from "@/pages/contact";
 import Login from "@/pages/login";
 import Dashboard from "@/pages/dashboard";
-import AIReadiness from "@/pages/ai-readiness";
+import AIReadiness from "@/pages/ai-readiness-simple";
 import NotFound from "@/pages/not-found";
 
 function Router() {
