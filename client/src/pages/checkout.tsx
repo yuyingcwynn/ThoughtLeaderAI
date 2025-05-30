@@ -88,7 +88,7 @@ export default function Checkout() {
               transition={{ duration: 0.5 }}
             >
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">
-                Choose Your Consultation Package
+                Book AI Expertise Call
               </h2>
               
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -104,7 +104,7 @@ export default function Checkout() {
                       </div>
                     )}
                     <Card 
-                      className={`cursor-pointer transition-all duration-300 hover:shadow-xl ${
+                      className={`cursor-pointer transition-all duration-300 hover:shadow-xl h-80 flex flex-col ${
                         pkg.popular ? 'ring-2 ring-primary' : ''
                       }`}
                       onClick={() => handlePackageSelect(pkg)}
@@ -114,11 +114,11 @@ export default function Checkout() {
                         <CardTitle className="text-xl">{pkg.duration}</CardTitle>
                         <div className="text-3xl font-bold gradient-text">{pkg.displayPrice}</div>
                       </CardHeader>
-                      <CardContent className="text-center">
+                      <CardContent className="text-center flex-1 flex flex-col justify-between">
                         <p className="text-gray-600 dark:text-gray-300 mb-4">
                           {pkg.description}
                         </p>
-                        <Button className="w-full gradient-bg text-white hover:shadow-lg transition-all duration-200">
+                        <Button className="w-full gradient-bg text-white hover:shadow-lg transition-all duration-200 mt-auto">
                           Book Now
                         </Button>
                       </CardContent>
