@@ -84,7 +84,7 @@ export default function AIReadiness() {
         "Building custom AI applications and automated systems",
         "Fine-tuning models and advanced AI development"
       ],
-      context: "Rate your skill level for each area (0-5): 0 = zero knowledge, 5 = I know it and keep up to date"
+      context: "Rate your skill level for each area (0-5): 0 = not at all, 5 = mastery and keeping up to date"
     }
   ];
 
@@ -375,6 +375,8 @@ export default function AIReadiness() {
                             ? 'not aware of any disruption' 
                             : currentQuestionData.id === 'usecases'
                             ? 'don\'t know any use cases'
+                            : currentQuestionData.id === 'skills'
+                            ? 'not at all'
                             : 'zero knowledge'}
                         </span>
                         <div className="flex space-x-2">
@@ -399,6 +401,8 @@ export default function AIReadiness() {
                             ? 'understand business model and industry disruption with timeline' 
                             : currentQuestionData.id === 'usecases'
                             ? 'know all the best ones and keep up to date'
+                            : currentQuestionData.id === 'skills'
+                            ? 'mastery and keeping up to date'
                             : 'I know it and keep up to date'}
                         </span>
                       </div>
