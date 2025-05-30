@@ -19,10 +19,10 @@ export default function Navigation() {
   }, []);
 
   const navItems = [
-    { name: "Home", href: "#home", isRoute: false },
+    { name: "Home", href: "/", isRoute: true },
+    { name: "About", href: "/about", isRoute: true },
     { name: "Services", href: "#services", isRoute: false },
     { name: "Content", href: "#content", isRoute: false },
-    { name: "About", href: "#about", isRoute: false },
     { name: "Contact", href: "/contact", isRoute: true }
   ];
 
