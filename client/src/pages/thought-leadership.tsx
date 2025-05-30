@@ -7,6 +7,7 @@ import Footer from "@/components/footer";
 import notOldBoxesImage from "@assets/NotOldBoxes.jpg";
 import customAppImage from "@assets/CustomApp.jpg";
 import aiGovImage from "@assets/AiGov.jpg";
+import archetypesImage from "@assets/archtypes.png";
 
 interface ContentItem {
   id: string;
@@ -45,6 +46,15 @@ export default function ThoughtLeadership() {
       type: "article",
       image: aiGovImage,
       link: "https://open.substack.com/pub/yuying/p/ai-governance-reality-check?r=2h7nta&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true",
+      publishDate: "Recent"
+    },
+    {
+      id: "thriving-age-ai-archetypes",
+      title: "Thriving in the Age of AI: Four Archetypes for a New Era",
+      description: "Identifying the four key professional archetypes that will define success in an AI-driven workplace and how to position yourself for the future",
+      type: "article",
+      image: archetypesImage,
+      link: "https://www.linkedin.com/pulse/thriving-age-ai-four-archetypes-new-era-yuying-chen-wynn-tnb1c/?trackingId=9G49XmhNSW6htWijDbVt9w%3D%3D",
       publishDate: "Recent"
     }
   ];
