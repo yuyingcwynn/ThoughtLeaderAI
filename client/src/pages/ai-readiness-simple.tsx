@@ -90,69 +90,91 @@ export default function AIReadiness() {
 
   const enterpriseQuestions = [
     {
-      category: "AI Strategy",
-      question: "Does your organization have a comprehensive AI strategy?",
+      category: "AI Strategy & Vision",
+      question: "How mature is your organization's AI strategy and strategic vision?",
       options: [
-        "No formal AI strategy exists",
-        "Basic AI exploration and pilot projects", 
-        "Defined AI strategy with clear objectives",
-        "Comprehensive AI strategy with implementation roadmap",
-        "Advanced AI-native strategy with continuous evolution"
+        "No formal AI strategy; ad-hoc AI initiatives without clear direction",
+        "Basic AI exploration with some pilot projects but no unified strategy", 
+        "Defined AI strategy with clear objectives and business alignment",
+        "Comprehensive AI strategy with detailed roadmap and success metrics",
+        "AI-native strategic vision with continuous evolution and market leadership focus"
       ]
     },
     {
-      category: "Data Infrastructure",
-      question: "How mature is your organization's data infrastructure for AI?",
+      category: "Data Architecture & Management",
+      question: "What is the maturity of your data infrastructure and AI-readiness?",
       options: [
-        "Limited data organization and accessibility",
-        "Basic data management and some AI-ready datasets",
-        "Well-organized data with AI integration capabilities", 
-        "Advanced data architecture optimized for AI workloads",
-        "AI-native data infrastructure with real-time processing"
+        "Siloed data systems with limited accessibility and poor quality",
+        "Basic data management with some centralized repositories",
+        "Well-organized data lakes/warehouses with good governance", 
+        "Advanced data architecture with real-time processing and AI optimization",
+        "AI-native data infrastructure with automated pipelines and edge computing"
       ]
     },
     {
-      category: "Technical Capabilities", 
-      question: "What is your organization's technical AI implementation capability?",
+      category: "Technical Capabilities & Talent", 
+      question: "How advanced are your organization's AI technical capabilities and talent pool?",
       options: [
-        "No dedicated AI technical resources",
-        "Basic AI tools and external vendor reliance",
-        "Internal AI development team and capabilities",
-        "Advanced AI engineering and custom model development",
-        "Cutting-edge AI research and innovation capabilities"
+        "No dedicated AI expertise; relying entirely on external vendors",
+        "Basic AI literacy with limited technical implementation capability",
+        "Internal AI development team with standard model deployment skills",
+        "Advanced AI engineering with custom model development and MLOps",
+        "World-class AI research capabilities with cutting-edge innovation and IP creation"
       ]
     },
     {
-      category: "Governance & Risk",
-      question: "How advanced is your AI governance and risk management?", 
+      category: "AI Governance & Ethics",
+      question: "How comprehensive is your AI governance, ethics, and risk management framework?", 
       options: [
-        "No formal AI governance framework",
-        "Basic AI usage policies and guidelines",
-        "Structured AI governance with risk assessment",
-        "Comprehensive AI ethics and compliance framework",
-        "Advanced AI safety and responsible AI leadership"
+        "No formal AI governance; unmanaged AI usage across organization",
+        "Basic AI usage policies with minimal oversight and compliance",
+        "Structured AI governance with documented policies and risk assessment",
+        "Comprehensive AI ethics framework with regular audits and compliance monitoring",
+        "Industry-leading responsible AI practices with proactive safety measures and transparency"
       ]
     },
     {
-      category: "Culture & Adoption",
-      question: "What is your organization's AI adoption and culture maturity?",
+      category: "Organizational Culture & Change Management",
+      question: "How mature is your organization's AI culture and change management approach?",
       options: [
-        "Limited AI awareness and resistance to change",
-        "Growing AI interest with isolated adoption",
-        "Widespread AI adoption across departments",
-        "AI-first culture with systematic integration", 
-        "AI-native organization with continuous innovation"
+        "Significant resistance to AI adoption with limited awareness",
+        "Growing AI interest but with siloed adoption and minimal training",
+        "Organization-wide AI literacy programs with systematic adoption",
+        "AI-first culture with comprehensive training and cross-functional collaboration", 
+        "AI-native organization with continuous learning and innovation mindset"
       ]
     },
     {
-      category: "Business Impact",
-      question: "What level of business impact has AI achieved in your organization?",
+      category: "Business Impact & Value Creation",
+      question: "What level of measurable business impact has AI delivered in your organization?",
       options: [
-        "No measurable AI business impact",
-        "Limited efficiency gains in specific areas",
-        "Significant productivity improvements and cost savings",
-        "Transformational business outcomes and new capabilities",
-        "AI-driven competitive advantage and market leadership"
+        "No measurable business impact from AI initiatives",
+        "Limited efficiency gains in isolated use cases with unclear ROI",
+        "Significant productivity improvements with documented cost savings",
+        "Transformational business outcomes with new revenue streams and capabilities",
+        "AI-driven competitive advantage with market disruption and industry leadership"
+      ]
+    },
+    {
+      category: "AI Operations & Scalability",
+      question: "How mature are your AI operations, monitoring, and scalability practices?",
+      options: [
+        "No systematic AI operations; models deployed without monitoring",
+        "Basic model deployment with minimal monitoring and maintenance",
+        "Structured MLOps with automated deployment and basic monitoring",
+        "Advanced AI operations with comprehensive monitoring, A/B testing, and optimization",
+        "Enterprise-scale AI platform with automated operations, continuous improvement, and global deployment"
+      ]
+    },
+    {
+      category: "AI Security & Compliance",
+      question: "How advanced is your AI security posture and regulatory compliance approach?",
+      options: [
+        "No specific AI security measures; standard IT security applied to AI systems",
+        "Basic AI security awareness with some additional protections for AI systems",
+        "Dedicated AI security protocols with threat modeling and incident response",
+        "Comprehensive AI security framework with advanced threat detection and compliance automation",
+        "Industry-leading AI security with zero-trust architecture, continuous monitoring, and regulatory excellence"
       ]
     }
   ];
@@ -181,11 +203,11 @@ export default function AIReadiness() {
   };
 
   const getEnterpriseMaturityLevel = (score: number) => {
-    if (score <= 6) return { level: "Exploring", color: "bg-red-500", description: "Early AI exploration phase" };
-    if (score <= 12) return { level: "Developing", color: "bg-orange-500", description: "Building AI capabilities" };
-    if (score <= 18) return { level: "Scaling", color: "bg-yellow-500", description: "Systematic AI deployment" };
-    if (score <= 24) return { level: "Leading", color: "bg-blue-500", description: "AI-driven transformation" };
-    return { level: "AI-Native", color: "bg-green-500", description: "AI-first organization" };
+    if (score <= 8) return { level: "Exploring", color: "bg-red-500", description: "Early AI exploration phase" };
+    if (score <= 16) return { level: "Developing", color: "bg-orange-500", description: "Building foundational AI capabilities" };
+    if (score <= 24) return { level: "Scaling", color: "bg-yellow-500", description: "Systematic AI deployment and integration" };
+    if (score <= 32) return { level: "Leading", color: "bg-blue-500", description: "AI-driven transformation and innovation" };
+    return { level: "AI-Native", color: "bg-green-500", description: "Industry-leading AI-first organization" };
   };
 
   const handlePersonalRating = (bulletId: string, rating: number) => {
@@ -518,7 +540,7 @@ export default function AIReadiness() {
   const renderResults = () => {
     const isPersonal = currentQuiz === 'personal';
     const score = isPersonal ? getPersonalScore() : getEnterpriseScore();
-    const maxScore = isPersonal ? getTotalBullets() * 5 : 30;
+    const maxScore = isPersonal ? getTotalBullets() * 5 : 40;
     const readiness = isPersonal ? getPersonalReadinessLevel(score) : getEnterpriseMaturityLevel(score);
     const percentage = Math.round((score / maxScore) * 100);
 
