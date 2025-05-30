@@ -2,10 +2,12 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { useLocation } from "wouter";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [, setLocation] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,17 +19,21 @@ export default function Navigation() {
   }, []);
 
   const navItems = [
-    { name: "Home", href: "#home" },
-    { name: "Services", href: "#services" },
-    { name: "Content", href: "#content" },
-    { name: "About", href: "#about" },
-    { name: "Contact", href: "#contact" }
+    { name: "Home", href: "#home", isRoute: false },
+    { name: "Services", href: "#services", isRoute: false },
+    { name: "Content", href: "#content", isRoute: false },
+    { name: "About", href: "#about", isRoute: false },
+    { name: "Contact", href: "/contact", isRoute: true }
   ];
 
-  const handleNavClick = (href: string) => {
-    const element = document.getElementById(href.slice(1));
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+  const handleNavClick = (href: string, isRoute: boolean) => {
+    if (isRoute) {
+      setLocation(href);
+    } else {
+      const element = document.getElementById(href.slice(1));
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
     setIsOpen(false);
   };
@@ -54,7 +60,7 @@ export default function Navigation() {
               {navItems.map((item) => (
                 <button
                   key={item.name}
-                  onClick={() => handleNavClick(item.href)}
+                  onClick={() => handleNavClick(item.href, item.isRoute)}
                   className="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors duration-200 font-medium"
                 >
                   {item.name}
@@ -91,7 +97,7 @@ export default function Navigation() {
           {navItems.map((item) => (
             <button
               key={item.name}
-              onClick={() => handleNavClick(item.href)}
+              onClick={() => handleNavClick(item.href, item.isRoute)}
               className="block w-full text-left px-3 py-2 text-gray-600 dark:text-gray-300 hover:text-primary transition-colors duration-200"
             >
               {item.name}
