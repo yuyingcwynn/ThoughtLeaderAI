@@ -6,6 +6,7 @@ import beelieveLogo from "@assets/image_1748588236796.png";
 import nyTechWeekLogo from "@assets/image_1748588288028.png";
 import mitSloanLogo from "@assets/image_1748588335252.png";
 import kelloggLogo from "@assets/image_1748588359680.png";
+import uclaLogo from "@assets/image_1748588397492.png";
 
 export default function AboutSection() {
   const achievements = [
@@ -189,6 +190,7 @@ export default function AboutSection() {
                 <div className="flex space-x-2">
                   <img src={mitSloanLogo} alt="MIT Sloan School of Management" className="h-8 w-auto" />
                   <img src={kelloggLogo} alt="Northwestern Kellogg School of Management" className="h-8 w-auto" />
+                  <img src={uclaLogo} alt="UCLA Anderson School of Management" className="h-8 w-auto" />
                 </div>
                 <div>
                   <h5 className="font-medium text-gray-900 dark:text-white">MBA Programs</h5>
