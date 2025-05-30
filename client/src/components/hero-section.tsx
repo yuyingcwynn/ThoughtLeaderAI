@@ -26,10 +26,10 @@ export default function HeroSection() {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-tight mb-6">
-              Transform Your Business with <span className="gradient-text">AI</span>. Actually.
+              Turn AI Hype Into <span className="gradient-text">Business Results</span> Without the 85% Failure Rate
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-              I'm Yuying Chen-Wynn, Head of AI at PEAK6. I've delivered $10M+ in savings and $500M in valuation increases across 6 companies. Let me do the same for yours.
+              I'm Yuying Chen-Wynn, Head of AI at PEAK6. While 85% of AI projects fail, I've delivered $10M+ in savings and $500M in valuation increases across 6 companies with proven frameworks that actually work.
             </p>
             
             {/* Trust indicators */}
