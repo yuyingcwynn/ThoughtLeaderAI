@@ -210,6 +210,119 @@ export default function AIReadiness() {
     return { level: "AI-Native", color: "bg-green-500", description: "Industry-leading AI-first organization" };
   };
 
+  const getDetailedEnterpriseAssessment = () => {
+    const answers = enterpriseAnswers;
+    const score = getEnterpriseScore();
+    const maturityLevel = getEnterpriseMaturityLevel(score);
+    
+    // Analyze weakest areas (lowest scores)
+    const categoryScores = answers.map((answer, index) => ({
+      category: enterpriseQuestions[index].category,
+      score: answer || 0,
+      index
+    })).sort((a, b) => a.score - b.score);
+    
+    const weakestAreas = categoryScores.slice(0, 3);
+    const strongestAreas = categoryScores.slice(-2);
+
+    // Generate specific struggles based on lowest scoring areas
+    const generateStruggles = () => {
+      const struggles = [];
+      
+      if (answers[0] <= 2) { // Leadership Awareness & Communication
+        struggles.push("Leadership lacks clear AI vision and communication strategy, creating uncertainty about organizational direction and priorities.");
+      }
+      
+      if (answers[1] <= 2) { // Employee Engagement & Interest
+        struggles.push("Limited employee engagement mechanisms result in missed opportunities to harness internal AI enthusiasm and expertise.");
+      }
+      
+      if (answers[2] <= 2) { // Learning & Discovery Opportunities
+        struggles.push("Insufficient learning resources and exploration time prevent employees from developing necessary AI skills and discovering valuable use cases.");
+      }
+      
+      if (answers[3] <= 2) { // Internal Tools & Capabilities
+        struggles.push("Heavy reliance on external solutions without internal AI capabilities limits customization and creates vendor dependencies.");
+      }
+      
+      if (answers[4] <= 2) { // Process & Governance Framework
+        struggles.push("Lack of formal AI governance processes creates compliance risks and inconsistent implementation across the organization.");
+      }
+      
+      if (answers[5] <= 2) { // Business Outcomes & Value Delivery
+        struggles.push("Difficulty demonstrating clear business value from AI initiatives undermines stakeholder confidence and future investment.");
+      }
+      
+      if (answers[6] <= 2) { // Organizational Culture & Adoption
+        struggles.push("Cultural resistance to AI adoption slows implementation and prevents organization-wide transformation.");
+      }
+      
+      if (answers[7] <= 2) { // Operational Excellence & Scaling
+        struggles.push("Ad-hoc implementation approaches without systematic scaling frameworks limit AI's organizational impact.");
+      }
+
+      return struggles.length > 0 ? struggles : ["General challenges with AI strategy alignment and organizational readiness."];
+    };
+
+    // Generate specific recommendations based on maturity level and weak areas
+    const generateRecommendations = () => {
+      const recommendations = [];
+      
+      if (score <= 8) { // Exploring phase
+        recommendations.push("Establish executive sponsorship and develop a clear AI vision statement with measurable goals.");
+        recommendations.push("Conduct organization-wide AI literacy training to build foundational understanding.");
+        recommendations.push("Start with low-risk pilot projects in non-critical business areas to build confidence.");
+        recommendations.push("Create cross-functional AI working groups to explore potential use cases.");
+      } else if (score <= 16) { // Developing phase
+        recommendations.push("Implement structured channels for employee AI engagement and feedback collection.");
+        recommendations.push("Develop comprehensive learning programs with dedicated time for AI exploration.");
+        recommendations.push("Establish basic AI governance policies and risk assessment frameworks.");
+        recommendations.push("Document and scale successful pilot projects across similar use cases.");
+      } else if (score <= 24) { // Scaling phase
+        recommendations.push("Build internal AI capabilities and reduce dependency on external vendors.");
+        recommendations.push("Implement advanced AI governance with regular audits and compliance monitoring.");
+        recommendations.push("Create centers of excellence to drive best practices across business units.");
+        recommendations.push("Develop systematic approaches for measuring and communicating business value.");
+      } else if (score <= 32) { // Leading phase
+        recommendations.push("Focus on operational excellence with automated deployment and monitoring systems.");
+        recommendations.push("Develop proprietary AI capabilities that create competitive advantages.");
+        recommendations.push("Establish thought leadership through industry participation and knowledge sharing.");
+        recommendations.push("Create AI-first culture with embedded innovation processes.");
+      } else { // AI-Native phase
+        recommendations.push("Drive industry standards and best practices through leadership initiatives.");
+        recommendations.push("Continuously evolve AI capabilities with cutting-edge research and development.");
+        recommendations.push("Mentor other organizations and contribute to the broader AI ecosystem.");
+        recommendations.push("Maintain competitive advantage through continuous innovation and adaptation.");
+      }
+
+      // Add specific recommendations based on weakest areas
+      weakestAreas.forEach(area => {
+        if (area.index === 0 && area.score <= 2) {
+          recommendations.push("Priority: Develop executive AI communication strategy with regular organizational updates.");
+        }
+        if (area.index === 1 && area.score <= 2) {
+          recommendations.push("Priority: Implement employee AI suggestion programs and innovation challenges.");
+        }
+        if (area.index === 2 && area.score <= 2) {
+          recommendations.push("Priority: Allocate dedicated time and budget for AI learning and experimentation.");
+        }
+        if (area.index === 3 && area.score <= 2) {
+          recommendations.push("Priority: Invest in internal AI talent acquisition and capability development.");
+        }
+      });
+
+      return recommendations;
+    };
+
+    return {
+      maturityLevel: maturityLevel.level,
+      currentStruggles: generateStruggles(),
+      recommendations: generateRecommendations(),
+      weakestAreas: weakestAreas.map(area => area.category),
+      strongestAreas: strongestAreas.map(area => area.category)
+    };
+  };
+
   const handlePersonalRating = (bulletId: string, rating: number) => {
     setPersonalRatings(prev => ({
       ...prev,
@@ -727,10 +840,10 @@ export default function AIReadiness() {
                         </div>
 
                         {/* Goals */}
-                        <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-3 mb-2 w-full h-28 flex flex-col">
+                        <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-3 mb-2 w-full min-h-[120px] flex flex-col">
                           <h4 className="font-semibold text-xs text-gray-900 dark:text-white mb-1">Goals</h4>
-                          <ul className="text-xs text-gray-600 dark:text-gray-300 space-y-0.5 flex-1 overflow-y-auto">
-                            {phase.goals.slice(0, 4).map((goal, goalIndex) => (
+                          <ul className="text-xs text-gray-600 dark:text-gray-300 space-y-0.5">
+                            {phase.goals.map((goal, goalIndex) => (
                               <li key={goalIndex} className="text-xs leading-tight">
                                 • {goal}
                               </li>
@@ -739,32 +852,103 @@ export default function AIReadiness() {
                         </div>
 
                         {/* Activities */}
-                        <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-3 mb-2 w-full h-16 flex flex-col">
+                        <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-3 mb-2 w-full min-h-[60px] flex flex-col">
                           <h4 className="font-semibold text-xs text-blue-900 dark:text-blue-300 mb-1">Activities</h4>
-                          <p className="text-xs text-blue-700 dark:text-blue-400 flex-1 overflow-y-auto leading-tight">{phase.activities}</p>
+                          <p className="text-xs text-blue-700 dark:text-blue-400 leading-tight">{phase.activities}</p>
                         </div>
 
                         {/* People */}
-                        <div className="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-3 w-full h-14 flex flex-col">
+                        <div className="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-3 w-full min-h-[50px] flex flex-col">
                           <h4 className="font-semibold text-xs text-purple-900 dark:text-purple-300 mb-1">People</h4>
-                          <p className="text-xs text-purple-700 dark:text-purple-400 flex-1 overflow-y-auto leading-tight">{phase.people}</p>
+                          <p className="text-xs text-purple-700 dark:text-purple-400 leading-tight">{phase.people}</p>
                         </div>
                       </div>
                     );
                   })}
                 </div>
 
-                {/* Current Status Summary */}
-                <div className="bg-gradient-to-r from-primary/10 to-primary/5 rounded-lg p-6 text-center">
-                  <h3 className="font-bold text-xl text-gray-900 dark:text-white mb-2">
-                    Current Maturity: {readiness.level}
-                  </h3>
-                  <p className="text-lg text-gray-700 dark:text-gray-300 mb-2">
-                    Score: {score}/40 points
-                  </p>
-                  <p className="text-gray-600 dark:text-gray-400">
-                    {readiness.description}
-                  </p>
+                {/* Detailed Assessment Summary */}
+                <div className="space-y-6">
+                  {(() => {
+                    const assessment = getDetailedEnterpriseAssessment();
+                    return (
+                      <>
+                        {/* Current Maturity Overview */}
+                        <div className="bg-gradient-to-r from-primary/10 to-primary/5 rounded-lg p-6 text-center">
+                          <h3 className="font-bold text-2xl text-gray-900 dark:text-white mb-2">
+                            Current Maturity: {assessment.maturityLevel}
+                          </h3>
+                          <p className="text-lg text-gray-700 dark:text-gray-300 mb-2">
+                            Score: {score}/40 points
+                          </p>
+                          <p className="text-gray-600 dark:text-gray-400">
+                            {readiness.description}
+                          </p>
+                        </div>
+
+                        {/* Current Struggles */}
+                        <div className="bg-red-50 dark:bg-red-900/20 rounded-lg p-6">
+                          <h4 className="font-bold text-lg text-red-900 dark:text-red-300 mb-4 flex items-center">
+                            <span className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center text-white text-sm mr-3">!</span>
+                            Current Implementation Challenges
+                          </h4>
+                          <ul className="space-y-3">
+                            {assessment.currentStruggles.map((struggle, index) => (
+                              <li key={index} className="text-red-800 dark:text-red-200 flex items-start">
+                                <span className="text-red-500 mr-2 mt-1">•</span>
+                                <span className="leading-relaxed">{struggle}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        {/* Recommendations */}
+                        <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-6">
+                          <h4 className="font-bold text-lg text-green-900 dark:text-green-300 mb-4 flex items-center">
+                            <span className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white text-sm mr-3">✓</span>
+                            Strategic Recommendations
+                          </h4>
+                          <ul className="space-y-3">
+                            {assessment.recommendations.map((recommendation, index) => (
+                              <li key={index} className="text-green-800 dark:text-green-200 flex items-start">
+                                <span className="text-green-500 mr-2 mt-1">•</span>
+                                <span className="leading-relaxed">{recommendation}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        {/* Areas of Focus */}
+                        <div className="grid md:grid-cols-2 gap-6">
+                          <div className="bg-orange-50 dark:bg-orange-900/20 rounded-lg p-6">
+                            <h4 className="font-bold text-lg text-orange-900 dark:text-orange-300 mb-3">
+                              Priority Areas for Improvement
+                            </h4>
+                            <ul className="space-y-2">
+                              {assessment.weakestAreas.slice(0, 3).map((area, index) => (
+                                <li key={index} className="text-orange-800 dark:text-orange-200 text-sm">
+                                  • {area}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                          
+                          <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-6">
+                            <h4 className="font-bold text-lg text-blue-900 dark:text-blue-300 mb-3">
+                              Current Strengths
+                            </h4>
+                            <ul className="space-y-2">
+                              {assessment.strongestAreas.map((area, index) => (
+                                <li key={index} className="text-blue-800 dark:text-blue-200 text-sm">
+                                  • {area}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+                      </>
+                    );
+                  })()}
                 </div>
               </div>
             </CardContent>
