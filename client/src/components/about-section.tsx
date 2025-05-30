@@ -143,10 +143,10 @@ export default function AboutSection() {
           viewport={{ once: true }}
         >
           <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">Trusted by Industry Leaders</h4>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-items-center opacity-60">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center opacity-60">
               <div className="text-center">
                 <div className="text-2xl font-bold text-gray-600 dark:text-gray-400">PEAK6</div>
-                <div className="text-xs text-gray-500">$38B AUM</div>
+                <div className="text-xs text-gray-500">and portfolio of companies</div>
               </div>
               <div className="text-center">
                 <div className="text-2xl font-bold text-gray-600 dark:text-gray-400">Tencent</div>
@@ -157,16 +157,12 @@ export default function AboutSection() {
                 <div className="text-xs text-gray-500">Education</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-gray-600 dark:text-gray-400">ABCmouse</div>
-                <div className="text-xs text-gray-500">Age of Learning</div>
+                <div className="text-2xl font-bold text-gray-600 dark:text-gray-400">Age of Learning</div>
+                <div className="text-xs text-gray-500">ABCmouse</div>
               </div>
               <div className="text-center">
                 <div className="text-2xl font-bold text-gray-600 dark:text-gray-400">EF Education</div>
                 <div className="text-xs text-gray-500">Global</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-gray-600 dark:text-gray-400">CoreWeave</div>
-                <div className="text-xs text-gray-500">Investment</div>
               </div>
             </div>
         </motion.div>
