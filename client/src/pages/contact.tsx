@@ -67,10 +67,6 @@ export default function Contact() {
     });
   };
 
-  const goBack = () => {
-    setLocation("/");
-  };
-
   const socialLinks = [
     { icon: Linkedin, url: EXTERNAL_LINKS.linkedin, bg: "bg-blue-600", hover: "hover:bg-blue-700" },
     { icon: Youtube, url: EXTERNAL_LINKS.youtube, bg: "bg-red-600", hover: "hover:bg-red-700" },
