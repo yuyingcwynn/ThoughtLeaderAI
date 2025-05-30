@@ -29,7 +29,7 @@ export default function HeroSection() {
               Turn AI Hype Into <span className="gradient-text">Business Results</span> Without the 85% Failure Rate
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-              I'm Yuying Chen-Wynn, Head of AI at PEAK6. While 85% of AI projects fail, I've delivered $10M+ in savings and $500M in valuation increases across 6 companies with proven frameworks that actually work.
+              I'm Yuying Chen-Wynn, Former Head of AI at PEAK6. While 85% of AI projects fail, I've delivered $30M+ in savings and $500M in valuation increases across 9 companies with proven frameworks that actually work.
             </p>
             
             {/* Trust indicators */}
@@ -54,7 +54,7 @@ export default function HeroSection() {
                 className="gradient-bg text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200 border-0"
               >
                 <Calendar className="mr-2 h-5 w-5" />
-                Book AI Strategy Call
+                Book AI Expert Call
               </Button>
               <Button 
                 variant="outline"

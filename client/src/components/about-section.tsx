@@ -5,7 +5,7 @@ import yuyingPortrait from "@assets/YuyingChenWynn_10x12_300dpi.jpg";
 export default function AboutSection() {
   const achievements = [
     { value: "87%", label: "GenAI Platform Adoption" },
-    { value: "$10M+", label: "Annual Efficiency Savings" },
+    { value: "$30M+", label: "Annual Efficiency Savings" },
     { value: "$200M", label: "AI Investment Portfolio" },
     { value: "15+", label: "Years AI/ML Experience" }
   ];
@@ -63,8 +63,7 @@ export default function AboutSection() {
             </div>
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
               I bridge the gap between AI possibility and business reality with proven frameworks, hands-on implementation, and measurable results. 
-              $200M in AI investments, and $500M in valuation increase. My expertise spans generative AI platforms, 
-              AI risk governance, and enterprise transformation.
+              My expertise spans generative AI platforms, AI risk governance, and enterprise transformation.
             </p>
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
               With 15+ years building AI/ML products and 20+ years in FinTech, EdTech, and Big Tech, 

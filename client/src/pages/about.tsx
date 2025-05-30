@@ -6,7 +6,7 @@ import Footer from "@/components/footer";
 export default function About() {
   const achievements = [
     { value: "87%", label: "GenAI Platform Adoption" },
-    { value: "$10M+", label: "Annual Efficiency Savings" },
+    { value: "$30M+", label: "Annual Efficiency Savings" },
     { value: "$200M", label: "AI Investment Portfolio" },
     { value: "15+", label: "Years AI/ML Experience" }
   ];
@@ -31,6 +31,11 @@ export default function About() {
       title: "VP International Products - Age of Learning",
       period: "2018 - 2021",
       description: "Built first AI-native adaptive learning product, growing from 0 to $65M annual revenue with 7X revenue gains in Year 2."
+    },
+    {
+      title: "VP of Product - EF Education",
+      period: "2014 - 2018",
+      description: "Sustained highest-ever revenue levels for 5 straight months YOY despite 20-year-old business,directing single largest technology transformation"
     }
   ];
 

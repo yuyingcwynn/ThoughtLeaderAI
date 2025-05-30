@@ -162,7 +162,7 @@ export default function Home() {
                     onClick={() => window.location.href = '/checkout'}
                     className="w-full gradient-bg text-white font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
                   >
-                    Book Strategy Call
+                    Book AI Expert Call
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </div>

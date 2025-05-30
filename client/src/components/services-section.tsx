@@ -35,7 +35,7 @@ export default function ServicesSection() {
       title: "Enterprise AI Enablement",
       description: "Hackathons, strategy offsites, and culture transformation. 3-day hackathons and 2-day strategy intensives for organizational AI adoption.",
       price: "Enterprise Package",
-      buttonText: "Schedule Event",
+      buttonText: "Learn More",
       buttonAction: () => setLocation("/contact?service=enterprise-ai-enablement"),
       gradient: false
     },
