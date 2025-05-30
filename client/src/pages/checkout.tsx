@@ -21,7 +21,7 @@ const packages = [
     displayPrice: "$500", 
     popular: true,
     calendlyUrl: "https://calendly.com/yuyingcwynn/ai-expertise-1hr",
-    description: "Deep dive into AI strategy and implementation"
+    description: "Focused discussion in one AI domain"
   },
   { 
     duration: "90 minutes", 
@@ -29,7 +29,7 @@ const packages = [
     displayPrice: "$700", 
     popular: false,
     calendlyUrl: "https://calendly.com/yuyingcwynn/ai-expertise-90m",
-    description: "Comprehensive AI transformation planning"
+    description: "AI platform due diligence or AI strategy consultation"
   },
   { 
     duration: "2 hours", 
@@ -37,7 +37,7 @@ const packages = [
     displayPrice: "$900", 
     popular: false,
     calendlyUrl: "https://calendly.com/yuyingcwynn/ai-expertise-2hr",
-    description: "Extended strategy session with detailed roadmap"
+    description: "Deep dive into AI strategy and implementation focus"
   }
 ];
 
