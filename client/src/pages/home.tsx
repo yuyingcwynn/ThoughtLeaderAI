@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import HeroSection from "@/components/hero-section";
-import ServicesSection from "@/components/services-section";
 import ContentHubSection from "@/components/content-hub-section";
 import Footer from "@/components/footer";
 
@@ -32,7 +31,6 @@ export default function Home() {
     <div className="min-h-screen bg-background">
       <Navigation />
       <HeroSection />
-      <ServicesSection />
       <ContentHubSection />
       <Footer />
     </div>

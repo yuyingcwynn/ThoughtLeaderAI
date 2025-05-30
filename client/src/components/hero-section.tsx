@@ -2,14 +2,17 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Calendar, ArrowRight } from "lucide-react";
 import yuyingPortrait from "@assets/YuyingChenWynn_10x12_300dpi.jpg";
+import { useLocation } from "wouter";
 
 export default function HeroSection() {
-  const scrollToServices = () => {
-    document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+  const [, setLocation] = useLocation();
+
+  const goToServices = () => {
+    setLocation('/services');
   };
 
-  const scrollToBooking = () => {
-    document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+  const goToBooking = () => {
+    setLocation('/checkout');
   };
 
   return (
@@ -34,7 +37,7 @@ export default function HeroSection() {
             
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
-                onClick={scrollToBooking}
+                onClick={goToBooking}
                 className="gradient-bg text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200 border-0"
               >
                 <Calendar className="mr-2 h-5 w-5" />
@@ -42,7 +45,7 @@ export default function HeroSection() {
               </Button>
               <Button 
                 variant="outline"
-                onClick={scrollToServices}
+                onClick={goToServices}
                 className="border-2 border-primary text-primary px-8 py-4 rounded-full font-semibold hover:bg-primary hover:text-white transition-all duration-200"
               >
                 Explore Services
