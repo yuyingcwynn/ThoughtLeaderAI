@@ -519,6 +519,128 @@ export default function ThoughtLeadership() {
         </div>
       </section>
 
+      {/* Industry Podcast Appearances */}
+      <section className="py-16 bg-white dark:bg-gray-900">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+              Industry Podcast Appearances
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              Sharing insights on AI innovation, product leadership, and technology transformation across leading industry podcasts.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6"
+            >
+              <div className="flex items-start space-x-3 mb-3">
+                <span className="text-2xl">🎧</span>
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Technocratic Podcast</h3>
+              </div>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">
+                Yuying shares her journey from designing LEGO Mindstorm's second-generation CPU at MIT to leading AI initiatives at PEAK6. 
+                The conversation delves into AI adoption, its impact on product management, and the pace of AI innovation.
+              </p>
+              <a 
+                href="https://open.spotify.com/episode/62iubXuM2RB3Umftr8Ps4A"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium"
+              >
+                Listen on Spotify →
+              </a>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6"
+            >
+              <div className="flex items-start space-x-3 mb-3">
+                <span className="text-2xl">🧠</span>
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Women In Product – Path to CPO</h3>
+              </div>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">
+                Yuying discusses her unique journey to becoming the Chief Product Officer at Barnes & Noble Education. 
+                She emphasizes the value of being an "out-of-the-box" candidate in product leadership.
+              </p>
+              <a 
+                href="https://womenpm.org/podcast/episode-46-yuying-chen-wynn-chief-product-officer-barnes-noble-education-inc/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium"
+              >
+                Episode 46: Yuying Chen-Wynn →
+              </a>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6"
+            >
+              <div className="flex items-start space-x-3 mb-3">
+                <span className="text-2xl">🌐</span>
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Product Talk</h3>
+              </div>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">
+                Yuying talks about leveraging AI to scale product businesses, sharing lessons from her experience at Microsoft and PEAK6. 
+                She discusses the importance of timing in product development and the role of AI in automating content creation.
+              </p>
+              <a 
+                href="https://goodpods.com/podcasts/product-talk-92934/ep-426-peak6-head-of-ai-on-leveraging-ai-to-scale-product-businesses-60359226"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium"
+              >
+                EP 426: Leveraging AI to Scale Product Businesses →
+              </a>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6"
+            >
+              <div className="flex items-start space-x-3 mb-3">
+                <span className="text-2xl">🎓</span>
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Broken Education Podcast</h3>
+              </div>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">
+                Yuying discusses the role of AI in education and its potential to transform the sector. 
+                The conversation highlights the challenges and opportunities in integrating AI into educational tools and platforms.
+              </p>
+              <a 
+                href="https://goodpods.com/podcasts/product-talk-92934/ep-426-peak6-head-of-ai-on-leveraging-ai-to-scale-product-businesses-60359226"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium"
+              >
+                Yuying Chen-Wynn on Broken Education →
+              </a>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );
