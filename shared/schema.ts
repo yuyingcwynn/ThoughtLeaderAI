@@ -63,7 +63,10 @@ export const insertConsultationSchema = createInsertSchema(consultations).omit({
   createdAt: true,
   stripePaymentIntentId: true,
   status: true,
-  scheduledDate: true,
+}).partial({
+  userId: true,
+  company: true,
+  notes: true,
 });
 
 export const insertContactInquirySchema = createInsertSchema(contactInquiries).omit({

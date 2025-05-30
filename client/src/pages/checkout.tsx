@@ -134,8 +134,14 @@ export default function Checkout() {
     try {
       // Create consultation record and payment intent
       const response = await apiRequest("POST", "/api/create-consultation", {
-        ...bookingData,
+        firstName: bookingData.firstName,
+        lastName: bookingData.lastName,
+        email: bookingData.email,
+        company: bookingData.company || null,
+        serviceType: bookingData.serviceType,
+        notes: bookingData.notes || null,
         sessionType: "dial-an-ai-expert",
+        packageType: selectedPackage.duration,
         packageHours: selectedPackage.hours.toString(),
         amount: selectedPackage.price
       });
