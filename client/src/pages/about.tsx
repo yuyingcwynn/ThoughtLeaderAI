@@ -2,13 +2,8 @@ import { motion } from "framer-motion";
 import yuyingPortrait from "@assets/YuyingChenWynn_10x12_300dpi.jpg";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
-import { Button } from "@/components/ui/button";
-import { ArrowLeft } from "lucide-react";
-import { useLocation } from "wouter";
 
 export default function About() {
-  const [, setLocation] = useLocation();
-
   const achievements = [
     { value: "87%", label: "GenAI Platform Adoption" },
     { value: "$10M+", label: "Annual Efficiency Savings" },
@@ -39,25 +34,12 @@ export default function About() {
     }
   ];
 
-  const goBack = () => {
-    setLocation("/");
-  };
-
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
       <div className="pt-16">
         <section className="py-20 bg-white dark:bg-gray-800">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Button 
-              onClick={goBack}
-              variant="ghost" 
-              className="mb-8 text-gray-600 dark:text-gray-300 hover:text-primary"
-            >
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Home
-            </Button>
-
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <motion.div 
                 className="fade-in"

@@ -9,7 +9,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, Calendar, Linkedin, Youtube, FileText, ArrowLeft } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Calendar, Linkedin, Youtube, FileText } from "lucide-react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
@@ -17,12 +17,10 @@ import { insertContactInquirySchema, type InsertContactInquiry } from "@shared/s
 import { EXTERNAL_LINKS } from "@/lib/constants";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
-import { useLocation } from "wouter";
 
 export default function Contact() {
   const { toast } = useToast();
   const queryClient = useQueryClient();
-  const [, setLocation] = useLocation();
 
   const form = useForm<InsertContactInquiry>({
     resolver: zodResolver(insertContactInquirySchema),
@@ -85,15 +83,6 @@ export default function Contact() {
       <div className="pt-16">
         <section className="py-20 bg-gray-50 dark:bg-gray-900">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Button 
-              onClick={goBack}
-              variant="ghost" 
-              className="mb-8 text-gray-600 dark:text-gray-300 hover:text-primary"
-            >
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Home
-            </Button>
-            
             <motion.div 
               className="text-center mb-16 fade-in"
               initial={{ opacity: 0, y: 20 }}
