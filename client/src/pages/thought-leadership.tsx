@@ -5,6 +5,7 @@ import { ExternalLink, Play, FileText } from "lucide-react";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import notOldBoxesImage from "@assets/NotOldBoxes.jpg";
+import customAppImage from "@assets/CustomApp.jpg";
 
 interface ContentItem {
   id: string;
@@ -25,6 +26,15 @@ export default function ThoughtLeadership() {
       type: "article",
       image: notOldBoxesImage,
       link: "https://open.substack.com/pub/yuying/p/stop-forcing-ai-into-old-boxes?r=2h7nta&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true",
+      publishDate: "Recent"
+    },
+    {
+      id: "chatbots-to-custom-software",
+      title: "From Chatbots to Custom Software: The Real AI Revolution in Enterprise",
+      description: "Moving beyond simple chatbots to create truly transformative AI applications that drive business value and competitive advantage",
+      type: "article",
+      image: customAppImage,
+      link: "https://open.substack.com/pub/yuying/p/from-chatbots-to-custom-software?r=2h7nta&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true",
       publishDate: "Recent"
     }
   ];
