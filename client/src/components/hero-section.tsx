@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Calendar, ArrowRight } from "lucide-react";
+import yuyingPortrait from "@assets/YuyingChenWynn_10x12_300dpi.jpg";
 
 export default function HeroSection() {
   const scrollToServices = () => {
@@ -58,7 +59,7 @@ export default function HeroSection() {
           >
             <div className="hero-circle w-80 h-80 lg:w-96 lg:h-96 mx-auto relative">
               <img 
-                src="/attached_assets/YuyingChenWynn_10x12_300dpi.jpg" 
+                src={yuyingPortrait} 
                 alt="Yuying Chen-Wynn Professional Portrait" 
                 className="w-full h-full object-cover rounded-full shadow-2xl"
               />
