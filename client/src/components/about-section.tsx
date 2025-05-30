@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import yuyingPortrait from "@assets/YuyingChenWynn_10x12_300dpi.jpg";
+import aldrichLogo from "@assets/image_1748587792420.png";
 
 export default function AboutSection() {
   const achievements = [
@@ -147,9 +148,12 @@ export default function AboutSection() {
           <div className="mb-12">
             <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">Featured Speaker</h4>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-                <h5 className="font-medium text-gray-900 dark:text-white">CIO Conference</h5>
-                <p className="text-sm text-gray-600 dark:text-gray-300">AI Strategy & Implementation</p>
+              <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center space-x-3">
+                <img src={aldrichLogo} alt="Aldrich Capital Partners" className="h-8 w-auto" />
+                <div>
+                  <h5 className="font-medium text-gray-900 dark:text-white">Aldrich Capital Partners Technology Summit</h5>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">AI Strategy & Implementation</p>
+                </div>
               </div>
               <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
                 <h5 className="font-medium text-gray-900 dark:text-white">Responsible AI Conference</h5>
