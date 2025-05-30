@@ -16,8 +16,10 @@ export const consultations = pgTable("consultations", {
   company: text("company"),
   serviceType: text("service_type").notNull(),
   sessionType: text("session_type").notNull(), // "dial-an-ai-expert", "fractional-caio", "hackathon"
+  packageHours: text("package_hours"), // "0.5", "1", "5", "10" for AI expert sessions
   amount: integer("amount").notNull(), // in cents
   stripePaymentIntentId: text("stripe_payment_intent_id"),
+  calendlyEventId: text("calendly_event_id"), // for tracking Calendly bookings
   status: text("status").notNull().default("pending"), // "pending", "paid", "completed", "cancelled"
   scheduledDate: timestamp("scheduled_date"),
   notes: text("notes"),

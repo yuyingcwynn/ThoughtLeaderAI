@@ -82,6 +82,50 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Create consultation with payment intent (for package bookings)
+  app.post("/api/create-consultation", async (req, res) => {
+    try {
+      const consultationData = req.body;
+      
+      // Validate consultation data
+      const validatedData = insertConsultationSchema.parse(consultationData);
+      
+      // Create consultation record
+      const consultation = await storage.createConsultation(validatedData);
+      
+      // Create payment intent
+      const paymentIntent = await stripe.paymentIntents.create({
+        amount: consultationData.amount, // Already in cents
+        currency: "usd",
+        metadata: {
+          consultationId: consultation.id.toString(),
+          packageHours: consultationData.packageHours || "1",
+          sessionType: consultationData.sessionType,
+          clientEmail: validatedData.email
+        }
+      });
+
+      // Update consultation with payment intent ID
+      await storage.updateConsultationPaymentIntent(consultation.id, paymentIntent.id);
+
+      res.json({ 
+        clientSecret: paymentIntent.client_secret,
+        consultationId: consultation.id 
+      });
+    } catch (error: any) {
+      console.error("Create consultation error:", error);
+      if (error instanceof z.ZodError) {
+        return res.status(400).json({ 
+          message: "Validation error", 
+          errors: error.errors 
+        });
+      }
+      res.status(500).json({ 
+        message: "Error creating consultation: " + error.message 
+      });
+    }
+  });
+
   // Get consultation details
   app.get("/api/consultation/:id", async (req, res) => {
     try {

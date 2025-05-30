@@ -7,6 +7,7 @@ import Home from "@/pages/home";
 import About from "@/pages/about";
 import Services from "@/pages/services";
 import Checkout from "@/pages/checkout";
+import BookingSuccess from "@/pages/booking-success";
 import Contact from "@/pages/contact";
 import NotFound from "@/pages/not-found";
 
@@ -17,6 +18,7 @@ function Router() {
       <Route path="/about" component={About} />
       <Route path="/services" component={Services} />
       <Route path="/checkout" component={Checkout} />
+      <Route path="/booking-success" component={BookingSuccess} />
       <Route path="/contact" component={Contact} />
       <Route component={NotFound} />
     </Switch>
