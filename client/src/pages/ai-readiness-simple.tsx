@@ -654,7 +654,7 @@ export default function AIReadiness() {
             <CardContent className="p-8">
               <div className="relative overflow-x-auto">
                 {/* Maturity Phases Flow */}
-                <div className="flex justify-between items-start min-w-[800px] mb-8">
+                <div className="grid grid-cols-5 gap-4 mb-8">
                   {[
                     { 
                       phase: "Awareness", 
@@ -706,57 +706,49 @@ export default function AIReadiness() {
                     const isCompleted = score > phase.max;
                     
                     return (
-                      <div key={phase.phase} className="flex flex-col items-center relative flex-1">
+                      <div key={phase.phase} className="flex flex-col items-center">
                         {/* Phase Circle */}
-                        <div className={`w-20 h-20 rounded-full ${phase.color} ${
+                        <div className={`w-16 h-16 rounded-full ${phase.color} ${
                           isCurrent 
                             ? 'ring-4 ring-primary ring-offset-2 ring-offset-white dark:ring-offset-gray-800 scale-110' 
                             : isCompleted ? 'opacity-80' : 'opacity-40'
-                        } flex items-center justify-center mb-4 transition-all duration-300`}>
-                          <span className="text-white font-bold text-lg">
+                        } flex items-center justify-center mb-3 transition-all duration-300`}>
+                          <span className="text-white font-bold text-sm">
                             {isCurrent ? '●' : isCompleted ? '✓' : index + 1}
                           </span>
                         </div>
                         
                         {/* Phase Name */}
-                        <div className={`text-center mb-4 ${
+                        <div className={`text-center mb-3 ${
                           isCurrent ? 'text-primary font-bold' : 'text-gray-600'
                         }`}>
-                          <div className="font-bold text-lg">{phase.phase}</div>
-                          <div className="text-sm">({phase.min}-{phase.max} pts)</div>
+                          <div className="font-bold text-base">{phase.phase}</div>
+                          <div className="text-xs">({phase.min}-{phase.max} pts)</div>
                         </div>
 
                         {/* Goals */}
-                        <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 mb-3 w-full max-w-[200px]">
-                          <h4 className="font-semibold text-sm text-gray-900 dark:text-white mb-2">Goals</h4>
-                          <ul className="text-xs text-gray-600 dark:text-gray-300 space-y-1">
-                            {phase.goals.map((goal, goalIndex) => (
-                              <li key={goalIndex} className="flex items-start">
-                                <span className="mr-1">•</span>
-                                <span>{goal}</span>
+                        <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-3 mb-2 w-full h-28 flex flex-col">
+                          <h4 className="font-semibold text-xs text-gray-900 dark:text-white mb-1">Goals</h4>
+                          <ul className="text-xs text-gray-600 dark:text-gray-300 space-y-0.5 flex-1 overflow-y-auto">
+                            {phase.goals.slice(0, 4).map((goal, goalIndex) => (
+                              <li key={goalIndex} className="text-xs leading-tight">
+                                • {goal}
                               </li>
                             ))}
                           </ul>
                         </div>
 
                         {/* Activities */}
-                        <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-3 mb-3 w-full max-w-[200px]">
-                          <h4 className="font-semibold text-sm text-blue-900 dark:text-blue-300 mb-1">Activities</h4>
-                          <p className="text-xs text-blue-700 dark:text-blue-400">{phase.activities}</p>
+                        <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-3 mb-2 w-full h-16 flex flex-col">
+                          <h4 className="font-semibold text-xs text-blue-900 dark:text-blue-300 mb-1">Activities</h4>
+                          <p className="text-xs text-blue-700 dark:text-blue-400 flex-1 overflow-y-auto leading-tight">{phase.activities}</p>
                         </div>
 
                         {/* People */}
-                        <div className="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-3 w-full max-w-[200px]">
-                          <h4 className="font-semibold text-sm text-purple-900 dark:text-purple-300 mb-1">People</h4>
-                          <p className="text-xs text-purple-700 dark:text-purple-400">{phase.people}</p>
+                        <div className="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-3 w-full h-14 flex flex-col">
+                          <h4 className="font-semibold text-xs text-purple-900 dark:text-purple-300 mb-1">People</h4>
+                          <p className="text-xs text-purple-700 dark:text-purple-400 flex-1 overflow-y-auto leading-tight">{phase.people}</p>
                         </div>
-
-                        {/* Connection Line */}
-                        {index < 4 && (
-                          <div className={`absolute top-10 left-[calc(100%-10px)] w-[calc(100%-40px)] h-0.5 ${
-                            isCompleted ? 'bg-primary' : 'bg-gray-300 dark:bg-gray-600'
-                          } z-0`} />
-                        )}
                       </div>
                     );
                   })}
