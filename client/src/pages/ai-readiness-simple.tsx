@@ -90,91 +90,91 @@ export default function AIReadiness() {
 
   const enterpriseQuestions = [
     {
-      category: "AI Strategy & Vision",
-      question: "How mature is your organization's AI strategy and strategic vision?",
+      category: "Leadership Awareness & Communication",
+      question: "How well does leadership communicate AI importance and organizational goals?",
       options: [
-        "No formal AI strategy; ad-hoc AI initiatives without clear direction",
-        "Basic AI exploration with some pilot projects but no unified strategy", 
-        "Defined AI strategy with clear objectives and business alignment",
-        "Comprehensive AI strategy with detailed roadmap and success metrics",
-        "AI-native strategic vision with continuous evolution and market leadership focus"
+        "No leadership communication about AI importance or strategic goals",
+        "Minimal AI awareness with occasional mentions in leadership communications", 
+        "Regular leadership communication about AI strategy with clear organizational goals",
+        "Comprehensive AI communication strategy with detailed plans and success metrics",
+        "Continuous AI-focused leadership communication with adaptive strategic planning"
       ]
     },
     {
-      category: "Data Architecture & Management",
-      question: "What is the maturity of your data infrastructure and AI-readiness?",
+      category: "Employee Engagement & Interest",
+      question: "How effectively does your organization channel employee interest and engagement in AI?",
       options: [
-        "Siloed data systems with limited accessibility and poor quality",
-        "Basic data management with some centralized repositories",
-        "Well-organized data lakes/warehouses with good governance", 
-        "Advanced data architecture with real-time processing and AI optimization",
-        "AI-native data infrastructure with automated pipelines and edge computing"
+        "No formal channels for employee AI engagement or feedback",
+        "Basic mechanisms for employees to express AI interest with limited follow-up",
+        "Structured channels for AI engagement with regular measurement of interest levels", 
+        "Comprehensive employee engagement programs with clear pathways for AI involvement",
+        "Sophisticated AI engagement ecosystem with multiple channels and continuous feedback loops"
       ]
     },
     {
-      category: "Technical Capabilities & Talent", 
-      question: "How advanced are your organization's AI technical capabilities and talent pool?",
+      category: "Learning & Discovery Opportunities", 
+      question: "What learning resources and exploration opportunities does your organization provide for AI?",
       options: [
-        "No dedicated AI expertise; relying entirely on external vendors",
-        "Basic AI literacy with limited technical implementation capability",
-        "Internal AI development team with standard model deployment skills",
-        "Advanced AI engineering with custom model development and MLOps",
-        "World-class AI research capabilities with cutting-edge innovation and IP creation"
+        "No dedicated AI learning resources or exploration opportunities available",
+        "Limited AI learning materials with minimal structured exploration time",
+        "Organized AI learning programs with dedicated time for exploration and experimentation",
+        "Comprehensive AI education platform with extensive resources and innovation time",
+        "World-class AI learning ecosystem with cutting-edge resources and research opportunities"
       ]
     },
     {
-      category: "AI Governance & Ethics",
-      question: "How comprehensive is your AI governance, ethics, and risk management framework?", 
+      category: "Internal Tools & Capabilities",
+      question: "How advanced are your organization's internal AI tools and technical capabilities?", 
       options: [
-        "No formal AI governance; unmanaged AI usage across organization",
-        "Basic AI usage policies with minimal oversight and compliance",
-        "Structured AI governance with documented policies and risk assessment",
-        "Comprehensive AI ethics framework with regular audits and compliance monitoring",
-        "Industry-leading responsible AI practices with proactive safety measures and transparency"
+        "No internal AI tools or technical capabilities; complete reliance on external solutions",
+        "Basic AI tools with limited internal technical capability for customization",
+        "Developed internal AI capabilities with custom tools and moderate technical expertise",
+        "Advanced internal AI platform with sophisticated tools and strong technical teams",
+        "Industry-leading internal AI capabilities with proprietary tools and exceptional technical expertise"
       ]
     },
     {
-      category: "Organizational Culture & Change Management",
-      question: "How mature is your organization's AI culture and change management approach?",
+      category: "Process & Governance Framework",
+      question: "How mature are your AI governance processes and organizational frameworks?",
       options: [
-        "Significant resistance to AI adoption with limited awareness",
-        "Growing AI interest but with siloed adoption and minimal training",
-        "Organization-wide AI literacy programs with systematic adoption",
-        "AI-first culture with comprehensive training and cross-functional collaboration", 
-        "AI-native organization with continuous learning and innovation mindset"
+        "No formal AI governance processes or organizational frameworks in place",
+        "Basic AI policies with minimal process structure and limited governance oversight",
+        "Established AI governance framework with documented processes and regular oversight",
+        "Comprehensive AI governance with mature processes and integrated organizational frameworks", 
+        "Sophisticated AI governance ecosystem with adaptive processes and continuous optimization"
       ]
     },
     {
-      category: "Business Impact & Value Creation",
-      question: "What level of measurable business impact has AI delivered in your organization?",
+      category: "Business Outcomes & Value Delivery",
+      question: "What level of measurable business value has your organization achieved through AI?",
       options: [
-        "No measurable business impact from AI initiatives",
-        "Limited efficiency gains in isolated use cases with unclear ROI",
-        "Significant productivity improvements with documented cost savings",
-        "Transformational business outcomes with new revenue streams and capabilities",
-        "AI-driven competitive advantage with market disruption and industry leadership"
+        "No measurable business outcomes or value delivery from AI initiatives",
+        "Limited business impact with unclear value proposition and minimal ROI measurement",
+        "Demonstrable business value with documented outcomes and positive ROI",
+        "Significant business transformation with substantial value creation and competitive advantages",
+        "Industry-leading business outcomes with AI-driven market leadership and innovation"
       ]
     },
     {
-      category: "AI Operations & Scalability",
-      question: "How mature are your AI operations, monitoring, and scalability practices?",
+      category: "Organizational Culture & Adoption",
+      question: "How pervasive is AI adoption and cultural integration across your organization?",
       options: [
-        "No systematic AI operations; models deployed without monitoring",
-        "Basic model deployment with minimal monitoring and maintenance",
-        "Structured MLOps with automated deployment and basic monitoring",
-        "Advanced AI operations with comprehensive monitoring, A/B testing, and optimization",
-        "Enterprise-scale AI platform with automated operations, continuous improvement, and global deployment"
+        "Minimal AI adoption with significant cultural resistance and limited organizational buy-in",
+        "Growing AI interest with pockets of adoption but inconsistent cultural integration",
+        "Widespread AI adoption with positive cultural shift and systematic integration",
+        "AI-first organizational culture with comprehensive adoption and cross-functional collaboration",
+        "AI-native organizational DNA with continuous innovation and cultural leadership"
       ]
     },
     {
-      category: "AI Security & Compliance",
-      question: "How advanced is your AI security posture and regulatory compliance approach?",
+      category: "Operational Excellence & Scaling",
+      question: "How effectively does your organization operationalize and scale AI initiatives?",
       options: [
-        "No specific AI security measures; standard IT security applied to AI systems",
-        "Basic AI security awareness with some additional protections for AI systems",
-        "Dedicated AI security protocols with threat modeling and incident response",
-        "Comprehensive AI security framework with advanced threat detection and compliance automation",
-        "Industry-leading AI security with zero-trust architecture, continuous monitoring, and regulatory excellence"
+        "No systematic approach to AI operationalization; ad-hoc implementation without scaling plans",
+        "Basic operational processes with limited scaling capability and minimal standardization",
+        "Structured AI operations with systematic scaling approaches and operational guidelines",
+        "Advanced operational excellence with sophisticated scaling frameworks and automation",
+        "World-class AI operations with seamless scaling, continuous optimization, and operational leadership"
       ]
     }
   ];
@@ -662,8 +662,8 @@ export default function AIReadiness() {
                       min: 0, 
                       max: 8,
                       goals: ["Increase importance", "Communicate goals", "Communicate plans", "Check for understanding"],
-                      activities: "Initial awareness building",
-                      people: "Leadership engagement"
+                      activities: "Leadership communication and initial awareness building",
+                      people: "Senior leadership and executive sponsors"
                     },
                     { 
                       phase: "Interest", 
@@ -671,8 +671,8 @@ export default function AIReadiness() {
                       min: 9, 
                       max: 16,
                       goals: ["Channel for people to engage", "Channel for people to raise their hand", "Ability to measure interest"],
-                      activities: "Pilot programs and exploration",
-                      people: "Early adopters identified"
+                      activities: "Employee engagement programs and interest measurement",
+                      people: "Early adopters and AI champions"
                     },
                     { 
                       phase: "Discover", 
@@ -680,8 +680,8 @@ export default function AIReadiness() {
                       min: 17, 
                       max: 24,
                       goals: ["Learning opportunities and resources", "Space for opportunities", "Environment for exploration", "Criteria for evaluation and prioritization"],
-                      activities: "Use case discovery and evaluation",
-                      people: "Specialized teams formed"
+                      activities: "Learning programs and use case discovery",
+                      people: "Cross-functional exploration teams"
                     },
                     { 
                       phase: "Build", 
@@ -689,8 +689,8 @@ export default function AIReadiness() {
                       min: 25, 
                       max: 32,
                       goals: ["Internal tools", "Internal capability", "External facing deliverability"],
-                      activities: "Development and implementation",
-                      people: "Production-ready teams"
+                      activities: "Tool development and capability building",
+                      people: "Technical teams and subject matter experts"
                     },
                     { 
                       phase: "Scale", 
@@ -698,8 +698,8 @@ export default function AIReadiness() {
                       min: 33, 
                       max: 40,
                       goals: ["Policy and guidelines", "Tool rationalization/adoption", "Process", "Governance", "Operationalizing"],
-                      activities: "Enterprise-wide deployment",
-                      people: "Organization-wide adoption"
+                      activities: "Enterprise scaling and operational excellence",
+                      people: "Organization-wide AI integration"
                     }
                   ].map((phase, index) => {
                     const isCurrent = score >= phase.min && score <= phase.max;
