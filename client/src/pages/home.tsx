@@ -35,22 +35,25 @@ export default function Home() {
 
   const caseStudies = [
     {
-      title: "PEAK6 Transformation",
+      title: "Financial Services AI Platform",
       challenge: "Deploy AI across 6 companies in highly regulated financial services",
-      solution: "Proprietary GenAI platform + risk framework",
-      results: "87% adoption, $6M+ savings, 200M+ potential investments"
+      solution: "Built proprietary GenAI platform with integrated risk framework and compliance automation",
+      results: "87% adoption rate, $6M+ first-year savings, $200M+ AI investment portfolio",
+      methodology: "12-month build cycle with phased rollout and continuous risk assessment"
     },
     {
-      title: "ABCmouse International Expansion",
-      challenge: "Scale AI-native product for Chinese market",
-      solution: "Custom speech models + content automation",
-      results: "$65M revenue, 7X growth, 30% faster development"
+      title: "EdTech AI-Native Product Launch",
+      challenge: "Scale adaptive learning product for international market expansion",
+      solution: "Custom speech recognition models with automated content generation pipeline",
+      results: "$65M annual revenue achieved, 7X revenue growth in Year 2, 75% faster development cycles",
+      methodology: "Partnership-driven approach with Tencent AI team and iterative product development"
     },
     {
-      title: "Barnes & Noble Education",
-      challenge: "Transform traditional education provider with AI",
-      solution: "Data-driven transformation + AI capability building",
-      results: "24% registration increase, 83% fraud reduction"
+      title: "Traditional Education Digital Transformation",
+      challenge: "Transform billion-dollar traditional education provider with AI and data capabilities",
+      solution: "Complete data infrastructure rebuild with AI/ML team establishment and experimentation framework",
+      results: "24% registration rate increase, 83% fraud cost reduction, new B2B revenue streams",
+      methodology: "Outcome-driven transformation with evidence-based prioritization and investment framework"
     }
   ];
 
@@ -105,6 +108,10 @@ export default function Home() {
                         <span className="text-sm font-medium text-green-600 dark:text-green-400">Results: </span>
                         <span className="text-sm text-gray-600 dark:text-gray-300">{study.results}</span>
                       </div>
+                      <div className="mt-4 pt-3 border-t border-gray-200 dark:border-gray-600">
+                        <span className="text-sm font-medium text-purple-600 dark:text-purple-400">Methodology: </span>
+                        <span className="text-sm text-gray-600 dark:text-gray-300">{study.methodology}</span>
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
@@ -120,29 +127,49 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <div className="bg-gray-50 dark:bg-gray-700 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                Ready to Transform Your Business?
+            <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-2xl p-8 border border-blue-100 dark:border-blue-800">
+              <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+                Don't Let Your Competition Beat You to AI
               </h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-6">
-                Not Sure Where to Start?
+              <p className="text-lg text-gray-600 dark:text-gray-300 mb-2">
+                <span className="font-semibold text-red-600 dark:text-red-400">85% of AI projects fail.</span> Mine don't.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button 
-                  onClick={() => window.location.href = '/checkout'}
-                  className="gradient-bg text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
-                >
-                  Book Strategy Call
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-                <Button 
-                  variant="outline"
-                  onClick={() => window.location.href = '/ai-readiness'}
-                  className="border-2 border-primary text-primary px-8 py-3 rounded-full font-semibold hover:bg-primary hover:text-white transition-all duration-200"
-                >
-                  Take AI Readiness Quiz
-                </Button>
+              <p className="text-gray-600 dark:text-gray-300 mb-8">
+                Start with a free assessment to see exactly where your organization stands
+              </p>
+              
+              <div className="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto mb-8">
+                <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm">
+                  <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Not Ready for Consulting?</h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">Get personalized AI readiness insights first</p>
+                  <Button 
+                    variant="outline"
+                    onClick={() => window.location.href = '/ai-readiness'}
+                    className="w-full border-2 border-blue-500 text-blue-600 hover:bg-blue-500 hover:text-white transition-all duration-200"
+                  >
+                    Free AI Assessment
+                  </Button>
+                </div>
+                
+                <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border-2 border-green-200 dark:border-green-700">
+                  <div className="inline-block bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-xs font-semibold px-3 py-1 rounded-full mb-2">
+                    MOST POPULAR
+                  </div>
+                  <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Ready to Get Started?</h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">30-min strategy session - Risk-free</p>
+                  <Button 
+                    onClick={() => window.location.href = '/checkout'}
+                    className="w-full gradient-bg text-white font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+                  >
+                    Book Strategy Call
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </div>
               </div>
+              
+              <p className="text-sm text-gray-500 dark:text-gray-400">
+                Join executives from PEAK6, Barnes & Noble Education, and ABCmouse who've already transformed their businesses with AI
+              </p>
             </div>
           </motion.div>
         </div>
