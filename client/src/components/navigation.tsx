@@ -69,6 +69,12 @@ export default function Navigation() {
                   {item.name}
                 </button>
               ))}
+              <button
+                onClick={() => handleNavClick('/login', true)}
+                className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors duration-200 font-medium"
+              >
+                Login
+              </button>
             </div>
           </div>
           
