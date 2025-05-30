@@ -130,7 +130,12 @@ export default function ThoughtLeadership() {
                         <img 
                           src={content.image} 
                           alt={content.title}
-                          className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                          className={`w-full object-cover group-hover:scale-105 transition-transform duration-300 ${
+                            content.link.includes('substack.com') ? 'h-64' : 'h-48'
+                          }`}
+                          style={{
+                            objectPosition: content.link.includes('substack.com') ? 'center top' : 'center center'
+                          }}
                         />
                         <div className={`absolute top-4 left-4 ${typeBgColor} dark:bg-gray-700 px-3 py-1 rounded-full flex items-center space-x-2`}>
                           <TypeIcon className={`h-4 w-4 ${typeColor} dark:text-white`} />
