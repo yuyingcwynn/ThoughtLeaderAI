@@ -4,8 +4,10 @@ import { Linkedin, FileText, Youtube, Mic, ArrowRight } from "lucide-react";
 import { EXTERNAL_LINKS } from "@/lib/constants";
 import { useLocation } from "wouter";
 import productTalkImage from "@assets/image_1748589862049.png";
-import mitSloanLogo from "@assets/image_1748588236796.png";
-import stanfordLogo from "@assets/image_1748588439370.png";
+import mitSloanLogo from "@assets/image_1748590325460.png";
+import stanfordLogo from "@assets/image_1748590302205.png";
+import kelloggLogo from "@assets/image_1748590383260.png";
+import uclaLogo from "@assets/image_1748590356700.png";
 
 export default function ContentHubSection() {
   const [, setLocation] = useLocation();
@@ -56,8 +58,8 @@ export default function ContentHubSection() {
     },
     {
       image: null,
-      title: "Speaking at MIT Sloan & Stanford",
-      description: "Presenting AI strategy and implementation at top business schools and technology conferences",
+      title: "Speaking at Top MBA Programs",
+      description: "Presenting AI strategy and implementation at MIT Sloan, Stanford, Kellogg, and UCLA Anderson",
       category: "Speaking",
       link: "/thought-leadership",
       customImage: true
@@ -140,18 +142,37 @@ export default function ContentHubSection() {
                     onClick={() => handleLinkClick(insight.link, insight.link?.startsWith('/'))}>
                 <CardContent className="p-6">
                   {insight.customImage ? (
-                    <div className="w-full h-40 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-lg mb-4 flex items-center justify-center space-x-4">
-                      <img 
-                        src={mitSloanLogo}
-                        alt="MIT Sloan School of Management"
-                        className="h-16 w-auto object-contain"
-                      />
-                      <div className="text-gray-400 text-2xl">+</div>
-                      <img 
-                        src={stanfordLogo}
-                        alt="Stanford Continuing Studies"
-                        className="h-16 w-auto object-contain"
-                      />
+                    <div className="w-full h-40 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-lg mb-4 p-3">
+                      <div className="grid grid-cols-2 gap-2 h-full">
+                        <div className="flex items-center justify-center">
+                          <img 
+                            src={mitSloanLogo}
+                            alt="MIT Sloan School of Management"
+                            className="h-12 w-auto object-contain"
+                          />
+                        </div>
+                        <div className="flex items-center justify-center">
+                          <img 
+                            src={stanfordLogo}
+                            alt="Stanford Continuing Studies"
+                            className="h-12 w-auto object-contain"
+                          />
+                        </div>
+                        <div className="flex items-center justify-center">
+                          <img 
+                            src={kelloggLogo}
+                            alt="Kellogg School of Management"
+                            className="h-12 w-auto object-contain"
+                          />
+                        </div>
+                        <div className="flex items-center justify-center">
+                          <img 
+                            src={uclaLogo}
+                            alt="UCLA Anderson School of Management"
+                            className="h-12 w-auto object-contain"
+                          />
+                        </div>
+                      </div>
                     </div>
                   ) : (
                     <img 
