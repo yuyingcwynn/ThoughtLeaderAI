@@ -1,0 +1,274 @@
+Website Architecture
+1. Hero Section (Above the Fold)
+Headline: "Transform Your Business with AI. Actually."
+Subheadline: "I'm Yuying Chen-Wynn, Head of AI at PEAK6. I've delivered $10M+ in savings and $500M in valuation increases across 6 companies. Let me do the same for yours."
+Key Elements:
+
+Animated AI-inspired background (neural network visualization, subtle particle effects)
+Professional headshot with dynamic lighting
+Three trust indicators: "87% adoption rate in 12 months" | "$6M+ first-year savings" | "6 companies transformed"
+Primary CTA: "Book AI Strategy Call"
+Secondary CTA: "Download AI Readiness Assessment"
+
+2. Navigation Structure
+HOME | ABOUT | SERVICES | THOUGHT LEADERSHIP | CASE STUDIES | CONTACT
+Mega Menu for Services:
+
+Dial-an-AI-Expert ($500/hr)
+Fractional Chief AI Officer
+Enterprise AI Enablement
+AI Product Intensive Bootcamp
+
+
+Page-by-Page Content Strategy
+HOME PAGE
+Section 1: Problem/Solution (After Hero)
+Headline: "Most AI Initiatives Fail. Mine Don't."
+Three-column layout:
+
+Problem 1: "85% of AI projects never make it to production"
+Problem 2: "Companies waste millions on AI hype without strategy"
+Problem 3: "Internal teams lack the expertise to scale AI safely"
+
+Solution: "I bridge the gap between AI possibility and business reality with proven frameworks, hands-on implementation, and measurable results."
+Section 2: Credibility Indicators
+Visual timeline with key achievements:
+
+Built proprietary GenAI platform at PEAK6 → 87% adoption, usage doubling quarterly
+Scaled ABCmouse China → $65M revenue, 7X growth in Year 2
+Led $200M AI investment strategy across multiple verticals
+Published AI risk frameworks for highly regulated industries
+
+Section 3: Service Overview
+Four service cards with animated icons:
+
+Dial-an-AI-Expert
+
+"Need answers now? Book me for $500/hr"
+Calendar integration with Calendly
+Payment processing via Stripe
+
+
+Fractional Chief AI Officer
+
+"Part-time AI leadership for full-time results"
+"From strategy to implementation"
+
+
+Enterprise AI Enablement
+
+"Hackathons, strategy offsites, and culture transformation"
+"3-day hackathons | 2-day strategy intensives"
+
+
+AI Product Intensive
+
+"4-6 weeks from concept to launch"
+"Build and launch your AI product with expert guidance"
+
+
+
+Section 4: Thought Leadership Hub
+Featured content grid:
+
+Latest newsletter (auto-pull from Substack)
+Recent podcast episode
+Speaking engagement highlight
+"View All Content" CTA
+
+Section 5: Social Proof
+Rotating testimonials with:
+
+Client logos (where permissible)
+Specific results achieved
+Industry context
+
+Section 6: CTA Section
+Dual CTA with urgency:
+
+"Ready to Transform Your Business?" → Book Strategy Call
+"Not Sure Where to Start?" → Download AI Readiness Guide
+
+
+ABOUT PAGE
+Hero Section
+"I Turn AI Hype Into Business Reality"
+Professional photo with dynamic background + key stats overlay
+Biography Sections
+
+Current Role & Impact
+
+Head of AI at PEAK6 (6 companies, $38B AUM)
+Specific achievements and metrics
+
+
+Career Highlights
+
+MIT education (ME & BS Computer Science)
+20+ years in FinTech, EdTech, Big Tech
+Notable positions: Microsoft, Business Objects (SAP)
+
+
+Thought Leadership
+
+Speaking engagements (CIO conferences, MBA programs)
+AI Afterhours Podcast host
+GenAI Real Talk Newsletter
+
+
+Unique Perspective
+
+Technical depth + business strategy
+Multi-cultural global team leadership
+AI risk and governance expertise
+
+
+
+Trust Elements
+
+Board positions
+Certifications (Nvidia Deep Learning, Multi-modal Agents)
+Awards and recognition
+
+
+SERVICES PAGES
+Dial-an-AI-Expert Landing Page
+Headline: "Get Expert AI Answers in Real-Time"
+Value Proposition:
+
+Immediate access to AI strategy expertise
+$500/hour for focused problem-solving
+Calendar booking with instant confirmation
+
+Use Cases:
+
+AI vendor evaluation
+Technical architecture review
+Risk assessment
+Quick decision support
+
+Booking Flow:
+
+Select time slot (Calendly integration)
+Brief problem description
+Payment processing (Stripe)
+Confirmation with prep materials
+
+Fractional Chief AI Officer
+Headline: "Get C-Level AI Leadership Without the C-Level Price Tag"
+What's Included:
+
+Strategic AI roadmap development
+Risk and governance framework
+Team training and capability building
+Vendor management and evaluation
+Board-level reporting and communication
+
+Engagement Models:
+
+2 days/month (Minimum engagement)
+1 week/month (Standard)
+2 weeks/month (Intensive)
+
+Case Study Integration:
+
+PEAK6 transformation story
+Specific metrics and outcomes
+
+Enterprise AI Enablement
+Three core offerings:
+
+GenAI Hackathon (3 days)
+
+Day 1: AI literacy and ideation
+Day 2: Prototype development
+Day 3: Pitch and implementation planning
+Deliverable: 5+ validated AI use cases
+
+
+AI Strategy Offsite (2 days)
+
+Current state assessment
+Vision and roadmap creation
+Risk framework development
+Implementation timeline
+Deliverable: Complete AI strategy document
+
+
+Culture Transformation Program
+
+AI ambassador training
+Change management
+Adoption metrics and tracking
+
+
+
+AI Product Intensive Bootcamp
+Headline: "From AI Idea to Market in 4-6 Weeks"
+Program Structure:
+
+Weeks 1-2: Product definition and AI architecture
+Weeks 3-4: Development and testing
+Weeks 5-6: Launch preparation and go-to-market (optional extension)
+
+What You Get:
+
+Fully functional AI product
+Technical documentation
+Go-to-market strategy
+Launch support
+
+Ideal For:
+
+Startups with AI product ideas
+Enterprise innovation teams
+Companies pivoting to AI
+
+
+THOUGHT LEADERSHIP PAGE
+Content Hub Layout
+Three main sections:
+
+Newsletter Archive
+
+Auto-sync with Substack
+Search and filter functionality
+Featured articles
+
+
+Podcast Episodes
+
+Embedded YouTube player
+Episode descriptions and key takeaways
+Guest highlights
+
+
+Speaking Engagements
+
+Upcoming events
+Past presentation recordings
+Slide decks and resources
+
+
+
+Featured Content Strategy
+
+AI in the Wild: Real implementation stories
+Trend Analysis: What's hype vs. reality
+Risk & Governance: Practical frameworks
+Executive Education: AI for non-technical leaders
+
+
+CASE STUDIES PAGE
+PEAK6 Transformation
+The Challenge: Deploy AI across 6 companies in highly regulated financial services
+The Solution: Proprietary GenAI platform + risk framework
+The Results: 87% adoption, $6M+ savings, 200M+ potential investments
+ABCmouse International Expansion
+The Challenge: Scale AI-native product for Chinese market
+The Solution: Custom speech models + content automation
+The Results: $65M revenue, 7X growth, 30% faster development
+Barnes & Noble Education
+The Challenge: Transform traditional education provider with AI
+The Solution: Data-driven transformation + AI capability building
+The Results: 24% registration increase, 83% fraud reduction

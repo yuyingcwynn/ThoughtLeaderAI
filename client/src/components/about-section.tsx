@@ -44,10 +44,24 @@ export default function AboutSection() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-8">
-              Driving <span className="gradient-text">AI Transformation</span> at Scale
+              Most AI Initiatives Fail. <span className="gradient-text">Mine Don't.</span>
             </h2>
+            <div className="grid md:grid-cols-3 gap-6 mb-8">
+              <div className="p-4 bg-red-50 dark:bg-red-900/20 rounded-lg">
+                <h3 className="font-semibold text-red-800 dark:text-red-200 mb-2">Problem 1</h3>
+                <p className="text-sm text-red-700 dark:text-red-300">85% of AI projects never make it to production</p>
+              </div>
+              <div className="p-4 bg-red-50 dark:bg-red-900/20 rounded-lg">
+                <h3 className="font-semibold text-red-800 dark:text-red-200 mb-2">Problem 2</h3>
+                <p className="text-sm text-red-700 dark:text-red-300">Companies waste millions on AI hype without strategy</p>
+              </div>
+              <div className="p-4 bg-red-50 dark:bg-red-900/20 rounded-lg">
+                <h3 className="font-semibold text-red-800 dark:text-red-200 mb-2">Problem 3</h3>
+                <p className="text-sm text-red-700 dark:text-red-300">Internal teams lack the expertise to scale AI safely</p>
+              </div>
+            </div>
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-              As Head of AI at PEAK6, I led AI strategy across 6 companies, delivering $10M+ in annual savings, 
+              I bridge the gap between AI possibility and business reality with proven frameworks, hands-on implementation, and measurable results. 
               $200M in AI investments, and $500M in valuation increase. My expertise spans generative AI platforms, 
               AI risk governance, and enterprise transformation.
             </p>

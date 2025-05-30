@@ -15,22 +15,16 @@ export default function ServicesSection() {
     {
       icon: Brain,
       title: "Dial-an-AI-Expert",
-      description: "Get immediate access to deep AI expertise. Perfect for strategic decisions, technical deep-dives, or AI transformation guidance.",
-      price: "Flexible Packages",
+      description: "Need answers now? Book me for $500/hr. Get immediate access to AI strategy expertise with calendar integration and payment processing.",
+      price: "$500/hr",
       buttonText: "Book Session",
       buttonAction: handleBookSession,
-      gradient: true,
-      packages: [
-        { duration: "30 minutes", price: "$250", hours: 0.5 },
-        { duration: "1 hour", price: "$500", hours: 1 },
-        { duration: "5 hours", price: "$2,400", hours: 5, savings: "$100" },
-        { duration: "10 hours", price: "$4,500", hours: 10, savings: "$500" }
-      ]
+      gradient: true
     },
     {
       icon: UserCheck,
       title: "Fractional Chief AI Officer",
-      description: "Strategic AI leadership without the full-time commitment. Drive AI vision, governance, and execution across your organization.",
+      description: "Part-time AI leadership for full-time results. From strategy to implementation with C-level expertise without the C-level price tag.",
       price: "Custom Pricing",
       buttonText: "Learn More",
       buttonAction: () => setLocation("/contact"),
@@ -38,10 +32,19 @@ export default function ServicesSection() {
     },
     {
       icon: Rocket,
-      title: "GenAI Hackathon",
-      description: "3-day intensive hackathon to jumpstart your team's AI capabilities. Hands-on learning with real business use cases.",
+      title: "Enterprise AI Enablement",
+      description: "Hackathons, strategy offsites, and culture transformation. 3-day hackathons and 2-day strategy intensives for organizational AI adoption.",
       price: "Enterprise Package",
       buttonText: "Schedule Event",
+      buttonAction: () => setLocation("/contact"),
+      gradient: false
+    },
+    {
+      icon: Plus,
+      title: "AI Product Intensive Bootcamp",
+      description: "4-6 weeks from concept to launch. Build and launch your AI product with expert guidance and comprehensive support.",
+      price: "Program Package",
+      buttonText: "Apply Now",
       buttonAction: () => setLocation("/contact"),
       gradient: true
     }

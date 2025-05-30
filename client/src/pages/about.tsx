@@ -48,17 +48,28 @@ export default function About() {
                 transition={{ duration: 0.6 }}
               >
                 <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-8">
-                  Driving <span className="gradient-text">AI Transformation</span> at Scale
+                  I Turn AI Hype Into <span className="gradient-text">Business Reality</span>
                 </h1>
-                <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                  As Head of AI at PEAK6, I led AI strategy across 6 companies, delivering $10M+ in annual savings, 
-                  $200M in AI investments, and $500M in valuation increase. My expertise spans generative AI platforms, 
-                  AI risk governance, and enterprise transformation.
-                </p>
-                <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-                  With 15+ years building AI/ML products and 20+ years in FinTech, EdTech, and Big Tech, 
-                  I combine deep technical knowledge with strategic leadership to create breakthrough AI adoption.
-                </p>
+                
+                {/* Current Role & Impact */}
+                <div className="mb-8">
+                  <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Current Role & Impact</h2>
+                  <p className="text-lg text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                    Head of AI at PEAK6 (6 companies, $38B AUM). Built proprietary GenAI platform achieving 87% adoption 
+                    with usage doubling quarterly. Led $200M AI investment strategy across multiple verticals.
+                  </p>
+                </div>
+                
+                {/* Career Highlights */}
+                <div className="mb-8">
+                  <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Career Highlights</h2>
+                  <ul className="text-gray-600 dark:text-gray-300 space-y-2">
+                    <li>• MIT education (ME & BS Computer Science)</li>
+                    <li>• 20+ years in FinTech, EdTech, Big Tech</li>
+                    <li>• Notable positions: Microsoft, Business Objects (SAP)</li>
+                    <li>• Scaled ABCmouse China → $65M revenue, 7X growth in Year 2</li>
+                  </ul>
+                </div>
                 
                 {/* Key Achievements */}
                 <div className="grid grid-cols-2 gap-6 mb-8">

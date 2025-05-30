@@ -46,21 +46,21 @@ export default function ContentHubSection() {
   const insights = [
     {
       image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
-      title: "Building AI-Native Enterprises",
-      description: "How PEAK6 achieved 80% GenAI adoption in 6 months",
+      title: "AI in the Wild: Real Implementation Stories",
+      description: "How PEAK6 achieved 87% GenAI adoption across 6 companies",
       category: "Case Study"
     },
     {
       image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
-      title: "AI Risk & Governance",
-      description: "Framework for responsible AI implementation",
+      title: "Risk & Governance: Practical Frameworks",
+      description: "AI risk frameworks for highly regulated industries",
       category: "Framework"
     },
     {
       image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
-      title: "ROI of AI Investments",
-      description: "Measuring the impact of enterprise AI initiatives",
-      category: "Strategy"
+      title: "Executive Education: AI for Non-Technical Leaders",
+      description: "Bridging the gap between AI hype and business reality",
+      category: "Education"
     }
   ];
 
