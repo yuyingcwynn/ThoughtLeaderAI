@@ -55,21 +55,34 @@ export default function BookingSuccess() {
   }, []);
 
   const handleScheduleClick = () => {
-    // Initialize Calendly popup with your actual URL
-    if (window.Calendly) {
-      window.Calendly.initPopupWidget({
-        url: 'https://calendly.com/yuyingcwynn',
-        prefill: {
-          email: userEmail,
-          customAnswers: {
-            a1: packageInfo ? `Package: ${packageInfo.duration} (${packageInfo.price})` : '',
+    console.log('Schedule button clicked');
+    console.log('Calendly available:', !!window.Calendly);
+    console.log('User email:', userEmail);
+    console.log('Package info:', packageInfo);
+    
+    // Try Calendly popup first
+    if (window.Calendly && window.Calendly.initPopupWidget) {
+      try {
+        window.Calendly.initPopupWidget({
+          url: 'https://calendly.com/yuyingcwynn',
+          prefill: {
+            email: userEmail,
+            customAnswers: {
+              a1: packageInfo ? `Package: ${packageInfo.duration} (${packageInfo.price})` : '',
+            }
           }
-        }
-      });
-    } else {
-      // Fallback: open in new tab if widget doesn't load
-      window.open(`https://calendly.com/yuyingcwynn?prefill_email=${encodeURIComponent(userEmail)}`, '_blank');
+        });
+        console.log('Calendly popup initiated');
+        return;
+      } catch (error) {
+        console.error('Calendly popup error:', error);
+      }
     }
+    
+    // Fallback: open in new tab
+    console.log('Using fallback - opening in new tab');
+    const calendlyUrl = `https://calendly.com/yuyingcwynn${userEmail ? `?prefill_email=${encodeURIComponent(userEmail)}` : ''}`;
+    window.open(calendlyUrl, '_blank');
   };
 
   return (
