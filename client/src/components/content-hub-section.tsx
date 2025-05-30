@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Linkedin, FileText, Youtube, Mic, ArrowRight } from "lucide-react";
 import { EXTERNAL_LINKS } from "@/lib/constants";
 import { useLocation } from "wouter";
+import productTalkImage from "@assets/image_1748589862049.png";
 
 export default function ContentHubSection() {
   const [, setLocation] = useLocation();
@@ -59,7 +60,7 @@ export default function ContentHubSection() {
       link: "/thought-leadership"
     },
     {
-      image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
+      image: productTalkImage,
       title: "Product Talk: Leveraging AI to Scale Businesses",
       description: "Sharing lessons from Microsoft and PEAK6 on AI-driven product development and automation",
       category: "Podcast",
