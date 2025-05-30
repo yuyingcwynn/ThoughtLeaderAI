@@ -14,13 +14,22 @@ export interface IStorage {
   // User methods
   getUser(id: number): Promise<User | undefined>;
   getUserByUsername(username: string): Promise<User | undefined>;
+  getUserByEmail(email: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
+  updateUserBalance(id: number, hoursToAdd: number): Promise<User>;
   
   // Consultation methods
   getConsultation(id: number): Promise<Consultation | undefined>;
   createConsultation(consultation: InsertConsultation): Promise<Consultation>;
   updateConsultationPaymentIntent(id: number, paymentIntentId: string): Promise<void>;
   updateConsultationStatus(id: number, status: string): Promise<void>;
+  getUserConsultations(userId: number): Promise<Consultation[]>;
+  
+  // Session tracking methods
+  createUserSession(session: InsertUserSession): Promise<UserSession>;
+  getUserSessions(userId: number): Promise<UserSession[]>;
+  updateSessionStatus(id: number, status: string): Promise<void>;
+  deductUserHours(userId: number, hours: number): Promise<void>;
   
   // Contact inquiry methods
   getContactInquiry(id: number): Promise<ContactInquiry | undefined>;

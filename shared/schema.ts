@@ -1,4 +1,4 @@
-import { pgTable, text, serial, integer, boolean, timestamp } from "drizzle-orm/pg-core";
+import { pgTable, text, serial, integer, boolean, timestamp, decimal } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -6,22 +6,37 @@ export const users = pgTable("users", {
   id: serial("id").primaryKey(),
   username: text("username").notNull().unique(),
   password: text("password").notNull(),
+  email: text("email").notNull().unique(),
+  totalHoursBalance: decimal("total_hours_balance", { precision: 5, scale: 2 }).default("0").notNull(),
+  usedHours: decimal("used_hours", { precision: 5, scale: 2 }).default("0").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const userSessions = pgTable("user_sessions", {
+  id: serial("id").primaryKey(),
+  userId: integer("user_id").notNull().references(() => users.id),
+  consultationId: integer("consultation_id").notNull().references(() => consultations.id),
+  hoursUsed: decimal("hours_used", { precision: 3, scale: 2 }).notNull(),
+  sessionDate: timestamp("session_date").notNull(),
+  calendlyEventId: text("calendly_event_id").unique(),
+  status: text("status").notNull().default("scheduled"), // "scheduled", "completed", "cancelled", "no-show"
+  createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
 export const consultations = pgTable("consultations", {
   id: serial("id").primaryKey(),
+  userId: integer("user_id").references(() => users.id), // link to user account
   firstName: text("first_name").notNull(),
   lastName: text("last_name").notNull(),
   email: text("email").notNull(),
   company: text("company"),
   serviceType: text("service_type").notNull(),
   sessionType: text("session_type").notNull(), // "dial-an-ai-expert", "fractional-caio", "hackathon"
-  packageHours: text("package_hours"), // "0.5", "1", "5", "10" for AI expert sessions
+  packageHours: decimal("package_hours", { precision: 3, scale: 2 }).notNull(), // purchased hours
+  packageType: text("package_type").notNull(), // "30min", "1hr", "5hr", "10hr"
   amount: integer("amount").notNull(), // in cents
   stripePaymentIntentId: text("stripe_payment_intent_id"),
-  calendlyEventId: text("calendly_event_id"), // for tracking Calendly bookings
   status: text("status").notNull().default("pending"), // "pending", "paid", "completed", "cancelled"
-  scheduledDate: timestamp("scheduled_date"),
   notes: text("notes"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
@@ -63,3 +78,5 @@ export type InsertConsultation = z.infer<typeof insertConsultationSchema>;
 export type Consultation = typeof consultations.$inferSelect;
 export type InsertContactInquiry = z.infer<typeof insertContactInquirySchema>;
 export type ContactInquiry = typeof contactInquiries.$inferSelect;
+export type UserSession = typeof userSessions.$inferSelect;
+export type InsertUserSession = typeof userSessions.$inferInsert;
