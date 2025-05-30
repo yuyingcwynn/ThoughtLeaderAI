@@ -93,7 +93,29 @@ export default function Checkout() {
 
   const handlePackageSelect = (pkg: any) => {
     setSelectedPackage(pkg);
-    setStep(2);
+    // Check if user is authenticated before proceeding
+    checkAuthAndProceed(pkg);
+  };
+
+  const checkAuthAndProceed = async (pkg: any) => {
+    try {
+      const response = await fetch('/api/user/me', {
+        credentials: 'include'
+      });
+      
+      if (response.ok) {
+        // User is authenticated, proceed to booking details
+        setStep(2);
+      } else {
+        // User needs to login, redirect to login with return URL
+        const returnUrl = encodeURIComponent(`/checkout?package=${pkg.hours}&step=2`);
+        window.location.href = `/login?return=${returnUrl}`;
+      }
+    } catch (error) {
+      // If there's an error checking auth, redirect to login
+      const returnUrl = encodeURIComponent(`/checkout?package=${pkg.hours}&step=2`);
+      window.location.href = `/login?return=${returnUrl}`;
+    }
   };
 
   const handleBookingSubmit = async (e: React.FormEvent) => {
@@ -199,6 +221,23 @@ export default function Checkout() {
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">
                   Choose Your Package
                 </h2>
+                
+                <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                  <div className="flex items-start space-x-3">
+                    <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-blue-900 mb-1">Account Required</h3>
+                      <p className="text-sm text-blue-800">
+                        An account is needed to track your consultation hours, manage bookings, and provide access to your personalized dashboard. You'll sign in with Google after selecting your package.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                   {packages.map((pkg, index) => (
                     <motion.div

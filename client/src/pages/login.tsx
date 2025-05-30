@@ -4,10 +4,27 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import { Mail } from "lucide-react";
+import { useEffect, useState } from "react";
 
 export default function Login() {
+  const [returnUrl, setReturnUrl] = useState("");
+
+  useEffect(() => {
+    // Get return URL from query params
+    const urlParams = new URLSearchParams(window.location.search);
+    const return_url = urlParams.get('return');
+    if (return_url) {
+      setReturnUrl(return_url);
+    }
+  }, []);
+
   const handleGoogleLogin = () => {
-    window.location.href = '/auth/google';
+    // Include return URL in the auth flow
+    let authUrl = '/auth/google';
+    if (returnUrl) {
+      authUrl += `?returnTo=${encodeURIComponent(returnUrl)}`;
+    }
+    window.location.href = authUrl;
   };
 
   return (
