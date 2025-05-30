@@ -7,6 +7,7 @@ import nyTechWeekLogo from "@assets/image_1748588288028.png";
 import mitSloanLogo from "@assets/image_1748588335252.png";
 import kelloggLogo from "@assets/image_1748588359680.png";
 import uclaLogo from "@assets/image_1748588397492.png";
+import stanfordLogo from "@assets/image_1748588439370.png";
 
 export default function AboutSection() {
   const achievements = [
@@ -182,9 +183,12 @@ export default function AboutSection() {
                   <p className="text-sm text-gray-600 dark:text-gray-300">AI Product Strategy</p>
                 </div>
               </div>
-              <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-                <h5 className="font-medium text-gray-900 dark:text-white">Stanford Executive Ed</h5>
-                <p className="text-sm text-gray-600 dark:text-gray-300">AI Leadership Development</p>
+              <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center space-x-3">
+                <img src={stanfordLogo} alt="Stanford Continuing Studies" className="h-8 w-auto" />
+                <div>
+                  <h5 className="font-medium text-gray-900 dark:text-white">Stanford Continuing Studies</h5>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">AI Leadership Development</p>
+                </div>
               </div>
               <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center space-x-3">
                 <div className="flex space-x-2">
