@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import yuyingPortrait from "@assets/YuyingChenWynn_10x12_300dpi.jpg";
 import aldrichLogo from "@assets/image_1748587792420.png";
+import retrainLogo from "@assets/image_1748588175311.png";
 
 export default function AboutSection() {
   const achievements = [
@@ -155,9 +156,12 @@ export default function AboutSection() {
                   <p className="text-sm text-gray-600 dark:text-gray-300">AI Strategy & Implementation</p>
                 </div>
               </div>
-              <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-                <h5 className="font-medium text-gray-900 dark:text-white">Responsible AI Conference</h5>
-                <p className="text-sm text-gray-600 dark:text-gray-300">AI Risk & Governance</p>
+              <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center space-x-3">
+                <img src={retrainLogo} alt="retrain.ai" className="h-8 w-auto" />
+                <div>
+                  <h5 className="font-medium text-gray-900 dark:text-white">retrain.ai Responsible AI Conference</h5>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">AI Risk & Governance</p>
+                </div>
               </div>
               <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
                 <h5 className="font-medium text-gray-900 dark:text-white">AI Executives Roundtable</h5>
