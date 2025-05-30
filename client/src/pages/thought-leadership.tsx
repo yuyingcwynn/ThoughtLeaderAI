@@ -8,6 +8,7 @@ import notOldBoxesImage from "@assets/NotOldBoxes.jpg";
 import customAppImage from "@assets/CustomApp.jpg";
 import aiGovImage from "@assets/AiGov.jpg";
 import archetypesImage from "@assets/archtypes.png";
+import aiGovFrameworkImage from "@assets/AIGovFramework.png";
 
 interface ContentItem {
   id: string;
@@ -55,6 +56,15 @@ export default function ThoughtLeadership() {
       type: "article",
       image: archetypesImage,
       link: "https://www.linkedin.com/pulse/thriving-age-ai-four-archetypes-new-era-yuying-chen-wynn-tnb1c/?trackingId=9G49XmhNSW6htWijDbVt9w%3D%3D",
+      publishDate: "Recent"
+    },
+    {
+      id: "practical-ai-governance-framework",
+      title: "A Practical AI Governance Framework",
+      description: "A comprehensive framework for implementing AI governance in enterprise environments, with actionable steps for compliance and risk management",
+      type: "article",
+      image: aiGovFrameworkImage,
+      link: "https://www.linkedin.com/pulse/practical-ai-governance-framework-yuying-chen-wynn-iedlc/?trackingId=O4%2FEzzcFRl6yuNTU2L6X6A%3D%3D",
       publishDate: "Recent"
     }
   ];
