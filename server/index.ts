@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Setup authentication before routes
-setupAuth(app);
+// setupAuth(app); // Temporarily disabled to fix session middleware issues
 
 app.use((req, res, next) => {
   const start = Date.now();

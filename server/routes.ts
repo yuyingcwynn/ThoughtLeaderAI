@@ -15,6 +15,45 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
 });
 
 export async function registerRoutes(app: Express): Promise<Server> {
+
+  // Create consultation without authentication (for initial booking)
+  app.post("/api/create-consultation", async (req, res) => {
+    try {
+      console.log("Received consultation data:", req.body);
+      
+      // Simple validation
+      const { firstName, lastName, email, serviceType, packageType, packageHours, amount } = req.body;
+      
+      if (!firstName || !lastName || !email || !serviceType) {
+        return res.status(400).json({ 
+          message: "Missing required fields: firstName, lastName, email, serviceType" 
+        });
+      }
+      
+      // Create payment intent
+      const paymentIntent = await stripe.paymentIntents.create({
+        amount: amount, // Already in cents
+        currency: "usd",
+        metadata: {
+          firstName,
+          lastName,
+          email,
+          serviceType,
+          packageType: packageType || "1 hour",
+          packageHours: packageHours || "1",
+        }
+      });
+
+      res.json({ 
+        clientSecret: paymentIntent.client_secret
+      });
+    } catch (error: any) {
+      console.error("Create consultation error:", error);
+      res.status(500).json({ 
+        message: "Error creating consultation: " + error.message 
+      });
+    }
+  });
   
   // Contact form submission
   app.post("/api/contact", async (req, res) => {
@@ -83,51 +122,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Create consultation with payment intent (for package bookings)
-  app.post("/api/create-consultation", async (req, res) => {
-    try {
-      const consultationData = req.body;
-      console.log("Received consultation data:", consultationData);
-      
-      // Validate consultation data
-      const validatedData = insertConsultationSchema.parse(consultationData);
-      console.log("Validated data:", validatedData);
-      
-      // Create consultation record
-      const consultation = await storage.createConsultation(validatedData);
-      
-      // Create payment intent
-      const paymentIntent = await stripe.paymentIntents.create({
-        amount: consultationData.amount, // Already in cents
-        currency: "usd",
-        metadata: {
-          consultationId: consultation.id.toString(),
-          packageHours: consultationData.packageHours || "1",
-          sessionType: consultationData.sessionType,
-          clientEmail: validatedData.email
-        }
-      });
 
-      // Update consultation with payment intent ID
-      await storage.updateConsultationPaymentIntent(consultation.id, paymentIntent.id);
-
-      res.json({ 
-        clientSecret: paymentIntent.client_secret,
-        consultationId: consultation.id 
-      });
-    } catch (error: any) {
-      console.error("Create consultation error:", error);
-      if (error instanceof z.ZodError) {
-        return res.status(400).json({ 
-          message: "Validation error", 
-          errors: error.errors 
-        });
-      }
-      res.status(500).json({ 
-        message: "Error creating consultation: " + error.message 
-      });
-    }
-  });
 
   // Get consultation details
   app.get("/api/consultation/:id", async (req, res) => {
