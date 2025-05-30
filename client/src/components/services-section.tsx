@@ -16,10 +16,16 @@ export default function ServicesSection() {
       icon: Brain,
       title: "Dial-an-AI-Expert",
       description: "Get immediate access to deep AI expertise. Perfect for strategic decisions, technical deep-dives, or AI transformation guidance.",
-      price: "$500/hour",
+      price: "Flexible Packages",
       buttonText: "Book Session",
       buttonAction: handleBookSession,
-      gradient: true
+      gradient: true,
+      packages: [
+        { duration: "30 minutes", price: "$250", hours: 0.5 },
+        { duration: "1 hour", price: "$500", hours: 1 },
+        { duration: "5 hours", price: "$2,400", hours: 5, savings: "$100" },
+        { duration: "10 hours", price: "$4,500", hours: 10, savings: "$500" }
+      ]
     },
     {
       icon: UserCheck,
