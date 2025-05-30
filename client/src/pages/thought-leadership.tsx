@@ -10,6 +10,14 @@ import aiGovImage from "@assets/AiGov.jpg";
 import archetypesImage from "@assets/archtypes.png";
 import aiGovFrameworkImage from "@assets/AIGovFramework.png";
 import aiAfterHoursImage from "@assets/AIAH - Ep16 - April - Episode - Thumbnail.png";
+import aldrichLogo from "@assets/image_1748587792420.png";
+import retrainLogo from "@assets/image_1748588175311.png";
+import beelieveLogo from "@assets/image_1748588236796.png";
+import nyTechWeekLogo from "@assets/image_1748588288028.png";
+import mitSloanLogo from "@assets/image_1748588335252.png";
+import kelloggLogo from "@assets/image_1748588359680.png";
+import uclaLogo from "@assets/image_1748588397492.png";
+import stanfordLogo from "@assets/image_1748588439370.png";
 
 interface ContentItem {
   id: string;
@@ -300,6 +308,122 @@ export default function ThoughtLeadership() {
                   </Button>
                 </CardContent>
               </Card>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Speaking Engagements Section */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+              Speaking Engagements
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              Sharing AI insights across industry conferences and prestigious academic institutions
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center space-x-3">
+                <img src={aldrichLogo} alt="Aldrich Capital Partners" className="h-8 w-auto" />
+                <div>
+                  <h5 className="font-medium text-gray-900 dark:text-white">Aldrich Capital Partners</h5>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">Technology Summit</p>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center space-x-3">
+                <img src={retrainLogo} alt="retrain.ai" className="h-8 w-auto" />
+                <div>
+                  <h5 className="font-medium text-gray-900 dark:text-white">retrain.ai</h5>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">Responsible AI Conference</p>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center space-x-3">
+                <img src={beelieveLogo} alt="Beelieve" className="h-8 w-auto" />
+                <div>
+                  <h5 className="font-medium text-gray-900 dark:text-white">Beelieve</h5>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">AI Executives Roundtable</p>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center space-x-3">
+                <img src={nyTechWeekLogo} alt="NY Tech Week" className="h-8 w-auto" />
+                <div>
+                  <h5 className="font-medium text-gray-900 dark:text-white">NY Tech Week</h5>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">AI Product Strategy</p>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              viewport={{ once: true }}
+            >
+              <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center space-x-3">
+                <img src={stanfordLogo} alt="Stanford Continuing Studies" className="h-8 w-auto" />
+                <div>
+                  <h5 className="font-medium text-gray-900 dark:text-white">Stanford Continuing Studies</h5>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">AI Leadership Development</p>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center space-x-3">
+                <div className="flex space-x-2">
+                  <img src={mitSloanLogo} alt="MIT Sloan School of Management" className="h-8 w-auto" />
+                  <img src={kelloggLogo} alt="Northwestern Kellogg School of Management" className="h-8 w-auto" />
+                  <img src={uclaLogo} alt="UCLA Anderson School of Management" className="h-8 w-auto" />
+                </div>
+                <div>
+                  <h5 className="font-medium text-gray-900 dark:text-white">MBA Programs</h5>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">MIT Sloan, Northwestern Kellogg, UCLA Anderson</p>
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>

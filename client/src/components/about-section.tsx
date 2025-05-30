@@ -1,13 +1,6 @@
 import { motion } from "framer-motion";
 import yuyingPortrait from "@assets/YuyingChenWynn_10x12_300dpi.jpg";
-import aldrichLogo from "@assets/image_1748587792420.png";
-import retrainLogo from "@assets/image_1748588175311.png";
-import beelieveLogo from "@assets/image_1748588236796.png";
-import nyTechWeekLogo from "@assets/image_1748588288028.png";
-import mitSloanLogo from "@assets/image_1748588335252.png";
-import kelloggLogo from "@assets/image_1748588359680.png";
-import uclaLogo from "@assets/image_1748588397492.png";
-import stanfordLogo from "@assets/image_1748588439370.png";
+
 
 export default function AboutSection() {
   const achievements = [
@@ -151,58 +144,7 @@ export default function AboutSection() {
         >
           <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">Thought Leadership & Recognition</h3>
           
-          {/* Speaking Engagements */}
-          <div className="mb-12">
-            <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">Featured Speaker</h4>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center space-x-3">
-                <img src={aldrichLogo} alt="Aldrich Capital Partners" className="h-8 w-auto" />
-                <div>
-                  <h5 className="font-medium text-gray-900 dark:text-white">Aldrich Capital Partners Technology Summit</h5>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">AI Strategy & Implementation</p>
-                </div>
-              </div>
-              <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center space-x-3">
-                <img src={retrainLogo} alt="retrain.ai" className="h-8 w-auto" />
-                <div>
-                  <h5 className="font-medium text-gray-900 dark:text-white">retrain.ai Responsible AI Conference</h5>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">AI Risk & Governance</p>
-                </div>
-              </div>
-              <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center space-x-3">
-                <img src={beelieveLogo} alt="Beelieve" className="h-8 w-auto" />
-                <div>
-                  <h5 className="font-medium text-gray-900 dark:text-white">Beelieve AI Executives Roundtable</h5>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">Enterprise AI Transformation</p>
-                </div>
-              </div>
-              <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center space-x-3">
-                <img src={nyTechWeekLogo} alt="NY Tech Week" className="h-8 w-auto" />
-                <div>
-                  <h5 className="font-medium text-gray-900 dark:text-white">NY Tech Week</h5>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">AI Product Strategy</p>
-                </div>
-              </div>
-              <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center space-x-3">
-                <img src={stanfordLogo} alt="Stanford Continuing Studies" className="h-8 w-auto" />
-                <div>
-                  <h5 className="font-medium text-gray-900 dark:text-white">Stanford Continuing Studies</h5>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">AI Leadership Development</p>
-                </div>
-              </div>
-              <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center space-x-3">
-                <div className="flex space-x-2">
-                  <img src={mitSloanLogo} alt="MIT Sloan School of Management" className="h-8 w-auto" />
-                  <img src={kelloggLogo} alt="Northwestern Kellogg School of Management" className="h-8 w-auto" />
-                  <img src={uclaLogo} alt="UCLA Anderson School of Management" className="h-8 w-auto" />
-                </div>
-                <div>
-                  <h5 className="font-medium text-gray-900 dark:text-white">MBA Programs</h5>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">MIT Sloan, Northwestern Kellogg, UCLA Anderson</p>
-                </div>
-              </div>
-            </div>
-          </div>
+
 
           {/* Content & Media */}
           <div className="mb-12">
