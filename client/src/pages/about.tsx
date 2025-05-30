@@ -15,7 +15,7 @@ export default function About() {
     {
       title: "Head of AI - PEAK6",
       period: "2023 - Present",
-      description: "Leading AI strategy across 6 companies with $38B AUM. Built proprietary GenAI platform achieving 87% adoption and $6M+ first-year savings."
+      description: "Leading AI strategy across 6 companies in financial services, fintech, edtech, and entertainment. Built proprietary GenAI platform achieving 87% adoption and $6M+ first-year savings."
     },
     {
       title: "Managing Director - Wittingly Ventures", 
