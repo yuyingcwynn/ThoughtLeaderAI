@@ -143,7 +143,7 @@ export default function AboutSection() {
           viewport={{ once: true }}
         >
           <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">Trusted by Industry Leaders</h4>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center opacity-60">
+          <div className="grid grid-cols-5 gap-8 items-center justify-items-center opacity-60">
               <div className="text-center">
                 <div className="text-2xl font-bold text-gray-600 dark:text-gray-400">PEAK6</div>
                 <div className="text-xs text-gray-500">and portfolio of companies</div>
