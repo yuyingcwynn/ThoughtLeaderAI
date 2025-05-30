@@ -19,12 +19,6 @@ export default function BookingSuccess() {
   const [userEmail, setUserEmail] = useState("");
 
   useEffect(() => {
-    // Load Calendly widget script
-    const script = document.createElement('script');
-    script.src = 'https://assets.calendly.com/assets/external/widget.js';
-    script.async = true;
-    document.body.appendChild(script);
-
     // Get package info from URL params
     const urlParams = new URLSearchParams(window.location.search);
     const packageHours = urlParams.get('package');
@@ -46,43 +40,58 @@ export default function BookingSuccess() {
       setUserEmail(email);
     }
 
+    // Load Calendly widget script with proper event handling
+    const loadCalendly = () => {
+      if (!document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]')) {
+        const script = document.createElement('script');
+        script.src = 'https://assets.calendly.com/assets/external/widget.js';
+        script.async = true;
+        script.onload = () => {
+          console.log('Calendly script loaded successfully');
+        };
+        script.onerror = () => {
+          console.error('Failed to load Calendly script');
+        };
+        document.head.appendChild(script);
+      }
+    };
+
+    loadCalendly();
+
     return () => {
       const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
-      if (existingScript) {
-        document.body.removeChild(existingScript);
+      if (existingScript && existingScript.parentNode) {
+        existingScript.parentNode.removeChild(existingScript);
       }
     };
   }, []);
 
   const handleScheduleClick = () => {
     console.log('Schedule button clicked');
-    console.log('Calendly available:', !!window.Calendly);
-    console.log('User email:', userEmail);
-    console.log('Package info:', packageInfo);
     
-    // Try Calendly popup first
-    if (window.Calendly && window.Calendly.initPopupWidget) {
-      try {
-        window.Calendly.initPopupWidget({
-          url: 'https://calendly.com/yuyingcwynn',
-          prefill: {
-            email: userEmail,
-            customAnswers: {
-              a1: packageInfo ? `Package: ${packageInfo.duration} (${packageInfo.price})` : '',
-            }
-          }
-        });
-        console.log('Calendly popup initiated');
-        return;
-      } catch (error) {
-        console.error('Calendly popup error:', error);
-      }
+    // Build Calendly URL with prefilled information
+    const baseUrl = 'https://calendly.com/yuyingcwynn';
+    const params = new URLSearchParams();
+    
+    if (userEmail) {
+      params.append('prefill_email', userEmail);
     }
     
-    // Fallback: open in new tab
-    console.log('Using fallback - opening in new tab');
-    const calendlyUrl = `https://calendly.com/yuyingcwynn${userEmail ? `?prefill_email=${encodeURIComponent(userEmail)}` : ''}`;
-    window.open(calendlyUrl, '_blank');
+    if (packageInfo) {
+      params.append('prefill_custom_1', `Package: ${packageInfo.duration} (${packageInfo.price})`);
+    }
+    
+    const calendlyUrl = params.toString() ? `${baseUrl}?${params.toString()}` : baseUrl;
+    
+    console.log('Opening Calendly URL:', calendlyUrl);
+    
+    // Open in new tab for reliable access
+    const newWindow = window.open(calendlyUrl, '_blank');
+    
+    if (!newWindow) {
+      // If popup was blocked, show an alert
+      alert('Please allow popups to open the scheduling calendar, or visit: ' + calendlyUrl);
+    }
   };
 
   return (
