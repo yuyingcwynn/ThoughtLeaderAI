@@ -66,7 +66,7 @@ export default function AIReadiness() {
       bullets: [
         "Content creation and media industries",
         "Software development and IT services", 
-        "Professional services and consulting",
+        "Financial Service and FinTech",
         "Education and training sectors",
         "Healthcare and scientific research"
       ],
