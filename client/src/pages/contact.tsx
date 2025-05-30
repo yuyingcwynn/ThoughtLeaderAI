@@ -41,9 +41,9 @@ export default function Contact() {
     
     if (serviceParam) {
       const serviceMap: { [key: string]: string } = {
-        'fractional-ai-officer': 'Fractional Chief AI Officer',
-        'enterprise-ai-enablement': 'Enterprise AI Enablement',
-        'ai-product-bootcamp': 'AI Product Intensive Bootcamp'
+        'fractional-ai-officer': 'fractional-caio',
+        'enterprise-ai-enablement': 'enterprise-ai-enablement',
+        'ai-product-bootcamp': 'ai-product-bootcamp'
       };
       
       const serviceValue = serviceMap[serviceParam];
@@ -189,7 +189,7 @@ export default function Contact() {
                           render={({ field }) => (
                             <FormItem>
                               <FormLabel>Service Interest</FormLabel>
-                              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                              <Select onValueChange={field.onChange} value={field.value}>
                                 <FormControl>
                                   <SelectTrigger>
                                     <SelectValue placeholder="Select a service" />
@@ -198,7 +198,8 @@ export default function Contact() {
                                 <SelectContent>
                                   <SelectItem value="dial-an-ai-expert">Dial-an-AI-Expert</SelectItem>
                                   <SelectItem value="fractional-caio">Fractional Chief AI Officer</SelectItem>
-                                  <SelectItem value="genai-hackathon">GenAI Hackathon</SelectItem>
+                                  <SelectItem value="enterprise-ai-enablement">Enterprise AI Enablement</SelectItem>
+                                  <SelectItem value="ai-product-bootcamp">AI Product Intensive Bootcamp</SelectItem>
                                   <SelectItem value="speaking">Speaking Engagement</SelectItem>
                                   <SelectItem value="general">General Inquiry</SelectItem>
                                 </SelectContent>
