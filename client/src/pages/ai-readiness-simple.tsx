@@ -356,7 +356,11 @@ export default function AIReadiness() {
                         {bullet}
                       </p>
                       <div className="flex items-center justify-center space-x-4">
-                        <span className="text-sm text-gray-500 text-right w-32">zero knowledge</span>
+                        <span className="text-sm text-gray-500 text-right w-32">
+                          {currentQuestionData.id === 'disruption' 
+                            ? 'not aware of any disruption' 
+                            : 'zero knowledge'}
+                        </span>
                         <div className="flex space-x-2">
                           {[0, 1, 2, 3, 4, 5].map(rating => (
                             <Button
@@ -374,7 +378,11 @@ export default function AIReadiness() {
                             </Button>
                           ))}
                         </div>
-                        <span className="text-sm text-gray-500 text-left w-32">I know it and keep up to date</span>
+                        <span className="text-sm text-gray-500 text-left w-32">
+                          {currentQuestionData.id === 'disruption' 
+                            ? 'understand business model and industry disruption with timeline' 
+                            : 'I know it and keep up to date'}
+                        </span>
                       </div>
                     </div>
                   );
