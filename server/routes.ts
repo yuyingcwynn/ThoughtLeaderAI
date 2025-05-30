@@ -87,9 +87,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.post("/api/create-consultation", async (req, res) => {
     try {
       const consultationData = req.body;
+      console.log("Received consultation data:", consultationData);
       
       // Validate consultation data
       const validatedData = insertConsultationSchema.parse(consultationData);
+      console.log("Validated data:", validatedData);
       
       // Create consultation record
       const consultation = await storage.createConsultation(validatedData);

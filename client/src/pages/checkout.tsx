@@ -121,6 +121,16 @@ export default function Checkout() {
   const handleBookingSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    // Validate required fields
+    if (!bookingData.firstName || !bookingData.lastName || !bookingData.email || !bookingData.serviceType) {
+      toast({
+        title: "Missing Information",
+        description: "Please fill in all required fields (marked with *).",
+        variant: "destructive",
+      });
+      return;
+    }
+    
     if (isTestMode) {
       // Skip payment in test mode and go directly to success
       const params = new URLSearchParams({
