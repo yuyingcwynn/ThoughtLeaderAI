@@ -24,7 +24,7 @@ export default function Footer() {
       title: "Contact",
       links: [
         { name: "yuyingcwynn@gmail.com", href: "mailto:yuyingcwynn@gmail.com", external: true },
-        { name: "415.910.2971", href: "tel:415-910-2971", external: true },
+        { name: "yuying@wittinglyventures.com", href: "mailto:yuying@wittinglyventures.com", external: true },
         { name: "Greater Los Angeles Area", href: "#", external: false }
       ]
     }
