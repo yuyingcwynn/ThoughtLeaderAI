@@ -203,10 +203,10 @@ export default function AIReadiness() {
   };
 
   const getEnterpriseMaturityLevel = (score: number) => {
-    if (score <= 8) return { level: "Exploring", color: "bg-red-500", description: "Early AI exploration phase" };
-    if (score <= 16) return { level: "Developing", color: "bg-orange-500", description: "Building foundational AI capabilities" };
-    if (score <= 24) return { level: "Scaling", color: "bg-yellow-500", description: "Systematic AI deployment and integration" };
-    if (score <= 32) return { level: "Leading", color: "bg-blue-500", description: "AI-driven transformation and innovation" };
+    if (score <= 6) return { level: "Exploring", color: "bg-red-500", description: "Early AI exploration phase" };
+    if (score <= 13) return { level: "Developing", color: "bg-orange-500", description: "Building foundational AI capabilities" };
+    if (score <= 19) return { level: "Scaling", color: "bg-yellow-500", description: "Systematic AI deployment and integration" };
+    if (score <= 25) return { level: "Leading", color: "bg-blue-500", description: "AI-driven transformation and innovation" };
     return { level: "AI-Native", color: "bg-green-500", description: "Industry-leading AI-first organization" };
   };
 
@@ -653,7 +653,7 @@ export default function AIReadiness() {
   const renderResults = () => {
     const isPersonal = currentQuiz === 'personal';
     const score = isPersonal ? getPersonalScore() : getEnterpriseScore();
-    const maxScore = isPersonal ? getTotalBullets() * 5 : 40;
+    const maxScore = isPersonal ? getTotalBullets() * 5 : 32;
     const readiness = isPersonal ? getPersonalReadinessLevel(score) : getEnterpriseMaturityLevel(score);
     const percentage = Math.round((score / maxScore) * 100);
 
@@ -773,7 +773,7 @@ export default function AIReadiness() {
                       phase: "Awareness", 
                       color: "bg-red-500", 
                       min: 0, 
-                      max: 8,
+                      max: 6,
                       goals: ["Increase importance", "Communicate goals", "Communicate plans", "Check for understanding"],
                       activities: "Leadership communication and initial awareness building",
                       people: "Senior leadership and executive sponsors"
@@ -781,8 +781,8 @@ export default function AIReadiness() {
                     { 
                       phase: "Interest", 
                       color: "bg-orange-500", 
-                      min: 9, 
-                      max: 16,
+                      min: 7, 
+                      max: 13,
                       goals: ["Channel for people to engage", "Channel for people to raise their hand", "Ability to measure interest"],
                       activities: "Employee engagement programs and interest measurement",
                       people: "Early adopters and AI champions"
@@ -790,8 +790,8 @@ export default function AIReadiness() {
                     { 
                       phase: "Discover", 
                       color: "bg-yellow-500", 
-                      min: 17, 
-                      max: 24,
+                      min: 14, 
+                      max: 19,
                       goals: ["Learning opportunities and resources", "Space for opportunities", "Environment for exploration", "Criteria for evaluation and prioritization"],
                       activities: "Learning programs and use case discovery",
                       people: "Cross-functional exploration teams"
@@ -799,8 +799,8 @@ export default function AIReadiness() {
                     { 
                       phase: "Build", 
                       color: "bg-blue-500", 
-                      min: 25, 
-                      max: 32,
+                      min: 20, 
+                      max: 25,
                       goals: ["Internal tools", "Internal capability", "External facing deliverability"],
                       activities: "Tool development and capability building",
                       people: "Technical teams and subject matter experts"
@@ -808,8 +808,8 @@ export default function AIReadiness() {
                     { 
                       phase: "Scale", 
                       color: "bg-green-500", 
-                      min: 33, 
-                      max: 40,
+                      min: 26, 
+                      max: 32,
                       goals: ["Policy and guidelines", "Tool rationalization/adoption", "Process", "Governance", "Operationalizing"],
                       activities: "Enterprise scaling and operational excellence",
                       people: "Organization-wide AI integration"
