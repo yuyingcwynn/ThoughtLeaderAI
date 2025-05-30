@@ -75,7 +75,9 @@ export class MemStorage implements IStorage {
       id,
       company: insertConsultation.company || null,
       notes: insertConsultation.notes || null,
+      packageHours: insertConsultation.packageHours || null,
       stripePaymentIntentId: null,
+      calendlyEventId: null,
       status: "pending",
       scheduledDate: null,
       createdAt: new Date()

@@ -179,6 +179,36 @@ export async function registerRoutes(app: Express): Promise<Server> {
     res.json({ received: true });
   });
 
+  // Calendly webhook handler for booking confirmations
+  app.post("/api/webhook/calendly", async (req, res) => {
+    try {
+      const event = req.body;
+      
+      // Handle invitee.created event (when someone books a session)
+      if (event.event === 'invitee.created') {
+        const inviteeEmail = event.payload.email;
+        const calendlyEventId = event.payload.event;
+        const scheduledAt = new Date(event.payload.scheduled_event.start_time);
+        
+        // Find consultation by email and update with Calendly info
+        // Note: In a real implementation, you'd want to store consultation ID in Calendly's tracking fields
+        console.log(`Calendly booking confirmed for ${inviteeEmail} at ${scheduledAt}`);
+        console.log(`Calendly Event ID: ${calendlyEventId}`);
+        
+        // You could implement logic here to:
+        // 1. Find the consultation record by email
+        // 2. Update it with the Calendly event ID and scheduled date
+        // 3. Send confirmation emails
+        // 4. Deduct hours from the package if implementing hour tracking
+      }
+      
+      res.json({ received: true });
+    } catch (error) {
+      console.error('Calendly webhook error:', error);
+      res.status(500).json({ error: 'Webhook processing failed' });
+    }
+  });
+
   const httpServer = createServer(app);
   return httpServer;
 }

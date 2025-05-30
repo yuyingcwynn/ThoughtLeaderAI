@@ -55,10 +55,10 @@ export default function BookingSuccess() {
   }, []);
 
   const handleScheduleClick = () => {
-    // Initialize Calendly popup - you'll need to replace with your actual Calendly URL
+    // Initialize Calendly popup with your actual URL
     if (window.Calendly) {
       window.Calendly.initPopupWidget({
-        url: 'https://calendly.com/your-calendly-link', // Replace with your actual Calendly URL
+        url: 'https://calendly.com/yuyingcwynn',
         prefill: {
           email: userEmail,
           customAnswers: {
@@ -66,6 +66,9 @@ export default function BookingSuccess() {
           }
         }
       });
+    } else {
+      // Fallback: open in new tab if widget doesn't load
+      window.open(`https://calendly.com/yuyingcwynn?prefill_email=${encodeURIComponent(userEmail)}`, '_blank');
     }
   };
 
