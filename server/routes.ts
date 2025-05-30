@@ -2,6 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import Stripe from "stripe";
 import { storage } from "./storage";
+import { requireAuth } from "./auth";
 import { insertContactInquirySchema, insertConsultationSchema } from "@shared/schema";
 import { z } from "zod";
 
