@@ -52,7 +52,10 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <div className="text-2xl font-bold gradient-text">YCW.AI</div>
+            <div className="flex flex-col">
+              <div className="text-2xl font-bold gradient-text">Wittingly Ventures</div>
+              <div className="text-xs text-gray-600 dark:text-gray-400 italic">commit acts of AI wittingly</div>
+            </div>
           </div>
           
           <div className="hidden md:block">
