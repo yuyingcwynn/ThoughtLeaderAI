@@ -26,10 +26,10 @@ export default function BookingSuccess() {
     
     if (packageHours) {
       const packages = [
-        { hours: "0.5", duration: "30 minutes", price: "$250" },
-        { hours: "1", duration: "1 hour", price: "$500" },
-        { hours: "5", duration: "5 hours", price: "$2,400" },
-        { hours: "10", duration: "10 hours", price: "$4,500" }
+        { hours: "0.5", duration: "30 minutes", price: "$400" },
+        { hours: "1", duration: "1 hour", price: "$800" },
+        { hours: "5", duration: "5 hours", price: "$3800" },
+        { hours: "10", duration: "10 hours", price: "$7,500" }
       ];
       
       const selectedPackage = packages.find(pkg => pkg.hours === packageHours);

@@ -9,32 +9,32 @@ import { useLocation } from "wouter";
 const packages = [
   { 
     duration: "30 minutes", 
-    price: 250, 
-    displayPrice: "$250", 
+    price: 400, 
+    displayPrice: "$400", 
     popular: false,
     calendlyUrl: "https://calendly.com/yuyingcwynn/ai-expertise-30m",
     description: "Quick consultation for specific AI questions"
   },
   { 
     duration: "1 hour", 
-    price: 500, 
-    displayPrice: "$500", 
+    price: 800, 
+    displayPrice: "$800", 
     popular: true,
     calendlyUrl: "https://calendly.com/yuyingcwynn/ai-expertise-1hr",
     description: "Focused discussion in one AI domain"
   },
   { 
     duration: "90 minutes", 
-    price: 700, 
-    displayPrice: "$700", 
+    price: 1150, 
+    displayPrice: "$1150", 
     popular: false,
     calendlyUrl: "https://calendly.com/yuyingcwynn/ai-expertise-90m",
     description: "AI platform due diligence or AI strategy consultation"
   },
   { 
     duration: "2 hours", 
-    price: 900, 
-    displayPrice: "$900", 
+    price: 1500, 
+    displayPrice: "$1500", 
     popular: false,
     calendlyUrl: "https://calendly.com/yuyingcwynn/ai-expertise-2hr",
     description: "Deep dive into AI strategy and implementation focus"

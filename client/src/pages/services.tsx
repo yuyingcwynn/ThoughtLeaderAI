@@ -14,8 +14,8 @@ export default function Services() {
       icon: Brain,
       title: "Dial-an-AI-Expert",
       subtitle: "Get Expert AI Answers in Real-Time",
-      description: "Immediate access to AI strategy expertise. $500/hour for focused problem-solving with calendar booking and instant confirmation.",
-      price: "$500/hr",
+      description: "Immediate access to AI strategy expertise. $800/hour for focused problem-solving with calendar booking and instant confirmation.",
+      price: "$800/hr",
       useCases: [
         "AI vendor evaluation",
         "Technical architecture review", 
