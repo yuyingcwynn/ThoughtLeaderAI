@@ -287,103 +287,140 @@ export default function AIReadiness() {
     </div>
   );
 
-  const renderPersonalQuiz = () => (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-      <div className="mb-8">
-        <div className="flex items-center justify-between mb-4">
-          <Button 
-            variant="outline" 
-            onClick={goToQuizSelection}
-            className="flex items-center"
-          >
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to Selection
-          </Button>
-          <div className="text-sm text-gray-600 dark:text-gray-300">
-            {Object.keys(personalRatings).length} of {getTotalBullets()} rated
+  const renderPersonalQuiz = () => {
+    const currentQuestionData = personalQuestions[currentQuestion];
+    const progress = ((currentQuestion + 1) / personalQuestions.length) * 100;
+    
+    // Check if all bullets in current question are rated
+    const currentQuestionBullets = currentQuestionData.bullets.map((_, index) => 
+      `${currentQuestionData.id}-${index}`
+    );
+    const currentQuestionCompleted = currentQuestionBullets.every(bulletId => 
+      personalRatings[bulletId] !== undefined
+    );
+
+    const canGoNext = currentQuestionCompleted && currentQuestion < personalQuestions.length - 1;
+    const canGoBack = currentQuestion > 0;
+    const canViewResults = currentQuestionCompleted && currentQuestion === personalQuestions.length - 1;
+
+    return (
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="mb-8">
+          <div className="flex items-center justify-between mb-4">
+            <Button 
+              variant="outline" 
+              onClick={goToQuizSelection}
+              className="flex items-center"
+            >
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              Back to Selection
+            </Button>
+            <div className="text-sm text-gray-600 dark:text-gray-300">
+              Question {currentQuestion + 1} of {personalQuestions.length}
+            </div>
           </div>
+          <Progress value={progress} className="h-2" />
         </div>
-        <Progress value={(Object.keys(personalRatings).length / getTotalBullets()) * 100} className="h-2" />
-      </div>
 
-      <div className="space-y-8">
-        {personalQuestions.map((question, questionIndex) => (
-          <motion.div
-            key={question.id}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: questionIndex * 0.1 }}
-          >
-            <Card className="bg-white dark:bg-gray-800 shadow-xl">
-              <CardHeader className="p-8">
-                <Badge variant="secondary" className="mb-4 text-xs w-fit">
-                  {question.category}
-                </Badge>
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                  {question.question}
-                </h2>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  {question.description}
-                </p>
-                <p className="text-sm text-gray-500 dark:text-gray-400 italic">
-                  {question.context}
-                </p>
-              </CardHeader>
-              <CardContent className="p-8 pt-0">
-                <div className="space-y-6">
-                  {question.bullets.map((bullet, bulletIndex) => {
-                    const bulletId = `${question.id}-${bulletIndex}`;
-                    const currentRating = personalRatings[bulletId] || 0;
-                    
-                    return (
-                      <div key={bulletIndex} className="space-y-3">
-                        <p className="text-gray-700 dark:text-gray-300 font-medium">
-                          {bullet}
-                        </p>
-                        <div className="flex items-center space-x-2">
-                          <span className="text-sm text-gray-500 w-8">0</span>
-                          <div className="flex space-x-2">
-                            {[0, 1, 2, 3, 4, 5].map(rating => (
-                              <Button
-                                key={rating}
-                                variant={currentRating === rating ? "default" : "outline"}
-                                size="sm"
-                                className={`w-10 h-10 rounded-full ${
-                                  currentRating === rating 
-                                    ? "bg-primary text-white" 
-                                    : "hover:bg-primary/10"
-                                }`}
-                                onClick={() => handlePersonalRating(bulletId, rating)}
-                              >
-                                {rating}
-                              </Button>
-                            ))}
-                          </div>
-                          <span className="text-sm text-gray-500 w-8">5</span>
+        <motion.div
+          key={currentQuestion}
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.4 }}
+          className="text-center"
+        >
+          <Card className="bg-white dark:bg-gray-800 shadow-xl">
+            <CardHeader className="p-8 text-center">
+              <Badge variant="secondary" className="mb-4 text-xs mx-auto w-fit">
+                {currentQuestionData.category}
+              </Badge>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                {currentQuestionData.question}
+              </h2>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">
+                {currentQuestionData.description}
+              </p>
+              <p className="text-sm text-gray-500 dark:text-gray-400 italic">
+                {currentQuestionData.context}
+              </p>
+            </CardHeader>
+            <CardContent className="p-8 pt-0">
+              <div className="space-y-8">
+                {currentQuestionData.bullets.map((bullet, bulletIndex) => {
+                  const bulletId = `${currentQuestionData.id}-${bulletIndex}`;
+                  const currentRating = personalRatings[bulletId];
+                  
+                  return (
+                    <div key={bulletIndex} className="space-y-4">
+                      <p className="text-gray-700 dark:text-gray-300 font-medium text-center">
+                        {bullet}
+                      </p>
+                      <div className="flex items-center justify-center space-x-4">
+                        <span className="text-sm text-gray-500 text-right w-32">zero knowledge</span>
+                        <div className="flex space-x-2">
+                          {[0, 1, 2, 3, 4, 5].map(rating => (
+                            <Button
+                              key={rating}
+                              variant={currentRating === rating ? "default" : "outline"}
+                              size="sm"
+                              className={`w-12 h-12 rounded-full ${
+                                currentRating === rating 
+                                  ? "bg-primary text-white" 
+                                  : "hover:bg-primary/10"
+                              }`}
+                              onClick={() => handlePersonalRating(bulletId, rating)}
+                            >
+                              {rating}
+                            </Button>
+                          ))}
                         </div>
+                        <span className="text-sm text-gray-500 text-left w-32">I know it and keep up to date</span>
                       </div>
-                    );
-                  })}
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
-        ))}
-      </div>
+                    </div>
+                  );
+                })}
+              </div>
 
-      {canProceedToResults() && (
-        <div className="text-center mt-12">
-          <Button 
-            onClick={() => setShowResults(true)}
-            className="gradient-bg text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
-          >
-            View My Results
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
-        </div>
-      )}
-    </div>
-  );
+              {/* Navigation */}
+              <div className="flex justify-between items-center mt-12">
+                <Button
+                  variant="outline"
+                  onClick={() => setCurrentQuestion(currentQuestion - 1)}
+                  disabled={!canGoBack}
+                  className="flex items-center"
+                >
+                  <ArrowLeft className="mr-2 h-4 w-4" />
+                  Previous
+                </Button>
+
+                <div className="flex space-x-4">
+                  {canGoNext && (
+                    <Button
+                      onClick={() => setCurrentQuestion(currentQuestion + 1)}
+                      className="gradient-bg text-white flex items-center"
+                    >
+                      Next Question
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  )}
+
+                  {canViewResults && (
+                    <Button
+                      onClick={() => setShowResults(true)}
+                      className="gradient-bg text-white flex items-center"
+                    >
+                      View My Results
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  )}
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
+      </div>
+    );
+  };
 
   const renderEnterpriseQuiz = () => {
     const question = enterpriseQuestions[currentQuestion];
