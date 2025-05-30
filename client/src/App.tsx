@@ -11,6 +11,7 @@ import BookingSuccess from "@/pages/booking-success";
 import Contact from "@/pages/contact";
 import Login from "@/pages/login";
 import Dashboard from "@/pages/dashboard";
+import AIReadiness from "@/pages/ai-readiness";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -24,6 +25,7 @@ function Router() {
       <Route path="/contact" component={Contact} />
       <Route path="/login" component={Login} />
       <Route path="/dashboard" component={Dashboard} />
+      <Route path="/ai-readiness" component={AIReadiness} />
       <Route component={NotFound} />
     </Switch>
   );
