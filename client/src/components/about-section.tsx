@@ -3,6 +3,7 @@ import yuyingPortrait from "@assets/YuyingChenWynn_10x12_300dpi.jpg";
 import aldrichLogo from "@assets/image_1748587792420.png";
 import retrainLogo from "@assets/image_1748588175311.png";
 import beelieveLogo from "@assets/image_1748588236796.png";
+import nyTechWeekLogo from "@assets/image_1748588288028.png";
 
 export default function AboutSection() {
   const achievements = [
@@ -171,9 +172,12 @@ export default function AboutSection() {
                   <p className="text-sm text-gray-600 dark:text-gray-300">Enterprise AI Transformation</p>
                 </div>
               </div>
-              <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-                <h5 className="font-medium text-gray-900 dark:text-white">NYC Tech Week</h5>
-                <p className="text-sm text-gray-600 dark:text-gray-300">AI Product Strategy</p>
+              <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center space-x-3">
+                <img src={nyTechWeekLogo} alt="NY Tech Week" className="h-8 w-auto" />
+                <div>
+                  <h5 className="font-medium text-gray-900 dark:text-white">NY Tech Week</h5>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">AI Product Strategy</p>
+                </div>
               </div>
               <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
                 <h5 className="font-medium text-gray-900 dark:text-white">Stanford Executive Ed</h5>
