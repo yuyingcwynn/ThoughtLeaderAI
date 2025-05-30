@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import productTalkImage from "@assets/image_1748589862049.png";
 
 export default function Home() {
   useEffect(() => {
@@ -146,6 +147,11 @@ export default function Home() {
               >
                 <Card className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 h-full">
                   <CardContent className="p-6">
+                    <img 
+                      src={productTalkImage}
+                      alt="Product Talk Podcast featuring Yuying Chen-Wynn"
+                      className="w-full h-32 object-cover rounded-lg mb-4"
+                    />
                     <div className="text-xs text-purple-600 dark:text-purple-400 font-medium mb-2">PODCAST</div>
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Product Talk</h3>
                     <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">Leveraging AI to scale product businesses with insights from Microsoft and PEAK6 experience</p>
