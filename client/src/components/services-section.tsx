@@ -27,7 +27,7 @@ export default function ServicesSection() {
       description: "Strategic AI leadership without the full-time commitment. Drive AI vision, governance, and execution across your organization.",
       price: "Custom Pricing",
       buttonText: "Learn More",
-      buttonAction: () => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }),
+      buttonAction: () => setLocation("/contact"),
       gradient: false
     },
     {
@@ -36,7 +36,7 @@ export default function ServicesSection() {
       description: "3-day intensive hackathon to jumpstart your team's AI capabilities. Hands-on learning with real business use cases.",
       price: "Enterprise Package",
       buttonText: "Schedule Event",
-      buttonAction: () => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }),
+      buttonAction: () => setLocation("/contact"),
       gradient: true
     }
   ];

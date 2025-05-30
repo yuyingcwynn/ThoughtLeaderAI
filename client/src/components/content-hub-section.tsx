@@ -2,8 +2,11 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { Linkedin, FileText, Youtube, Mic, ArrowRight } from "lucide-react";
 import { EXTERNAL_LINKS } from "@/lib/constants";
+import { useLocation } from "wouter";
 
 export default function ContentHubSection() {
+  const [, setLocation] = useLocation();
+  
   const contentPlatforms = [
     {
       icon: Linkedin,
@@ -33,7 +36,7 @@ export default function ContentHubSection() {
       icon: Mic,
       title: "Speaking",
       description: "Conference talks and expert panels",
-      link: "#contact",
+      link: "/contact",
       bgColor: "bg-purple-600",
       linkText: "Book Speaking",
       isInternal: true
@@ -63,7 +66,7 @@ export default function ContentHubSection() {
 
   const handleLinkClick = (link: string, isInternal?: boolean) => {
     if (isInternal) {
-      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+      setLocation(link);
     } else {
       window.open(link, '_blank');
     }
