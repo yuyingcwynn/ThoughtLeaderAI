@@ -464,7 +464,7 @@ export default function ThoughtLeadership() {
                 <img src={womenTechLogo} alt="Women in Tech Global Conference" className="h-8 w-auto" />
                 <div>
                   <h5 className="font-medium text-gray-900 dark:text-white">Women in Tech Global Conference</h5>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">Keynote Speaker</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">Presenter</p>
                 </div>
               </div>
             </motion.div>
