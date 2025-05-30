@@ -359,6 +359,8 @@ export default function AIReadiness() {
                         <span className="text-sm text-gray-500 text-right w-32">
                           {currentQuestionData.id === 'disruption' 
                             ? 'not aware of any disruption' 
+                            : currentQuestionData.id === 'usecases'
+                            ? 'don\'t know any use cases'
                             : 'zero knowledge'}
                         </span>
                         <div className="flex space-x-2">
@@ -381,6 +383,8 @@ export default function AIReadiness() {
                         <span className="text-sm text-gray-500 text-left w-32">
                           {currentQuestionData.id === 'disruption' 
                             ? 'understand business model and industry disruption with timeline' 
+                            : currentQuestionData.id === 'usecases'
+                            ? 'know all the best ones and keep up to date'
                             : 'I know it and keep up to date'}
                         </span>
                       </div>
