@@ -9,6 +9,7 @@ import customAppImage from "@assets/CustomApp.jpg";
 import aiGovImage from "@assets/AiGov.jpg";
 import archetypesImage from "@assets/archtypes.png";
 import aiGovFrameworkImage from "@assets/AIGovFramework.png";
+import aiAfterHoursImage from "@assets/AIAH - Ep16 - April - Episode - Thumbnail.png";
 
 interface ContentItem {
   id: string;
@@ -66,6 +67,15 @@ export default function ThoughtLeadership() {
       image: aiGovFrameworkImage,
       link: "https://www.linkedin.com/pulse/practical-ai-governance-framework-yuying-chen-wynn-iedlc/?trackingId=O4%2FEzzcFRl6yuNTU2L6X6A%3D%3D",
       publishDate: "Recent"
+    },
+    {
+      id: "ai-after-hours-april-2025",
+      title: "AI After Hours - Episode 16: April 2025",
+      description: "Deep dive into the latest AI trends and enterprise applications, featuring insights on practical AI implementation strategies",
+      type: "video",
+      image: aiAfterHoursImage,
+      link: "https://youtu.be/zBFunc6zF6s?si=uhHtkFM4SgKRCqNK",
+      publishDate: "April 2025"
     }
   ];
 
