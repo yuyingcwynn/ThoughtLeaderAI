@@ -104,7 +104,7 @@ export default function Checkout() {
                       </div>
                     )}
                     <Card 
-                      className={`cursor-pointer transition-all duration-300 hover:shadow-xl h-80 flex flex-col ${
+                      className={`cursor-pointer transition-all duration-300 hover:shadow-xl h-96 flex flex-col ${
                         pkg.popular ? 'ring-2 ring-primary' : ''
                       }`}
                       onClick={() => handlePackageSelect(pkg)}
