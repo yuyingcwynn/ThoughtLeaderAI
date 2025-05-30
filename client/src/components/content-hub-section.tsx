@@ -4,6 +4,7 @@ import { Linkedin, FileText, Youtube, Mic, ArrowRight } from "lucide-react";
 import { EXTERNAL_LINKS } from "@/lib/constants";
 import { useLocation } from "wouter";
 import productTalkImage from "@assets/image_1748589862049.png";
+import technocraticImage from "@assets/image_1748590572499.png";
 import mitSloanLogo from "@assets/image_1748590325460.png";
 import stanfordLogo from "@assets/image_1748590302205.png";
 import kelloggLogo from "@assets/image_1748590383260.png";
@@ -50,7 +51,7 @@ export default function ContentHubSection() {
 
   const insights = [
     {
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
+      image: technocraticImage,
       title: "Technocratic Podcast: From LEGO Mindstorm to AI Leadership",
       description: "Journey from designing LEGO's second-generation CPU at MIT to leading AI initiatives at PEAK6",
       category: "Podcast",
