@@ -58,7 +58,7 @@ export default function HeroSection() {
           >
             <div className="hero-circle w-80 h-80 lg:w-96 lg:h-96 mx-auto relative">
               <img 
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=800" 
+                src="/attached_assets/YuyingChenWynn_10x12_300dpi.jpg" 
                 alt="Yuying Chen-Wynn Professional Portrait" 
                 className="w-full h-full object-cover rounded-full shadow-2xl"
               />
