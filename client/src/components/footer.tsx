@@ -50,7 +50,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-8">
           <div>
-            <div className="text-2xl font-bold gradient-text mb-4">YCW.AI</div>
+            <div className="text-2xl font-bold gradient-text mb-4">WittinglyVentures</div>
             <p className="text-gray-300 text-sm leading-relaxed">
               Driving AI transformation with 15+ years of expertise in generative AI, machine learning, and enterprise strategy.
             </p>
