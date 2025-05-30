@@ -1,11 +1,8 @@
 import passport from 'passport';
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
 import session from 'express-session';
-import MemoryStore from 'memorystore';
 import type { Express } from 'express';
 import { storage } from './storage';
-
-const MemoryStoreSession = MemoryStore(session);
 
 export function setupAuth(app: Express) {
   // Session configuration with memory store
@@ -13,9 +10,6 @@ export function setupAuth(app: Express) {
     secret: process.env.SESSION_SECRET || 'your-session-secret',
     resave: false,
     saveUninitialized: false,
-    store: new MemoryStoreSession({
-      checkPeriod: 86400000 // prune expired entries every 24h
-    }),
     cookie: { secure: false, maxAge: 24 * 60 * 60 * 1000 } // 24 hours
   }));
 

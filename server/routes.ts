@@ -1,6 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import Stripe from "stripe";
+import passport from "passport";
 import { storage } from "./storage";
 import { requireAuth } from "./auth";
 import { insertContactInquirySchema, insertConsultationSchema } from "@shared/schema";
@@ -16,10 +17,16 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
 
 export async function registerRoutes(app: Express): Promise<Server> {
 
-  // Create consultation without authentication (for initial booking)
-  app.post("/api/create-consultation", async (req, res) => {
+  // Create consultation with authentication and credit tracking
+  app.post("/api/create-consultation", requireAuth, async (req, res) => {
     try {
       console.log("Received consultation data:", req.body);
+      
+      // Get authenticated user
+      const user = (req as any).user;
+      if (!user) {
+        return res.status(401).json({ message: "Authentication required" });
+      }
       
       // Simple validation
       const { firstName, lastName, email, serviceType, packageType, packageHours, amount } = req.body;
@@ -30,22 +37,42 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       }
       
+      // Create consultation record in database
+      const consultationData = {
+        userId: user.id,
+        firstName,
+        lastName,
+        email,
+        company: req.body.company || null,
+        serviceType,
+        notes: req.body.notes || null,
+        sessionType: req.body.sessionType || "dial-an-ai-expert",
+        packageType: packageType || "1 hour",
+        packageHours: packageHours || "1",
+        amount
+      };
+      
+      const consultation = await storage.createConsultation(consultationData);
+      
       // Create payment intent
       const paymentIntent = await stripe.paymentIntents.create({
         amount: amount, // Already in cents
         currency: "usd",
         metadata: {
-          firstName,
-          lastName,
-          email,
+          consultationId: consultation.id.toString(),
+          userId: user.id.toString(),
+          packageHours: packageHours || "1",
           serviceType,
           packageType: packageType || "1 hour",
-          packageHours: packageHours || "1",
         }
       });
 
+      // Update consultation with payment intent ID
+      await storage.updateConsultationPaymentIntent(consultation.id, paymentIntent.id);
+
       res.json({ 
-        clientSecret: paymentIntent.client_secret
+        clientSecret: paymentIntent.client_secret,
+        consultationId: consultation.id
       });
     } catch (error: any) {
       console.error("Create consultation error:", error);
@@ -163,11 +190,19 @@ export async function registerRoutes(app: Express): Promise<Server> {
     if (event.type === 'payment_intent.succeeded') {
       const paymentIntent = event.data.object;
       const consultationId = paymentIntent.metadata?.consultationId;
+      const userId = paymentIntent.metadata?.userId;
+      const packageHours = paymentIntent.metadata?.packageHours;
       
-      if (consultationId) {
+      if (consultationId && userId && packageHours) {
         try {
+          // Mark consultation as paid
           await storage.updateConsultationStatus(parseInt(consultationId), 'paid');
-          console.log(`Consultation ${consultationId} marked as paid`);
+          
+          // Add consultation hours to user's balance
+          const hoursToAdd = parseFloat(packageHours);
+          await storage.updateUserBalance(parseInt(userId), hoursToAdd);
+          
+          console.log(`Consultation ${consultationId} marked as paid, added ${hoursToAdd} hours to user ${userId}`);
         } catch (error) {
           console.error('Error updating consultation status:', error);
         }
@@ -204,6 +239,80 @@ export async function registerRoutes(app: Express): Promise<Server> {
     } catch (error) {
       console.error('Calendly webhook error:', error);
       res.status(500).json({ error: 'Webhook processing failed' });
+    }
+  });
+
+  // User authentication routes
+  app.get('/api/user/me', (req, res) => {
+    if (req.isAuthenticated && req.isAuthenticated()) {
+      res.json(req.user);
+    } else {
+      res.status(401).json({ message: 'Not authenticated' });
+    }
+  });
+
+  // Google OAuth routes
+  app.get('/auth/google', 
+    passport.authenticate('google', { scope: ['profile', 'email'] })
+  );
+
+  app.get('/auth/google/callback', 
+    passport.authenticate('google', { failureRedirect: '/login' }),
+    (req, res) => {
+      const returnTo = req.query.returnTo as string;
+      if (returnTo) {
+        res.redirect(returnTo);
+      } else {
+        res.redirect('/dashboard');
+      }
+    }
+  );
+
+  app.post('/auth/logout', (req, res) => {
+    req.logout((err) => {
+      if (err) {
+        return res.status(500).json({ message: 'Logout failed' });
+      }
+      res.json({ message: 'Logged out successfully' });
+    });
+  });
+
+  // Dashboard data routes (protected)
+  app.get('/api/user/balance', requireAuth, async (req, res) => {
+    try {
+      const user = (req as any).user;
+      const userData = await storage.getUser(user.id);
+      if (!userData) {
+        return res.status(404).json({ message: 'User not found' });
+      }
+      
+      res.json({
+        totalHours: parseFloat(userData.totalHoursBalance),
+        usedHours: parseFloat(userData.usedHours),
+        availableHours: parseFloat(userData.totalHoursBalance) - parseFloat(userData.usedHours)
+      });
+    } catch (error: any) {
+      res.status(500).json({ message: 'Error fetching user balance: ' + error.message });
+    }
+  });
+
+  app.get('/api/user/sessions', requireAuth, async (req, res) => {
+    try {
+      const user = (req as any).user;
+      const sessions = await storage.getUserSessions(user.id);
+      res.json(sessions);
+    } catch (error: any) {
+      res.status(500).json({ message: 'Error fetching user sessions: ' + error.message });
+    }
+  });
+
+  app.get('/api/user/consultations', requireAuth, async (req, res) => {
+    try {
+      const user = (req as any).user;
+      const consultations = await storage.getUserConsultations(user.id);
+      res.json(consultations);
+    } catch (error: any) {
+      res.status(500).json({ message: 'Error fetching user consultations: ' + error.message });
     }
   });
 
