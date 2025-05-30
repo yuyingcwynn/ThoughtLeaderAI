@@ -30,6 +30,9 @@ const packages = [
   { duration: "10 hours", price: 450000, hours: 10, displayPrice: "$4,500", savings: "$500", popular: false }
 ];
 
+// Test mode check
+const isTestMode = new URLSearchParams(window.location.search).get('test') === 'true';
+
 const CheckoutForm = ({ selectedPackage, bookingData }: { selectedPackage: any, bookingData: any }) => {
   const stripe = useStripe();
   const elements = useElements();
@@ -86,6 +89,7 @@ export default function Checkout() {
     notes: ""
   });
   const [, setLocation] = useLocation();
+  const { toast } = useToast();
 
   const handlePackageSelect = (pkg: any) => {
     setSelectedPackage(pkg);
@@ -94,6 +98,16 @@ export default function Checkout() {
 
   const handleBookingSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (isTestMode) {
+      // Skip payment in test mode and go directly to success
+      const params = new URLSearchParams({
+        package: selectedPackage.hours.toString(),
+        email: bookingData.email
+      });
+      setLocation(`/booking-success?${params.toString()}`);
+      return;
+    }
     
     try {
       // Create consultation record and payment intent
