@@ -237,10 +237,10 @@ export default function ContactSection() {
                     <Mail className="h-5 w-5" />
                     <span>yuyingcwynn@gmail.com</span>
                   </a>
-                  <a href="tel:415-910-2971" 
+                  <a href="mailto:yuying@wittinglyventures.com" 
                      className="flex items-center space-x-3 text-gray-600 dark:text-gray-300 hover:text-primary transition-colors duration-200">
-                    <Phone className="h-5 w-5" />
-                    <span>415.910.2971</span>
+                    <Mail className="h-5 w-5" />
+                    <span>yuying@wittinglyventures.com</span>
                   </a>
                   <div className="flex items-center space-x-3 text-gray-600 dark:text-gray-300">
                     <MapPin className="h-5 w-5" />

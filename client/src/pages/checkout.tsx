@@ -87,9 +87,6 @@ export default function Checkout() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">
-                Book AI Expertise Call
-              </h2>
               
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {packages.map((pkg, index) => (
