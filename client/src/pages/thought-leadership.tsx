@@ -6,6 +6,7 @@ import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import notOldBoxesImage from "@assets/NotOldBoxes.jpg";
 import customAppImage from "@assets/CustomApp.jpg";
+import aiGovImage from "@assets/AiGov.jpg";
 
 interface ContentItem {
   id: string;
@@ -35,6 +36,15 @@ export default function ThoughtLeadership() {
       type: "article",
       image: customAppImage,
       link: "https://open.substack.com/pub/yuying/p/from-chatbots-to-custom-software?r=2h7nta&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true",
+      publishDate: "Recent"
+    },
+    {
+      id: "ai-governance-reality-check",
+      title: "AI Governance Reality Check",
+      description: "Example assessments and lessons learned - Practical insights from implementing AI governance frameworks in regulated industries",
+      type: "article",
+      image: aiGovImage,
+      link: "https://open.substack.com/pub/yuying/p/ai-governance-reality-check?r=2h7nta&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true",
       publishDate: "Recent"
     }
   ];
