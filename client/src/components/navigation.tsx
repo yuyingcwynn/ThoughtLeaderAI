@@ -22,7 +22,7 @@ export default function Navigation() {
     { name: "Home", href: "/", isRoute: true },
     { name: "About", href: "/about", isRoute: true },
     { name: "Services", href: "/services", isRoute: true },
-    { name: "Thought Leadership", href: "#content", isRoute: false },
+    { name: "Thought Leadership", href: "/thought-leadership", isRoute: true },
     { name: "AI Readiness", href: "/ai-readiness", isRoute: true },
     { name: "Contact", href: "/contact", isRoute: true }
   ];
