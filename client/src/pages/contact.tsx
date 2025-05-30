@@ -18,6 +18,24 @@ import { EXTERNAL_LINKS } from "@/lib/constants";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 
+// Function to get pre-selected service from URL
+function getPreSelectedService(): string {
+  const urlParams = new URLSearchParams(window.location.search);
+  const serviceParam = urlParams.get('service');
+  
+  if (serviceParam) {
+    const serviceMap: { [key: string]: string } = {
+      'fractional-ai-officer': 'fractional-caio',
+      'enterprise-ai-enablement': 'enterprise-ai-enablement',
+      'ai-product-bootcamp': 'ai-product-bootcamp'
+    };
+    
+    return serviceMap[serviceParam] || "";
+  }
+  
+  return "";
+}
+
 export default function Contact() {
   const { toast } = useToast();
   const queryClient = useQueryClient();
@@ -29,29 +47,10 @@ export default function Contact() {
       lastName: "",
       email: "",
       company: "",
-      serviceInterest: "",
+      serviceInterest: getPreSelectedService(),
       message: ""
     }
   });
-
-  // Pre-select service based on URL parameter
-  useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const serviceParam = urlParams.get('service');
-    
-    if (serviceParam) {
-      const serviceMap: { [key: string]: string } = {
-        'fractional-ai-officer': 'fractional-caio',
-        'enterprise-ai-enablement': 'enterprise-ai-enablement',
-        'ai-product-bootcamp': 'ai-product-bootcamp'
-      };
-      
-      const serviceValue = serviceMap[serviceParam];
-      if (serviceValue) {
-        form.setValue('serviceInterest', serviceValue);
-      }
-    }
-  }, [form]);
 
   const submitInquiry = useMutation({
     mutationFn: async (data: InsertContactInquiry) => {
