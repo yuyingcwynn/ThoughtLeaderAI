@@ -9,10 +9,8 @@ interface InternalLinkProps {
 
 export function InternalLink({ href, children, className, title }: InternalLinkProps) {
   return (
-    <Link href={href}>
-      <a 
-        className={className}
-        title={title}
+    <Link href={href} className={className} title={title}>
+      <span 
         // Add tracking for internal link clicks
         onClick={() => {
           if (typeof window !== 'undefined' && window.gtag) {
@@ -24,7 +22,7 @@ export function InternalLink({ href, children, className, title }: InternalLinkP
         }}
       >
         {children}
-      </a>
+      </span>
     </Link>
   );
 }

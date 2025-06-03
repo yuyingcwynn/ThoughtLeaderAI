@@ -16,6 +16,7 @@ import Contact from "@/pages/contact";
 import Login from "@/pages/login";
 import Dashboard from "@/pages/dashboard";
 import AIReadiness from "@/pages/ai-readiness-simple";
+import SEOAdmin from "@/pages/seo-admin";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -31,6 +32,7 @@ function Router() {
       <Route path="/login" component={Login} />
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/ai-readiness" component={AIReadiness} />
+      <Route path="/seo-admin" component={SEOAdmin} />
       <Route component={NotFound} />
     </Switch>
   );
