@@ -1,18 +1,12 @@
 import nodemailer from 'nodemailer';
 
-// Create SMTP transporter for Outlook.com with correct settings
+// Create SMTP transporter for Gmail
 const transporter = nodemailer.createTransport({
-  host: 'smtp-mail.outlook.com',
-  port: 587,
-  secure: false,
+  service: 'gmail',
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASSWORD,
   },
-  tls: {
-    ciphers: 'SSLv3',
-    rejectUnauthorized: false
-  }
 });
 
 interface ContactEmailData {
