@@ -1,13 +1,11 @@
-import nodemailer from 'nodemailer';
+import { MailService } from '@sendgrid/mail';
 
-// Create SMTP transporter for Gmail
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASSWORD,
-  },
-});
+if (!process.env.SENDGRID_API_KEY) {
+  throw new Error("SENDGRID_API_KEY environment variable must be set");
+}
+
+const mailService = new MailService();
+mailService.setApiKey(process.env.SENDGRID_API_KEY);
 
 interface ContactEmailData {
   firstName: string;
@@ -20,11 +18,6 @@ interface ContactEmailData {
 
 export async function sendContactNotification(data: ContactEmailData): Promise<boolean> {
   try {
-    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASSWORD) {
-      console.error('Email credentials not configured');
-      return false;
-    }
-
     const emailContent = `
 New Contact Form Submission
 
@@ -40,15 +33,14 @@ ${data.message}
 This message was sent from your Wittingly Ventures contact form.
     `.trim();
 
-    const mailOptions = {
-      from: process.env.EMAIL_USER,
+    await mailService.send({
       to: 'yuyingcwynn@gmail.com',
+      from: 'noreply@wittinglyventures.com', // Use your verified sender
       subject: `New Contact Form Submission from ${data.firstName} ${data.lastName}`,
       text: emailContent,
       replyTo: data.email
-    };
+    });
 
-    await transporter.sendMail(mailOptions);
     console.log('Contact notification email sent successfully');
     return true;
   } catch (error) {
@@ -60,11 +52,6 @@ This message was sent from your Wittingly Ventures contact form.
 // Auto-reply to the person who submitted the form
 export async function sendContactAutoReply(data: ContactEmailData): Promise<boolean> {
   try {
-    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASSWORD) {
-      console.error('Email credentials not configured');
-      return false;
-    }
-
     const autoReplyContent = `
 Hi ${data.firstName},
 
@@ -80,14 +67,13 @@ Wittingly Ventures
 This is an automated response. Please do not reply to this email.
     `.trim();
 
-    const mailOptions = {
-      from: process.env.EMAIL_USER,
+    await mailService.send({
       to: data.email,
+      from: 'noreply@wittinglyventures.com', // Use your verified sender
       subject: 'Thank you for contacting Wittingly Ventures',
       text: autoReplyContent
-    };
+    });
 
-    await transporter.sendMail(mailOptions);
     console.log('Auto-reply email sent successfully');
     return true;
   } catch (error) {
