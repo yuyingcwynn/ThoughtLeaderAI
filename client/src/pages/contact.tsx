@@ -111,15 +111,14 @@ export default function Contact() {
               </p>
             </motion.div>
             
-            <div className="grid lg:grid-cols-2 gap-12 lg:items-start">
+            <div className="grid lg:grid-cols-2 gap-12 lg:items-stretch">
               {/* Contact Form */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
-                className="flex"
               >
-                <Card className="bg-white dark:bg-gray-800 shadow-lg w-full">
+                <Card className="bg-white dark:bg-gray-800 shadow-lg h-full">
                   <CardHeader>
                     <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">Send a Message</h3>
                   </CardHeader>
@@ -243,70 +242,72 @@ export default function Contact() {
               
               {/* Contact Info */}
               <motion.div 
-                className="flex flex-col space-y-8 h-full"
+                className="h-full"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <Card className="bg-white dark:bg-gray-800 shadow-lg">
-                  <CardHeader>
-                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Quick Connect</h3>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-4">
-                      <a href="mailto:yuyingcwynn@gmail.com" 
-                         className="flex items-center space-x-3 text-gray-600 dark:text-gray-300 hover:text-primary transition-colors duration-200">
-                        <Mail className="h-5 w-5" />
-                        <span>yuyingcwynn@gmail.com</span>
-                      </a>
-                      <a href="mailto:yuying@wittinglyventures.com" 
-                         className="flex items-center space-x-3 text-gray-600 dark:text-gray-300 hover:text-primary transition-colors duration-200">
-                        <Mail className="h-5 w-5" />
-                        <span>yuying@wittinglyventures.com</span>
-                      </a>
-                      <div className="flex items-center space-x-3 text-gray-600 dark:text-gray-300">
-                        <MapPin className="h-5 w-5" />
-                        <span>Greater Los Angeles Area</span>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-                
-                <Card className="bg-white dark:bg-gray-800 shadow-lg">
-                  <CardHeader>
-                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Social Media</h3>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex space-x-4">
-                      {socialLinks.map((social, index) => (
-                        <a 
-                          key={index}
-                          href={social.url} 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className={`w-12 h-12 ${social.bg} rounded-lg flex items-center justify-center text-white ${social.hover} transition-colors duration-200`}
-                        >
-                          <social.icon className="h-5 w-5" />
+                <div className="h-full flex flex-col space-y-8">
+                  <Card className="bg-white dark:bg-gray-800 shadow-lg">
+                    <CardHeader>
+                      <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Quick Connect</h3>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-4">
+                        <a href="mailto:yuyingcwynn@gmail.com" 
+                           className="flex items-center space-x-3 text-gray-600 dark:text-gray-300 hover:text-primary transition-colors duration-200">
+                          <Mail className="h-5 w-5" />
+                          <span>yuyingcwynn@gmail.com</span>
                         </a>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-                
-                {/* Calendar Booking CTA */}
-                <Card className="gradient-bg text-white flex-grow flex flex-col">
-                  <CardContent className="p-8 text-center flex-grow flex flex-col justify-center">
-                    <h3 className="text-xl font-semibold mb-4">Want immediate access to AI Expertise?</h3>
-                    <p className="mb-6 opacity-90">AI moves too fast to go through a lengthy process sometimes, book directly to assess an AI platform, discuss career opportunities, or get AI strategy advice.</p>
-                    <Button 
-                      onClick={() => window.location.href = '/checkout'}
-                      className="bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200"
-                    >
-                      <Calendar className="mr-2 h-5 w-5" />
-                      Schedule Consultation
-                    </Button>
-                  </CardContent>
-                </Card>
+                        <a href="mailto:yuying@wittinglyventures.com" 
+                           className="flex items-center space-x-3 text-gray-600 dark:text-gray-300 hover:text-primary transition-colors duration-200">
+                          <Mail className="h-5 w-5" />
+                          <span>yuying@wittinglyventures.com</span>
+                        </a>
+                        <div className="flex items-center space-x-3 text-gray-600 dark:text-gray-300">
+                          <MapPin className="h-5 w-5" />
+                          <span>Greater Los Angeles Area</span>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                  
+                  <Card className="bg-white dark:bg-gray-800 shadow-lg">
+                    <CardHeader>
+                      <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Social Media</h3>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="flex space-x-4">
+                        {socialLinks.map((social, index) => (
+                          <a 
+                            key={index}
+                            href={social.url} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className={`w-12 h-12 ${social.bg} rounded-lg flex items-center justify-center text-white ${social.hover} transition-colors duration-200`}
+                          >
+                            <social.icon className="h-5 w-5" />
+                          </a>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                  
+                  {/* Calendar Booking CTA */}
+                  <Card className="gradient-bg text-white flex-1">
+                    <CardContent className="p-8 text-center h-full flex flex-col justify-center">
+                      <h3 className="text-xl font-semibold mb-4">Want immediate access to AI Expertise?</h3>
+                      <p className="mb-6 opacity-90">AI moves too fast to go through a lengthy process sometimes, book directly to assess an AI platform, discuss career opportunities, or get AI strategy advice.</p>
+                      <Button 
+                        onClick={() => window.location.href = '/checkout'}
+                        className="bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200"
+                      >
+                        <Calendar className="mr-2 h-5 w-5" />
+                        Schedule Consultation
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </div>
               </motion.div>
             </div>
           </div>
