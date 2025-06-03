@@ -36,6 +36,14 @@ interface ContentItem {
 }
 
 export default function ThoughtLeadership() {
+  useSEO({
+    title: seoData.thoughtLeadership.title,
+    description: seoData.thoughtLeadership.description,
+    keywords: seoData.thoughtLeadership.keywords,
+    canonicalUrl: "https://wittingly.ventures/thought-leadership",
+    structuredData: seoData.thoughtLeadership.structuredData
+  });
+
   const featuredContent: ContentItem[] = [
     {
       id: "stop-forcing-ai-old-boxes",
