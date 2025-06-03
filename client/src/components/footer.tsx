@@ -9,7 +9,7 @@ export default function Footer() {
       links: [
         { name: "Dial-an-AI-Expert", href: "/services#dial-an-ai-expert", isRoute: true },
         { name: "Fractional CAIO", href: "/services#fractional-chief-ai-officer", isRoute: true },
-        { name: "GenAI Hackathon", href: "/services#genai-hackathon", isRoute: true }
+        { name: "Enterprise AI Enablement", href: "/services#enterprise-ai-enablement", isRoute: true }
       ]
     },
     {
