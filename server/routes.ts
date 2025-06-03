@@ -7,6 +7,7 @@ import { requireAuth } from "./auth";
 import { insertContactInquirySchema, insertConsultationSchema } from "@shared/schema";
 import { z } from "zod";
 import { sendContactNotification, sendContactAutoReply } from "./email";
+import { prerenderMiddleware } from "./prerender";
 
 if (!process.env.STRIPE_SECRET_KEY) {
   throw new Error('Missing required Stripe secret: STRIPE_SECRET_KEY');
