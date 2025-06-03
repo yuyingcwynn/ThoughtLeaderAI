@@ -2,8 +2,18 @@ import { motion } from "framer-motion";
 import yuyingPortrait from "@assets/YuyingChenWynn_10x12_300dpi.jpg";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
+import { useSEO } from "@/hooks/use-seo";
+import { seoData } from "@/lib/seo-data";
 
 export default function About() {
+  useSEO({
+    title: seoData.about.title,
+    description: seoData.about.description,
+    keywords: seoData.about.keywords,
+    canonicalUrl: "https://wittingly.ventures/about",
+    structuredData: seoData.about.structuredData
+  });
+
   const achievements = [
     { value: "87%", label: "GenAI Platform Adoption" },
     { value: "$30M+", label: "Annual Efficiency Savings" },

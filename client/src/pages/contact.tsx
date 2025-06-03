@@ -17,6 +17,8 @@ import { insertContactInquirySchema, type InsertContactInquiry } from "@shared/s
 import { EXTERNAL_LINKS } from "@/lib/constants";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
+import { useSEO } from "@/hooks/use-seo";
+import { seoData } from "@/lib/seo-data";
 
 // Function to get pre-selected service from URL
 function getPreSelectedService(): string {
@@ -37,6 +39,14 @@ function getPreSelectedService(): string {
 }
 
 export default function Contact() {
+  useSEO({
+    title: seoData.contact.title,
+    description: seoData.contact.description,
+    keywords: seoData.contact.keywords,
+    canonicalUrl: "https://wittingly.ventures/contact",
+    structuredData: seoData.contact.structuredData
+  });
+
   const { toast } = useToast();
   const queryClient = useQueryClient();
 

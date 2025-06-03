@@ -6,8 +6,18 @@ import { Button } from "@/components/ui/button";
 import { Brain, UserCheck, Rocket, Plus, Calendar, ArrowRight, CheckCircle } from "lucide-react";
 import { useLocation } from "wouter";
 import { useEffect } from "react";
+import { useSEO } from "@/hooks/use-seo";
+import { seoData } from "@/lib/seo-data";
 
 export default function Services() {
+  useSEO({
+    title: seoData.services.title,
+    description: seoData.services.description,
+    keywords: seoData.services.keywords,
+    canonicalUrl: "https://wittingly.ventures/services",
+    structuredData: seoData.services.structuredData
+  });
+
   const [, setLocation] = useLocation();
 
   // Handle anchor scrolling on page load

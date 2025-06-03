@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { ExternalLink, Play, FileText } from "lucide-react";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
+import { useSEO } from "@/hooks/use-seo";
+import { seoData } from "@/lib/seo-data";
 import notOldBoxesImage from "@assets/NotOldBoxes.jpg";
 import customAppImage from "@assets/CustomApp.jpg";
 import aiGovImage from "@assets/AiGov.jpg";
