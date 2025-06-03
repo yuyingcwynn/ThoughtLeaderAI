@@ -156,7 +156,7 @@ export default function ThoughtLeadership() {
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     viewport={{ once: true }}
                   >
-                    <Card className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 h-full overflow-hidden group">
+                    <Card className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 h-full overflow-hidden group flex flex-col">
                       {/* Image */}
                       <div className="relative overflow-hidden">
                         <img 
@@ -178,22 +178,24 @@ export default function ThoughtLeadership() {
                       </div>
 
                       <CardContent className="p-6 flex flex-col flex-grow">
-                        <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3 line-clamp-2">
-                          {content.title}
-                        </h3>
-                        <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3 flex-grow">
-                          {content.description}
-                        </p>
-                        
-                        {content.publishDate && (
-                          <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
-                            {content.publishDate}
+                        <div className="flex-grow">
+                          <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3 line-clamp-2">
+                            {content.title}
+                          </h3>
+                          <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
+                            {content.description}
                           </p>
-                        )}
+                          
+                          {content.publishDate && (
+                            <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                              {content.publishDate}
+                            </p>
+                          )}
+                        </div>
 
                         <Button 
                           onClick={() => window.open(content.link, '_blank')}
-                          className="w-full gradient-bg text-white hover:shadow-lg transition-all duration-200"
+                          className="w-full gradient-bg text-white hover:shadow-lg transition-all duration-200 mt-auto"
                         >
                           {content.type === 'video' || content.type === 'podcast' ? 'Watch' : 'Read'} Full Content
                           <ExternalLink className="ml-2 h-4 w-4" />
