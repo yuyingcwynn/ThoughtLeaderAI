@@ -294,7 +294,7 @@ export default function Contact() {
                 
                 {/* Calendar Booking CTA */}
                 <Card className="gradient-bg text-white">
-                  <CardContent className="p-8">
+                  <CardContent className="p-8 text-center">
                     <h3 className="text-xl font-semibold mb-4">Want immediate access to AI Expertise?</h3>
                     <p className="mb-6 opacity-90">AI moves too fast to go through a lengthy process sometimes, book directly to assess an AI platform, discuss career opportunities, or get AI strategy advice.</p>
                     <Button 
