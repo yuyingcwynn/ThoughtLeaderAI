@@ -43,7 +43,6 @@ export default function Footer() {
       // Handle route-based navigation with anchors
       if (href.includes('#')) {
         const [path, anchor] = href.split('#');
-        console.log('Navigating to:', path, 'with anchor:', anchor);
         // Use wouter to navigate to the page, then handle anchor
         setLocation(path);
         // Set the hash after navigation
@@ -52,9 +51,6 @@ export default function Footer() {
           const element = document.getElementById(anchor);
           if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
-            console.log('Scrolled to:', anchor);
-          } else {
-            console.log('Element not found:', anchor);
           }
         }, 100);
       } else {
