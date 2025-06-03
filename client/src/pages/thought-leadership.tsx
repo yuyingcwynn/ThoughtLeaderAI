@@ -6,6 +6,7 @@ import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import { useSEO } from "@/hooks/use-seo";
 import { seoData } from "@/lib/seo-data";
+import { ArticleSchema } from "@/components/article-schema";
 import notOldBoxesImage from "@assets/NotOldBoxes.jpg";
 import customAppImage from "@assets/CustomApp.jpg";
 import aiGovImage from "@assets/AiGov.jpg";
@@ -109,6 +110,15 @@ export default function ThoughtLeadership() {
 
   return (
     <div className="min-h-screen bg-background">
+      <ArticleSchema
+        title="AI Thought Leadership & Insights"
+        description="Expert perspectives on AI transformation and strategic implementation from Yuying Chen Wynn"
+        author="Yuying Chen Wynn"
+        datePublished="2024-01-01"
+        dateModified={new Date().toISOString()}
+        url="https://wittinglyventures.com/thought-leadership"
+        keywords={["AI thought leadership", "enterprise AI", "AI strategy", "AI implementation"]}
+      />
       <Navigation />
       
       {/* Hero Section */}

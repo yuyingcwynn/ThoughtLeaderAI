@@ -8,6 +8,9 @@ import Footer from "@/components/footer";
 import { motion } from "framer-motion";
 import { useSEO } from "@/hooks/use-seo";
 import { seoData } from "@/lib/seo-data";
+import { SEOEnhancements } from "@/components/seo-enhancements";
+import { businessSchema, faqSchema } from "@/lib/local-seo";
+import { RelatedContent } from "@/components/internal-linking";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -70,6 +73,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOEnhancements schemaData={[businessSchema, faqSchema]} />
       <Navigation />
       <HeroSection />
       <AboutSection />
@@ -185,6 +189,8 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      <RelatedContent />
       
       <Footer />
     </div>
