@@ -298,7 +298,7 @@ export default function Contact() {
                     <h3 className="text-xl font-semibold mb-4">Want immediate access to AI Expertise?</h3>
                     <p className="mb-6 opacity-90">AI moves too fast to go through a lengthy process sometimes, book directly to assess an AI platform, discuss career opportunities, or get AI strategy advice.</p>
                     <Button 
-                      onClick={() => window.location.href = '/ai-readiness'}
+                      onClick={() => window.location.href = '/checkout'}
                       className="bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200"
                     >
                       <Calendar className="mr-2 h-5 w-5" />
