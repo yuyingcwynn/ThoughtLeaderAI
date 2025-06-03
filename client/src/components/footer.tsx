@@ -7,9 +7,9 @@ export default function Footer() {
     {
       title: "Services",
       links: [
-        { name: "Dial-an-AI-Expert", href: "#services" },
-        { name: "Fractional CAIO", href: "#services" },
-        { name: "GenAI Hackathon", href: "#services" }
+        { name: "Dial-an-AI-Expert", href: "/services#dial-an-ai-expert", isRoute: true },
+        { name: "Fractional CAIO", href: "/services#fractional-chief-ai-officer", isRoute: true },
+        { name: "GenAI Hackathon", href: "/services#genai-hackathon", isRoute: true }
       ]
     },
     {
@@ -25,18 +25,21 @@ export default function Footer() {
       links: [
         { name: "yuyingcwynn@gmail.com", href: "mailto:yuyingcwynn@gmail.com", external: true },
         { name: "yuying@wittinglyventures.com", href: "mailto:yuying@wittinglyventures.com", external: true },
-        { name: "Greater Los Angeles Area", href: "#", external: false }
+        { name: "Greater Los Angeles Area", href: "#", isRoute: false }
       ]
     }
   ];
 
-  const handleLinkClick = (href: string, external?: boolean) => {
+  const handleLinkClick = (href: string, external?: boolean, isRoute?: boolean) => {
     if (external) {
       if (href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('http')) {
         window.location.href = href;
       } else {
         window.open(href, '_blank');
       }
+    } else if (isRoute) {
+      // Handle route-based navigation with anchors
+      window.location.href = href;
     } else {
       const element = document.getElementById(href.slice(1));
       if (element) {
@@ -63,7 +66,11 @@ export default function Footer() {
                 {section.links.map((link) => (
                   <li key={link.name}>
                     <button
-                      onClick={() => handleLinkClick(link.href, link.external)}
+                      onClick={() => {
+                        const external = 'external' in link ? link.external : false;
+                        const isRoute = 'isRoute' in link ? link.isRoute : false;
+                        handleLinkClick(link.href, external, isRoute);
+                      }}
                       className="hover:text-primary transition-colors duration-200 text-left"
                     >
                       {link.name}
