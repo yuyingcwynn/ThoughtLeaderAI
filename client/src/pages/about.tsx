@@ -145,16 +145,13 @@ export default function About() {
               <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">AI Transformation Philosophy</h2>
               <div className="max-w-4xl mx-auto">
                 <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed text-center">
-                  G
+                  Generative AI is a fundamentally different technology than Classical AI. It not only creates new content that never existed before, but the natural language interface democratizes access to advanced AI capabilities. Not all AI are created equal.
                 </p>
                 <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed text-center">
-                  <strong>Leadership Style:</strong> AI, data, and technology product strategist experienced in leading 
-                  multi-location, multi-cultural global teams. Strong proponent of grow-from-within who has coached staff 
-                  through rapid AI-upskilling and strategic leadership development.
+                  <strong>AI Transformation in Enterprises:</strong> Leverage Generative AI to lower barriers of entry to data, technology, and capabilities. Implement in depth integration of Generative and Conversational AI with your company's data, proprietary knowledge, platforms, and classical AI models to achieve the largest impact and ROI. 
                 </p>
                 <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed text-center">
-                  A strategy is only as good as its execution and I get to outcomes by building outcome driven, 
-                  evidence driven, strategic, efficient, and fun-loving organizations.
+                  You have to upskill the implementors and the users at the same time to ensure success. This requires a whole new mindset.
                 </p>
               </div>
             </motion.div>
