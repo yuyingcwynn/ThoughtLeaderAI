@@ -2,9 +2,8 @@ import { Request, Response } from 'express';
 
 // Generate dynamic sitemap based on actual content
 export function generateDynamicSitemap(req: Request, res: Response) {
-  const baseUrl = req.get('host')?.includes('localhost') 
-    ? `http://${req.get('host')}`
-    : 'https://wittinglyventures.com';
+  // Always use production domain for sitemap to ensure Google can crawl it
+  const baseUrl = 'https://wittinglyventures.com';
   
   const currentDate = new Date().toISOString();
   
@@ -40,9 +39,8 @@ ${staticPages.map(page => `  <url>
 
 // Generate robots.txt dynamically
 export function generateRobotsTxt(req: Request, res: Response) {
-  const baseUrl = req.get('host')?.includes('localhost') 
-    ? `http://${req.get('host')}`
-    : 'https://wittinglyventures.com';
+  // Always use production domain for robots.txt
+  const baseUrl = 'https://wittinglyventures.com';
 
   const robotsTxt = `User-agent: *
 Allow: /
