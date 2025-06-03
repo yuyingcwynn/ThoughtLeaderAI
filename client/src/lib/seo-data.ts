@@ -9,7 +9,7 @@ export const seoData = {
       "@type": "Organization",
       "name": "Wittingly Ventures",
       "description": "AI consulting and strategy firm providing fractional Chief AI Officer services",
-      "url": "https://wittingly.ventures",
+      "url": "https://wittinglyventures.com",
       "founder": {
         "@type": "Person",
         "name": "Yuying Chen Wynn",
@@ -33,7 +33,7 @@ export const seoData = {
         "name": "Wittingly Ventures"
       },
       "description": "Expert AI strategist and fractional Chief AI Officer with 15+ years of experience in enterprise AI transformation",
-      "url": "https://wittingly.ventures/about"
+      "url": "https://wittinglyventures.com/about"
     }
   },
   services: {

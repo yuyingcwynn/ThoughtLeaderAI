@@ -40,7 +40,7 @@ export default function ThoughtLeadership() {
     title: seoData.thoughtLeadership.title,
     description: seoData.thoughtLeadership.description,
     keywords: seoData.thoughtLeadership.keywords,
-    canonicalUrl: "https://wittingly.ventures/thought-leadership",
+    canonicalUrl: "https://wittinglyventures.com/thought-leadership",
     structuredData: seoData.thoughtLeadership.structuredData
   });
 

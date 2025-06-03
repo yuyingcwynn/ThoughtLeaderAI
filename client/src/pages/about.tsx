@@ -10,7 +10,7 @@ export default function About() {
     title: seoData.about.title,
     description: seoData.about.description,
     keywords: seoData.about.keywords,
-    canonicalUrl: "https://wittingly.ventures/about",
+    canonicalUrl: "https://wittinglyventures.com/about",
     structuredData: seoData.about.structuredData
   });
 

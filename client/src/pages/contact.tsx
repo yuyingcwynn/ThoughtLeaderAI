@@ -43,7 +43,7 @@ export default function Contact() {
     title: seoData.contact.title,
     description: seoData.contact.description,
     keywords: seoData.contact.keywords,
-    canonicalUrl: "https://wittingly.ventures/contact",
+    canonicalUrl: "https://wittinglyventures.com/contact",
     structuredData: seoData.contact.structuredData
   });
 

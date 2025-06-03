@@ -335,10 +335,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Additional SEO endpoints
   app.get('/.well-known/security.txt', (req, res) => {
     res.set('Content-Type', 'text/plain');
-    res.send(`Contact: mailto:contact@wittingly.ventures
+    res.send(`Contact: mailto:contact@wittinglyventures.com
 Expires: 2026-12-31T23:59:59.000Z
 Preferred-Languages: en
-Canonical: https://wittingly.ventures/.well-known/security.txt`);
+Canonical: https://wittinglyventures.com/.well-known/security.txt`);
   });
 
   // Dashboard data routes (protected)

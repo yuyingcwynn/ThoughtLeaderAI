@@ -14,7 +14,7 @@ export default function Services() {
     title: seoData.services.title,
     description: seoData.services.description,
     keywords: seoData.services.keywords,
-    canonicalUrl: "https://wittingly.ventures/services",
+    canonicalUrl: "https://wittinglyventures.com/services",
     structuredData: seoData.services.structuredData
   });
 

@@ -29,9 +29,9 @@ const STATIC_PAGES: { [key: string]: string } = {
   <meta property="og:title" content="Wittingly Ventures - AI Consulting & Strategy | Fractional Chief AI Officer">
   <meta property="og:description" content="Transform your business with proven AI frameworks that deliver results. Expert AI consulting with 87% adoption rates and $6M+ first-year savings.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://wittingly.ventures/">
+  <meta property="og:url" content="https://wittinglyventures.com/">
   
-  <link rel="canonical" href="https://wittingly.ventures/">
+  <link rel="canonical" href="https://wittinglyventures.com/">
   
   <script type="application/ld+json">
   {
@@ -39,7 +39,7 @@ const STATIC_PAGES: { [key: string]: string } = {
     "@type": "Organization",
     "name": "Wittingly Ventures",
     "description": "AI consulting and strategy firm providing fractional Chief AI Officer services",
-    "url": "https://wittingly.ventures",
+    "url": "https://wittinglyventures.com",
     "founder": {
       "@type": "Person",
       "name": "Yuying Chen Wynn",
@@ -84,7 +84,7 @@ const STATIC_PAGES: { [key: string]: string } = {
   <meta name="description" content="Meet Yuying Chen Wynn, expert AI strategist and fractional Chief AI Officer. 15+ years experience in enterprise AI transformation, featured thought leader with proven track record.">
   <meta name="keywords" content="Yuying Chen Wynn, AI expert, Chief AI Officer, AI strategy consultant, enterprise AI leader, AI thought leadership">
   
-  <link rel="canonical" href="https://wittingly.ventures/about">
+  <link rel="canonical" href="https://wittinglyventures.com/about">
   
   <script type="application/ld+json">
   {
@@ -97,7 +97,7 @@ const STATIC_PAGES: { [key: string]: string } = {
       "name": "Wittingly Ventures"
     },
     "description": "Expert AI strategist and fractional Chief AI Officer with 15+ years of experience in enterprise AI transformation",
-    "url": "https://wittingly.ventures/about"
+    "url": "https://wittinglyventures.com/about"
   }
   </script>
 </head>
@@ -132,7 +132,7 @@ const STATIC_PAGES: { [key: string]: string } = {
   <meta name="description" content="Comprehensive AI consulting services including fractional Chief AI Officer, enterprise AI enablement, strategic AI implementation, and AI governance frameworks.">
   <meta name="keywords" content="AI consulting services, fractional Chief AI Officer, enterprise AI enablement, AI strategy implementation, AI governance, business AI transformation">
   
-  <link rel="canonical" href="https://wittingly.ventures/services">
+  <link rel="canonical" href="https://wittinglyventures.com/services">
 </head>
 <body>
   <h1>AI Consulting Services</h1>

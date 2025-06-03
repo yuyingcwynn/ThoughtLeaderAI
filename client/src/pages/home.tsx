@@ -18,7 +18,7 @@ export default function Home() {
     title: seoData.home.title,
     description: seoData.home.description,
     keywords: seoData.home.keywords,
-    canonicalUrl: "https://wittingly.ventures/",
+    canonicalUrl: "https://wittinglyventures.com/",
     structuredData: seoData.home.structuredData
   });
 
