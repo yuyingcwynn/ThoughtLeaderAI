@@ -39,7 +39,20 @@ export default function Footer() {
       }
     } else if (isRoute) {
       // Handle route-based navigation with anchors
-      window.location.href = href;
+      if (href.includes('#')) {
+        const [path, anchor] = href.split('#');
+        // Navigate to the page first
+        window.location.href = path;
+        // Wait for page load then scroll to section
+        setTimeout(() => {
+          const element = document.getElementById(anchor);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      } else {
+        window.location.href = href;
+      }
     } else {
       const element = document.getElementById(href.slice(1));
       if (element) {
