@@ -10,6 +10,9 @@ app.use(express.urlencoded({ extended: false }));
 // Setup authentication before routes
 setupAuth(app);
 
+// Serve static files from public directory (including favicons)
+app.use(express.static('public'));
+
 app.use((req, res, next) => {
   const start = Date.now();
   const path = req.path;
