@@ -144,15 +144,20 @@ export default function Services() {
         {/* Services Detail */}
         <section className="py-20 bg-gray-50 dark:bg-gray-900">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
-            {services.map((service, index) => (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card className="bg-white dark:bg-gray-800 shadow-xl">
+            {services.map((service, index) => {
+              // Create section ID based on service title
+              const sectionId = service.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+              
+              return (
+                <motion.div
+                  key={service.title}
+                  id={sectionId}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <Card className="bg-white dark:bg-gray-800 shadow-xl">
                   <CardHeader className="text-center py-12">
                     <div className="flex justify-center mb-6">
                       <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center">
@@ -289,7 +294,8 @@ export default function Services() {
                   </CardContent>
                 </Card>
               </motion.div>
-            ))}
+              );
+            })}
           </div>
         </section>
       </div>
