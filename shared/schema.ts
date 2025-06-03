@@ -73,6 +73,9 @@ export const insertContactInquirySchema = createInsertSchema(contactInquiries).o
   id: true,
   createdAt: true,
   status: true,
+}).extend({
+  serviceInterest: z.string().optional().default(""),
+  company: z.string().optional().default(""),
 });
 
 export type InsertUser = z.infer<typeof insertUserSchema>;

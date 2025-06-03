@@ -83,49 +83,53 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
   
-  // Contact form submission
+  // Contact form submission - email only, no database
   app.post("/api/contact", async (req, res) => {
     try {
-      const validatedData = insertContactInquirySchema.parse(req.body);
-      const inquiry = await storage.createContactInquiry(validatedData);
+      // Simple validation of required fields
+      const { firstName, lastName, email, message } = req.body;
       
-      // Send email notifications
-      try {
-        await Promise.all([
-          sendContactNotification({
-            firstName: validatedData.firstName,
-            lastName: validatedData.lastName,
-            email: validatedData.email,
-            company: validatedData.company || undefined,
-            serviceInterest: validatedData.serviceInterest || undefined,
-            message: validatedData.message
-          }),
-          sendContactAutoReply({
-            firstName: validatedData.firstName,
-            lastName: validatedData.lastName,
-            email: validatedData.email,
-            company: validatedData.company || undefined,
-            serviceInterest: validatedData.serviceInterest || undefined,
-            message: validatedData.message
-          })
-        ]);
-        console.log("Contact emails sent successfully");
-      } catch (emailError) {
-        console.error("Error sending contact emails:", emailError);
-        // Don't fail the request if email fails - inquiry is still saved
-      }
-      
-      res.json({ success: true, inquiry });
-    } catch (error: any) {
-      console.error("Contact form error:", error);
-      if (error instanceof z.ZodError) {
+      if (!firstName || !lastName || !email || !message) {
         return res.status(400).json({ 
-          message: "Validation error", 
-          errors: error.errors 
+          message: "Please fill in all required fields" 
         });
       }
+      
+      // Send email notifications
+      const emailResults = await Promise.allSettled([
+        sendContactNotification({
+          firstName,
+          lastName,
+          email,
+          company: req.body.company || "",
+          serviceInterest: req.body.serviceInterest || "",
+          message
+        }),
+        sendContactAutoReply({
+          firstName,
+          lastName,
+          email,
+          company: req.body.company || "",
+          serviceInterest: req.body.serviceInterest || "",
+          message
+        })
+      ]);
+      
+      // Check if at least the notification email was sent
+      const notificationResult = emailResults[0];
+      if (notificationResult.status === 'fulfilled' && notificationResult.value) {
+        console.log("Contact notification email sent successfully");
+        res.json({ success: true, message: "Message sent successfully!" });
+      } else {
+        console.error("Failed to send notification email:", notificationResult);
+        res.status(500).json({ 
+          message: "Failed to send message. Please try again." 
+        });
+      }
+    } catch (error: any) {
+      console.error("Contact form error:", error);
       res.status(500).json({ 
-        message: "Failed to submit contact form: " + error.message 
+        message: "Failed to send message: " + error.message 
       });
     }
   });
