@@ -19,6 +19,7 @@ import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import { useSEO } from "@/hooks/use-seo";
 import { seoData } from "@/lib/seo-data";
+import { ConversionEvents } from "@/components/conversion-tracking";
 
 // Function to get pre-selected service from URL
 function getPreSelectedService(): string {
@@ -67,11 +68,13 @@ export default function Contact() {
       const response = await apiRequest("POST", "/api/contact", data);
       return response.json();
     },
-    onSuccess: () => {
+    onSuccess: (data, variables) => {
       toast({
         title: "Message Sent",
         description: "Thank you for your inquiry. I'll get back to you soon!",
       });
+      // Track conversion event
+      ConversionEvents.trackContactFormSubmit(variables);
       form.reset();
     },
     onError: (error: any) => {

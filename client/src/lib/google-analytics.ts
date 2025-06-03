@@ -6,11 +6,11 @@ declare global {
   }
 }
 
-export const GA_TRACKING_ID = import.meta.env.VITE_GA_TRACKING_ID;
+export const GA_TRACKING_ID = import.meta.env.VITE_GA_TRACKING_ID || 'G-8YZXPPCH84';
 
 // Initialize Google Analytics
 export const initGA = () => {
-  if (!GA_TRACKING_ID) {
+  if (!GA_TRACKING_ID || GA_TRACKING_ID === 'undefined') {
     console.warn('Google Analytics tracking ID not found');
     return;
   }
