@@ -6,12 +6,22 @@ import ServicesSection from "@/components/services-section";
 import ContentHubSection from "@/components/content-hub-section";
 import Footer from "@/components/footer";
 import { motion } from "framer-motion";
+import { useSEO } from "@/hooks/use-seo";
+import { seoData } from "@/lib/seo-data";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import productTalkImage from "@assets/image_1748589862049.png";
 
 export default function Home() {
+  useSEO({
+    title: seoData.home.title,
+    description: seoData.home.description,
+    keywords: seoData.home.keywords,
+    canonicalUrl: "https://wittingly.ventures/",
+    structuredData: seoData.home.structuredData
+  });
+
   useEffect(() => {
     // Fade in animation on scroll
     const observerOptions = {
