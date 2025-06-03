@@ -111,14 +111,15 @@ export default function Contact() {
               </p>
             </motion.div>
             
-            <div className="grid lg:grid-cols-2 gap-12">
+            <div className="grid lg:grid-cols-2 gap-12 lg:items-start">
               {/* Contact Form */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
+                className="flex"
               >
-                <Card className="bg-white dark:bg-gray-800 shadow-lg">
+                <Card className="bg-white dark:bg-gray-800 shadow-lg w-full">
                   <CardHeader>
                     <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">Send a Message</h3>
                   </CardHeader>
@@ -242,7 +243,7 @@ export default function Contact() {
               
               {/* Contact Info */}
               <motion.div 
-                className="space-y-8"
+                className="flex flex-col space-y-8 h-full"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -293,8 +294,8 @@ export default function Contact() {
                 </Card>
                 
                 {/* Calendar Booking CTA */}
-                <Card className="gradient-bg text-white">
-                  <CardContent className="p-8 text-center">
+                <Card className="gradient-bg text-white flex-grow flex flex-col">
+                  <CardContent className="p-8 text-center flex-grow flex flex-col justify-center">
                     <h3 className="text-xl font-semibold mb-4">Want immediate access to AI Expertise?</h3>
                     <p className="mb-6 opacity-90">AI moves too fast to go through a lengthy process sometimes, book directly to assess an AI platform, discuss career opportunities, or get AI strategy advice.</p>
                     <Button 
