@@ -6,6 +6,7 @@ import { storage } from "./storage";
 import { requireAuth } from "./auth";
 import { insertContactInquirySchema, insertConsultationSchema } from "@shared/schema";
 import { z } from "zod";
+import { sendContactNotification, sendContactAutoReply } from "./email";
 
 if (!process.env.STRIPE_SECRET_KEY) {
   throw new Error('Missing required Stripe secret: STRIPE_SECRET_KEY');
@@ -87,6 +88,33 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const validatedData = insertContactInquirySchema.parse(req.body);
       const inquiry = await storage.createContactInquiry(validatedData);
+      
+      // Send email notifications
+      try {
+        await Promise.all([
+          sendContactNotification({
+            firstName: validatedData.firstName,
+            lastName: validatedData.lastName,
+            email: validatedData.email,
+            company: validatedData.company || undefined,
+            serviceInterest: validatedData.serviceInterest || undefined,
+            message: validatedData.message
+          }),
+          sendContactAutoReply({
+            firstName: validatedData.firstName,
+            lastName: validatedData.lastName,
+            email: validatedData.email,
+            company: validatedData.company || undefined,
+            serviceInterest: validatedData.serviceInterest || undefined,
+            message: validatedData.message
+          })
+        ]);
+        console.log("Contact emails sent successfully");
+      } catch (emailError) {
+        console.error("Error sending contact emails:", emailError);
+        // Don't fail the request if email fails - inquiry is still saved
+      }
+      
       res.json({ success: true, inquiry });
     } catch (error: any) {
       console.error("Contact form error:", error);
