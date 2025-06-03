@@ -1,12 +1,12 @@
 Website Architecture
 1. Hero Section (Above the Fold)
 Headline: "Transform Your Business with AI. Actually."
-Subheadline: "I'm Yuying Chen-Wynn, Head of AI at PEAK6. I've delivered $10M+ in savings and $500M in valuation increases across 6 companies. Let me do the same for yours."
+Subheadline: "I'm Yuying Chen-Wynn, Head of AI at PEAK6. I've delivered $10M+ in savings and $500M in valuation increases across 9 companies. Let me do the same for yours."
 Key Elements:
 
 Animated AI-inspired background (neural network visualization, subtle particle effects)
 Professional headshot with dynamic lighting
-Three trust indicators: "87% adoption rate in 12 months" | "$6M+ first-year savings" | "6 companies transformed"
+Three trust indicators: "87% adoption rate in 12 months" | "$6M+ first-year savings" | "9 companies transformed"
 Primary CTA: "Book AI Strategy Call"
 Secondary CTA: "Download AI Readiness Assessment"
 
