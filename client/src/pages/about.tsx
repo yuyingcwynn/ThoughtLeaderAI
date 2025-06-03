@@ -142,11 +142,10 @@ export default function About() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">Leadership Philosophy</h2>
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">AI Transformation Philosophy</h2>
               <div className="max-w-4xl mx-auto">
                 <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed text-center">
-                  I am an AI technology executive with a passion to combine the power of generative AI and traditional ML/AI 
-                  to create 10x user experiences driving value in efficiency and revenue throughout global markets.
+                  G
                 </p>
                 <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed text-center">
                   <strong>Leadership Style:</strong> AI, data, and technology product strategist experienced in leading 
