@@ -150,6 +150,10 @@ export default function About() {
                 <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed text-center">
                   <strong>AI Transformation in Enterprises:</strong> Leverage Generative AI to lower barriers of entry to data, technology, and capabilities. Implement in depth integration of Generative and Conversational AI with your company's data, proprietary knowledge, platforms, and classical AI models to achieve the largest impact and ROI. 
                 </p>
+                <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed text-center">
+                  The key question is not buy vs. build: It's how do I best protect my data and IP and does AI need to be a core competency to my business in order to be competitive.
+                  
+                </p>
                 <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed text-center">
                   You have to upskill the implementors and the users at the same time to ensure success. This requires a whole new mindset.
                 </p>
