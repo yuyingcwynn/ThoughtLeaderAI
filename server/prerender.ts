@@ -161,7 +161,7 @@ const STATIC_PAGES: { [key: string]: string } = {
   <meta name="description" content="Get in touch with Wittingly Ventures for AI consulting services. Schedule a consultation to discuss your enterprise AI strategy and transformation needs.">
   <meta name="keywords" content="contact AI consultant, AI consulting inquiry, enterprise AI consultation, schedule AI strategy meeting">
   
-  <link rel="canonical" href="https://wittingly.ventures/contact">
+  <link rel="canonical" href="https://wittinglyventures.com/contact">
 </head>
 <body>
   <h1>Contact Wittingly Ventures</h1>
@@ -176,7 +176,7 @@ const STATIC_PAGES: { [key: string]: string } = {
     <li>AI Strategy Consultation</li>
   </ul>
   
-  <p>Contact us to schedule your AI consultation and transformation assessment.</p>
+  <p>Contact us at https://wittinglyventures.com/contact to schedule your AI consultation and transformation assessment.</p>
 </body>
 </html>`,
 
@@ -189,7 +189,7 @@ const STATIC_PAGES: { [key: string]: string } = {
   <meta name="description" content="Latest insights on enterprise AI strategy, implementation best practices, and industry trends from AI expert Yuying Chen Wynn. Articles, videos, and podcasts.">
   <meta name="keywords" content="AI thought leadership, enterprise AI insights, AI strategy content, AI implementation best practices, AI industry trends">
   
-  <link rel="canonical" href="https://wittingly.ventures/thought-leadership">
+  <link rel="canonical" href="https://wittinglyventures.com/thought-leadership">
 </head>
 <body>
   <h1>AI Thought Leadership & Insights</h1>
@@ -222,7 +222,7 @@ const STATIC_PAGES: { [key: string]: string } = {
   <meta name="description" content="Take our comprehensive AI readiness assessment to evaluate your organization's AI maturity level and receive personalized recommendations for AI implementation.">
   <meta name="keywords" content="AI readiness assessment, enterprise AI maturity, AI implementation evaluation, organizational AI capability">
   
-  <link rel="canonical" href="https://wittingly.ventures/ai-readiness">
+  <link rel="canonical" href="https://wittinglyventures.com/ai-readiness">
 </head>
 <body>
   <h1>AI Readiness Assessment</h1>

@@ -4,7 +4,7 @@
 
 ### 1. Google Search Console Setup
 1. Go to [Google Search Console](https://search.google.com/search-console)
-2. Add property: `https://wittingly.ventures`
+2. Add property: `https://wittinglyventures.com`
 3. Verify ownership using one of these methods:
    - **HTML file upload**: Download the verification file and place it in `/public/`
    - **Meta tag**: Add the verification meta tag to your main HTML template
@@ -13,7 +13,7 @@
 ### 2. Submit Sitemap
 Once verified in Google Search Console:
 1. Go to "Sitemaps" section
-2. Submit: `https://wittingly.ventures/sitemap.xml`
+2. Submit: `https://wittinglyventures.com/sitemap.xml`
 3. Your sitemap includes all important pages with proper priorities
 
 ### 3. Google Analytics Setup (Optional but Recommended)
@@ -137,3 +137,6 @@ Once verified in Google Search Console:
 - All page components updated with SEO metadata
 
 Your website is now fully optimized for search engines. The next critical step is submitting your sitemap to Google Search Console to begin the indexing process.
+
+## Domain Correction Complete
+All SEO references have been updated from wittingly.ventures to wittinglyventures.com to match your actual domain.

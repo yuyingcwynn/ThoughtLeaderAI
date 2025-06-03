@@ -4,7 +4,7 @@ import { Request, Response } from 'express';
 export function generateDynamicSitemap(req: Request, res: Response) {
   const baseUrl = req.get('host')?.includes('localhost') 
     ? `http://${req.get('host')}`
-    : 'https://wittingly.ventures';
+    : 'https://wittinglyventures.com';
   
   const currentDate = new Date().toISOString();
   
@@ -42,7 +42,7 @@ ${staticPages.map(page => `  <url>
 export function generateRobotsTxt(req: Request, res: Response) {
   const baseUrl = req.get('host')?.includes('localhost') 
     ? `http://${req.get('host')}`
-    : 'https://wittingly.ventures';
+    : 'https://wittinglyventures.com';
 
   const robotsTxt = `User-agent: *
 Allow: /
