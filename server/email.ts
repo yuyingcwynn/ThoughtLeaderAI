@@ -1,16 +1,17 @@
 import nodemailer from 'nodemailer';
 
-// Create SMTP transporter for Office 365
+// Create SMTP transporter for Outlook.com with correct settings
 const transporter = nodemailer.createTransport({
-  host: 'smtp.office365.com',
+  host: 'smtp-mail.outlook.com',
   port: 587,
-  secure: false, // true for 465, false for other ports
+  secure: false,
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASSWORD,
   },
   tls: {
-    ciphers: 'SSLv3'
+    ciphers: 'SSLv3',
+    rejectUnauthorized: false
   }
 });
 
