@@ -13,13 +13,19 @@ export default function Services() {
   // Handle anchor scrolling on page load
   useEffect(() => {
     const hash = window.location.hash;
+    console.log('Services page hash:', hash);
     if (hash) {
       const elementId = hash.substring(1);
+      console.log('Looking for element with ID:', elementId);
       const element = document.getElementById(elementId);
+      console.log('Found element:', element);
       if (element) {
         setTimeout(() => {
           element.scrollIntoView({ behavior: 'smooth' });
+          console.log('Scrolled to element');
         }, 300);
+      } else {
+        console.log('Element not found, available IDs:', Array.from(document.querySelectorAll('[id]')).map(el => el.id));
       }
     }
   }, []);
@@ -162,6 +168,7 @@ export default function Services() {
             {services.map((service, index) => {
               // Create section ID based on service title
               const sectionId = service.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+              console.log(`Service: ${service.title} -> ID: ${sectionId}`);
               
               return (
                 <motion.div
