@@ -295,10 +295,10 @@ export default function Contact() {
                 {/* Calendar Booking CTA */}
                 <Card className="gradient-bg text-white">
                   <CardContent className="p-8">
-                    <h3 className="text-xl font-semibold mb-4">Ready to Get Started?</h3>
-                    <p className="mb-6 opacity-90">Book a consultation session to discuss your AI transformation needs.</p>
+                    <h3 className="text-xl font-semibold mb-4">Want immediate access to AI Expertise?</h3>
+                    <p className="mb-6 opacity-90">AI moves too fast to go through a lengthy process sometimes, book directly to assess an AI platform, discuss career opportunities, or get AI strategy advice.</p>
                     <Button 
-                      onClick={handleCalendarBooking}
+                      onClick={() => window.location.href = '/ai-readiness'}
                       className="bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200"
                     >
                       <Calendar className="mr-2 h-5 w-5" />
