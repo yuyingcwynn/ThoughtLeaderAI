@@ -1,6 +1,8 @@
 import { EXTERNAL_LINKS } from "@/lib/constants";
+import { useLocation } from "wouter";
 
 export default function Footer() {
+  const [, setLocation] = useLocation();
   const currentYear = new Date().getFullYear();
 
   const footerSections = [
@@ -41,17 +43,22 @@ export default function Footer() {
       // Handle route-based navigation with anchors
       if (href.includes('#')) {
         const [path, anchor] = href.split('#');
-        // Navigate to the page first
-        window.location.href = path;
-        // Wait for page load then scroll to section
+        console.log('Navigating to:', path, 'with anchor:', anchor);
+        // Use wouter to navigate to the page, then handle anchor
+        setLocation(path);
+        // Set the hash after navigation
         setTimeout(() => {
+          window.location.hash = anchor;
           const element = document.getElementById(anchor);
           if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
+            console.log('Scrolled to:', anchor);
+          } else {
+            console.log('Element not found:', anchor);
           }
         }, 100);
       } else {
-        window.location.href = href;
+        setLocation(href);
       }
     } else {
       const element = document.getElementById(href.slice(1));
