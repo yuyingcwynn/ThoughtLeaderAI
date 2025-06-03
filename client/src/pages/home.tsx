@@ -140,9 +140,9 @@ export default function Home() {
               </p>
               
               <div className="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto mb-8">
-                <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm">
+                <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm flex flex-col">
                   <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Not Ready for Consulting?</h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">Get personalized AI readiness insights first</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 flex-grow">Get personalized AI readiness insights first</p>
                   <Button 
                     variant="outline"
                     onClick={() => window.location.href = '/ai-readiness'}
@@ -152,12 +152,12 @@ export default function Home() {
                   </Button>
                 </div>
                 
-                <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border-2 border-green-200 dark:border-green-700">
-                  <div className="inline-block bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-xs font-semibold px-3 py-1 rounded-full mb-2">
+                <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border-2 border-green-200 dark:border-green-700 flex flex-col">
+                  <div className="inline-block bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-xs font-semibold px-3 py-1 rounded-full mb-2 self-start">
                     MOST POPULAR
                   </div>
                   <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Ready to Get Started?</h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">30-min strategy session - Risk-free</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 flex-grow">30-min strategy session - Risk-free</p>
                   <Button 
                     onClick={() => window.location.href = '/checkout'}
                     className="w-full gradient-bg text-white font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
