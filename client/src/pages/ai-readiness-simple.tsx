@@ -824,7 +824,7 @@ export default function AIReadiness() {
                   {category}
                 </h3>
                 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
                   {tools.map((tool, index) => (
                     <motion.a
                       key={tool.name}
@@ -837,7 +837,7 @@ export default function AIReadiness() {
                       transition={{ duration: 0.4, delay: index * 0.1 }}
                       whileHover={tool.url !== "#" ? { y: -4 } : {}}
                     >
-                      <Card className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 h-full">
+                      <Card className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 h-full min-w-[280px] max-w-[400px]">
                         <CardContent className="p-6">
                           <div className="flex items-start space-x-4">
                             {/* Large logo on the left */}
