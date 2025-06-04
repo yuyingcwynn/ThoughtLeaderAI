@@ -822,34 +822,37 @@ export default function AIReadiness() {
                     >
                       <Card className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 h-full">
                         <CardContent className="p-6">
-                          {/* Logo section - much larger and centered */}
-                          <div className="flex justify-center mb-4">
-                            <div className="w-16 h-16 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center justify-center p-2">
+                          <div className="flex items-start space-x-4">
+                            {/* Large logo on the left */}
+                            <div className="flex-shrink-0">
                               <img 
                                 src={tool.logo}
                                 alt={`${tool.name} logo`}
-                                className="w-full h-full object-contain"
+                                className="w-16 h-16 object-contain"
                                 onError={(e) => {
                                   e.currentTarget.style.display = 'none';
                                 }}
                               />
                             </div>
+                            
+                            {/* Content on the right */}
+                            <div className="flex-1 min-w-0">
+                              {/* Title and link */}
+                              <div className="flex items-center justify-between mb-2">
+                                <h4 className="font-bold text-xl text-gray-900 dark:text-white">
+                                  {tool.name}
+                                </h4>
+                                {tool.url !== "#" && (
+                                  <ExternalLink className="w-5 h-5 text-gray-400 group-hover:text-primary transition-colors duration-200 flex-shrink-0" />
+                                )}
+                              </div>
+                              
+                              {/* Description */}
+                              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                                {tool.tldr}
+                              </p>
+                            </div>
                           </div>
-                          
-                          {/* Title and link section */}
-                          <div className="flex items-center justify-between mb-3">
-                            <h4 className="font-bold text-lg text-gray-900 dark:text-white text-center flex-1">
-                              {tool.name}
-                            </h4>
-                            {tool.url !== "#" && (
-                              <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors duration-200 ml-2" />
-                            )}
-                          </div>
-                          
-                          {/* Description */}
-                          <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed text-center">
-                            {tool.tldr}
-                          </p>
                         </CardContent>
                       </Card>
                     </motion.a>
