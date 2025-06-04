@@ -989,8 +989,7 @@ export default function AIBootcamp() {
                   <DialogTrigger asChild>
                     <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                       <Button 
-                        variant="outline"
-                        className="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 rounded-xl font-semibold transition-all duration-300 group hover:shadow-xl"
+                        className="border-2 border-white text-white bg-transparent hover:bg-white hover:text-primary px-8 py-4 rounded-xl font-semibold transition-all duration-300 group hover:shadow-xl"
                       >
                         <motion.span 
                           className="flex items-center justify-center"
