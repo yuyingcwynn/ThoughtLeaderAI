@@ -22,13 +22,13 @@ export default function ServicesSection() {
       gradient: true
     },
     {
-      icon: UserCheck,
-      title: "Fractional Chief AI Officer",
-      description: "Part-time AI leadership for full-time results. From strategy to implementation with C-level expertise without the C-level price tag.",
-      price: "Custom Pricing",
+      icon: Plus,
+      title: "100K Product Launch AI Bootcamp",
+      description: "Transform your breakthrough product idea into a revenue-generating business in 8-10 weeks using cutting-edge AI tools and proven methodologies.",
+      price: "Program Package",
       buttonText: "Learn More",
-      buttonAction: () => setLocation("/contact?service=fractional-ai-officer"),
-      gradient: false
+      buttonAction: () => setLocation("/ai-bootcamp"),
+      gradient: true
     },
     {
       icon: Rocket,
@@ -40,13 +40,13 @@ export default function ServicesSection() {
       gradient: false
     },
     {
-      icon: Plus,
-      title: "100K Product Launch AI Bootcamp",
-      description: "Transform your breakthrough product idea into a revenue-generating business in 8-10 weeks using cutting-edge AI tools and proven methodologies.",
-      price: "Program Package",
+      icon: UserCheck,
+      title: "Fractional Chief AI Officer",
+      description: "Part-time AI leadership for full-time results. From strategy to implementation with C-level expertise without the C-level price tag.",
+      price: "Custom Pricing",
       buttonText: "Learn More",
-      buttonAction: () => setLocation("/ai-bootcamp"),
-      gradient: true
+      buttonAction: () => setLocation("/contact?service=fractional-ai-officer"),
+      gradient: false
     }
   ];
 
@@ -68,7 +68,7 @@ export default function ServicesSection() {
           </p>
         </motion.div>
         
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
