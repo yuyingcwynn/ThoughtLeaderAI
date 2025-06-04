@@ -105,7 +105,7 @@ export default function AIReadiness() {
       },
       {
         name: "Zoom AI",
-        url: "https://zoom.us/ai-assistant",
+        url: "https://www.zoom.com/en/products/ai-assistant/",
         logo: zoomLogo,
         tldr: "Advantage: doesn't add another attendee. Accuracy and data controls are getting there, but Otter still wins on pure transcription quality."
       }
