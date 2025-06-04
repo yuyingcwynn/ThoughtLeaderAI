@@ -12,7 +12,7 @@ import { ArrowRight, ArrowLeft, RotateCcw, User, Building2, ExternalLink } from 
 import replitLogo from "@assets/replit logo.png";
 import lovableLogo from "@assets/lovable-logo-bg-light.png";
 import grokLogo from "@assets/grok-logo-png_seeklogo-613403.png";
-import perplexityLogo from "@assets/Perplexity_AI_logo.svg.png";
+import perplexityLogo from "@assets/perplexity logo.png";
 import rooLogo from "@assets/roo code logo.png";
 import windsurfLogo from "@assets/hero-windsurf-rename.jpg";
 import otterLogo from "@assets/otter ai logo.png";
