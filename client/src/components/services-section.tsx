@@ -41,8 +41,8 @@ export default function ServicesSection() {
     },
     {
       icon: Plus,
-      title: "AI Product Intensive Bootcamp",
-      description: "4-6 weeks from concept to launch. Build and launch your AI product with expert guidance and comprehensive support.",
+      title: "100K Product Launch AI Bootcamp",
+      description: "Transform your breakthrough product idea into a revenue-generating business in 8-10 weeks using cutting-edge AI tools and proven methodologies.",
       price: "Program Package",
       buttonText: "Learn More",
       buttonAction: () => setLocation("/ai-bootcamp"),

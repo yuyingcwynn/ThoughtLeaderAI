@@ -117,8 +117,8 @@ export default function Services() {
     },
     {
       icon: Plus,
-      title: "AI Product Intensive Bootcamp",
-      subtitle: "From AI Idea to Market in 4-6 Weeks",
+      title: "100K Product Launch AI Bootcamp",
+      subtitle: "Turn Your 'What If' Into Reality - From AI Idea to Market in 8-10 Weeks",
       description: "Comprehensive program to build and launch your AI product with expert guidance and full technical support.",
       price: "Program Package",
       structure: [

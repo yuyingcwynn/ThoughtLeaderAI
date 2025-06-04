@@ -126,20 +126,36 @@ export default function AIBootcamp() {
       <Navigation />
       <div className="pt-16">
         {/* Hero Section */}
-        <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-purple-900">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-32 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-purple-900 relative overflow-hidden">
+          {/* Background elements */}
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-purple-500/5"></div>
+          <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <motion.div 
               className="text-center mb-16"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <Badge className="mb-6 bg-primary/10 text-primary border-primary/20">
-                100K Product Launch AI Bootcamp
-              </Badge>
-              <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-                Turn Your <span className="gradient-text">"What If"</span> Into Reality
+              {/* Large 100K Badge */}
+              <motion.div 
+                className="inline-flex items-center justify-center w-32 h-32 bg-gradient-to-r from-primary to-purple-600 rounded-full mb-8 shadow-2xl"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                <span className="text-white font-bold text-3xl">100K</span>
+              </motion.div>
+              
+              <h1 className="text-5xl lg:text-8xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+                <span className="gradient-text block mb-2">Product Launch</span>
+                <span className="text-4xl lg:text-6xl text-primary">AI Bootcamp</span>
               </h1>
+              
+              <div className="text-2xl lg:text-4xl font-bold text-gray-800 dark:text-gray-200 mb-8 tracking-wide">
+                Turn Your "What If" Into Reality
+              </div>
               <p className="text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8">
                 Transform your breakthrough product idea into a revenue-generating business in just 8-10 weeks using cutting-edge AI tools and proven methodologies.
               </p>
@@ -250,11 +266,14 @@ export default function AIBootcamp() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-6">
-                Three Distinct Pathways to Success
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-primary to-purple-600 rounded-full mb-6 shadow-xl">
+                <span className="text-white font-bold text-xl">100K</span>
+              </div>
+              <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+                <span className="gradient-text">Three Distinct Pathways</span> to Success
               </h2>
-              <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                Choose your starting point based on where you are in your journey
+              <p className="text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                The 100K Product Launch AI Bootcamp offers flexible entry points based on where you are in your journey
               </p>
             </motion.div>
 
@@ -344,11 +363,14 @@ export default function AIBootcamp() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-6">
-                Why Now?
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-primary to-purple-600 rounded-full mb-6 shadow-xl">
+                <span className="text-white font-bold text-xl">100K</span>
+              </div>
+              <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+                Why <span className="gradient-text">Now</span>?
               </h2>
-              <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                The generative AI revolution has created an unprecedented opportunity window
+              <p className="text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                The 100K Product Launch AI Bootcamp leverages this unprecedented opportunity window in the generative AI revolution
               </p>
             </motion.div>
 
@@ -439,10 +461,16 @@ export default function AIBootcamp() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
+              <div className="inline-flex items-center justify-center w-24 h-24 bg-white/20 rounded-full mb-8 shadow-xl">
+                <span className="text-white font-bold text-2xl">100K</span>
+              </div>
+              <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6">
                 Ready to Transform Your Future?
               </h2>
-              <p className="text-xl text-white/90 mb-8 leading-relaxed">
+              <p className="text-2xl text-white/90 mb-4 leading-relaxed font-semibold">
+                Join the 100K Product Launch AI Bootcamp
+              </p>
+              <p className="text-xl text-white/80 mb-8 leading-relaxed max-w-3xl mx-auto">
                 Stop wondering "what if" and start building "what is." Your breakthrough idea deserves to become reality.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
