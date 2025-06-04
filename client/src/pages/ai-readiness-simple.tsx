@@ -71,7 +71,7 @@ export default function AIReadiness() {
     "Coding": [
       {
         name: "Roo",
-        url: "#",
+        url: "https://roocode.com/",
         logo: rooLogo,
         tldr: "Top choice: Roo plugin in VS Code with Claude 3.7 or Gemini 2.5 Pro. Open source, bring your own API key (no more subscriptions!)."
       },
