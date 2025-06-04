@@ -16,7 +16,7 @@ import perplexityLogo from "@assets/perplexity logo.png";
 import rooLogo from "@assets/roo code logo.png";
 import claudeLogo from "@assets/claude logo.png";
 import windsurfLogo from "@assets/exafunction-windsurf.webp";
-import otterLogo from "@assets/otter ai logo.png";
+import otterLogo from "@assets/Otter.ai_company_logo.png";
 import zoomLogo from "@assets/zoomai-1-770x426.png";
 import descriptLogo from "@assets/Descript.png";
 import elevenLabsLogo from "@assets/elevenlabslogo.png";
@@ -63,7 +63,7 @@ export default function AIReadiness() {
     ],
     "Coding": [
       {
-        name: "Roo + Claude",
+        name: "Roo",
         url: "#",
         logo: claudeLogo,
         tldr: "Top choice: Roo plugin in VS Code with Claude 3.7 or Gemini 2.5 Pro. Open source, bring your own API key (no more subscriptions!)."
@@ -77,7 +77,7 @@ export default function AIReadiness() {
     ],
     "Prototyping": [
       {
-        name: "Claude Artifacts",
+        name: "Claude - Artifacts",
         url: "https://claude.ai",
         logo: claudeLogo,
         tldr: "Start here, always. Perfect for brainstorming and quick iterations."
