@@ -898,13 +898,21 @@ export default function AIBootcamp() {
                 {/* Idea Accelerator Waitlist Dialog */}
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button 
-                      className="bg-white text-primary px-8 py-4 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
-                    >
-                      <Calendar className="mr-2 h-5 w-5" />
-                      Join Idea Accelerator Waitlist
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </Button>
+                    <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                      <Button 
+                        className="bg-white text-primary px-8 py-4 rounded-xl font-semibold hover:shadow-xl border-0 hover:bg-gray-50 transition-all duration-300 group"
+                      >
+                        <motion.span 
+                          className="flex items-center justify-center"
+                          whileHover={{ x: 2 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <Calendar className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
+                          Join Idea Accelerator Waitlist
+                          <ArrowRight className="ml-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
+                        </motion.span>
+                      </Button>
+                    </motion.div>
                   </DialogTrigger>
                   <DialogContent className="max-w-md">
                     <DialogHeader>
@@ -979,13 +987,22 @@ export default function AIBootcamp() {
                 {/* Product Studio Intensive Dialog */}
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button 
-                      variant="outline"
-                      className="border-white text-white hover:bg-white hover:text-primary px-8 py-4 rounded-full font-semibold"
-                    >
-                      <Rocket className="mr-2 h-5 w-5" />
-                      Apply for Product Studio Intensive
-                    </Button>
+                    <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                      <Button 
+                        variant="outline"
+                        className="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 rounded-xl font-semibold transition-all duration-300 group hover:shadow-xl"
+                      >
+                        <motion.span 
+                          className="flex items-center justify-center"
+                          whileHover={{ x: 2 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <Rocket className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
+                          Apply for Product Studio Intensive
+                          <ArrowRight className="ml-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
+                        </motion.span>
+                      </Button>
+                    </motion.div>
                   </DialogTrigger>
                   <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
                     <DialogHeader>
