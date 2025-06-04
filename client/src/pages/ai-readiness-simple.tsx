@@ -10,7 +10,7 @@ import { ArrowRight, ArrowLeft, RotateCcw, User, Building2, ExternalLink } from 
 
 // Import all AI tool logos
 import replitLogo from "@assets/replit-icon-logo-png_seeklogo-453824.png";
-import lovableLogo from "@assets/lovable-logo-bg-light.png";
+import lovableLogo from "@assets/lovable-icon-bg-light.png";
 import grokLogo from "@assets/grok-logo-png_seeklogo-613403.png";
 import perplexityLogo from "@assets/perplexity logo.png";
 import rooLogo from "@assets/roo code logo.png";
