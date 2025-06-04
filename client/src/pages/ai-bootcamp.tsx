@@ -4,9 +4,11 @@ import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Rocket, Brain, Target, Users, Clock, CheckCircle, ArrowRight, Star, TrendingUp, Zap, Award, Calendar } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Rocket, Brain, Target, Users, Clock, CheckCircle, ArrowRight, Star, TrendingUp, Zap, Award, Calendar, X } from "lucide-react";
 import { useLocation } from "wouter";
 import { useSEO } from "@/hooks/use-seo";
+import { useState } from "react";
 
 export default function AIBootcamp() {
   useSEO({
@@ -17,6 +19,133 @@ export default function AIBootcamp() {
   });
 
   const [, setLocation] = useLocation();
+  const [openModal, setOpenModal] = useState<string | null>(null);
+
+  const scheduleBreakdowns = {
+    phase1: {
+      title: "Idea Accelerator Sprint - Daily Schedule",
+      subtitle: "4 High-Impact Workshops Over 2 Weeks",
+      workshops: [
+        {
+          name: "Workshop 1: AI-Powered Market Intelligence",
+          details: [
+            "Rapid market sizing using AI research tools",
+            "Competitive landscape analysis and opportunity mapping", 
+            "Industry trend identification and validation",
+            "AI Advantage: Complete in hours what traditionally takes weeks"
+          ]
+        },
+        {
+          name: "Workshop 2: Customer Discovery & Rapid Iteration",
+          details: [
+            "Customer interview framework and execution (minimum 10 interviews)",
+            "Real-time feedback analysis using AI tools",
+            "Rapid idea pivoting and refinement based on insights",
+            "AI Advantage: Process feedback and iterate concepts in real-time"
+          ]
+        },
+        {
+          name: "Workshop 3: Strategic Positioning & Differentiation", 
+          details: [
+            "AI-assisted positioning strategy development",
+            "Value proposition refinement and messaging",
+            "Multiple concept iterations and A/B testing",
+            "AI Advantage: Test dozens of positioning angles simultaneously"
+          ]
+        },
+        {
+          name: "Workshop 4: Business Model & Pitch Creation",
+          details: [
+            "Revenue model development and projections",
+            "Professional pitch deck creation using AI design tools",
+            "Complete product dossier compilation",
+            "Live pitch presentation to investor 'sharks' panel",
+            "Real-time feedback and final strategy refinement"
+          ]
+        }
+      ],
+      deliverables: [
+        "Complete Product Dossier + Professional Pitch Deck + Investor Feedback Report",
+        "Speed: 2 weeks to complete what traditionally takes 3-6 months",
+        "Capstone: Live pitch to real investors with actionable feedback"
+      ]
+    },
+    phase2: {
+      title: "Product Studio Intensive - Daily Schedule",
+      subtitle: "6-Week Sprint Development Cycles",
+      structure: [
+        {
+          period: "Days 1-2: Foundation Setup",
+          activities: [
+            "AI tool selection and environment setup",
+            "Core MVP definition and approval", 
+            "Development plan creation and validation",
+            "User feedback cadence and timeline definition"
+          ]
+        },
+        {
+          period: "Days 3-38: Sprint Development Cycles (6 weeks)",
+          dailyStructure: [
+            "Morning Standup (9 AM): Quick demo + 'I need help with...' session",
+            "Development Work: Component-focused building using AI tools",
+            "Expert Office Hours: Available throughout the day for support"
+          ],
+          componentFlow: [
+            "1. Technical solution planning and validation",
+            "2. AI implementation and setup", 
+            "3. Integration setup and validation",
+            "4. Component testing and refinement",
+            "5. Push to production",
+            "6. User demo/feedback session",
+            "7. Incorporate feedback into next iteration"
+          ],
+          weeklyStructure: [
+            "Monday-Thursday: Component development cycles",
+            "Friday: Weekly progress review and scope adjustment planning", 
+            "Weekend Planning: Prepare for next week's components"
+          ]
+        },
+        {
+          period: "Days 39-40: Full Go-Live Weekend",
+          activities: [
+            "Day 39: Final deployment and product demos",
+            "Day 40: Cross-cohort product testing, feedback, and celebration",
+            "Everyone provides access to their live products for peer testing"
+          ]
+        }
+      ]
+    },
+    phase3: {
+      title: "Marketing Launch Accelerator - Daily Schedule", 
+      subtitle: "2-Week Marketing Strategy & Campaign Launch",
+      weeks: [
+        {
+          week: "Week 9: Market Strategy & Assets Creation",
+          schedule: [
+            "Monday: Live product demo to marketing experts panel",
+            "Tuesday: Product pitch deck presentation (leveraging Idea Accelerator materials)",
+            "Wednesday-Thursday: AI-powered marketing asset creation",
+            "  - Landing page development and optimization",
+            "  - Social media account setup and content strategy", 
+            "  - Call-to-action optimization and conversion planning",
+            "Friday: Go-to-market strategy and content plan finalization"
+          ]
+        },
+        {
+          week: "Week 10: Campaign Launch & Execution",
+          schedule: [
+            "Monday-Tuesday: Marketing campaign setup and launch (AI-enabled automation)",
+            "Wednesday-Thursday: Sales process development and initial outreach",
+            "Friday: Handoff session - take it solo or join mastermind for continued support"
+          ]
+        }
+      ],
+      pathOptions: [
+        "Independent Path: Take all strategies and tools to execute solo",
+        "Mastermind Path: Join ongoing peer support and accountability community"
+      ]
+    }
+  };
 
   const phases = [
     {
@@ -38,7 +167,8 @@ export default function AIBootcamp() {
         "Professional Pitch Deck", 
         "Investor Feedback Report"
       ],
-      cta: "Apply for Idea Accelerator",
+      cta: "View Daily Schedule",
+      modalKey: "phase1",
       standalone: true
     },
     {
@@ -62,7 +192,8 @@ export default function AIBootcamp() {
         "Technical documentation",
         "User testing results"
       ],
-      cta: "Learn About Intensive",
+      cta: "View Daily Schedule",
+      modalKey: "phase2",
       byApplication: true
     },
     {
@@ -85,7 +216,8 @@ export default function AIBootcamp() {
         "Sales process documentation",
         "Go-to-market playbook"
       ],
-      cta: "Explore Marketing Phase",
+      cta: "View Daily Schedule",
+      modalKey: "phase3",
       optional: true
     }
   ];
@@ -336,13 +468,185 @@ export default function AIBootcamp() {
                             ))}
                           </ul>
                           
-                          <Button 
-                            onClick={() => setLocation('/contact?service=ai-bootcamp')}
-                            className="w-full gradient-bg text-white rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
-                          >
-                            {phase.cta}
-                            <ArrowRight className="ml-2 h-4 w-4" />
-                          </Button>
+                          <Dialog>
+                            <DialogTrigger asChild>
+                              <Button 
+                                className="w-full gradient-bg text-white rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+                              >
+                                <Calendar className="mr-2 h-4 w-4" />
+                                {phase.cta}
+                                <ArrowRight className="ml-2 h-4 w-4" />
+                              </Button>
+                            </DialogTrigger>
+                            <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
+                              <DialogHeader>
+                                <DialogTitle className="text-2xl font-bold text-center mb-4">
+                                  {scheduleBreakdowns[phase.modalKey as keyof typeof scheduleBreakdowns]?.title}
+                                </DialogTitle>
+                                <p className="text-center text-lg text-gray-600 dark:text-gray-300 mb-6">
+                                  {scheduleBreakdowns[phase.modalKey as keyof typeof scheduleBreakdowns]?.subtitle}
+                                </p>
+                              </DialogHeader>
+                              
+                              {phase.modalKey === 'phase1' && (
+                                <div className="space-y-6">
+                                  {scheduleBreakdowns.phase1.workshops.map((workshop, i) => (
+                                    <Card key={i} className="bg-gray-50 dark:bg-gray-800">
+                                      <CardHeader className="pb-3">
+                                        <h4 className="font-bold text-lg text-gray-900 dark:text-white">{workshop.name}</h4>
+                                      </CardHeader>
+                                      <CardContent>
+                                        <ul className="space-y-2">
+                                          {workshop.details.map((detail, j) => (
+                                            <li key={j} className="flex items-start text-gray-600 dark:text-gray-300">
+                                              <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                                              <span className="text-sm">{detail}</span>
+                                            </li>
+                                          ))}
+                                        </ul>
+                                      </CardContent>
+                                    </Card>
+                                  ))}
+                                  
+                                  <Card className="bg-primary/5 border-primary/20">
+                                    <CardHeader>
+                                      <h4 className="font-bold text-lg text-primary">Program Deliverables</h4>
+                                    </CardHeader>
+                                    <CardContent>
+                                      <ul className="space-y-2">
+                                        {scheduleBreakdowns.phase1.deliverables.map((deliverable, i) => (
+                                          <li key={i} className="flex items-start text-gray-600 dark:text-gray-300">
+                                            <Star className="h-4 w-4 text-yellow-500 mr-2 mt-0.5 flex-shrink-0" />
+                                            <span className="text-sm font-medium">{deliverable}</span>
+                                          </li>
+                                        ))}
+                                      </ul>
+                                    </CardContent>
+                                  </Card>
+                                </div>
+                              )}
+
+                              {phase.modalKey === 'phase2' && (
+                                <div className="space-y-6">
+                                  {scheduleBreakdowns.phase2.structure.map((period, i) => (
+                                    <Card key={i} className="bg-gray-50 dark:bg-gray-800">
+                                      <CardHeader className="pb-3">
+                                        <h4 className="font-bold text-lg text-gray-900 dark:text-white">{period.period}</h4>
+                                      </CardHeader>
+                                      <CardContent className="space-y-4">
+                                        {period.activities && (
+                                          <div>
+                                            <h5 className="font-semibold text-gray-900 dark:text-white mb-2">Activities:</h5>
+                                            <ul className="space-y-1">
+                                              {period.activities.map((activity, j) => (
+                                                <li key={j} className="flex items-start text-gray-600 dark:text-gray-300">
+                                                  <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                                                  <span className="text-sm">{activity}</span>
+                                                </li>
+                                              ))}
+                                            </ul>
+                                          </div>
+                                        )}
+                                        
+                                        {period.dailyStructure && (
+                                          <div>
+                                            <h5 className="font-semibold text-gray-900 dark:text-white mb-2">Daily Structure:</h5>
+                                            <ul className="space-y-1">
+                                              {period.dailyStructure.map((item, j) => (
+                                                <li key={j} className="flex items-start text-gray-600 dark:text-gray-300">
+                                                  <Clock className="h-4 w-4 text-blue-500 mr-2 mt-0.5 flex-shrink-0" />
+                                                  <span className="text-sm">{item}</span>
+                                                </li>
+                                              ))}
+                                            </ul>
+                                          </div>
+                                        )}
+                                        
+                                        {period.componentFlow && (
+                                          <div>
+                                            <h5 className="font-semibold text-gray-900 dark:text-white mb-2">Component Development Flow:</h5>
+                                            <ul className="space-y-1">
+                                              {period.componentFlow.map((step, j) => (
+                                                <li key={j} className="flex items-start text-gray-600 dark:text-gray-300">
+                                                  <span className="bg-primary text-white rounded-full w-4 h-4 flex items-center justify-center text-xs mr-2 mt-0.5 flex-shrink-0">
+                                                    {j + 1}
+                                                  </span>
+                                                  <span className="text-sm">{step}</span>
+                                                </li>
+                                              ))}
+                                            </ul>
+                                          </div>
+                                        )}
+                                        
+                                        {period.weeklyStructure && (
+                                          <div>
+                                            <h5 className="font-semibold text-gray-900 dark:text-white mb-2">Weekly Structure:</h5>
+                                            <ul className="space-y-1">
+                                              {period.weeklyStructure.map((item, j) => (
+                                                <li key={j} className="flex items-start text-gray-600 dark:text-gray-300">
+                                                  <Calendar className="h-4 w-4 text-purple-500 mr-2 mt-0.5 flex-shrink-0" />
+                                                  <span className="text-sm">{item}</span>
+                                                </li>
+                                              ))}
+                                            </ul>
+                                          </div>
+                                        )}
+                                      </CardContent>
+                                    </Card>
+                                  ))}
+                                </div>
+                              )}
+
+                              {phase.modalKey === 'phase3' && (
+                                <div className="space-y-6">
+                                  {scheduleBreakdowns.phase3.weeks.map((week, i) => (
+                                    <Card key={i} className="bg-gray-50 dark:bg-gray-800">
+                                      <CardHeader className="pb-3">
+                                        <h4 className="font-bold text-lg text-gray-900 dark:text-white">{week.week}</h4>
+                                      </CardHeader>
+                                      <CardContent>
+                                        <ul className="space-y-2">
+                                          {week.schedule.map((item, j) => (
+                                            <li key={j} className="flex items-start text-gray-600 dark:text-gray-300">
+                                              <Calendar className="h-4 w-4 text-primary mr-2 mt-0.5 flex-shrink-0" />
+                                              <span className="text-sm">{item}</span>
+                                            </li>
+                                          ))}
+                                        </ul>
+                                      </CardContent>
+                                    </Card>
+                                  ))}
+                                  
+                                  <Card className="bg-primary/5 border-primary/20">
+                                    <CardHeader>
+                                      <h4 className="font-bold text-lg text-primary">Path Forward Options</h4>
+                                    </CardHeader>
+                                    <CardContent>
+                                      <ul className="space-y-2">
+                                        {scheduleBreakdowns.phase3.pathOptions.map((option, i) => (
+                                          <li key={i} className="flex items-start text-gray-600 dark:text-gray-300">
+                                            <ArrowRight className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                                            <span className="text-sm font-medium">{option}</span>
+                                          </li>
+                                        ))}
+                                      </ul>
+                                    </CardContent>
+                                  </Card>
+                                </div>
+                              )}
+                              
+                              <div className="text-center mt-6 pt-6 border-t">
+                                <Button 
+                                  onClick={() => setLocation('/contact?service=ai-bootcamp-' + phase.modalKey)}
+                                  className="gradient-bg text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+                                >
+                                  <Rocket className="mr-2 h-5 w-5" />
+                                  Apply for {phase.title}
+                                  <ArrowRight className="ml-2 h-5 w-5" />
+                                </Button>
+                              </div>
+                            </DialogContent>
+                          </Dialog>
                         </div>
                       </div>
                     </CardContent>
