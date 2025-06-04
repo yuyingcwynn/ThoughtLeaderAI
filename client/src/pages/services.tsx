@@ -227,13 +227,6 @@ export default function Services() {
         "Speed to Market - build sophisticated products in weeks, not years",
         "Problem Solvers Can Build - people who understand problems can build solutions directly"
       ],
-      successMetrics: [
-        "Fully functional, market-ready product",
-        "Validated customer demand and early sales", 
-        "Clear path to $100K+ annual revenue",
-        "Mastery of AI tools for continued innovation",
-        "Scalable business model and growth strategy"
-      ],
       cta: "Learn More",
       ctaAction: () => setLocation('/ai-bootcamp')
     }
