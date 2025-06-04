@@ -13,6 +13,7 @@ import replitLogo from "@assets/replit logo.png";
 import lovableLogo from "@assets/lovable-logo-bg-light.png";
 import grokLogo from "@assets/Grok-Logo.png";
 import perplexityLogo from "@assets/Perplexity_AI_logo.svg.png";
+import rooLogo from "@assets/roo code logo.png";
 import windsurfLogo from "@assets/hero-windsurf-rename.jpg";
 import otterLogo from "@assets/otter ai logo.png";
 import zoomLogo from "@assets/zoomai-1-770x426.png";
@@ -62,7 +63,7 @@ export default function AIReadiness() {
       {
         name: "Roo + Claude",
         url: "#",
-        logo: replitLogo,
+        logo: rooLogo,
         tldr: "Top choice: Roo plugin in VS Code with Claude 3.7 or Gemini 2.5 Pro. Open source, bring your own API key (no more subscriptions!)."
       },
       {
@@ -821,26 +822,32 @@ export default function AIReadiness() {
                     >
                       <Card className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 h-full">
                         <CardContent className="p-6">
-                          <div className="flex items-start justify-between mb-4">
-                            <div className="flex items-center space-x-3">
+                          {/* Logo section - much larger and centered */}
+                          <div className="flex justify-center mb-4">
+                            <div className="w-16 h-16 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center justify-center p-2">
                               <img 
                                 src={tool.logo}
                                 alt={`${tool.name} logo`}
-                                className="w-8 h-8 object-contain"
+                                className="w-full h-full object-contain"
                                 onError={(e) => {
                                   e.currentTarget.style.display = 'none';
                                 }}
                               />
-                              <h4 className="font-bold text-lg text-gray-900 dark:text-white">
-                                {tool.name}
-                              </h4>
                             </div>
+                          </div>
+                          
+                          {/* Title and link section */}
+                          <div className="flex items-center justify-between mb-3">
+                            <h4 className="font-bold text-lg text-gray-900 dark:text-white text-center flex-1">
+                              {tool.name}
+                            </h4>
                             {tool.url !== "#" && (
-                              <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors duration-200" />
+                              <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors duration-200 ml-2" />
                             )}
                           </div>
                           
-                          <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                          {/* Description */}
+                          <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed text-center">
                             {tool.tldr}
                           </p>
                         </CardContent>
