@@ -526,6 +526,14 @@ export default function AIReadiness() {
           </Card>
         </motion.div>
       </div>
+
+      {/* Divider */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="border-t border-gray-200 dark:border-gray-700"></div>
+      </div>
+
+      {/* AI Tools Section */}
+      {renderAIToolsSection()}
     </div>
   );
 
@@ -904,8 +912,7 @@ export default function AIReadiness() {
             </Card>
           </motion.div>
           
-          {/* Add AI Tools Section after Personal Results */}
-          {renderAIToolsSection()}
+
         </div>
       );
     }
@@ -1172,8 +1179,7 @@ export default function AIReadiness() {
           </div>
         </motion.div>
         
-        {/* Add AI Tools Section after Enterprise Results */}
-        {renderAIToolsSection()}
+
       </div>
     );
   };
