@@ -96,65 +96,6 @@ export default function Services() {
       ctaAction: () => setLocation('/checkout')
     },
     {
-      icon: UserCheck,
-      title: "Fractional Chief AI Officer",
-      subtitle: "Get C-Level AI Leadership Without the C-Level Price Tag",
-      description: "Part-time AI leadership for full-time results. Strategic AI roadmap development with hands-on implementation guidance.",
-      price: "Custom Pricing",
-      useCases: [
-        "Strategic AI roadmap development",
-        "Risk and governance framework",
-        "Team training and capability building",
-        "Vendor management and evaluation",
-        "Board-level reporting and communication"
-      ],
-      engagementModels: [
-        "2 days/month (Minimum engagement)",
-        "1 week/month (Standard)",
-        "2 weeks/month (Intensive)"
-      ],
-      cta: "Learn More",
-      ctaAction: () => setLocation('/contact')
-    },
-    {
-      icon: Rocket,
-      title: "Enterprise AI Enablement",
-      subtitle: "Hackathons, Strategy Offsites, and Culture Transformation",
-      description: "Three core offerings to accelerate your organization's AI adoption with proven methodologies and frameworks.",
-      price: "Enterprise Package",
-      offerings: [
-        {
-          name: "GenAI Hackathon (3 days)",
-          details: [
-            "Day 1: AI literacy and ideation",
-            "Day 2: Prototype development", 
-            "Day 3: Pitch and implementation planning",
-            "Deliverable: 5+ validated AI use cases"
-          ]
-        },
-        {
-          name: "AI Strategy Offsite (2 days)",
-          details: [
-            "Current state assessment",
-            "Vision and roadmap creation",
-            "Risk framework development",
-            "Implementation timeline",
-            "Deliverable: Complete AI strategy document"
-          ]
-        },
-        {
-          name: "Culture Transformation Program",
-          details: [
-            "AI ambassador training",
-            "Change management",
-            "Adoption metrics and tracking"
-          ]
-        }
-      ],
-      cta: "Schedule Event",
-      ctaAction: () => setLocation('/contact')
-    },
-    {
       icon: Plus,
       title: "100K Product Launch AI Bootcamp",
       subtitle: "Turn Your 'What If' Into Reality - From AI Idea to Market in 8-10 Weeks",
@@ -230,6 +171,65 @@ export default function Services() {
       ctaAction: () => {
         window.location.href = '/ai-bootcamp';
       }
+    },
+    {
+      icon: Rocket,
+      title: "Enterprise AI Enablement",
+      subtitle: "Hackathons, Strategy Offsites, and Culture Transformation",
+      description: "Three core offerings to accelerate your organization's AI adoption with proven methodologies and frameworks.",
+      price: "Enterprise Package",
+      offerings: [
+        {
+          name: "GenAI Hackathon (3 days)",
+          details: [
+            "Day 1: AI literacy and ideation",
+            "Day 2: Prototype development", 
+            "Day 3: Pitch and implementation planning",
+            "Deliverable: 5+ validated AI use cases"
+          ]
+        },
+        {
+          name: "AI Strategy Offsite (2 days)",
+          details: [
+            "Current state assessment",
+            "Vision and roadmap creation",
+            "Risk framework development",
+            "Implementation timeline",
+            "Deliverable: Complete AI strategy document"
+          ]
+        },
+        {
+          name: "Culture Transformation Program",
+          details: [
+            "AI ambassador training",
+            "Change management",
+            "Adoption metrics and tracking"
+          ]
+        }
+      ],
+      cta: "Schedule Event",
+      ctaAction: () => setLocation('/contact')
+    },
+    {
+      icon: UserCheck,
+      title: "Fractional Chief AI Officer",
+      subtitle: "Get C-Level AI Leadership Without the C-Level Price Tag",
+      description: "Part-time AI leadership for full-time results. Strategic AI roadmap development with hands-on implementation guidance.",
+      price: "Custom Pricing",
+      useCases: [
+        "Strategic AI roadmap development",
+        "Risk and governance framework",
+        "Team training and capability building",
+        "Vendor management and evaluation",
+        "Board-level reporting and communication"
+      ],
+      engagementModels: [
+        "2 days/month (Minimum engagement)",
+        "1 week/month (Standard)",
+        "2 weeks/month (Intensive)"
+      ],
+      cta: "Learn More",
+      ctaAction: () => setLocation('/contact')
     }
   ];
 
