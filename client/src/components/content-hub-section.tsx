@@ -77,6 +77,7 @@ export default function ContentHubSection() {
   const handleLinkClick = (link: string, isInternal?: boolean) => {
     if (isInternal) {
       setLocation(link);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       window.open(link, '_blank');
     }
