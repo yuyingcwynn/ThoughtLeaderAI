@@ -797,7 +797,7 @@ export default function AIReadiness() {
 
   const renderAIToolsSection = () => {
     return (
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -824,7 +824,11 @@ export default function AIReadiness() {
                   {category}
                 </h3>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                <div className={`grid gap-8 ${
+                  tools.length === 2 ? 'grid-cols-1 lg:grid-cols-2' : 
+                  tools.length === 3 ? 'grid-cols-1 lg:grid-cols-3' : 
+                  'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+                }`}>
                   {tools.map((tool, index) => (
                     <motion.a
                       key={tool.name}
@@ -837,15 +841,15 @@ export default function AIReadiness() {
                       transition={{ duration: 0.4, delay: index * 0.1 }}
                       whileHover={tool.url !== "#" ? { y: -4 } : {}}
                     >
-                      <Card className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 h-full">
-                        <CardContent className="p-6">
-                          <div className="flex items-start space-x-4">
+                      <Card className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 h-full min-h-[200px]">
+                        <CardContent className="p-8">
+                          <div className="flex items-start space-x-6">
                             {/* Large logo on the left */}
                             <div className="flex-shrink-0">
                               <img 
                                 src={tool.logo}
                                 alt={`${tool.name} logo`}
-                                className="w-16 h-16 object-contain"
+                                className="w-20 h-20 object-contain"
                                 onError={(e) => {
                                   e.currentTarget.style.display = 'none';
                                 }}
@@ -855,7 +859,7 @@ export default function AIReadiness() {
                             {/* Content on the right */}
                             <div className="flex-1 min-w-0">
                               {/* Title and link */}
-                              <div className="flex items-center justify-between mb-2">
+                              <div className="flex items-center justify-between mb-3">
                                 <h4 className="font-bold text-xl text-gray-900 dark:text-white">
                                   {tool.name}
                                 </h4>
@@ -865,7 +869,7 @@ export default function AIReadiness() {
                               </div>
                               
                               {/* Description */}
-                              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                              <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-base">
                                 {tool.tldr}
                               </p>
                             </div>
