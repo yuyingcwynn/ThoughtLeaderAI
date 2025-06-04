@@ -9,6 +9,7 @@ export default function ServicesSection() {
 
   const handleBookSession = () => {
     setLocation("/checkout");
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const services = [
@@ -29,7 +30,7 @@ export default function ServicesSection() {
       buttonText: "Learn More",
       buttonAction: () => {
         setLocation("/ai-bootcamp");
-        setTimeout(() => window.scrollTo(0, 0), 100);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       },
       gradient: true
     },
@@ -39,7 +40,10 @@ export default function ServicesSection() {
       description: "Hackathons, strategy offsites, and culture transformation. 3-day hackathons and 2-day strategy intensives for organizational AI adoption.",
       price: "Enterprise Package",
       buttonText: "Learn More",
-      buttonAction: () => setLocation("/contact?service=enterprise-ai-enablement"),
+      buttonAction: () => {
+        setLocation("/contact?service=enterprise-ai-enablement");
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      },
       gradient: false
     },
     {
@@ -48,7 +52,10 @@ export default function ServicesSection() {
       description: "Part-time AI leadership for full-time results. From strategy to implementation with C-level expertise without the C-level price tag.",
       price: "Custom Pricing",
       buttonText: "Learn More",
-      buttonAction: () => setLocation("/contact?service=fractional-ai-officer"),
+      buttonAction: () => {
+        setLocation("/contact?service=fractional-ai-officer");
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      },
       gradient: false
     }
   ];
