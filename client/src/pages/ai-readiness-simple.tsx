@@ -77,7 +77,7 @@ export default function AIReadiness() {
     "Audio/Video": [
       {
         name: "Descript",
-        url: "#",
+        url: "https://get.descript.com/1b85kupcd9vq",
         logo: "🎙️",
         tldr: "Podcast editing without staring at sound waves. Finally."
       },
