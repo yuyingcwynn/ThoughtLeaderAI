@@ -168,10 +168,10 @@ export default function Services() {
           subtitle: "From Concept to Market-Ready Strategy",
           description: "Validate your concept and create an investor-ready business strategy.",
           features: [
-            "AI-powered market intelligence and competitive analysis",
-            "10+ customer validation interviews with real-time analysis", 
-            "Professional pitch deck creation and investor presentation",
-            "Complete business model and revenue projections"
+            "AI-powered market analysis",
+            "Direct customer validation", 
+            "Pitch deck creation with AI",
+            "Present to investor panel"
           ],
           outcomes: [
             "Complete Product Dossier",
@@ -187,16 +187,16 @@ export default function Services() {
           subtitle: "From Validated Concept to Live Product",
           description: "Build and deploy your product using AI tools—no coding required.",
           features: [
-            "AI tool selection and technical architecture setup",
-            "Daily progress demos with expert guidance",
-            "Hands-on AI code generation and design training",
-            "Live product deployment and user testing"
+            "AI tool selection and technical solutioning",
+            "Hands-on AI code generation and application building",
+            "Daily progress demos and expert support",
+            "Rapid iterations and live product deployment"
           ],
           outcomes: [
             "Fully functional product",
             "Live deployment",
             "Technical documentation",
-            "User testing results"
+            "User feedback iterations"
           ],
           byApplication: true
         },
@@ -214,8 +214,7 @@ export default function Services() {
           ],
           outcomes: [
             "Complete marketing strategy",
-            "Live marketing campaigns",
-            "Sales process documentation",
+            "Marketing site launch",
             "Go-to-market playbook"
           ],
           optional: true
