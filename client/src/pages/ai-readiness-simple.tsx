@@ -22,6 +22,7 @@ import descriptLogo from "@assets/Descript.png";
 import elevenLabsLogo from "@assets/elevenlabslogo.png";
 import pictoryLogo from "@assets/pictory_500.png";
 import sunoLogo from "@assets/suno favicon-512x512.png";
+import udioLogo from "@assets/udio-color.png";
 import synthesiaLogo from "@assets/synthesia logo.png";
 
 export default function AIReadiness() {
@@ -102,6 +103,20 @@ export default function AIReadiness() {
         tldr: "Advantage: doesn't add another attendee. Accuracy and data controls are getting there, but Otter still wins on pure transcription quality."
       }
     ],
+    "Music": [
+      {
+        name: "Udio",
+        url: "https://udio.com",
+        logo: udioLogo,
+        tldr: "Music generation champion. Better song and music quality when you want studio-level results."
+      },
+      {
+        name: "Suno",
+        url: "https://suno.ai",
+        logo: sunoLogo,
+        tldr: "Music generation for when you need it fast. Speed over perfection."
+      }
+    ],
     "Audio/Video": [
       {
         name: "Descript",
@@ -120,12 +135,6 @@ export default function AIReadiness() {
         url: "https://pictory.ai",
         logo: pictoryLogo,
         tldr: "Video content creation that doesn't make you want to throw your computer out the window."
-      },
-      {
-        name: "Suno",
-        url: "https://suno.ai",
-        logo: sunoLogo,
-        tldr: "Music generation for when you need it fast. Speed over perfection."
       },
       {
         name: "Synthesia",
