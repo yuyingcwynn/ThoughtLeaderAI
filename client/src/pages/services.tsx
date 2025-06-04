@@ -4,6 +4,45 @@ import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Brain, UserCheck, Rocket, Plus, Calendar, ArrowRight, CheckCircle } from "lucide-react";
+
+// Type definitions for service data
+interface Phase {
+  phase: string;
+  title: string;
+  duration: string;
+  subtitle: string;
+  description: string;
+  features: string[];
+  outcomes: string[];
+  standalone?: boolean;
+  byApplication?: boolean;
+  optional?: boolean;
+}
+
+interface Offering {
+  name: string;
+  details: string[];
+}
+
+interface ServiceData {
+  icon: any;
+  title: string;
+  subtitle: string;
+  description: string;
+  price: string;
+  useCases?: string[];
+  bookingFlow?: string[];
+  engagementModels?: string[];
+  offerings?: Offering[];
+  phases?: Phase[];
+  whyNow?: string[];
+  successMetrics?: string[];
+  structure?: string[];
+  deliverables?: string[];
+  idealFor?: string[];
+  cta: string;
+  ctaAction: () => void;
+}
 import { useLocation } from "wouter";
 import { useEffect } from "react";
 import { useSEO } from "@/hooks/use-seo";
@@ -34,7 +73,7 @@ export default function Services() {
     }
   }, []);
 
-  const services = [
+  const services: ServiceData[] = [
     {
       icon: Brain,
       title: "Dial-an-AI-Expert",
@@ -119,23 +158,88 @@ export default function Services() {
       icon: Plus,
       title: "100K Product Launch AI Bootcamp",
       subtitle: "Turn Your 'What If' Into Reality - From AI Idea to Market in 8-10 Weeks",
-      description: "Comprehensive program to build and launch your AI product with expert guidance and full technical support.",
+      description: "Transform your breakthrough product idea into a revenue-generating business using cutting-edge AI tools and proven methodologies.",
       price: "Program Package",
-      structure: [
-        "Weeks 1-2: Product definition and AI architecture",
-        "Weeks 3-4: Development and testing",
-        "Weeks 5-6: Launch preparation and go-to-market (optional extension)"
+      phases: [
+        {
+          phase: "Phase 1",
+          title: "Idea Accelerator Sprint",
+          duration: "2 Weeks",
+          subtitle: "From Concept to Market-Ready Strategy",
+          description: "Transform your raw concept into a professionally validated, investor-ready business opportunity using AI-powered market intelligence.",
+          features: [
+            "Complete market sizing and competitive analysis",
+            "Minimum 10 customer validation interviews",
+            "Clear positioning and differentiation strategy",
+            "Business model and revenue projections",
+            "Present to real investors for feedback",
+            "Professional pitch deck and product dossier"
+          ],
+          outcomes: [
+            "Complete Product Dossier",
+            "Professional Pitch Deck", 
+            "Investor Feedback Report"
+          ],
+          standalone: true
+        },
+        {
+          phase: "Phase 2", 
+          title: "Product Studio Intensive",
+          duration: "6 Weeks",
+          subtitle: "From Validated Concept to Live Product",
+          description: "Transform your validated idea into a deployed, user-ready product using AI tools and proven methodologies—no coding required.",
+          features: [
+            "AI tool selection and technical architecture",
+            "Daily demos showcasing progress",
+            "Sprint planning to maintain momentum", 
+            "Hands-on training with AI code generation",
+            "AI-powered design and UX creation",
+            "Real-time problem-solving support",
+            "Product optimization and testing"
+          ],
+          outcomes: [
+            "Fully functional product",
+            "Live deployment",
+            "Technical documentation",
+            "User testing results"
+          ],
+          byApplication: true
+        },
+        {
+          phase: "Phase 3",
+          title: "Marketing Launch Accelerator", 
+          duration: "2 Weeks",
+          subtitle: "Market Strategy & Campaign Launch",
+          description: "Execute go-to-market strategies with AI-powered marketing asset creation and campaign setup.",
+          features: [
+            "Live product demo to marketing experts",
+            "AI-powered marketing asset creation",
+            "Landing page development and optimization",
+            "Social media strategy and content plan",
+            "Sales process development",
+            "Campaign launch and execution"
+          ],
+          outcomes: [
+            "Complete marketing strategy",
+            "Live marketing campaigns",
+            "Sales process documentation",
+            "Go-to-market playbook"
+          ],
+          optional: true
+        }
       ],
-      deliverables: [
-        "Fully functional AI product",
-        "Technical documentation",
-        "Go-to-market strategy",
-        "Launch support"
+      whyNow: [
+        "AI Advantage Window is Open - powerful tools while early movers have competitive advantages",
+        "Lowered Barriers to Entry - reduced costs make niche markets profitable for first time",
+        "Speed to Market - build sophisticated products in weeks, not years",
+        "Problem Solvers Can Build - people who understand problems can build solutions directly"
       ],
-      idealFor: [
-        "Startups with AI product ideas",
-        "Enterprise innovation teams",
-        "Companies pivoting to AI"
+      successMetrics: [
+        "Fully functional, market-ready product",
+        "Validated customer demand and early sales", 
+        "Clear path to $100K+ annual revenue",
+        "Mastery of AI tools for continued innovation",
+        "Scalable business model and growth strategy"
       ],
       cta: "Learn More",
       ctaAction: () => setLocation('/ai-bootcamp')
@@ -262,11 +366,101 @@ export default function Services() {
                         </div>
                       )}
                       
-                      {service.structure && (
+                      {service.phases && (
+                        <div className="lg:col-span-3">
+                          <h4 className="font-semibold text-gray-900 dark:text-white mb-6">Program Phases</h4>
+                          <div className="grid md:grid-cols-3 gap-6">
+                            {service.phases.map((phase, i) => (
+                              <div key={i} className="bg-gray-50 dark:bg-gray-700 rounded-lg p-6">
+                                <div className="flex items-center mb-4">
+                                  <span className="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3">
+                                    {i + 1}
+                                  </span>
+                                  <div>
+                                    <h5 className="font-bold text-gray-900 dark:text-white">{phase.title}</h5>
+                                    <p className="text-sm text-primary font-medium">{phase.duration}</p>
+                                  </div>
+                                </div>
+                                <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">{phase.description}</p>
+                                
+                                <div className="mb-4">
+                                  <h6 className="font-medium text-gray-900 dark:text-white mb-2 text-sm">Key Features:</h6>
+                                  <ul className="space-y-1">
+                                    {phase.features.slice(0, 3).map((feature, j) => (
+                                      <li key={j} className="text-xs text-gray-600 dark:text-gray-300">• {feature}</li>
+                                    ))}
+                                    {phase.features.length > 3 && (
+                                      <li className="text-xs text-primary">+ {phase.features.length - 3} more features</li>
+                                    )}
+                                  </ul>
+                                </div>
+                                
+                                <div>
+                                  <h6 className="font-medium text-gray-900 dark:text-white mb-2 text-sm">Outcomes:</h6>
+                                  <ul className="space-y-1">
+                                    {phase.outcomes.map((outcome, j) => (
+                                      <li key={j} className="flex items-center text-xs text-gray-600 dark:text-gray-300">
+                                        <CheckCircle className="h-3 w-3 text-green-500 mr-1 flex-shrink-0" />
+                                        {outcome}
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </div>
+                                
+                                {phase.standalone && (
+                                  <div className="mt-3 px-2 py-1 bg-green-100 dark:bg-green-900 rounded text-xs text-green-800 dark:text-green-200 text-center">
+                                    Available Standalone
+                                  </div>
+                                )}
+                                {phase.byApplication && (
+                                  <div className="mt-3 px-2 py-1 bg-blue-100 dark:bg-blue-900 rounded text-xs text-blue-800 dark:text-blue-200 text-center">
+                                    By Application Only
+                                  </div>
+                                )}
+                                {phase.optional && (
+                                  <div className="mt-3 px-2 py-1 bg-purple-100 dark:bg-purple-900 rounded text-xs text-purple-800 dark:text-purple-200 text-center">
+                                    Optional Extension
+                                  </div>
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                      
+                      {service.whyNow && (
+                        <div className="lg:col-span-3">
+                          <h4 className="font-semibold text-gray-900 dark:text-white mb-4">Why Now?</h4>
+                          <div className="grid md:grid-cols-2 gap-4">
+                            {service.whyNow.map((reason, i) => (
+                              <div key={i} className="flex items-start text-gray-600 dark:text-gray-300">
+                                <CheckCircle className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                                <span className="text-sm">{reason}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                      
+                      {service.successMetrics && (
+                        <div className="lg:col-span-3">
+                          <h4 className="font-semibold text-gray-900 dark:text-white mb-4">Success Metrics</h4>
+                          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            {service.successMetrics.map((metric, i) => (
+                              <div key={i} className="flex items-start text-gray-600 dark:text-gray-300">
+                                <CheckCircle className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                                <span className="text-sm">{metric}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                      
+                      {(service as any).structure && (
                         <div>
                           <h4 className="font-semibold text-gray-900 dark:text-white mb-4">Program Structure</h4>
                           <ul className="space-y-2">
-                            {service.structure.map((phase, i) => (
+                            {(service as any).structure.map((phase: string, i: number) => (
                               <li key={i} className="flex items-start text-gray-600 dark:text-gray-300">
                                 <span className="bg-primary text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-2 mt-0.5 flex-shrink-0">
                                   {i + 1}
@@ -278,11 +472,11 @@ export default function Services() {
                         </div>
                       )}
                       
-                      {service.deliverables && (
+                      {(service as any).deliverables && (
                         <div>
                           <h4 className="font-semibold text-gray-900 dark:text-white mb-4">What You Get</h4>
                           <ul className="space-y-2">
-                            {service.deliverables.map((deliverable, i) => (
+                            {(service as any).deliverables.map((deliverable: string, i: number) => (
                               <li key={i} className="flex items-start text-gray-600 dark:text-gray-300">
                                 <CheckCircle className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
                                 <span className="text-sm">{deliverable}</span>
@@ -292,11 +486,11 @@ export default function Services() {
                         </div>
                       )}
                       
-                      {service.idealFor && (
+                      {(service as any).idealFor && (
                         <div>
                           <h4 className="font-semibold text-gray-900 dark:text-white mb-4">Ideal For</h4>
                           <ul className="space-y-2">
-                            {service.idealFor.map((target, i) => (
+                            {(service as any).idealFor.map((target: string, i: number) => (
                               <li key={i} className="flex items-start text-gray-600 dark:text-gray-300">
                                 <CheckCircle className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
                                 <span className="text-sm">{target}</span>
