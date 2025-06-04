@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, ArrowLeft, RotateCcw, User, Building2 } from "lucide-react";
+import { ArrowRight, ArrowLeft, RotateCcw, User, Building2, ExternalLink } from "lucide-react";
 
 export default function AIReadiness() {
   const [currentQuiz, setCurrentQuiz] = useState<'selection' | 'personal' | 'enterprise'>('selection');
@@ -14,6 +14,99 @@ export default function AIReadiness() {
   const [personalRatings, setPersonalRatings] = useState<Record<string, number>>({});
   const [enterpriseAnswers, setEnterpriseAnswers] = useState<number[]>([]);
   const [showResults, setShowResults] = useState(false);
+
+  const aiTools = {
+    "AI Code Generation": [
+      {
+        name: "Replit",
+        url: "https://replit.com/refer/yuyingcwynn",
+        logo: "🔧",
+        tldr: "My go-to when I want to build something real. Plans everything out, suggests optimizations before jumping in, and has all the integrations you actually need. Way more complete than the rest."
+      },
+      {
+        name: "Lovable",
+        url: "https://lovable.dev/",
+        logo: "💖",
+        tldr: "Daily driver for UI work. The default aesthetics are *chef's kiss* - it just makes things look good without me having to think about it. Perfect for when you want pretty without the pain."
+      }
+    ],
+    "Research": [
+      {
+        name: "Multi-AI Research",
+        url: "#",
+        logo: "🔍",
+        tldr: "Everyone has this now, but here's the secret sauce: Use Grok for speed, Gemini for thoroughness (seriously, SO many sources), and OpenAI for those clarifying questions. Then synthesize all three for bulletproof analysis."
+      }
+    ],
+    "Coding": [
+      {
+        name: "Roo + Claude",
+        url: "#",
+        logo: "🦘",
+        tldr: "Top choice: Roo plugin in VS Code with Claude 3.7 or Gemini 2.5 Pro. Open source, bring your own API key (no more subscriptions!). Also check out Windsurf for less technical folks and Cline for MCP servers."
+      }
+    ],
+    "Prototyping": [
+      {
+        name: "Claude Artifacts",
+        url: "#",
+        logo: "🎨",
+        tldr: "Start here, always. Perfect for brainstorming and quick iterations."
+      },
+      {
+        name: "Lovable",
+        url: "https://lovable.dev/",
+        logo: "💖",
+        tldr: "Then move to Lovable when you know what you want to build."
+      }
+    ],
+    "Meeting Notes": [
+      {
+        name: "Otter.ai",
+        url: "https://otter.ai/referrals/48465W43",
+        logo: "🦦",
+        tldr: "Almost the O.G. now. Scary accurate - you'll be shocked how much you say 'um, like'. Way better than having 1/3 of your meeting be AI note-taker attendees."
+      },
+      {
+        name: "Zoom AI",
+        url: "#",
+        logo: "🎥",
+        tldr: "Advantage: doesn't add another attendee. Accuracy and data controls are getting there, but Otter still wins on pure transcription quality."
+      }
+    ],
+    "Audio/Video": [
+      {
+        name: "Descript",
+        url: "#",
+        logo: "🎙️",
+        tldr: "Podcast editing without staring at sound waves. Finally."
+      },
+      {
+        name: "Eleven Labs",
+        url: "#",
+        logo: "🎤",
+        tldr: "Better voices for content, real-time audio, and they actually pay voice actors instead of ripping them off."
+      },
+      {
+        name: "Runway ML",
+        url: "#",
+        logo: "🎬",
+        tldr: "Video generation that doesn't look like a fever dream."
+      },
+      {
+        name: "Udio vs Suno",
+        url: "#",
+        logo: "🎵",
+        tldr: "Music battle royale: Udio for quality, Suno for speed. Pick your poison."
+      },
+      {
+        name: "Synthesia",
+        url: "#",
+        logo: "🤖",
+        tldr: "Clone yourself for meetings. Yes, that might actually have been AI-me in that Zoom call."
+      }
+    ]
+  };
 
   const personalQuestions = [
     {
@@ -650,6 +743,84 @@ export default function AIReadiness() {
     );
   };
 
+  const renderAIToolsSection = () => {
+    return (
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+              Yuying's Favorite AI Tools
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              The tools I actually use every day to build, research, and create. No fluff, just the ones that make the cut.
+            </p>
+          </div>
+
+          <div className="space-y-12">
+            {Object.entries(aiTools).map(([category, tools]) => (
+              <motion.div
+                key={category}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">
+                  {category}
+                </h3>
+                
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {tools.map((tool, index) => (
+                    <motion.a
+                      key={tool.name}
+                      href={tool.url === "#" ? undefined : tool.url}
+                      target={tool.url === "#" ? undefined : "_blank"}
+                      rel={tool.url === "#" ? undefined : "noopener noreferrer"}
+                      className={`block group ${tool.url === "#" ? "cursor-default" : "cursor-pointer"}`}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: index * 0.1 }}
+                      whileHover={tool.url !== "#" ? { y: -4 } : {}}
+                    >
+                      <Card className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 h-full">
+                        <CardContent className="p-6">
+                          <div className="flex items-start justify-between mb-4">
+                            <div className="flex items-center space-x-3">
+                              <span className="text-2xl">{tool.logo}</span>
+                              <h4 className="font-bold text-lg text-gray-900 dark:text-white">
+                                {tool.name}
+                              </h4>
+                            </div>
+                            {tool.url !== "#" && (
+                              <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors duration-200" />
+                            )}
+                          </div>
+                          
+                          <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                            {tool.tldr}
+                          </p>
+                        </CardContent>
+                      </Card>
+                    </motion.a>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <p className="text-sm text-gray-500 dark:text-gray-400 italic">
+              These are my personal favorites - your mileage may vary, but these are the ones I reach for every day.
+            </p>
+          </div>
+        </motion.div>
+      </div>
+    );
+  };
+
   const renderResults = () => {
     const isPersonal = currentQuiz === 'personal';
     const score = isPersonal ? getPersonalScore() : getEnterpriseScore();
@@ -732,6 +903,9 @@ export default function AIReadiness() {
               </CardContent>
             </Card>
           </motion.div>
+          
+          {/* Add AI Tools Section after Personal Results */}
+          {renderAIToolsSection()}
         </div>
       );
     }
@@ -997,6 +1171,9 @@ export default function AIReadiness() {
             </Button>
           </div>
         </motion.div>
+        
+        {/* Add AI Tools Section after Enterprise Results */}
+        {renderAIToolsSection()}
       </div>
     );
   };
