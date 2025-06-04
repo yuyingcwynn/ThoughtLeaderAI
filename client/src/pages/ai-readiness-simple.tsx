@@ -22,7 +22,7 @@ import descriptLogo from "@assets/Descript.png";
 import elevenLabsLogo from "@assets/elevenlabslogo.png";
 import pictoryLogo from "@assets/pictory_500.png";
 import sunoLogo from "@assets/suno favicon-512x512.png";
-import synthesiaLogo from "@assets/Synthesia_Logo_2024.png";
+import synthesiaLogo from "@assets/synthesia logo.png";
 
 export default function AIReadiness() {
   const [currentQuiz, setCurrentQuiz] = useState<'selection' | 'personal' | 'enterprise'>('selection');
