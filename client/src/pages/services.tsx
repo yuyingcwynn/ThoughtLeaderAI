@@ -228,8 +228,7 @@ export default function Services() {
       ],
       cta: "Learn More",
       ctaAction: () => {
-        window.location.hash = '';
-        setLocation('/ai-bootcamp');
+        window.location.href = '/ai-bootcamp';
       }
     }
   ];
