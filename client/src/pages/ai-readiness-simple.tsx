@@ -9,7 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight, ArrowLeft, RotateCcw, User, Building2, ExternalLink } from "lucide-react";
 
 // Import all AI tool logos
-import replitLogo from "@assets/replit logo.png";
+import replitLogo from "@assets/replit-icon-logo-png_seeklogo-453824.png";
 import lovableLogo from "@assets/lovable-logo-bg-light.png";
 import grokLogo from "@assets/grok-logo-png_seeklogo-613403.png";
 import perplexityLogo from "@assets/perplexity logo.png";
