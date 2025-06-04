@@ -55,6 +55,8 @@ export default function Footer() {
         }, 100);
       } else {
         setLocation(href);
+        // Scroll to top when navigating to a new page
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     } else {
       const element = document.getElementById(href.slice(1));

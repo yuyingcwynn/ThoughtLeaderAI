@@ -93,7 +93,10 @@ export default function Services() {
         "Confirmation with prep materials"
       ],
       cta: "Book Session",
-      ctaAction: () => setLocation('/checkout')
+      ctaAction: () => {
+        setLocation('/checkout');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     },
     {
       icon: Plus,
@@ -169,7 +172,8 @@ export default function Services() {
       ],
       cta: "Learn More",
       ctaAction: () => {
-        window.location.href = '/ai-bootcamp';
+        setLocation('/ai-bootcamp');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     },
     {
@@ -208,7 +212,10 @@ export default function Services() {
         }
       ],
       cta: "Schedule Event",
-      ctaAction: () => setLocation('/contact')
+      ctaAction: () => {
+        setLocation('/contact');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     },
     {
       icon: UserCheck,
@@ -229,7 +236,10 @@ export default function Services() {
         "2 weeks/month (Intensive)"
       ],
       cta: "Learn More",
-      ctaAction: () => setLocation('/contact')
+      ctaAction: () => {
+        setLocation('/contact');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     }
   ];
 

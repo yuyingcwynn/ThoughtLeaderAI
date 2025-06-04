@@ -30,6 +30,8 @@ export default function Navigation() {
   const handleNavClick = (href: string, isRoute: boolean) => {
     if (isRoute) {
       setLocation(href);
+      // Scroll to top when navigating to a new page
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       const element = document.getElementById(href.slice(1));
       if (element) {
