@@ -14,7 +14,7 @@ import lovableLogo from "@assets/lovable-icon-bg-light.png";
 import grokLogo from "@assets/grok-logo-png_seeklogo-613403.png";
 import perplexityLogo from "@assets/perplexity logo.png";
 import rooLogo from "@assets/roo code logo.png";
-import windsurfLogo from "@assets/hero-windsurf-rename.jpg";
+import windsurfLogo from "@assets/exafunction-windsurf.webp";
 import otterLogo from "@assets/otter ai logo.png";
 import zoomLogo from "@assets/zoomai-1-770x426.png";
 import descriptLogo from "@assets/Descript.png";
