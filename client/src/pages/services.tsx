@@ -227,7 +227,10 @@ export default function Services() {
         "Problem Solvers Can Build - people who understand problems can build solutions directly"
       ],
       cta: "Learn More",
-      ctaAction: () => setLocation('/ai-bootcamp')
+      ctaAction: () => {
+        window.location.hash = '';
+        setLocation('/ai-bootcamp');
+      }
     }
   ];
 
