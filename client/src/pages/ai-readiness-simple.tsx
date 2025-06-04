@@ -12,7 +12,8 @@ import { ArrowRight, ArrowLeft, RotateCcw, User, Building2, ExternalLink } from 
 import replitLogo from "@assets/replit-icon-logo-png_seeklogo-453824.png";
 import lovableLogo from "@assets/lovable-icon-bg-light.png";
 import grokLogo from "@assets/grok-logo-png_seeklogo-613403.png";
-import perplexityLogo from "@assets/perplexity logo.png";
+import geminiLogo from "@assets/Gemini-Logo.png";
+import openaiLogo from "@assets/openai-logo.png";
 import rooLogo from "@assets/roo code logo.png";
 import claudeLogo from "@assets/claude logo.png";
 import windsurfLogo from "@assets/exafunction-windsurf.webp";
@@ -49,15 +50,21 @@ export default function AIReadiness() {
     ],
     "Research": [
       {
+        name: "OpenAI",
+        url: "https://chatgpt.com",
+        logo: openaiLogo,
+        tldr: "Best overall research tool. Reliable, comprehensive, and handles complex queries with nuanced understanding."
+      },
+      {
         name: "Grok",
         url: "https://grok.x.ai",
         logo: grokLogo,
         tldr: "Speed demon for quick research. When you need answers fast and don't want to wait around."
       },
       {
-        name: "Perplexity",
-        url: "https://perplexity.ai",
-        logo: perplexityLogo,
+        name: "Gemini",
+        url: "https://gemini.google.com",
+        logo: geminiLogo,
         tldr: "Thoroughness champion. SO many sources, it's almost overwhelming - but that's the point."
       }
     ],
