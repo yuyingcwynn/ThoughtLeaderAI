@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -62,7 +62,7 @@ export default function AIBootcamp() {
       name: "",
       email: "",
       productDescription: "",
-      documentation: null
+      documentation: undefined
     }
   });
 
@@ -600,9 +600,9 @@ export default function AIBootcamp() {
                                 <DialogTitle className="text-2xl font-bold text-center mb-4">
                                   {scheduleBreakdowns[phase.modalKey as keyof typeof scheduleBreakdowns]?.title}
                                 </DialogTitle>
-                                <p className="text-center text-lg text-gray-600 dark:text-gray-300 mb-6">
+                                <DialogDescription className="text-center text-lg text-gray-600 dark:text-gray-300 mb-6">
                                   {scheduleBreakdowns[phase.modalKey as keyof typeof scheduleBreakdowns]?.subtitle}
-                                </p>
+                                </DialogDescription>
                               </DialogHeader>
                               
                               {phase.modalKey === 'phase1' && (
@@ -911,6 +911,9 @@ export default function AIBootcamp() {
                       <DialogTitle className="text-2xl font-bold text-center">
                         Join Idea Accelerator Waitlist
                       </DialogTitle>
+                      <DialogDescription className="text-center text-gray-600 dark:text-gray-300">
+                        Get early access to our Idea Accelerator Sprint program
+                      </DialogDescription>
                     </DialogHeader>
                     
                     <Form {...waitlistForm}>
@@ -989,9 +992,9 @@ export default function AIBootcamp() {
                       <DialogTitle className="text-2xl font-bold text-center">
                         Apply for Product Studio Intensive
                       </DialogTitle>
-                      <p className="text-center text-gray-600 dark:text-gray-300 mt-2">
+                      <DialogDescription className="text-center text-gray-600 dark:text-gray-300 mt-2">
                         Please provide comprehensive documentation including product executive summary, market analysis, and market potential. Applications meeting initial screening criteria will receive an assessment session booking link.
-                      </p>
+                      </DialogDescription>
                     </DialogHeader>
                     
                     <Form {...intensiveForm}>
@@ -1045,7 +1048,7 @@ export default function AIBootcamp() {
                         <FormField
                           control={intensiveForm.control}
                           name="documentation"
-                          render={({ field: { onChange, ...field } }) => (
+                          render={({ field: { onChange, value, ...field } }) => (
                             <FormItem>
                               <FormLabel>Additional Documentation (Optional)</FormLabel>
                               <FormControl>
@@ -1055,9 +1058,10 @@ export default function AIBootcamp() {
                                     type="file"
                                     multiple
                                     accept=".pdf,.doc,.docx,.txt"
-                                    onChange={(e) => onChange(e.target.files?.[0])}
+                                    onChange={(e) => onChange(e.target.files?.[0] || undefined)}
                                     className="hidden"
                                     id="documentation"
+                                    value=""
                                     {...field}
                                   />
                                   <Label htmlFor="documentation" className="cursor-pointer">
