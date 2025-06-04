@@ -11,7 +11,7 @@ import { ArrowRight, ArrowLeft, RotateCcw, User, Building2, ExternalLink } from 
 // Import all AI tool logos
 import replitLogo from "@assets/replit logo.png";
 import lovableLogo from "@assets/lovable-logo-bg-light.png";
-import grokLogo from "@assets/Grok-Logo.png";
+import grokLogo from "@assets/grok-logo-png_seeklogo-613403.png";
 import perplexityLogo from "@assets/Perplexity_AI_logo.svg.png";
 import rooLogo from "@assets/roo code logo.png";
 import windsurfLogo from "@assets/hero-windsurf-rename.jpg";
