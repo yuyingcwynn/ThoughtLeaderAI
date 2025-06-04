@@ -166,7 +166,7 @@ export default function Services() {
           title: "Idea Accelerator Sprint",
           duration: "2 Weeks",
           subtitle: "From Concept to Market-Ready Strategy",
-          description: "Transform your raw concept into a professionally validated, investor-ready business opportunity using AI-powered market intelligence.",
+          description: "Validate your concept and create an investor-ready business strategy.",
           features: [
             "AI-powered market intelligence and competitive analysis",
             "10+ customer validation interviews with real-time analysis", 
@@ -185,7 +185,7 @@ export default function Services() {
           title: "Product Studio Intensive",
           duration: "6 Weeks",
           subtitle: "From Validated Concept to Live Product",
-          description: "Transform your validated idea into a deployed, user-ready product using AI tools and proven methodologies—no coding required.",
+          description: "Build and deploy your product using AI tools—no coding required.",
           features: [
             "AI tool selection and technical architecture setup",
             "Daily progress demos with expert guidance",
@@ -205,7 +205,7 @@ export default function Services() {
           title: "Marketing Launch Accelerator", 
           duration: "2 Weeks",
           subtitle: "Market Strategy & Campaign Launch",
-          description: "Execute go-to-market strategies with AI-powered marketing asset creation and campaign setup.",
+          description: "Launch your product with AI-powered marketing and sales campaigns.",
           features: [
             "Live product demo to marketing experts panel",
             "AI-powered landing page and marketing assets",
