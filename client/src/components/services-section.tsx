@@ -83,8 +83,8 @@ export default function ServicesSection() {
               }}
               className="group"
             >
-              <Card className="h-full bg-white dark:bg-gray-900 shadow-xl border border-gray-100 dark:border-gray-700 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 overflow-hidden relative">
-                <CardHeader>
+              <Card className="h-full bg-white dark:bg-gray-900 shadow-xl border border-gray-100 dark:border-gray-700 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 overflow-hidden relative flex flex-col">
+                <CardHeader className="flex-grow">
                   <motion.div 
                     className="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
                     whileHover={{ rotate: 5 }}
@@ -97,7 +97,7 @@ export default function ServicesSection() {
                   </p>
                 </CardHeader>
                 
-                <CardContent>
+                <CardContent className="mt-auto">
                   <motion.div 
                     className="text-3xl font-bold gradient-text mb-6 group-hover:scale-105 transition-transform duration-300"
                     whileHover={{ scale: 1.1 }}
