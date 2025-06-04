@@ -44,8 +44,8 @@ export default function ServicesSection() {
       title: "AI Product Intensive Bootcamp",
       description: "4-6 weeks from concept to launch. Build and launch your AI product with expert guidance and comprehensive support.",
       price: "Program Package",
-      buttonText: "Apply Now",
-      buttonAction: () => setLocation("/contact?service=ai-product-bootcamp"),
+      buttonText: "Learn More",
+      buttonAction: () => setLocation("/ai-bootcamp"),
       gradient: true
     }
   ];

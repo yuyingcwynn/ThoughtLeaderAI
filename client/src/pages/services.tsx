@@ -137,8 +137,8 @@ export default function Services() {
         "Enterprise innovation teams",
         "Companies pivoting to AI"
       ],
-      cta: "Apply Now",
-      ctaAction: () => setLocation('/contact')
+      cta: "Learn More",
+      ctaAction: () => setLocation('/ai-bootcamp')
     }
   ];
 
