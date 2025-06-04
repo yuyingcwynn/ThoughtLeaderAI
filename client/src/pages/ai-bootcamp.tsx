@@ -5,10 +5,20 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Rocket, Brain, Target, Users, Clock, CheckCircle, ArrowRight, Star, TrendingUp, Zap, Award, Calendar, X } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Rocket, Brain, Target, Users, Clock, CheckCircle, ArrowRight, Star, TrendingUp, Zap, Award, Calendar, X, Upload, FileText } from "lucide-react";
 import { useLocation } from "wouter";
 import { useSEO } from "@/hooks/use-seo";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { useMutation } from "@tanstack/react-query";
+import { apiRequest } from "@/lib/queryClient";
+import { useToast } from "@/hooks/use-toast";
 
 export default function AIBootcamp() {
   useSEO({
@@ -20,6 +30,113 @@ export default function AIBootcamp() {
 
   const [, setLocation] = useLocation();
   const [openModal, setOpenModal] = useState<string | null>(null);
+  const { toast } = useToast();
+
+  // Form schemas
+  const waitlistSchema = z.object({
+    name: z.string().min(2, "Name must be at least 2 characters"),
+    email: z.string().email("Please enter a valid email address"),
+    productIdea: z.string().min(10, "Please provide a brief description of your product idea")
+  });
+
+  const intensiveSchema = z.object({
+    name: z.string().min(2, "Name must be at least 2 characters"),
+    email: z.string().email("Please enter a valid email address"),
+    productDescription: z.string().min(50, "Please provide a detailed product description (minimum 50 characters)"),
+    documentation: z.any().optional()
+  });
+
+  // Form hooks
+  const waitlistForm = useForm<z.infer<typeof waitlistSchema>>({
+    resolver: zodResolver(waitlistSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      productIdea: ""
+    }
+  });
+
+  const intensiveForm = useForm<z.infer<typeof intensiveSchema>>({
+    resolver: zodResolver(intensiveSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      productDescription: "",
+      documentation: null
+    }
+  });
+
+  // Mutations
+  const waitlistMutation = useMutation({
+    mutationFn: async (data: z.infer<typeof waitlistSchema>) => {
+      const response = await fetch("/api/bootcamp-waitlist", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit waitlist request");
+      }
+
+      return response.json();
+    },
+    onSuccess: () => {
+      toast({
+        title: "Success!",
+        description: "You've been added to the Idea Accelerator waitlist. We'll be in touch soon!"
+      });
+      waitlistForm.reset();
+      setOpenModal(null);
+    },
+    onError: () => {
+      toast({
+        title: "Error",
+        description: "Failed to submit. Please try again.",
+        variant: "destructive"
+      });
+    }
+  });
+
+  const intensiveMutation = useMutation({
+    mutationFn: async (data: z.infer<typeof intensiveSchema>) => {
+      const formData = new FormData();
+      formData.append("name", data.name);
+      formData.append("email", data.email);
+      formData.append("productDescription", data.productDescription);
+      if (data.documentation) {
+        formData.append("documentation", data.documentation);
+      }
+
+      const response = await fetch("/api/bootcamp-intensive", {
+        method: "POST",
+        body: formData
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit application");
+      }
+
+      return response.json();
+    },
+    onSuccess: () => {
+      toast({
+        title: "Application Submitted!",
+        description: "We'll review your application and send you an assessment booking link if you meet our initial criteria."
+      });
+      intensiveForm.reset();
+      setOpenModal(null);
+    },
+    onError: () => {
+      toast({
+        title: "Error",
+        description: "Failed to submit application. Please try again.",
+        variant: "destructive"
+      });
+    }
+  });
 
   const scheduleBreakdowns = {
     phase1: {
@@ -778,21 +895,203 @@ export default function AIBootcamp() {
                 Stop wondering "what if" and start building "what is." Your breakthrough idea deserves to become reality.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button 
-                  onClick={() => setLocation('/contact?service=ai-bootcamp-idea-accelerator')}
-                  className="bg-white text-primary px-8 py-4 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
-                >
-                  <Calendar className="mr-2 h-5 w-5" />
-                  Apply for Idea Accelerator
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-                <Button 
-                  variant="outline"
-                  onClick={() => setLocation('/contact?service=ai-bootcamp-consultation')}
-                  className="border-white text-white hover:bg-white hover:text-primary px-8 py-4 rounded-full font-semibold"
-                >
-                  Schedule Consultation
-                </Button>
+                {/* Idea Accelerator Waitlist Dialog */}
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button 
+                      className="bg-white text-primary px-8 py-4 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+                    >
+                      <Calendar className="mr-2 h-5 w-5" />
+                      Join Idea Accelerator Waitlist
+                      <ArrowRight className="ml-2 h-5 w-5" />
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-md">
+                    <DialogHeader>
+                      <DialogTitle className="text-2xl font-bold text-center">
+                        Join Idea Accelerator Waitlist
+                      </DialogTitle>
+                    </DialogHeader>
+                    
+                    <Form {...waitlistForm}>
+                      <form onSubmit={waitlistForm.handleSubmit((data) => waitlistMutation.mutate(data))} className="space-y-4">
+                        <FormField
+                          control={waitlistForm.control}
+                          name="name"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Full Name</FormLabel>
+                              <FormControl>
+                                <Input placeholder="Your full name" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        
+                        <FormField
+                          control={waitlistForm.control}
+                          name="email"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Email Address</FormLabel>
+                              <FormControl>
+                                <Input type="email" placeholder="your@email.com" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        
+                        <FormField
+                          control={waitlistForm.control}
+                          name="productIdea"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Brief Product Idea Description</FormLabel>
+                              <FormControl>
+                                <Textarea 
+                                  placeholder="Briefly describe your product idea..."
+                                  className="min-h-[100px]"
+                                  {...field} 
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        
+                        <Button 
+                          type="submit" 
+                          className="w-full gradient-bg text-white"
+                          disabled={waitlistMutation.isPending}
+                        >
+                          {waitlistMutation.isPending ? "Submitting..." : "Join Waitlist"}
+                        </Button>
+                      </form>
+                    </Form>
+                  </DialogContent>
+                </Dialog>
+
+                {/* Product Studio Intensive Dialog */}
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button 
+                      variant="outline"
+                      className="border-white text-white hover:bg-white hover:text-primary px-8 py-4 rounded-full font-semibold"
+                    >
+                      <Rocket className="mr-2 h-5 w-5" />
+                      Apply for Product Studio Intensive
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
+                    <DialogHeader>
+                      <DialogTitle className="text-2xl font-bold text-center">
+                        Apply for Product Studio Intensive
+                      </DialogTitle>
+                      <p className="text-center text-gray-600 dark:text-gray-300 mt-2">
+                        Please provide comprehensive documentation including product executive summary, market analysis, and market potential. Applications meeting initial screening criteria will receive an assessment session booking link.
+                      </p>
+                    </DialogHeader>
+                    
+                    <Form {...intensiveForm}>
+                      <form onSubmit={intensiveForm.handleSubmit((data) => intensiveMutation.mutate(data))} className="space-y-4">
+                        <FormField
+                          control={intensiveForm.control}
+                          name="name"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Full Name</FormLabel>
+                              <FormControl>
+                                <Input placeholder="Your full name" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        
+                        <FormField
+                          control={intensiveForm.control}
+                          name="email"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Email Address</FormLabel>
+                              <FormControl>
+                                <Input type="email" placeholder="your@email.com" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        
+                        <FormField
+                          control={intensiveForm.control}
+                          name="productDescription"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Detailed Product Description</FormLabel>
+                              <FormControl>
+                                <Textarea 
+                                  placeholder="Provide a comprehensive description of your product concept, target market, value proposition, and business model..."
+                                  className="min-h-[150px]"
+                                  {...field} 
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        
+                        <FormField
+                          control={intensiveForm.control}
+                          name="documentation"
+                          render={({ field: { onChange, ...field } }) => (
+                            <FormItem>
+                              <FormLabel>Additional Documentation (Optional)</FormLabel>
+                              <FormControl>
+                                <div className="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-6 text-center">
+                                  <Upload className="h-8 w-8 text-gray-400 mx-auto mb-2" />
+                                  <Input
+                                    type="file"
+                                    multiple
+                                    accept=".pdf,.doc,.docx,.txt"
+                                    onChange={(e) => onChange(e.target.files?.[0])}
+                                    className="hidden"
+                                    id="documentation"
+                                    {...field}
+                                  />
+                                  <Label htmlFor="documentation" className="cursor-pointer">
+                                    <span className="text-primary font-medium">Click to upload</span> or drag and drop
+                                  </Label>
+                                  <p className="text-sm text-gray-500 mt-1">PDF, DOC, DOCX, TXT (max 10MB)</p>
+                                </div>
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        
+                        <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                          <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">Required Documentation Should Include:</h4>
+                          <ul className="text-sm text-blue-800 dark:text-blue-200 space-y-1">
+                            <li>• Product executive summary</li>
+                            <li>• Market analysis and competitive landscape</li>
+                            <li>• Market potential and business model</li>
+                            <li>• Technical feasibility assessment</li>
+                          </ul>
+                        </div>
+                        
+                        <Button 
+                          type="submit" 
+                          className="w-full gradient-bg text-white"
+                          disabled={intensiveMutation.isPending}
+                        >
+                          {intensiveMutation.isPending ? "Submitting..." : "Submit Application"}
+                        </Button>
+                      </form>
+                    </Form>
+                  </DialogContent>
+                </Dialog>
               </div>
             </motion.div>
           </div>

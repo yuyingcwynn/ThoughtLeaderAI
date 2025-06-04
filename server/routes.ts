@@ -380,6 +380,84 @@ Canonical: https://wittinglyventures.com/.well-known/security.txt`);
     }
   });
 
+  // AI Bootcamp Waitlist Endpoint
+  app.post("/api/bootcamp-waitlist", async (req, res) => {
+    try {
+      const { name, email, productIdea } = req.body;
+
+      if (!name || !email || !productIdea) {
+        return res.status(400).json({ 
+          message: "Missing required fields: name, email, productIdea" 
+        });
+      }
+
+      // Send email notification
+      const emailData = {
+        firstName: name.split(' ')[0],
+        lastName: name.split(' ').slice(1).join(' ') || '',
+        email,
+        company: 'AI Bootcamp Waitlist',
+        serviceInterest: 'Idea Accelerator Sprint',
+        message: `Product Idea: ${productIdea}`
+      };
+
+      const emailSent = await sendContactNotification(emailData);
+      
+      if (!emailSent) {
+        console.error('Failed to send waitlist notification email');
+      }
+
+      res.json({ 
+        success: true, 
+        message: "Successfully added to waitlist" 
+      });
+    } catch (error: any) {
+      console.error("Bootcamp waitlist error:", error);
+      res.status(500).json({ 
+        message: "Error processing waitlist request: " + error.message 
+      });
+    }
+  });
+
+  // AI Bootcamp Intensive Application Endpoint
+  app.post("/api/bootcamp-intensive", async (req, res) => {
+    try {
+      const { name, email, productDescription } = req.body;
+
+      if (!name || !email || !productDescription) {
+        return res.status(400).json({ 
+          message: "Missing required fields: name, email, productDescription" 
+        });
+      }
+
+      // Send email notification
+      const emailData = {
+        firstName: name.split(' ')[0],
+        lastName: name.split(' ').slice(1).join(' ') || '',
+        email,
+        company: 'AI Bootcamp Application',
+        serviceInterest: 'Product Studio Intensive',
+        message: `Product Description: ${productDescription}\n\nNote: Application includes additional documentation for review.`
+      };
+
+      const emailSent = await sendContactNotification(emailData);
+      
+      if (!emailSent) {
+        console.error('Failed to send intensive application notification email');
+      }
+
+      res.json({ 
+        success: true, 
+        message: "Application submitted successfully. We'll review and contact you if you meet our initial criteria." 
+      });
+    } catch (error: any) {
+      console.error("Bootcamp intensive application error:", error);
+      res.status(500).json({ 
+        message: "Error processing application: " + error.message 
+      });
+    }
+  });
+
   const httpServer = createServer(app);
   return httpServer;
 }
