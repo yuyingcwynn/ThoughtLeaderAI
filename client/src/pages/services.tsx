@@ -159,7 +159,7 @@ export default function Services() {
       title: "100K Product Launch AI Bootcamp",
       subtitle: "Turn Your 'What If' Into Reality - From AI Idea to Market in 8-10 Weeks",
       description: "Transform your breakthrough product idea into a revenue-generating business using cutting-edge AI tools and proven methodologies.",
-      price: "Program Package",
+      price: "Program Phases",
       phases: [
         {
           phase: "Phase 1",
@@ -353,7 +353,6 @@ export default function Services() {
                       
                       {service.phases && (
                         <div className="lg:col-span-3">
-                          <h4 className="font-semibold text-gray-900 dark:text-white mb-6">Program Phases</h4>
                           <div className="grid md:grid-cols-3 gap-6">
                             {service.phases.map((phase, i) => (
                               <div key={i} className="bg-gray-50 dark:bg-gray-700 rounded-lg p-6">
