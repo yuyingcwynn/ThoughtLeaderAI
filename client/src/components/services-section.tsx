@@ -15,8 +15,8 @@ export default function ServicesSection() {
     {
       icon: Brain,
       title: "Dial-an-AI-Expert",
-      description: "Need answers now? Book me for $800/hr. Get immediate access to AI strategy expertise with calendar integration and payment processing.",
-      price: "$800/hr",
+      description: "Need answers now? Get immediate access to AI strategy expertise with direct calendar booking and payment processing.",
+      price: "Hourly Rate",
       buttonText: "Book Session",
       buttonAction: handleBookSession,
       gradient: true
