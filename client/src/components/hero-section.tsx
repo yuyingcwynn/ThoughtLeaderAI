@@ -43,7 +43,7 @@ export default function HeroSection() {
                 <div className="text-sm text-gray-600 dark:text-gray-300">first-year savings</div>
               </div>
               <div className="text-center p-4">
-                <div className="text-2xl font-bold text-primary">6</div>
+                <div className="text-2xl font-bold text-primary">9</div>
                 <div className="text-sm text-gray-600 dark:text-gray-300">companies transformed</div>
               </div>
             </div>
