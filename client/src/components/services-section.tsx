@@ -27,7 +27,10 @@ export default function ServicesSection() {
       description: "Transform your breakthrough product idea into a revenue-generating business in 8-10 weeks using cutting-edge AI tools and proven methodologies.",
       price: "Program Package",
       buttonText: "Learn More",
-      buttonAction: () => setLocation("/ai-bootcamp"),
+      buttonAction: () => {
+        setLocation("/ai-bootcamp");
+        setTimeout(() => window.scrollTo(0, 0), 100);
+      },
       gradient: true
     },
     {
