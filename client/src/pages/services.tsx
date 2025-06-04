@@ -168,12 +168,10 @@ export default function Services() {
           subtitle: "From Concept to Market-Ready Strategy",
           description: "Transform your raw concept into a professionally validated, investor-ready business opportunity using AI-powered market intelligence.",
           features: [
-            "Complete market sizing and competitive analysis",
-            "Minimum 10 customer validation interviews",
-            "Clear positioning and differentiation strategy",
-            "Business model and revenue projections",
-            "Present to real investors for feedback",
-            "Professional pitch deck and product dossier"
+            "AI-powered market intelligence and competitive analysis",
+            "10+ customer validation interviews with real-time analysis", 
+            "Professional pitch deck creation and investor presentation",
+            "Complete business model and revenue projections"
           ],
           outcomes: [
             "Complete Product Dossier",
@@ -189,13 +187,10 @@ export default function Services() {
           subtitle: "From Validated Concept to Live Product",
           description: "Transform your validated idea into a deployed, user-ready product using AI tools and proven methodologies—no coding required.",
           features: [
-            "AI tool selection and technical architecture",
-            "Daily demos showcasing progress",
-            "Sprint planning to maintain momentum", 
-            "Hands-on training with AI code generation",
-            "AI-powered design and UX creation",
-            "Real-time problem-solving support",
-            "Product optimization and testing"
+            "AI tool selection and technical architecture setup",
+            "Daily progress demos with expert guidance",
+            "Hands-on AI code generation and design training",
+            "Live product deployment and user testing"
           ],
           outcomes: [
             "Fully functional product",
@@ -212,12 +207,10 @@ export default function Services() {
           subtitle: "Market Strategy & Campaign Launch",
           description: "Execute go-to-market strategies with AI-powered marketing asset creation and campaign setup.",
           features: [
-            "Live product demo to marketing experts",
-            "AI-powered marketing asset creation",
-            "Landing page development and optimization",
-            "Social media strategy and content plan",
-            "Sales process development",
-            "Campaign launch and execution"
+            "Live product demo to marketing experts panel",
+            "AI-powered landing page and marketing assets",
+            "Social media strategy and automated campaigns",
+            "Sales process development and launch execution"
           ],
           outcomes: [
             "Complete marketing strategy",
@@ -386,12 +379,9 @@ export default function Services() {
                                 <div className="mb-4">
                                   <h6 className="font-medium text-gray-900 dark:text-white mb-2 text-sm">Key Features:</h6>
                                   <ul className="space-y-1">
-                                    {phase.features.slice(0, 3).map((feature, j) => (
+                                    {phase.features.map((feature, j) => (
                                       <li key={j} className="text-xs text-gray-600 dark:text-gray-300">• {feature}</li>
                                     ))}
-                                    {phase.features.length > 3 && (
-                                      <li className="text-xs text-primary">+ {phase.features.length - 3} more features</li>
-                                    )}
                                   </ul>
                                 </div>
                                 
