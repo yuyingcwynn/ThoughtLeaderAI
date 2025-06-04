@@ -20,13 +20,13 @@ export default function AIReadiness() {
       {
         name: "Replit",
         url: "https://replit.com/refer/yuyingcwynn",
-        logo: "🔧",
+        logo: '<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="7" y="5" width="8" height="8" rx="1.5" fill="#F26207"/><rect x="7" y="19" width="8" height="8" rx="1.5" fill="#F26207"/><rect x="19" y="12" width="8" height="8" rx="1.5" fill="#F26207"/></svg>',
         tldr: "My go-to when I want to build something real. Plans everything out, suggests optimizations before jumping in, and has all the integrations you actually need. Way more complete than the rest."
       },
       {
         name: "Lovable",
         url: "https://lovable.dev/",
-        logo: "💖",
+        logo: '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#FF69B4"/></svg>',
         tldr: "Daily driver for UI work. The default aesthetics are *chef's kiss* - it just makes things look good without me having to think about it. Perfect for when you want pretty without the pain."
       }
     ],
@@ -34,7 +34,7 @@ export default function AIReadiness() {
       {
         name: "Multi-AI Research",
         url: "#",
-        logo: "🔍",
+        logo: '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="8" stroke="#3B82F6" stroke-width="2"/><path d="m21 21-4.35-4.35" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
         tldr: "Everyone has this now, but here's the secret sauce: Use Grok for speed, Gemini for thoroughness (seriously, SO many sources), and OpenAI for those clarifying questions. Then synthesize all three for bulletproof analysis."
       }
     ],
@@ -42,7 +42,7 @@ export default function AIReadiness() {
       {
         name: "Roo + Claude",
         url: "#",
-        logo: "🦘",
+        logo: '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
         tldr: "Top choice: Roo plugin in VS Code with Claude 3.7 or Gemini 2.5 Pro. Open source, bring your own API key (no more subscriptions!). Also check out Windsurf for less technical folks and Cline for MCP servers."
       }
     ],
@@ -50,13 +50,13 @@ export default function AIReadiness() {
       {
         name: "Claude Artifacts",
         url: "#",
-        logo: "🎨",
+        logo: '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="#7C3AED"/><path d="M12 8v8M8 12h8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
         tldr: "Start here, always. Perfect for brainstorming and quick iterations."
       },
       {
         name: "Lovable",
         url: "https://lovable.dev/",
-        logo: "💖",
+        logo: '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#FF69B4"/></svg>',
         tldr: "Then move to Lovable when you know what you want to build."
       }
     ],
@@ -64,13 +64,13 @@ export default function AIReadiness() {
       {
         name: "Otter.ai",
         url: "https://otter.ai/referrals/48465W43",
-        logo: "🦦",
+        logo: '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="#007CFF"/><circle cx="9" cy="9" r="1" fill="white"/><circle cx="15" cy="9" r="1" fill="white"/><path d="M9 13h6" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>',
         tldr: "Almost the O.G. now. Scary accurate - you'll be shocked how much you say 'um, like'. Way better than having 1/3 of your meeting be AI note-taker attendees."
       },
       {
         name: "Zoom AI",
         url: "#",
-        logo: "🎥",
+        logo: '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="6" width="20" height="12" rx="2" fill="#2D8CFF"/><circle cx="8" cy="10" r="1" fill="white"/><circle cx="16" cy="10" r="1" fill="white"/><path d="M6 14h12" stroke="white" stroke-width="1" stroke-linecap="round"/></svg>',
         tldr: "Advantage: doesn't add another attendee. Accuracy and data controls are getting there, but Otter still wins on pure transcription quality."
       }
     ],
@@ -78,31 +78,31 @@ export default function AIReadiness() {
       {
         name: "Descript",
         url: "https://get.descript.com/1b85kupcd9vq",
-        logo: "🎙️",
+        logo: '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="#000000"/><polygon points="10,8 16,12 10,16" fill="white"/></svg>',
         tldr: "Podcast editing without staring at sound waves. Finally."
       },
       {
         name: "Eleven Labs",
         url: "#",
-        logo: "🎤",
+        logo: '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="4" fill="#5C33BE"/><path d="M8 8h8M8 12h8M8 16h6" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>',
         tldr: "Better voices for content, real-time audio, and they actually pay voice actors instead of ripping them off."
       },
       {
         name: "Runway ML",
         url: "#",
-        logo: "🎬",
+        logo: '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="3" fill="#FF2E4C"/><path d="M8 8l8 8M16 8l-8 8" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>',
         tldr: "Video generation that doesn't look like a fever dream."
       },
       {
         name: "Udio vs Suno",
         url: "#",
-        logo: "🎵",
+        logo: '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="#FF6B6B"/><path d="M9 11V9a3 3 0 016 0v2M9 11a3 3 0 106 0M9 11v6a3 3 0 106 0v-6" stroke="white" stroke-width="1.5" fill="none"/></svg>',
         tldr: "Music battle royale: Udio for quality, Suno for speed. Pick your poison."
       },
       {
         name: "Synthesia",
         url: "#",
-        logo: "🤖",
+        logo: '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="#6366F1"/><circle cx="9" cy="9" r="1" fill="white"/><circle cx="15" cy="9" r="1" fill="white"/><circle cx="12" cy="15" r="2" fill="white"/></svg>',
         tldr: "Clone yourself for meetings. Yes, that might actually have been AI-me in that Zoom call."
       }
     ]
@@ -797,7 +797,10 @@ export default function AIReadiness() {
                         <CardContent className="p-6">
                           <div className="flex items-start justify-between mb-4">
                             <div className="flex items-center space-x-3">
-                              <span className="text-2xl">{tool.logo}</span>
+                              <div 
+                                className="w-8 h-8 flex items-center justify-center"
+                                dangerouslySetInnerHTML={{ __html: tool.logo }}
+                              />
                               <h4 className="font-bold text-lg text-gray-900 dark:text-white">
                                 {tool.name}
                               </h4>
