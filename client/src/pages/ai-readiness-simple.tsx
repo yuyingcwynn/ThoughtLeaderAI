@@ -824,7 +824,8 @@ export default function AIReadiness() {
                   {category}
                 </h3>
                 
-                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 max-w-7xl mx-auto">
+                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center"
+                     style={{ gridTemplateColumns: tools.length === 3 ? 'repeat(3, minmax(380px, 1fr))' : tools.length === 2 ? 'repeat(2, minmax(400px, 1fr))' : '1fr' }}>
                   {tools.map((tool, index) => (
                     <motion.a
                       key={tool.name}
@@ -837,7 +838,7 @@ export default function AIReadiness() {
                       transition={{ duration: 0.4, delay: index * 0.1 }}
                       whileHover={tool.url !== "#" ? { y: -4 } : {}}
                     >
-                      <Card className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 h-full aspect-[3/2]">
+                      <Card className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 w-full min-w-[380px] aspect-[3/2]">
                         <CardContent className="p-6 h-full">
                           <div className="flex items-start space-x-4 h-full">
                             {/* Large logo on the left */}
