@@ -824,8 +824,19 @@ export default function AIReadiness() {
                   {category}
                 </h3>
                 
-                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center"
-                     style={{ gridTemplateColumns: tools.length === 3 ? 'repeat(3, minmax(380px, 1fr))' : tools.length === 2 ? 'repeat(2, minmax(400px, 1fr))' : '1fr' }}>
+                <div className={`grid gap-8 justify-items-center ${
+                  tools.length === 4 ? 'grid-cols-1 lg:grid-cols-2' : 
+                  tools.length === 3 ? 'grid-cols-1 lg:grid-cols-3' : 
+                  tools.length === 2 ? 'grid-cols-1 lg:grid-cols-2' : 
+                  'grid-cols-1'
+                }`}
+                     style={{ 
+                       gridTemplateColumns: 
+                         tools.length === 4 ? 'repeat(2, minmax(400px, 1fr))' :
+                         tools.length === 3 ? 'repeat(3, minmax(380px, 1fr))' : 
+                         tools.length === 2 ? 'repeat(2, minmax(400px, 1fr))' : 
+                         '1fr' 
+                     }}>
                   {tools.map((tool, index) => (
                     <motion.a
                       key={tool.name}
