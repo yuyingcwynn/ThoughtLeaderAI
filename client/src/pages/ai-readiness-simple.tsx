@@ -139,7 +139,7 @@ export default function AIReadiness() {
       },
       {
         name: "Pictory",
-        url: "https://pictory.ai",
+        url: "https://pictory.ai/?ref=yuying-chen-wynn78",
         logo: pictoryLogo,
         tldr: "Video content creation that doesn't make you want to throw your computer out the window."
       },
