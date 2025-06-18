@@ -21,6 +21,9 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
 export async function registerRoutes(app: Express): Promise<Server> {
   // Add security headers for better SEO trust signals
   app.use(addSecurityHeaders);
+  
+  // Add SSR prerendering for search engines
+  app.use(prerenderMiddleware);
 
   // Create consultation with authentication and credit tracking
   app.post("/api/create-consultation", requireAuth, async (req, res) => {
