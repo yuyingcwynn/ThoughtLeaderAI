@@ -9,6 +9,8 @@ import { z } from "zod";
 import { sendContactNotification, sendContactAutoReply } from "./email";
 import { prerenderMiddleware } from "./prerender";
 import { generateDynamicSitemap, generateRobotsTxt, addSecurityHeaders } from "./seo-utils";
+import { generateOGImage } from "./og-image";
+import { seoHealthCheck, validateStructuredData } from "./seo-monitor";
 
 if (!process.env.STRIPE_SECRET_KEY) {
   throw new Error('Missing required Stripe secret: STRIPE_SECRET_KEY');
@@ -334,6 +336,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // SEO Routes
   app.get('/sitemap.xml', generateDynamicSitemap);
   app.get('/robots.txt', generateRobotsTxt);
+  app.get('/og-image.svg', generateOGImage);
+  
+  // SEO monitoring and validation endpoints
+  app.get('/api/seo/health', seoHealthCheck);
+  app.get('/api/seo/validate-structured-data', validateStructuredData);
   
   // Additional SEO endpoints
   app.get('/.well-known/security.txt', (req, res) => {
