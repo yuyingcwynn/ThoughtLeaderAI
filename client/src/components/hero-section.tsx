@@ -13,8 +13,7 @@ export default function HeroSection() {
   };
 
   const goToBooking = () => {
-    setLocation('/checkout');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.open('https://calendly.com/yuyingcwynn/ai-discovery-call-30', '_blank');
   };
 
   return (
@@ -56,7 +55,7 @@ export default function HeroSection() {
                 className="gradient-bg text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200 border-0"
               >
                 <Calendar className="mr-2 h-5 w-5" />
-                Book AI Expert Call
+                Book Discovery Call
               </Button>
               <Button 
                 variant="outline"
