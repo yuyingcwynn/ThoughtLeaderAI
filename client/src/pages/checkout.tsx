@@ -8,18 +8,10 @@ import { useLocation } from "wouter";
 
 const packages = [
   { 
-    duration: "30 minutes", 
-    price: 400, 
-    displayPrice: "$400", 
-    popular: false,
-    calendlyUrl: "https://calendly.com/yuyingcwynn/ai-expertise-30m",
-    description: "Quick consultation for specific AI questions"
-  },
-  { 
     duration: "1 hour", 
     price: 800, 
     displayPrice: "$800", 
-    popular: true,
+    popular: false,
     calendlyUrl: "https://calendly.com/yuyingcwynn/ai-expertise-1hr",
     description: "Focused discussion in one AI domain"
   },
@@ -27,7 +19,7 @@ const packages = [
     duration: "90 minutes", 
     price: 1150, 
     displayPrice: "$1150", 
-    popular: false,
+    popular: true,
     calendlyUrl: "https://calendly.com/yuyingcwynn/ai-expertise-90m",
     description: "AI platform due diligence or AI strategy consultation"
   },
@@ -88,7 +80,7 @@ export default function Checkout() {
               transition={{ duration: 0.5 }}
             >
               
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid md:grid-cols-3 gap-6">
                 {packages.map((pkg, index) => (
                   <motion.div
                     key={pkg.duration}
