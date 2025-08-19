@@ -3,7 +3,7 @@ import Footer from "@/components/footer";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Brain, UserCheck, Rocket, Plus, Calendar, ArrowRight, CheckCircle } from "lucide-react";
+import { UserCheck, Rocket, Plus, Calendar, ArrowRight, CheckCircle } from "lucide-react";
 
 // Type definitions for service data
 interface Phase {
@@ -74,30 +74,6 @@ export default function Services() {
   }, []);
 
   const services: ServiceData[] = [
-    {
-      icon: Brain,
-      title: "Dial-an-AI-Expert",
-      subtitle: "Get Expert AI Answers in Real-Time",
-      description: "Immediate access to AI strategy expertise. $800/hour for focused problem-solving with calendar booking and instant confirmation.",
-      price: "$800/hr",
-      useCases: [
-        "AI vendor evaluation",
-        "Technical architecture review", 
-        "Risk assessment",
-        "Quick decision support"
-      ],
-      bookingFlow: [
-        "Select time slot (Calendly integration)",
-        "Brief problem description",
-        "Payment processing (Stripe)",
-        "Confirmation with prep materials"
-      ],
-      cta: "Book Session",
-      ctaAction: () => {
-        setLocation('/checkout');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-    },
     {
       icon: Plus,
       title: "100K Product Launch AI Bootcamp",

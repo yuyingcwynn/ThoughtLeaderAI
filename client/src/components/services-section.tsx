@@ -1,27 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { motion } from "framer-motion";
-import { Brain, UserCheck, Rocket, Calendar, Info, Plus } from "lucide-react";
+import { UserCheck, Rocket, Calendar, Info, Plus } from "lucide-react";
 import { useLocation } from "wouter";
 
 export default function ServicesSection() {
   const [, setLocation] = useLocation();
 
-  const handleBookSession = () => {
-    setLocation("/checkout");
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   const services = [
-    {
-      icon: Brain,
-      title: "Dial-an-AI-Expert",
-      description: "Need answers now? Get immediate access to AI strategy expertise with direct calendar booking and payment processing.",
-      price: "Hourly Rate",
-      buttonText: "Book Session",
-      buttonAction: handleBookSession,
-      gradient: true
-    },
     {
       icon: Plus,
       title: "100K Product Launch AI Bootcamp",
