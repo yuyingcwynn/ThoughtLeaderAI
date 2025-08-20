@@ -13,7 +13,7 @@ export default function AboutSection() {
   const experience = [
     {
       title: "Head of AI - PEAK6",
-      period: "2023 - Present",
+      period: "2023 - 2025",
       description: "Leading AI strategy across 6 companies in financial services, fintech, edtech, and entertainment. Built proprietary GenAI platform achieving 87% adoption and $6M+ first-year savings."
     },
     {
