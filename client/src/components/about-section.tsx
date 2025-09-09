@@ -18,7 +18,7 @@ export default function AboutSection() {
     },
     {
       title: "Managing Director - Wittingly Ventures", 
-      period: "2021 - 2024",
+      period: "2021 - 2025",
       description: "AI, product strategy, and technology advisory. Increased AAA game revenue by $16M through ML-driven optimization."
     },
     {
