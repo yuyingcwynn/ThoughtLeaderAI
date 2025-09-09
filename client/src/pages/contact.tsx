@@ -208,9 +208,8 @@ export default function Contact() {
                                   </SelectTrigger>
                                 </FormControl>
                                 <SelectContent>
-                                  <SelectItem value="dial-an-ai-expert">Dial-an-AI-Expert</SelectItem>
-                                  <SelectItem value="fractional-caio">Fractional Chief AI Officer</SelectItem>
-                                  <SelectItem value="enterprise-ai-enablement">Enterprise AI Enablement</SelectItem>
+                                  <SelectItem value="fractional-caio">Fractional Chief AI Officer (Currently Full)</SelectItem>
+                                  <SelectItem value="enterprise-ai-enablement">Enterprise AI Enablement (Currently Full)</SelectItem>
                                   <SelectItem value="ai-product-bootcamp">AI Product Intensive Bootcamp</SelectItem>
                                   <SelectItem value="speaking">Speaking Engagement</SelectItem>
                                   <SelectItem value="general">General Inquiry</SelectItem>
