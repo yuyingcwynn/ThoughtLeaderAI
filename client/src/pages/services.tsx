@@ -3,7 +3,7 @@ import Footer from "@/components/footer";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { UserCheck, Rocket, Plus, Calendar, ArrowRight, CheckCircle } from "lucide-react";
+import { UserCheck, Rocket, Plus, Calendar, ArrowRight, CheckCircle, ExternalLink } from "lucide-react";
 
 // Type definitions for service data
 interface Phase {
@@ -42,6 +42,7 @@ interface ServiceData {
   idealFor?: string[];
   cta: string;
   ctaAction: () => void;
+  fullyBooked?: boolean;
 }
 import { useLocation } from "wouter";
 import { useEffect } from "react";
@@ -190,7 +191,8 @@ export default function Services() {
       ctaAction: () => {
         setLocation('/contact');
         window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
+      },
+      fullyBooked: true
     },
     {
       icon: UserCheck,
@@ -214,7 +216,8 @@ export default function Services() {
       ctaAction: () => {
         setLocation('/contact');
         window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
+      },
+      fullyBooked: true
     }
   ];
 
@@ -469,15 +472,37 @@ export default function Services() {
                       )}
                     </div>
                     
-                    <div className="text-center mt-8">
+                    <div className="text-center mt-8 space-y-3">
                       <Button 
-                        onClick={service.ctaAction}
-                        className="gradient-bg text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+                        onClick={service.fullyBooked ? undefined : service.ctaAction}
+                        disabled={service.fullyBooked}
+                        className={`px-8 py-3 rounded-full font-semibold transition-all duration-200 ${
+                          service.fullyBooked
+                            ? 'bg-gray-300 dark:bg-gray-600 text-gray-500 dark:text-gray-400 cursor-not-allowed'
+                            : 'gradient-bg text-white hover:shadow-lg transform hover:scale-105'
+                        }`}
                       >
-                        {service.title === "Dial-an-AI-Expert" && <Calendar className="mr-2 h-5 w-5" />}
-                        {service.cta}
-                        <ArrowRight className="ml-2 h-5 w-5" />
+                        {!service.fullyBooked && service.title === "Dial-an-AI-Expert" && <Calendar className="mr-2 h-5 w-5" />}
+                        {service.fullyBooked ? "Fully Booked" : service.cta}
+                        {!service.fullyBooked && <ArrowRight className="ml-2 h-5 w-5" />}
                       </Button>
+                      
+                      {service.fullyBooked && (
+                        <div>
+                          <Button 
+                            onClick={() => window.open('https://calendly.com/yuyingcwynn/ai-discovery-call-30', '_blank')}
+                            variant="outline"
+                            size="sm"
+                            className="px-6 py-2 text-sm border border-primary text-primary hover:bg-primary hover:text-white transition-colors duration-300"
+                          >
+                            <ExternalLink className="mr-2 h-4 w-4" />
+                            Get Recommendations
+                          </Button>
+                          <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
+                            Currently at capacity - happy to advise on alternatives
+                          </p>
+                        </div>
+                      )}
                     </div>
                   </CardContent>
                 </Card>
