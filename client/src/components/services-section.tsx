@@ -15,8 +15,7 @@ export default function ServicesSection() {
       price: "Program Package",
       buttonText: "Learn More",
       buttonAction: () => {
-        setLocation("/ai-bootcamp");
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.open('https://myaiafterhours.com', '_blank');
       },
       gradient: true
     },
