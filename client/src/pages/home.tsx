@@ -176,7 +176,7 @@ export default function Home() {
                     onClick={() => window.open('https://calendly.com/yuyingcwynn/ai-discovery-call-30', '_blank')}
                     className="w-full gradient-bg text-white font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
                   >
-                    Book Discovery Call
+                    Book Discovery Call - Get Alternatives & Referrals
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </div>
