@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { motion } from "framer-motion";
-import { UserCheck, Rocket, Calendar, Info, Plus } from "lucide-react";
+import { UserCheck, Rocket, Calendar, Info, Plus, ExternalLink } from "lucide-react";
 import { useLocation } from "wouter";
 
 export default function ServicesSection() {
@@ -29,7 +29,8 @@ export default function ServicesSection() {
         setLocation("/contact?service=enterprise-ai-enablement");
         window.scrollTo({ top: 0, behavior: 'smooth' });
       },
-      gradient: false
+      gradient: false,
+      fullyBooked: true
     },
     {
       icon: UserCheck,
@@ -41,7 +42,8 @@ export default function ServicesSection() {
         setLocation("/contact?service=fractional-ai-officer");
         window.scrollTo({ top: 0, behavior: 'smooth' });
       },
-      gradient: false
+      gradient: false,
+      fullyBooked: true
     }
   ];
 
@@ -101,29 +103,51 @@ export default function ServicesSection() {
                   </motion.div>
                 </CardContent>
                 
-                <CardFooter>
-                  <motion.div className="w-full" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                <CardFooter className="flex flex-col space-y-3">
+                  <motion.div className="w-full" whileHover={{ scale: service.fullyBooked ? 1 : 1.02 }} whileTap={{ scale: service.fullyBooked ? 1 : 0.98 }}>
                     <Button 
-                      onClick={service.buttonAction}
-                      className={`w-full py-4 rounded-xl font-semibold transition-all duration-300 group-hover:shadow-lg ${
-                        service.gradient 
-                          ? 'gradient-bg text-white hover:shadow-xl border-0 group-hover:brightness-110' 
-                          : 'border-2 border-primary text-primary hover:bg-primary hover:text-white group-hover:border-primary/80'
+                      onClick={service.fullyBooked ? undefined : service.buttonAction}
+                      disabled={service.fullyBooked}
+                      className={`w-full py-4 rounded-xl font-semibold transition-all duration-300 ${
+                        service.fullyBooked 
+                          ? 'bg-gray-300 dark:bg-gray-600 text-gray-500 dark:text-gray-400 cursor-not-allowed border border-gray-300 dark:border-gray-600'
+                          : service.gradient 
+                            ? 'gradient-bg text-white hover:shadow-xl border-0 group-hover:brightness-110 group-hover:shadow-lg' 
+                            : 'border-2 border-primary text-primary hover:bg-primary hover:text-white group-hover:border-primary/80 group-hover:shadow-lg'
                       }`}
-                      variant={service.gradient ? "default" : "outline"}
+                      variant={service.gradient && !service.fullyBooked ? "default" : "outline"}
                     >
                       <motion.span 
                         className="flex items-center justify-center"
-                        whileHover={{ x: 2 }}
+                        whileHover={{ x: service.fullyBooked ? 0 : 2 }}
                         transition={{ duration: 0.2 }}
                       >
-                        {service.buttonText === "Book Session" && <Calendar className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />}
-                        {service.buttonText === "Learn More" && <Info className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />}
-                        {service.buttonText === "Schedule Event" && <Plus className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />}
-                        {service.buttonText}
+                        {!service.fullyBooked && service.buttonText === "Book Session" && <Calendar className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />}
+                        {!service.fullyBooked && service.buttonText === "Learn More" && <Info className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />}
+                        {!service.fullyBooked && service.buttonText === "Schedule Event" && <Plus className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />}
+                        {service.fullyBooked ? "Fully Booked" : service.buttonText}
                       </motion.span>
                     </Button>
                   </motion.div>
+                  
+                  {service.fullyBooked && (
+                    <motion.div 
+                      className="w-full"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <Button 
+                        onClick={() => window.open('https://calendly.com/yuyingcwynn/ai-discovery-call-30', '_blank')}
+                        variant="outline"
+                        size="sm"
+                        className="w-full py-2 text-sm border border-primary text-primary hover:bg-primary hover:text-white transition-colors duration-300"
+                      >
+                        <ExternalLink className="mr-2 h-4 w-4" />
+                        Get Recommendations
+                      </Button>
+                    </motion.div>
+                  )}
                 </CardFooter>
               </Card>
             </motion.div>
