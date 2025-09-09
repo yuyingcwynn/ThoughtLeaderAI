@@ -148,8 +148,7 @@ export default function Services() {
       ],
       cta: "Learn More",
       ctaAction: () => {
-        setLocation('/ai-bootcamp');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.open('https://myaiafterhours.com', '_blank');
       }
     },
     {
