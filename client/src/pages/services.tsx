@@ -117,7 +117,7 @@ export default function Services() {
       ],
       cta: "Book Strategy Call",
       ctaAction: () => {
-        window.open('https://calendly.com/yuyingcwynn/15min-strategy-call', '_blank');
+        window.open('https://calendly.com/yuyingcwynn/ai-strategy-discovery-call', '_blank');
       }
     },
     {

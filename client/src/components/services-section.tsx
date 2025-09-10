@@ -15,7 +15,7 @@ export default function ServicesSection() {
       price: "Two Packages Available",
       buttonText: "Book Strategy Call",
       buttonAction: () => {
-        window.open('https://calendly.com/yuyingcwynn/15min-strategy-call', '_blank');
+        window.open('https://calendly.com/yuyingcwynn/ai-strategy-discovery-call', '_blank');
       },
       gradient: true
     },
