@@ -173,10 +173,10 @@ export default function Home() {
                   <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Ready to Get Started?</h4>
                   <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 flex-grow">30-min strategy session - Risk-free</p>
                   <Button 
-                    onClick={() => window.open('https://calendly.com/yuyingcwynn/ai-discovery-call-30', '_blank')}
+                    onClick={() => window.open('https://calendly.com/yuyingcwynn/ai-strategy-discovery-call', '_blank')}
                     className="w-full gradient-bg text-white font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
                   >
-                    Book Discovery Call - Get Alternatives & Referrals
+                    Strategy call.
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </div>
