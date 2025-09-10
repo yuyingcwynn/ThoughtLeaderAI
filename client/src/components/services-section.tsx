@@ -11,7 +11,7 @@ export default function ServicesSection() {
     {
       icon: Users,
       title: "Product & AI Leadership Coaching and Advisory",
-      description: "Beat the 85% AI failure rate with expert guidance. Get structured coaching packages or ongoing advisory support from a former Chief Product Officer turned GenAI Executive.",
+      description: "Achieve significant ROI where 95% of AI projects fail. Get structured coaching packages or ongoing advisory support from a former Chief Product Officer turned GenAI Executive.",
       price: "Two Packages Available",
       buttonText: "Book Strategy Call",
       buttonAction: () => {
