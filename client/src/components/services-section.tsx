@@ -1,13 +1,24 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { motion } from "framer-motion";
-import { UserCheck, Rocket, Calendar, Info, Plus, ExternalLink } from "lucide-react";
+import { UserCheck, Rocket, Calendar, Info, Plus, ExternalLink, Users } from "lucide-react";
 import { useLocation } from "wouter";
 
 export default function ServicesSection() {
   const [, setLocation] = useLocation();
 
   const services = [
+    {
+      icon: Users,
+      title: "Product & AI Leadership Coaching and Advisory",
+      description: "Beat the 85% AI failure rate with expert guidance. Get structured coaching packages or ongoing advisory support from a former Chief Product Officer turned GenAI Executive.",
+      price: "Two Packages Available",
+      buttonText: "Book Strategy Call",
+      buttonAction: () => {
+        window.open('https://calendly.com/yuyingcwynn/15min-strategy-call', '_blank');
+      },
+      gradient: true
+    },
     {
       icon: Plus,
       title: "100K Product Launch AI Bootcamp",
@@ -65,7 +76,7 @@ export default function ServicesSection() {
           </p>
         </motion.div>
         
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
@@ -123,6 +134,7 @@ export default function ServicesSection() {
                         transition={{ duration: 0.2 }}
                       >
                         {!service.fullyBooked && service.buttonText === "Book Session" && <Calendar className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />}
+                        {!service.fullyBooked && service.buttonText === "Book Strategy Call" && <Calendar className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />}
                         {!service.fullyBooked && service.buttonText === "Learn More" && <Info className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />}
                         {!service.fullyBooked && service.buttonText === "Schedule Event" && <Plus className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />}
                         {service.fullyBooked ? "Fully Booked" : service.buttonText}
