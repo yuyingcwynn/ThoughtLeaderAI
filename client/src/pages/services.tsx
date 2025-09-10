@@ -78,7 +78,7 @@ export default function Services() {
     {
       icon: Users,
       title: "Product & AI Leadership Coaching and Advisory",
-      subtitle: "Beat the 85% AI Failure Rate with Expert Guidance",
+      subtitle: "Achieve Significant ROI Where 95% of AI Projects Fail",
       description: "Get structured coaching or ongoing advisory support from a former Chief Product Officer turned GenAI Executive who's successfully led AI transformations across 9 companies.",
       price: "Two Packages Available",
       offerings: [
@@ -99,12 +99,12 @@ export default function Services() {
             "Unlimited email support (48-hour response time max)",
             "3-month minimum commitment for sustained transformation",
             "Ongoing expert guidance throughout your AI journey",
-            "Risk mitigation - avoid becoming part of the 85% that fail"
+            "Risk mitigation - ensure your AI projects achieve measurable ROI"
           ]
         }
       ],
       whyNow: [
-        "85% of AI projects fail - get expert guidance to avoid common pitfalls",
+        "95% of AI projects don't achieve significant ROI - get expert guidance to succeed",
         "AI transformation requires both technical knowledge and strategic leadership",
         "Learn from proven frameworks that have delivered $30M+ in measurable results",
         "Unique expertise: Former CPO perspective combined with GenAI executive experience"
