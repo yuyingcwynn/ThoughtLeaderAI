@@ -45,12 +45,12 @@ export default function AboutSection() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-8">
-              Most AI Initiatives Fail. <span className="gradient-text">Mine Don't.</span>
+              Most AI Projects Don't Deliver ROI. <span className="gradient-text">Mine Do.</span>
             </h2>
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div className="p-4 bg-red-50 dark:bg-red-900/20 rounded-lg">
                 <h3 className="font-semibold text-red-800 dark:text-red-200 mb-2">Problem 1</h3>
-                <p className="text-sm text-red-700 dark:text-red-300">85% of AI projects never make it to production</p>
+                <p className="text-sm text-red-700 dark:text-red-300">95% of AI projects don't achieve significant ROI</p>
               </div>
               <div className="p-4 bg-red-50 dark:bg-red-900/20 rounded-lg">
                 <h3 className="font-semibold text-red-800 dark:text-red-200 mb-2">Problem 2</h3>
