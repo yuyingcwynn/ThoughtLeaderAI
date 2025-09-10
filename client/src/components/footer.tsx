@@ -9,6 +9,7 @@ export default function Footer() {
     {
       title: "Services",
       links: [
+        { name: "Coaching & Advisory", href: "/services#product-ai-leadership-coaching-and-advisory", isRoute: true },
         { name: "Fractional CAIO", href: "/services#fractional-chief-ai-officer", isRoute: true },
         { name: "Enterprise AI Enablement", href: "/services#enterprise-ai-enablement", isRoute: true }
       ]
