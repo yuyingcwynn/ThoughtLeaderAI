@@ -147,7 +147,7 @@ export default function Home() {
                 Don't Let Your Competition Beat You to AI
               </h3>
               <p className="text-lg text-gray-600 dark:text-gray-300 mb-2">
-                <span className="font-semibold text-red-600 dark:text-red-400">85% of AI projects fail.</span> Mine don't.
+                <span className="font-semibold text-red-600 dark:text-red-400">95% of AI projects don't achieve significant ROI.</span> Mine do.
               </p>
               <p className="text-gray-600 dark:text-gray-300 mb-8">
                 Start with a free assessment to see exactly where your organization stands
