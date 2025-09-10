@@ -3,7 +3,7 @@ import Footer from "@/components/footer";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { UserCheck, Rocket, Plus, Calendar, ArrowRight, CheckCircle, ExternalLink } from "lucide-react";
+import { UserCheck, Rocket, Plus, Calendar, ArrowRight, CheckCircle, ExternalLink, Users } from "lucide-react";
 
 // Type definitions for service data
 interface Phase {
@@ -75,6 +75,51 @@ export default function Services() {
   }, []);
 
   const services: ServiceData[] = [
+    {
+      icon: Users,
+      title: "Product & AI Leadership Coaching and Advisory",
+      subtitle: "Beat the 85% AI Failure Rate with Expert Guidance",
+      description: "Get structured coaching or ongoing advisory support from a former Chief Product Officer turned GenAI Executive who's successfully led AI transformations across 9 companies.",
+      price: "Two Packages Available",
+      offerings: [
+        {
+          name: "AI Leadership Coaching Packages",
+          details: [
+            "Structured 5-session coaching packages",
+            "Master proven AI frameworks from a former CPO",
+            "Focus on individual skill development and leadership capability",
+            "Ideal for executives who want to upskill on AI transformation",
+            "Learn from someone who successfully scaled AI across multiple industries"
+          ]
+        },
+        {
+          name: "AI Transformation Advisory",
+          details: [
+            "Weekly 1-hour live strategy sessions",
+            "Unlimited email support (48-hour response time max)",
+            "3-month minimum commitment for sustained transformation",
+            "Ongoing expert guidance throughout your AI journey",
+            "Risk mitigation - avoid becoming part of the 85% that fail"
+          ]
+        }
+      ],
+      whyNow: [
+        "85% of AI projects fail - get expert guidance to avoid common pitfalls",
+        "AI transformation requires both technical knowledge and strategic leadership",
+        "Learn from proven frameworks that have delivered $30M+ in measurable results",
+        "Unique expertise: Former CPO perspective combined with GenAI executive experience"
+      ],
+      idealFor: [
+        "Product leaders looking to integrate AI into their roadmap",
+        "Executives responsible for AI transformation initiatives",
+        "Organizations wanting ongoing expert guidance vs one-time consulting",
+        "Leaders who prefer structured learning with personalized coaching"
+      ],
+      cta: "Book Strategy Call",
+      ctaAction: () => {
+        window.open('https://calendly.com/yuyingcwynn/15min-strategy-call', '_blank');
+      }
+    },
     {
       icon: Plus,
       title: "100K Product Launch AI Bootcamp",
