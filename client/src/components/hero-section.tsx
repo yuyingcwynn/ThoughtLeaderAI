@@ -58,7 +58,7 @@ export default function HeroSection() {
                 className="gradient-bg text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200 border-0"
               >
                 <Calendar className="mr-2 h-5 w-5" />
-                Book Discovery Call - Get Alternatives & Referrals
+                Book Discovery Call
               </Button>
               <Button 
                 variant="outline"
